@@ -76,6 +76,7 @@ CREATE TABLE User_Table
 	user_address varchar(20) NOT NULL,
 	user_email varchar(20) NOT NULL,
 	user_phone varchar(20) NOT NULL,
+	user_pw varchar(15) NOT NULL,
 	PRIMARY KEY (user_uid),
 	UNIQUE (user_id)
 );
@@ -148,4 +149,10 @@ ALTER TABLE Rep_Write_Table
 
 
 SHOW tables;
+DESC order_table;
+DESC user_table;
+DESC payment_table;
+DESC qr_table;
+DESC rep_write_table;
+DESC write_table;
 SELECT * FROM information_schema.table_constraints;
