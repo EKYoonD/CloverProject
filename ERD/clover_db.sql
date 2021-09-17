@@ -59,7 +59,7 @@ CREATE TABLE QR_Table
 CREATE TABLE Rep_Write_Table
 (
 	wr_rep_uid int NOT NULL AUTO_INCREMENT,
-	wr_map decimal,
+	wr_map point,
 	wr_content text NOT NULL,
 	wr_regdate datetime DEFAULT now(),
 	wr_img_path varchar(100),
@@ -86,12 +86,11 @@ CREATE TABLE Write_Table
 (
 	wr_uid int NOT NULL AUTO_INCREMENT,
 	wr_category varchar(15) NOT NULL,
-	wr_name varchar(20) NOT NULL,
 	wr_content text,
 	wr_viewcnt int,
 	wr_subject varchar(20) NOT NULL,
 	wr_regdate datetime DEFAULT now(),
-	wr_map decimal,
+	wr_map point,
 	user_uid int NOT NULL,
 	PRIMARY KEY (wr_uid)
 );
@@ -156,3 +155,10 @@ DESC qr_table;
 DESC rep_write_table;
 DESC write_table;
 SELECT * FROM information_schema.table_constraints;
+
+
+SELECT * FROM user_table;
+INSERT INTO user_table VALUES (1, 'dryoon', '윤은경', '인천시 연수구', 'abc@gmail.com', '010-7323-1233', 'dbsdmsrud112');
+SELECT * FROM write_table;
+DELETE FROM write_table;
+INSERT INTO write_table values(1, '부모님', '없음', 3, '제목없음', '2021-09-19', ST_GeomFromText('POINT(127.123124 37.123125)'), 1);
