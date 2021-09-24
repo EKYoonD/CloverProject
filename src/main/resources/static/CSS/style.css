@@ -111,11 +111,11 @@ header {
     margin-top: 70px;
     text-align: center;
     background-color: rgb(245, 223, 102);
-    background-image: linear-gradient(rgba(243, 235, 235, 0.05), rgba(0, 0, 0, 0.05)), url(../img/family2.png);
+    background-image: linear-gradient(rgba(243, 235, 235, 0.05), rgba(0, 0, 0, 0.05)), url(../img/family3.png);
     background-position: center;
     background-size: cover;
-    height: 100vh;
-    min-height: 450px;
+    height: 120vh;
+    min-height: 800px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,7 +137,7 @@ header {
     font-size: 20px;
     font-family: 'Gugi', cursive;
     color: rgb(202, 212, 216);
-    background-color: rgba(26, 75, 100, 0.425);
+    background-color:  rgb(46, 53, 49);
     padding: 10px 30px;
     border: solid 4px rgba(152, 153, 153, 0.747);
     border-radius: 7px;
@@ -160,7 +160,7 @@ header {
 
 footer {
 
-    background-color: #333;
+    background-color: rgb(46, 53, 49);
     color: whitesmoke;
 }
 
