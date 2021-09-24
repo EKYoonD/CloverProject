@@ -110,7 +110,7 @@ header {
 .container1 {
     margin-top: 70px;
     text-align: center;
-    background-color: whitesmoke;
+    background-color: rgb(245, 223, 102);
     background-image: linear-gradient(rgba(243, 235, 235, 0.05), rgba(0, 0, 0, 0.05)), url(../img/family2.png);
     background-position: center;
     background-size: cover;
