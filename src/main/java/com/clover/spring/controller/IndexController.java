@@ -27,6 +27,11 @@ public class IndexController {
 		return "main";
 	}
 	
+	@RequestMapping("/about")
+	public String About() {
+		return "about";
+	}
+	
 	// Spring Security(이하 '시큐리티') 가 적용되면
 	// /login 등의 url 로의 request 를  시큐리티가 모두 낚아 챕니다.
 	// 나중에 SecurityConfig 가 설정되면 낚아 채지 않게 된다.
