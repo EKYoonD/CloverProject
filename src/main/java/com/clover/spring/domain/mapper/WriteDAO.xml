@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.clover.spring.domain.WriteDAO">
+
+  	<!-- WriteDAO에 있던 메소드명과 정확히 일치해야함 -->
+  	<!-- <select></select>는 쿼리문의 종류(SELECT, DML), id는 메소드명 -->
+  	<!-- 매소드 하나당 쿼리 하나 -->
+	
+	<!-- list.do -->
+  	<select id="select" resultType="com.clover.spring.domain.WriteDTO">
+  		<!-- 여기에 이제 SELECT문 넣으면 됨 -->
+  		SELECT 
+			wr_uid "uid", 
+			wr_subject subject, 
+			wr_content content, 
+			wr_name name, 
+			wr_viewcnt viewcnt, 
+			wr_regdate regDate,
+			wr_longitude longitude,
+			wr_latitude latitude
+		FROM 
+			test_write 
+		ORDER BY 
+			wr_uid DESC
+  	</select>
+  	
+  	<!-- writeOk.do -->
+  	<!-- 동일한 메소드 여러개 override 안됨 -->
+  	<insert id="insert" flushCache="true"
+		parameterType="com.clover.spring.domain.WriteDTO"
+		keyProperty="uid" useGeneratedKeys="true" keyColumn="wr_uid">	
+		INSERT INTO 
+			test_write(wr_subject, wr_content, wr_name, wr_latitude, wr_longitude)
+		VALUES
+			(#{subject}, #{content}, #{name}, #{latitude}, #{longitude})
+	</insert>
+	
+	<!-- view.do -->
+	<!-- id는 메소드명, 매개변수는 #으로 받아올 수 있었음 -->
+	<select id = "selectByUid" resultType="com.clover.spring.domain.WriteDTO">
+		SELECT 
+			wr_uid "uid", wr_subject subject, wr_content content, wr_name name, 
+			wr_viewcnt viewcnt, wr_regdate regDate , wr_longitude longitude, wr_latitude latitude
+		FROM test_write 
+		WHERE wr_uid=#{uid}
+	</select>
+	
+	<!-- 조회수 증가(viewCnt) -->
+	<update id="incViewCnt" flushCache="true">
+		UPDATE
+			test_write
+		SET
+			wr_viewcnt = wr_viewcnt + 1
+		WHERE
+			wr_uid = #{param1}
+	</update>
+	
+	<!-- update -->
+	<update id="update" flushCache="true" parameterType="com.clover.spring.domain.WriteDTO">
+		UPDATE
+			test_write
+		SET
+			wr_subject = #{subject}, wr_content = #{content}, wr_latitude=#{latitude}, wr_longitude=#{longitude}
+		WHERE 
+			wr_uid = #{uid}
+	</update>
+	
+	<!-- deleteByUid -->
+	<delete id="deleteByUid" flushCache="true">
+		DELETE FROM
+			test_write
+		WHERE
+			wr_uid = #{uid}
+	</delete>
+	
+  </mapper>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

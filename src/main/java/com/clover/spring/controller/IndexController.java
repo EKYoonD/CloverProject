@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.clover.spring.domain.UserDTO;
 import com.clover.spring.service.UserService;
 
+
 @Controller
 public class IndexController {
 	
@@ -21,10 +22,9 @@ public class IndexController {
 	private PasswordEncoder passwordEncoder;
 	
 
-	@RequestMapping({"", "/"})
-	@ResponseBody
-	public String sayHello() {
-		return "home";
+	@RequestMapping("/main")
+	public String Main() {
+		return "main";
 	}
 	
 	// Spring Security(이하 '시큐리티') 가 적용되면
@@ -34,12 +34,12 @@ public class IndexController {
 	//@ResponseBody
 	public String login() {
 		
-		return "loginForm";
+		return "user/loginForm";
 	}
 	
 	@GetMapping("/join")
 	public String join() {
-		return "joinForm";
+		return "user/joinForm";
 	}
 	
 	@PostMapping("/joinOk")
@@ -57,7 +57,7 @@ public class IndexController {
 	
 	@GetMapping("/clover/member")
 	public String test() {
-		return "test";
+		return "user/test";
 	}
 	
 }

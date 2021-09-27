@@ -9,8 +9,10 @@ DROP TABLE IF EXISTS Rep_Write_Table;
 DROP TABLE IF EXISTS Write_Table;
 DROP TABLE IF EXISTS User_Table;
 
-
 SHOW tables;
+SELECT * FROM user_table;
+SELECT * FROM write_table;
+DELETE FROM write_table;
 
 /* Create Tables */
 
@@ -59,40 +61,47 @@ CREATE TABLE QR_Table
 CREATE TABLE Rep_Write_Table
 (
 	wr_rep_uid int NOT NULL AUTO_INCREMENT,
+	wr_map decimal,
 	wr_content text NOT NULL,
 	wr_regdate datetime DEFAULT now(),
-	wr_longitude float,
-	wr_latitude float,
 	wr_img_path varchar(100),
 	wr_uid int NOT NULL,
 	PRIMARY KEY (wr_rep_uid)
 );
+DROP TABLE IF EXISTS User_Table CASCADE;
 
+select * from user_table ;
 
 CREATE TABLE User_Table
 (
 	user_uid int NOT NULL AUTO_INCREMENT,
 	user_id varchar(20) NOT NULL,
+	user_pw varchar(256) NOT NULL,
 	user_name varchar(10) NOT NULL,
-	user_address varchar(20) NOT NULL,
-	user_email varchar(20) NOT NULL,
-	user_phone varchar(20) NOT NULL,
-	user_pw varchar(15) NOT NULL,
+	user_address varchar(320) NOT NULL,
+	user_email varchar(80) NOT NULL,
+	user_phone varchar(12) NOT NULL,
 	PRIMARY KEY (user_uid),
 	UNIQUE (user_id)
 );
+
+CREATE table User_Authority (
+	user_id varchar(50) REFERENCES test_member(user_id),
+	user_auth varchar(50) NOT NULL,        -- 시큐리티의 authority
+	PRIMARY KEY (user_id, user_auth)
+)
 
 
 CREATE TABLE Write_Table
 (
 	wr_uid int NOT NULL AUTO_INCREMENT,
 	wr_category varchar(15) NOT NULL,
+	wr_name varchar(20) NOT NULL,
 	wr_content text,
-	wr_viewcnt int DEFAULT 0,
-	wr_subject varchar(200) NOT NULL,
+	wr_viewcnt int,
+	wr_subject varchar(20) NOT NULL,
 	wr_regdate datetime DEFAULT now(),
-	wr_longitude float,
-	wr_latitude float,
+	wr_map decimal,
 	user_uid int NOT NULL,
 	PRIMARY KEY (wr_uid)
 );
@@ -149,18 +158,6 @@ ALTER TABLE Rep_Write_Table
 ;
 
 
-SHOW tables;
-DESC order_table;
-DESC user_table;
-DESC payment_table;
-DESC qr_table;
-DESC rep_write_table;
-DESC write_table;
-SELECT * FROM information_schema.table_constraints;
-
-
 SELECT * FROM user_table;
-INSERT INTO user_table VALUES (1, 'dryoon', '윤은경', '인천시 연수구', 'abc@gmail.com', '010-7323-1233', 'dbsdmsrud112');
-SELECT * FROM write_table;
-DELETE FROM write_table;
-INSERT INTO write_table values(1, '부모님', '없음', 3, '제목없음', '2021-09-19' ,127.123124, 37.123125, 1);
+SHOW tables;
+SELECT * FROM information_schema.table_constraints;
