@@ -23,7 +23,7 @@ public class IndexController {
 	
 
 	@RequestMapping("/main")
-	public String sayHello() {
+	public String Main() {
 		return "main";
 	}
 	
