@@ -28,9 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf().disable();   // CSRF 비활성화
 		http.authorizeRequests()
 			// 인증에대한 세팅
-		
-			// /clover/write/**로 들어오는 요청은 인증필요
-			.antMatchers("/clover/write/").authenticated()
+			
 			// ↓ /sample/user/** 주소로 들어오는 요청은 인증이 필요.
 			.antMatchers("/clover/user/**").authenticated()
 		

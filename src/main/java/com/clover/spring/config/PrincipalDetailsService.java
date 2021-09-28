@@ -25,17 +25,18 @@ public class PrincipalDetailsService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		System.out.println("loadUserByUsername(" + username + ")");
-		
 		UserDTO user = userService.findById(username);
 		
 		// 해당 id 의 user 가 있다면
 		if(user != null) {
 			PrincipalDetails userDetails = new PrincipalDetails(user);
 			userDetails.setUserService(userService);
+			System.out.println("aaa");
 			return userDetails;
 		}
 		
 		// 찾지 못했으면!
+		System.out.println("bbb");
 		return null;
 	}
 

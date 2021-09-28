@@ -60,7 +60,7 @@ public class BoardController {
 	@GetMapping("/write")
 	public String write(Model model, Authentication authentication) {
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 
-		
+
 		WriteDTO dto = new WriteDTO();
 		String name = this.findNameByUserId(userDetails.getUsername());
 		dto.setName(name);

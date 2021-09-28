@@ -48,8 +48,8 @@ public class UserDAOImpl implements UserDAO {
 	}
 	
 	@Override
-	public String findNameByUserId(String userid) {
-		return mapper.findNameByUserId(userid);
+	public String findNameByUserId(String id) {
+		return mapper.findNameByUserId(id);
 	}
 
 	@Override
