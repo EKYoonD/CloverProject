@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -56,7 +58,13 @@ public class BoardController {
 	}
 	
 	@GetMapping("/write")
-	public String write(Model model) {
+	public String write(Model model, Authentication authentication) {
+		UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 
+		
+		WriteDTO dto = new WriteDTO();
+		String name = this.findNameByUserId(userDetails.getUsername());
+		dto.setName(name);
+		model.addAttribute("w", dto);   // auto-generated key 받아와
 		return "board/write";
 	}
 	
@@ -75,20 +83,18 @@ public class BoardController {
 				model.addAttribute("ERR", result.getFieldError("name").getCode());
 			else if(result.getFieldError("subject") != null)
 				model.addAttribute("ERR", result.getFieldError("subject").getCode());
-			
+			else if(result.getFieldError("latitude") != null)
+				model.addAttribute("ERR", result.getFieldError("latitude").getCode());
 			return "board/write";
 		}
-		
-		// 앞에게 안되면 뒤에서 addAttribute가 추가되면 안됨
-		// 그래서 page = 넣는거 하지 말고 그냥 바로 return "board/write"
-		
 		model.addAttribute("result", boardService.write(dto));
-		model.addAttribute("dto", dto);   // auto-generated key 받아와
-		
 		return "board/writeOk";
 	}
 	
-	
+	public String findNameByUserId(String userid) {
+		String name = boardService.findNameByUserId(userid);
+		return name;
+	}
 	
 	
 	@GetMapping("/writeRe")
@@ -158,8 +164,18 @@ public class BoardController {
 				redirectAttributes.addFlashAttribute("ERROR", map);
 				
 				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
-				return "redirect:/board/update.do?uid=" + dto.getUid();
+				return "redirect:/board/update?uid=" + dto.getUid();
 			}
+			
+			if(result.getFieldError("latitude") != null) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("POINT", "좌표를 다시 찍어주세요");
+				redirectAttributes.addFlashAttribute("ERROR", map);
+				
+				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
+				return "redirect:/board/update?uid=" + dto.getUid();
+			}
+			
 		}
 		
 		model.addAttribute("result", boardService.update(dto));

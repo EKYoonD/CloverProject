@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.clover.spring.domain.UserDAO;
 import com.clover.spring.domain.WriteDAO;
 import com.clover.spring.domain.WriteDTO;
 import com.clover.spring.domain.WriteReDAO;
@@ -26,6 +27,12 @@ public class BoardService {
 	// WriteDAO 가져와서 연결(AutoWired)
 	WriteDAO dao;
 	WriteReDAO redao;
+	UserDAO userdao;
+	
+	@Autowired
+	public void setDao(UserDAO userdao) {
+		this.userdao = userdao;
+	}
 
 	@Autowired
 	public void setDao(WriteDAO dao) {
@@ -80,6 +87,10 @@ public class BoardService {
 
 	public int deleteByUid(int uid) {
 		return dao.deleteByUid(uid);
+	}
+	
+	public String findNameByUserId(String userid) {
+		return userdao.findNameByUserId(userid);
 	}
 	
 	

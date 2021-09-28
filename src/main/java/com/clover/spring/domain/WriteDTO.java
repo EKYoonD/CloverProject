@@ -13,12 +13,13 @@ public class WriteDTO {
 	private int uid;   // wr_uid
 	private String subject;  // wr_subject
 	private String content;  // wr_content
+	private String category;
 	private String name;  // wr_name
 	@JsonProperty("viewcnt")
 	private int viewCnt;  // wr_viewcnt
 	private LocalDateTime regDate;  // wr_regdate
-	private float longitude;
-	private float latitude;
+	private Float longitude;
+	private Float latitude;
 
 	// 웹개발시...
 	// 가능한, 다음 3가지는 이름을 일치시켜주는게 좋습니다.
@@ -31,32 +32,44 @@ public class WriteDTO {
 
 	
 
-	public WriteDTO(int uid, String subject, String content, String name, int viewCnt, LocalDateTime regDate,
-			float longitude, float latitude) {
+	public WriteDTO(int uid, String subject, String content, String category, String name, int viewCnt,
+			LocalDateTime regDate, Float longitude, Float latitude) {
 		super();
 		this.uid = uid;
 		this.subject = subject;
 		this.content = content;
+		this.category = category;
 		this.name = name;
 		this.viewCnt = viewCnt;
 		this.regDate = regDate;
 		this.longitude = longitude;
 		this.latitude = latitude;
 	}
+	
+	public String getCategory() {
+		return category;
+	}
 
-	public float getLongitude() {
+
+	public void setCategory(String category) {
+		this.category = category;
+	}
+
+
+
+	public Float getLongitude() {
 		return longitude;
 	}
 	
-	public void setLongitude(float longitude) {
+	public void setLongitude(Float longitude) {
 		this.longitude = longitude;
 	}
 	
-	public float getLatitude() {
+	public Float getLatitude() {
 		return latitude;
 	}
 	
-	public void setLatitude(float latitude) {
+	public void setLatitude(Float latitude) {
 		this.latitude = latitude;
 	}
 

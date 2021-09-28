@@ -41,8 +41,17 @@ function chkSubmit(){
 <body>
 <h2>글작성</h2>
 <form name="frm" action="writeOk" method="post" onsubmit="return chkSubmit()">
+카테고리:
+<!-- <input type="text" name="name" value="${w.name }"/><br> -->
+<select class="select" id="category" name="category" style="width: 170px;">
+    <option value="부모님" selected>부모님</option>
+    <option value="아이">아이</option>
+    <option value="반려동물">반려동물</option>
+</select>
+<br>
 작성자:
 <input type="text" name="name" value="${w.name }"/><br>
+작성자: ${list[0].name }<br> <%-- 작성자 이름은 변경 불가 --%>
 제목:
 <input type="text" name="subject" value="${w.subject }"/><br><br>
 내용:<br>

@@ -26,6 +26,11 @@ public class WriteValidator implements Validator {
 		if(name == null || name.trim().isEmpty()){
 			errors.rejectValue("name", "empty name");
 		}
+		
+		Float latitude = dto.getLatitude();
+		if(latitude == null){
+			errors.rejectValue("latitude", "empty point");
+		}
 	}
 
 }
