@@ -39,7 +39,7 @@
 		WHERE user_id = #{id}	
 	</select>
 	
-	<select id="findNameById" resultType="String">
+	<select id="findNameByUserId" resultType="String">
 		SELECT
 			user_name name
 		FROM User_Table
