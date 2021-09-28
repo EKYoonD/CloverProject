@@ -105,7 +105,7 @@
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="password" name="pw" id="pw" placeHolder="4~12자의 영문 대소문자와 숫자로만 입력해주세요" /><br></td>
+				<td><input type="password" name="pw" id="pw" placeHolder="특수문자 / 문자 / 숫자 포함 형태의 8~15자리" /><br></td>
 			</tr>
 			<tr>
 				<td>이름</td>

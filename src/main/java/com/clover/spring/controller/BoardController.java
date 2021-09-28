@@ -36,7 +36,7 @@ import com.clover.spring.domain.WriteReDTO;
 import com.clover.spring.service.BoardService;
 
 @Controller
-@RequestMapping("/board")
+@RequestMapping("clover/member/board")
 public class BoardController {
 	
 	private BoardService boardService;
