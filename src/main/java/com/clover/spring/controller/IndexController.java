@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.clover.spring.domain.UserDTO;
 import com.clover.spring.service.UserService;
 
-
 @Controller
 public class IndexController {
 	
@@ -45,6 +44,11 @@ public class IndexController {
 	@GetMapping("/join")
 	public String join() {
 		return "user/joinForm";
+	}
+	
+	@PostMapping("/oauth_kakao")
+	public String kakaologinOk() {
+		return "redirect:/main";
 	}
 	
 	@PostMapping("/joinOk")
