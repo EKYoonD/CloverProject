@@ -42,16 +42,16 @@ CREATE TABLE Payment_Table
 CREATE TABLE QR_Table
 (
 	qr_uid int NOT NULL AUTO_INCREMENT,
-	qr_category varchar(10) NOT NULL,
-	qr_subject varchar(20) NOT NULL,
 	qr_name varchar(10) NOT NULL,
+	qr_subject varchar(20) NOT NULL,
+	qr_category varchar(10) NOT NULL,
 	qr_age int NOT NULL,
 	qr_address varchar(30) NOT NULL,
 	qr_phone varchar(15) NOT NULL,
 	qr_content text,
 	qr_image_path varchar(500),
-	qr_url varchar(100),
-	user_uid int NOT NULL,
+	qr_url varchar(100) NOT NULL,
+	user_uid int NOT NULL,	
 	PRIMARY KEY (qr_uid)
 );
 
@@ -154,13 +154,17 @@ ALTER TABLE Rep_Write_Table
 	ON DELETE RESTRICT
 ;
 
+ALTER table qr_table DROP column qr_subject;
+
+ALTER table qr_table DROP column qr_url;
+
 DESC write_table;
 SELECT * FROM user_table;
 SHOW tables;
 SELECT * FROM information_schema.table_constraints;
 SELECT * FROM write_table ORDER BY wr_uid desc;
 DELETE FROM write_table WHERE wr_uid = 10;
-
+SELECT * FROM qr_table;
 
 INSERT INTO write_table(wr_category, wr_subject, wr_content, wr_longitude, wr_latitude, user_uid) 
 values('부모님','제목없음', '내용없음', 127.123124, 37.123125, 1);
@@ -178,3 +182,7 @@ SELECT user_uid FROM user_table WHERE user_id='katie'
 SELECT * FROM rep_write_table;
 INSERT INTO rep_write_table (wr_longitude, wr_latitude, wr_content, wr_uid) 
 VALUES (127.123124, 37.123125, '여기서 찾았어요', 40);
+
+
+
+
