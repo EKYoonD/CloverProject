@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%-- validation 실패시 --%>
-<c:if test="${not empty ERR }">
+<c:if test="${not empty ERROR }">
 	<script>
-		alert("등록 실패 " + "${ERR}");
+		alert("등록 실패 " + "${ERROR}");
 	</script>	
 </c:if>
 
@@ -40,19 +41,20 @@ function chkSubmit(){
 </script>
 <body>
 <h2>글작성</h2>
-<form name="frm" action="writeOk" method="post" onsubmit="return chkSubmit()">
+<form name="frm" action="writeOk" method="get" onsubmit="return chkSubmit()">
 카테고리:
-<!-- <input type="text" name="name" value="${w.name }"/><br> -->
 <select class="select" id="category" name="category" style="width: 170px;">
     <option value="부모님" selected>부모님</option>
     <option value="아이">아이</option>
     <option value="반려동물">반려동물</option>
 </select>
 <br>
+<!-- 
 작성자:
-<input type="text" name="name" value="${w.name }"/><br>
-작성자: ${list[0].name }<br> <%-- 작성자 이름은 변경 불가 --%>
-제목:
+<input type="text" name="name" value="${w.name }" disabled/><br>
+ -->
+ <span style="color:red">${ERROR.SUBJECT }</span>
+제목: 
 <input type="text" name="subject" value="${w.subject }"/><br><br>
 내용:<br>
 <textarea name="content" id='content'>${w.content }</textarea>
@@ -69,6 +71,7 @@ function chkSubmit(){
 <br><br>
 마지막으로 본 장소 : 
 <h5> 지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
+<span style="color:red">${ERROR.POINT }</span>
 <!-- TODO -->
 <div id="map" style="width:500px;height:350px;"></div>
 <div id="clickLatlng"></div>
@@ -120,7 +123,7 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 });
 </script>
 <br><br>
-
+<input type="hidden" name="userid" id="userid" value="${w.userid }"/>
 <input type="submit" value="등록"/>
 </form>
 <br>

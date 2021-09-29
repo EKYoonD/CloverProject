@@ -154,12 +154,13 @@ ALTER TABLE Rep_Write_Table
 	ON DELETE RESTRICT
 ;
 
-
+DESC write_table;
 SELECT * FROM user_table;
 SHOW tables;
 SELECT * FROM information_schema.table_constraints;
 SELECT * FROM write_table ORDER BY wr_uid desc;
-DELETE FROM write_table WHERE wr_uid = 3;
+DELETE FROM write_table WHERE wr_uid = 10;
+
 
 INSERT INTO write_table(wr_category, wr_subject, wr_content, wr_longitude, wr_latitude, user_uid) 
 values('부모님','제목없음', '내용없음', 127.123124, 37.123125, 1);
@@ -170,8 +171,6 @@ FROM user_table ut, write_table wt WHERE ut.user_uid = wt.user_uid AND wt.wr_uid
 SELECT wt.wr_uid, ut.user_name, wt.wr_category, wt.wr_subject, wt.wr_content, wt.wr_longitude, wt.wr_latitude 
 FROM user_table ut, write_table wt WHERE wt.user_uid = ut.user_uid ORDER BY wr_uid desc;
 
-
-INSERT INTO write_table(wr_category, wr_subject, wr_content, wr_latitude, wr_longitude) 
-		VALUES('부모님', '제목','내용',127.123124, 37.123125);
-		
-	
+INSERT INTO write_table(wr_category, wr_subject, wr_content, wr_latitude, wr_longitude, user_uid) 
+		VALUES('부모님', '찾아주세요', '네',  37.123125, 127.123124, (SELECT user_uid FROM user_table WHERE user_id='katie'));
+SELECT user_uid FROM user_table WHERE user_id='katie'

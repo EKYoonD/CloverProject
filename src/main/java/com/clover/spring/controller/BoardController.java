@@ -62,41 +62,73 @@ public class BoardController {
 		UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 
 
 		WriteDTO dto = new WriteDTO();
-		String name = this.findNameByUserId(userDetails.getUsername());
-		dto.setName(name);
+		
+//		String name = this.findNameByUserId(userDetails.getUsername());
+		String userid = userDetails.getUsername();
+		
+		dto.setUserid(userid);
+//		dto.setName(name);
 		model.addAttribute("w", dto);   // auto-generated key 받아와
 		return "board/write";
 	}
 	
-	
-	@PostMapping("/writeOk") // 대소문자 신경써..ㅠㅠ
-	public String writeOk(@ModelAttribute("w") @Valid WriteDTO dto,
-			BindingResult result, 
-			Model model) {		// 핸들러 매개변수 작성시 Model은 BindingResult 뒤에 두어야 함
-		// write 거치고 나면 담겨있게 됨
-		// auto-generated key값도 받아와야 해 (auto-increment) -> dto로 담겨 있음
-		
-		if(result.hasErrors()) {
-			// 에러 기능 관련해 추가적인 model attribute 지정 가능
-			// WriteValidator에서 validation에 rejetValue에 값을 담았었음 -> 그걸 가지고
-			if(result.getFieldError("name") != null)
-				model.addAttribute("ERR", result.getFieldError("name").getCode());
-			else if(result.getFieldError("subject") != null)
-				model.addAttribute("ERR", result.getFieldError("subject").getCode());
-			else if(result.getFieldError("latitude") != null)
-				model.addAttribute("ERR", result.getFieldError("latitude").getCode());
-			return "board/write";
-		}
-		model.addAttribute("result", boardService.write(dto));
-		return "board/writeOk";
-	}
 	
 	public String findNameByUserId(String userid) {
 		String name = boardService.findNameByUserId(userid);
 		return name;
 	}
 	
+	@GetMapping("/writeOk") // 대소문자 신경써..ㅠㅠ
+	public String writeOk(@ModelAttribute("w") @Valid WriteDTO dto, RedirectAttributes redirectAttributes,
+			BindingResult result, 
+			Model model) {		// 핸들러 매개변수 작성시 Model은 BindingResult 뒤에 두어야 함
+		// write 거치고 나면 담겨있게 됨
+		// auto-generated key값도 받아와야 해 (auto-increment) -> dto로 담겨 있음
+		
+		System.out.println("카테고리: " + dto.getCategory());
+		System.out.println("제목: " + dto.getSubject());
+		System.out.println("내용: " + dto.getContent());
+		System.out.println("사용자 아이디: " +dto.getUserid());
+		System.out.println(dto.getLatitude());
+		System.out.println(dto.getLongitude());
+		
+		if(result.hasErrors()) {
+			// 에러 기능 관련해 추가적인 model attribute 지정 가능
+			// WriteValidator에서 validation에 rejetValue에 값을 담았었음 -> 그걸 가지고			
+			if(result.getFieldError("subject") != null) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("SUBJECT", "제목입력은 필수입니다");
+				redirectAttributes.addFlashAttribute("ERROR", map);
+				
+				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
+				return "redirect:/clover/member/board/write";
+			}
+			
+			if(result.getFieldError("latitude") != null) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("POINT", "좌표를 다시 찍어주세요");
+				redirectAttributes.addFlashAttribute("ERROR", map);
+				
+				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
+				return "redirect:/clover/member/board/write";
+			}
+			
+		}
+		
+//		if(result.hasErrors()) {
+//			if(result.getFieldError("subject") != null)
+//				model.addAttribute("ERR", result.getFieldError("subject").getCode());
+//			else if(result.getFieldError("latitude") != null)
+//				model.addAttribute("ERR", result.getFieldError("latitude").getCode());
+//			return "redirect:/clover/member/board/write";
+//		}
+		
+		model.addAttribute("result", boardService.write(dto));
+		model.addAttribute("dto", dto);
+		return "board/writeOk";
+	}
 	
+
 	@GetMapping("/writeRe")
 	public String writeRe(Model model) {
 		return "board/writeRe";
@@ -173,7 +205,7 @@ public class BoardController {
 				redirectAttributes.addFlashAttribute("ERROR", map);
 				
 				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
-				return "redirect:/board/update?uid=" + dto.getUid();
+				return "redirect:/clover/member/board/update?uid=" + dto.getUid();
 			}
 			
 		}

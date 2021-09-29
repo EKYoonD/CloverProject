@@ -29,6 +29,7 @@
 
 	<select id="findById" resultType="com.clover.spring.domain.UserDTO">
 		SELECT
+			user_uid uid,
 			user_id id, 
 			user_pw pw,  
 			user_name name, 

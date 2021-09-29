@@ -20,6 +20,7 @@ public class WriteDTO {
 	private LocalDateTime regDate;  // wr_regdate
 	private Float longitude;
 	private Float latitude;
+	private String userid;
 
 	// 웹개발시...
 	// 가능한, 다음 3가지는 이름을 일치시켜주는게 좋습니다.
@@ -33,7 +34,7 @@ public class WriteDTO {
 	
 
 	public WriteDTO(int uid, String subject, String content, String category, String name, int viewCnt,
-			LocalDateTime regDate, Float longitude, Float latitude) {
+			LocalDateTime regDate, Float longitude, Float latitude, String userid) {
 		super();
 		this.uid = uid;
 		this.subject = subject;
@@ -44,8 +45,22 @@ public class WriteDTO {
 		this.regDate = regDate;
 		this.longitude = longitude;
 		this.latitude = latitude;
+		this.userid = userid;
 	}
 	
+	
+	
+	public String getUserid() {
+		return userid;
+	}
+
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
+
+
 	public String getCategory() {
 		return category;
 	}

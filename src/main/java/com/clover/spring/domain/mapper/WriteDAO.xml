@@ -36,8 +36,8 @@
   	<insert id="insert" flushCache="true"
 		parameterType="com.clover.spring.domain.WriteDTO"
 		keyProperty="uid" useGeneratedKeys="true" keyColumn="wr_uid">	
-		INSERT INTO write_table(wr_category, wr_name, wr_subject, wr_content, wr_latitude, wr_longitude) 
-		VALUES(#{category}, #{name}, #{subject}, #{content}, #{latitude}, #{longitude});
+		INSERT INTO write_table(wr_category, wr_subject, wr_content, wr_latitude, wr_longitude, user_uid) 
+		VALUES(#{category}, #{subject}, #{content}, #{latitude}, #{longitude},(SELECT user_uid FROM user_table WHERE user_id=#{userid}));
 	</insert>
 	
 	<!-- view.do -->
@@ -82,10 +82,10 @@
 	
 	<!-- deleteByUid -->
 	<delete id="deleteByUid" flushCache="true">
-		DELETE FROM
-			test_write
-		WHERE
-			wr_uid = #{uid}
+		DELETE FROM 
+			write_table 
+		WHERE 
+			wr_uid = #{uid};
 	</delete>
 	
   </mapper>
