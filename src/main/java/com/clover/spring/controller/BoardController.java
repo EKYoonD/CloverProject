@@ -81,20 +81,13 @@ public class BoardController {
 		return name;
 	}
 	
-	@PostMapping("/writeOk") // 대소문자 신경써..ㅠㅠ
+	@PostMapping("/writeOk")
 	public String writeOk(@ModelAttribute("w") @Valid WriteDTO dto,
 			BindingResult result, 
 			Model model) {		// 핸들러 매개변수 작성시 Model은 BindingResult 뒤에 두어야 함
 		// write 거치고 나면 담겨있게 됨
 		// auto-generated key값도 받아와야 해 (auto-increment) -> dto로 담겨 있음
-		
-		System.out.println("카테고리: " + dto.getCategory());
-		System.out.println("제목: " + dto.getSubject());
-		System.out.println("내용: " + dto.getContent());
-		System.out.println("사용자 아이디: " +dto.getUserid());
-		System.out.println(dto.getLatitude());
-		System.out.println(dto.getLongitude());
-		
+
 		if(result.hasErrors()) {
 			// 에러가능 추가적인 model attribute 지정 가능
 			
@@ -179,7 +172,7 @@ public class BoardController {
 				redirectAttributes.addFlashAttribute("ERROR", map);
 				
 				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
-				return "redirect:/board/update?uid=" + dto.getUid();
+				return "redirect:/clover/member/board/update?uid=" + dto.getUid();
 			}
 			
 			if(result.getFieldError("latitude") != null) {
