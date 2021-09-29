@@ -35,6 +35,7 @@
 			<h2>[${list[0].subject }] 항목 보기</h2>
 				<br>
 				uid : ${list[0].uid }<br>
+				카테고리 : ${list[0].category }<br>
 				작성자 : ${list[0].name }<br>
 				제목: ${list[0].subject }<br>
 				등록일: ${list[0].regDateTime }<br> <%-- getRegDateTime() 사용 --%>

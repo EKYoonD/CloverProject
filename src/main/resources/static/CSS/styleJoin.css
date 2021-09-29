@@ -1,14 +1,32 @@
 @charset "UTF-8";
 
 body {
-    background-color: #333;
+    background-color: rgb(253, 251, 236);
     margin: 0;
-    font-family: 'Gugi', cursive,
-        '맑은 고딕',
-        'Apple SD Gothic Neo',
-        sans-serif;
+    font-family: 
+        '맑은 고딕';
+     text-align: center;
+	 
 }
 
+table {
+    margin:auto; 
+    color: #555555;
+}
+
+table, td, th {
+    height: 50px;
+    border: 40px  ;
+}
+
+input {
+	width: 300px;
+	height: 25px;
+    border-radius: 4px;
+}
+h1{
+	color: white;
+}
 header {
     overflow: hidden;
     background-color: rgb(46, 53, 49);
@@ -16,45 +34,33 @@ header {
     top: 0;
     width: 100%;
 }
-.head1 {
-    display:inline-block;
-    line-height:70px;
-    padding-left: 20px;
-    padding-right: 20px;
-    color:whitesmoke;
-    font-family: 'Gugi', cursive;
-    font-size: 28px;
-    text-decoration: none;
+
+button {
+  margin: 0;
+  padding: 0.5rem 1rem;
+
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+
+  display: inline-block;
+  width: 130px;
+
+  border: none;
+  border-radius: 4px;
+  
+  cursor: pointer;
+
+  transition: 0.5s;
+  background-color: #008CBA;
+  color: white;
 }
 
-.head2 ul {
-    list-style: none;
-    margin:0;
-    padding:0;
-}
-
-.head2 li{
-    list-style: none;
-}
-
-.head2 a{
-    font-size: 21px;
-    display:block;
-    padding:30px;
-    color:whitesmoke;
-    text-decoration: none;
-}
-
-.head1 a{
-    color:whitesmoke;
-}
-
-.head1 a:hover{
-    color:rgb(172, 172, 172);
-}
-
-.head2 a:hover{
-    background-color: rgba(0,0,0,1);
+button:hover {
+  background-color: #4CAF50;
+  color: white;
 }
 
 @media (min-width : 768px){ /* 768px보다 큰화면일때*/
@@ -111,7 +117,7 @@ header {
     margin-top: 70px;
     text-align: center;
     background-color: rgb(245, 223, 102);
-    background-image: linear-gradient(rgba(243, 235, 235, 0.05), rgba(0, 0, 0, 0.05)), url(../img/family_face.jpg);
+    background-image: linear-gradient(rgba(243, 235, 235, 0.05), rgba(0, 0, 0, 0.05)), url(../img/family3.png);
     background-position: center;
     background-size: cover;
     height: 120vh;

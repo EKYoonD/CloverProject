@@ -41,15 +41,22 @@ public class UserDAOImpl implements UserDAO {
 	public int deleteAuths(String id) {
 		return mapper.deleteAuths(id);
 	}
-
+	
 	@Override
 	public UserDTO findById(String id) {
 		return mapper.findById(id);
+	}
+	
+	@Override
+	public String findNameByUserId(String id) {
+		return mapper.findNameByUserId(id);
 	}
 
 	@Override
 	public List<String> selectAuthoritiesById(String id) {
 		return mapper.selectAuthoritiesById(id);
 	}
+
+	
 
 }

@@ -22,6 +22,8 @@ public interface UserDAO {
 	// 특정 id (username) 의 사용자 찾기
 	UserDTO findById(String id);
 	
+	public String findNameByUserId(String id);
+	
 	// 특정 id (username) 의 권한(들) 뽑기
 	List<String> selectAuthoritiesById(String id);
 	

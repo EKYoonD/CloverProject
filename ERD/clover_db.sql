@@ -8,11 +8,9 @@ DROP TABLE IF EXISTS QR_Table;
 DROP TABLE IF EXISTS Rep_Write_Table;
 DROP TABLE IF EXISTS Write_Table;
 DROP TABLE IF EXISTS User_Table;
+DROP TABLE IF EXISTS User_Authority;
 
 SHOW tables;
-SELECT * FROM user_table;
-SELECT * FROM write_table;
-DELETE FROM write_table;
 
 /* Create Tables */
 
@@ -61,16 +59,15 @@ CREATE TABLE QR_Table
 CREATE TABLE Rep_Write_Table
 (
 	wr_rep_uid int NOT NULL AUTO_INCREMENT,
-	wr_map decimal,
+	wr_longitude float,
+	wr_latitude float,
 	wr_content text NOT NULL,
 	wr_regdate datetime DEFAULT now(),
 	wr_img_path varchar(100),
 	wr_uid int NOT NULL,
 	PRIMARY KEY (wr_rep_uid)
 );
-DROP TABLE IF EXISTS User_Table CASCADE;
 
-select * from user_table ;
 
 CREATE TABLE User_Table
 (
@@ -96,12 +93,12 @@ CREATE TABLE Write_Table
 (
 	wr_uid int NOT NULL AUTO_INCREMENT,
 	wr_category varchar(15) NOT NULL,
-	wr_name varchar(20) NOT NULL,
 	wr_content text,
-	wr_viewcnt int,
+	wr_viewcnt int DEFAULT 0,
 	wr_subject varchar(20) NOT NULL,
 	wr_regdate datetime DEFAULT now(),
-	wr_map decimal,
+	wr_longitude float,
+	wr_latitude float,
 	user_uid int NOT NULL,
 	PRIMARY KEY (wr_uid)
 );
@@ -157,7 +154,23 @@ ALTER TABLE Rep_Write_Table
 	ON DELETE RESTRICT
 ;
 
-
+DESC write_table;
 SELECT * FROM user_table;
 SHOW tables;
 SELECT * FROM information_schema.table_constraints;
+SELECT * FROM write_table ORDER BY wr_uid desc;
+DELETE FROM write_table WHERE wr_uid = 10;
+
+
+INSERT INTO write_table(wr_category, wr_subject, wr_content, wr_longitude, wr_latitude, user_uid) 
+values('부모님','제목없음', '내용없음', 127.123124, 37.123125, 1);
+
+SELECT wt.wr_uid uid, ut.user_name name, wt.wr_category, wt.wr_subject, wt.wr_content, wt.wr_longitude, wt.wr_latitude 
+FROM user_table ut, write_table wt WHERE ut.user_uid = wt.user_uid AND wt.wr_uid = 15;
+
+SELECT wt.wr_uid, ut.user_name, wt.wr_category, wt.wr_subject, wt.wr_content, wt.wr_longitude, wt.wr_latitude 
+FROM user_table ut, write_table wt WHERE wt.user_uid = ut.user_uid ORDER BY wr_uid desc;
+
+INSERT INTO write_table(wr_category, wr_subject, wr_content, wr_latitude, wr_longitude, user_uid) 
+		VALUES('부모님', '찾아주세요', '네',  37.123125, 127.123124, (SELECT user_uid FROM user_table WHERE user_id='katie'));
+SELECT user_uid FROM user_table WHERE user_id='katie'

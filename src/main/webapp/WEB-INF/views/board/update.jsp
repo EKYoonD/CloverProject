@@ -66,7 +66,7 @@ function chkSubmit(){
 <br>
 마지막으로 잃어버린 장소: <br>
 <h5> 지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
-
+<span style="color:red">${ERROR.POINT }</span>
 <!-- TODO -->
 <div id="map" style="width:500px;height:350px;"></div>
 <div id="clickLatlng"></div>

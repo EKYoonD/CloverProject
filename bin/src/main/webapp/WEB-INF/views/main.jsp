@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>main</title>
 
-    <link href="/CSS/style.css" rel="stylesheet">
+    <link href="CSS/style.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
@@ -29,7 +29,7 @@
     <header>
         <div class="container">
             <div class="head1">
-                <a  onclick="location.href='main'"><i class="fas fa-home"></i></a>
+                <a href="index.html"><i class="fas fa-home"></i></a>
                 <span class="head3"><i class="far fa-caret-square-down"></i></span>
             </div>
             <nav class="head2">
@@ -37,7 +37,7 @@
                     <li><a onclick="location.href='about'">CLVOER</a></li>
                     <li><a onclick="location.href='qr'">MY QR</a></li>
                     <li><a onclick="location.href='order'">ORDER</a></li>
-                    <li><a onclick="location.href='clover/member/board/list'">FIND & FOUND</a></li>
+                    <li><a onclick="location.href='board'">FIND & FOUND</a></li>
                     <li><a onclick="location.href='login'">JOIN</a></li>
                 </ul>
             </nav>
@@ -50,7 +50,6 @@
         <div href class="container">
             <h1>CLOVER</h1>
             <h2>WITH MY FAMILY</h2>
-            
         </div>
     </section>
 
