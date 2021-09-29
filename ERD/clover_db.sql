@@ -178,3 +178,9 @@ SELECT user_uid FROM user_table WHERE user_id='katie'
 SELECT * FROM rep_write_table;
 INSERT INTO rep_write_table (wr_longitude, wr_latitude, wr_content, wr_uid) 
 VALUES (127.123124, 37.123125, '여기서 찾았어요', 40);
+
+ALTER TABLE qr_table DROP COLUMN qr_subject;
+ALTER TABLE qr_table DROP COLUMN qr_url;
+
+
+
