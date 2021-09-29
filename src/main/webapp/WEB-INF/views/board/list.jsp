@@ -48,16 +48,16 @@ th, td {
     <header>
         <div class="container">
             <div class="head1">
-                <a  onclick="location.href='main'"><i class="fas fa-home"></i></a>
+                <a  onclick="location.href='../../../../main'"><i class="fas fa-home"></i></a>
                 <span class="head3"><i class="far fa-caret-square-down"></i></span>
             </div>
             <nav class="head2">
                 <ul>
-                    <li><a onclick="location.href='../about'">CLVOER</a></li>
+                    <li><a onclick="location.href='../../../../about'">CLVOER</a></li>
                     <li><a onclick="location.href='../qr'">MY QR</a></li>
                     <li><a onclick="location.href='../order'">ORDER</a></li>
                     <li><a onclick="location.href='../board/list'">FIND & FOUND</a></li>
-                    <li><a onclick="location.href='../login'">JOIN</a></li>
+                    <li><a onclick="location.href='login'">JOIN</a></li>
                 </ul>
             </nav>
         </div>

@@ -10,6 +10,8 @@
 	</script>	
 </c:if>
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,31 +19,10 @@
 <title>글작성</title>
 <script src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 </head>
-<script>
-function chkSubmit(){
-	frm = document.forms['frm'];
-	
-	var name = frm['name'].value.trim();
-	var subject = frm['subject'].value.trim();
 
-	/*
-	if(name == ""){
-		alert("작성자 란은 반드시 입력해야 합니다");
-		frm['name'].focus();
-		return false;
-	}
-	if(subject == ""){
-		alert("제목은 반드시 작성해야 합니다");
-		frm['subject'].focus();
-		return false;
-	}
-	*/
-	return true;
-} // end chkSubmit()
-</script>
 <body>
 <h2>글작성</h2>
-<form name="frm" action="writeOk" method="get" onsubmit="return chkSubmit()">
+<form name="frm" action="writeOk" method="post" onsubmit="return chkSubmit()">
 카테고리:
 <select class="select" id="category" name="category" style="width: 170px;">
     <option value="부모님" selected>부모님</option>
@@ -53,7 +34,6 @@ function chkSubmit(){
 작성자:
 <input type="text" name="name" value="${w.name }" disabled/><br>
  -->
- <span style="color:red">${ERROR.SUBJECT }</span>
 제목: 
 <input type="text" name="subject" value="${w.subject }"/><br><br>
 내용:<br>
@@ -71,7 +51,6 @@ function chkSubmit(){
 <br><br>
 마지막으로 본 장소 : 
 <h5> 지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
-<span style="color:red">${ERROR.POINT }</span>
 <!-- TODO -->
 <div id="map" style="width:500px;height:350px;"></div>
 <div id="clickLatlng"></div>

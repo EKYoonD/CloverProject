@@ -19,12 +19,12 @@ public class WriteValidator implements Validator {
 		
 		String subject = dto.getSubject();
 		if(subject == null || subject.trim().isEmpty()) {
-			errors.rejectValue("subject", "empty subject");
+			errors.rejectValue("subject", ": 제목 입력은 필수입니다");
 		}
 		
 		Float latitude = dto.getLatitude();
 		if(latitude == null){
-			errors.rejectValue("latitude", "empty point");
+			errors.rejectValue("latitude", ": 좌표를 제대로 설정해주세요");
 		}
 	}
 

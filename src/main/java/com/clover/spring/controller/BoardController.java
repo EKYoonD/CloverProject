@@ -58,17 +58,20 @@ public class BoardController {
 	}
 	
 	@GetMapping("/write")
-	public String write(Model model, Authentication authentication) {
-		UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 
+	public String write(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
 
+		UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 
+		
 		WriteDTO dto = new WriteDTO();
 		
 //		String name = this.findNameByUserId(userDetails.getUsername());
 		String userid = userDetails.getUsername();
+		redirectAttributes.addAttribute("userid", userid);
 		
 		dto.setUserid(userid);
 //		dto.setName(name);
 		model.addAttribute("w", dto);   // auto-generated key 받아와
+		
 		return "board/write";
 	}
 	
@@ -78,8 +81,8 @@ public class BoardController {
 		return name;
 	}
 	
-	@GetMapping("/writeOk") // 대소문자 신경써..ㅠㅠ
-	public String writeOk(@ModelAttribute("w") @Valid WriteDTO dto, RedirectAttributes redirectAttributes,
+	@PostMapping("/writeOk") // 대소문자 신경써..ㅠㅠ
+	public String writeOk(@ModelAttribute("w") @Valid WriteDTO dto,
 			BindingResult result, 
 			Model model) {		// 핸들러 매개변수 작성시 Model은 BindingResult 뒤에 두어야 함
 		// write 거치고 나면 담겨있게 됨
@@ -93,35 +96,15 @@ public class BoardController {
 		System.out.println(dto.getLongitude());
 		
 		if(result.hasErrors()) {
-			// 에러 기능 관련해 추가적인 model attribute 지정 가능
-			// WriteValidator에서 validation에 rejetValue에 값을 담았었음 -> 그걸 가지고			
-			if(result.getFieldError("subject") != null) {
-				Map<String, Object> map = new HashMap<>();
-				map.put("SUBJECT", "제목입력은 필수입니다");
-				redirectAttributes.addFlashAttribute("ERROR", map);
-				
-				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
-				return "redirect:/clover/member/board/write";
-			}
+			// 에러가능 추가적인 model attribute 지정 가능
 			
-			if(result.getFieldError("latitude") != null) {
-				Map<String, Object> map = new HashMap<>();
-				map.put("POINT", "좌표를 다시 찍어주세요");
-				redirectAttributes.addFlashAttribute("ERROR", map);
-				
-				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
-				return "redirect:/clover/member/board/write";
-			}
+			if(result.getFieldError("subject") != null)
+				model.addAttribute("ERROR", result.getFieldError("subject").getCode());
+			else if(result.getFieldError("latitude") != null)
+				model.addAttribute("ERROR", result.getFieldError("latitude").getCode());
 			
+			return "/board/write";
 		}
-		
-//		if(result.hasErrors()) {
-//			if(result.getFieldError("subject") != null)
-//				model.addAttribute("ERR", result.getFieldError("subject").getCode());
-//			else if(result.getFieldError("latitude") != null)
-//				model.addAttribute("ERR", result.getFieldError("latitude").getCode());
-//			return "redirect:/clover/member/board/write";
-//		}
 		
 		model.addAttribute("result", boardService.write(dto));
 		model.addAttribute("dto", dto);
