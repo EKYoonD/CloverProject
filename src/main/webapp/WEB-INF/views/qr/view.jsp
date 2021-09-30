@@ -30,7 +30,7 @@
 	<h2>qr</h2>
 		<br>
 		
-	<img src="qrcode/이름: ${list[0].name }, 	종류 :${m.category},  나이:${list[0].age }, 주소: ${list[0].address }, 보호자 연락처: ${list[0].phone },  내용:${list[0].content }"/>
+<img src="qrcode/이름: ${list[0].name }, 	종류 :${m.category},  나이:${list[0].age }, 주소: ${list[0].address }, 보호자 연락처: ${list[0].phone },  내용:${list[0].content }"/>
 		
 	
 		<hr>

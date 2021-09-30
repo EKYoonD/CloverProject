@@ -134,7 +134,7 @@ public class QrController {
 //		return ResponseEntity.status(HttpStatus.OK).body(QrCodeGenerator.getQRCodeImage(codeText, width, height));
 //	}
 	
-	@RequestMapping(value = "qrcode/{uid}/", method = RequestMethod.GET)
+	@RequestMapping(value = "qrcode/{uid}", method = RequestMethod.GET)
 	public void qrcode(@PathVariable("uid") String uid, HttpServletResponse response) throws Exception {
 		response.setContentType("image/png");
 		  uid = new String(uid.getBytes("UTF-8") , "ISO-8859-1");
