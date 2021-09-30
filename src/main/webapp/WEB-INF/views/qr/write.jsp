@@ -39,6 +39,8 @@ function chkSubmit(){
 <input type="text" name="phone" value ="${m.phone}"/><br>
 특이사항:
 <textarea name="content">${m.content }</textarea>
+
+<input type="hidden" name="userid" id="userid" value="${m.userid }"/>
 <br><br>
 <input type="submit" value="qr생성"/>
 </form>

@@ -42,7 +42,7 @@
 			<nav class="head2">
 				<ul>
 					<li><a onclick="location.href='about'">CLVOER</a></li>
-					<li><a onclick="location.href='qr'">MY QR</a></li>
+					<li><a onclick="location.href='clover/member/qr/write'">MY QR</a></li>
 					<li><a onclick="location.href='order'">ORDER</a></li>
 					<li><a onclick="location.href='clover/member/board/list'">FIND
 							& FOUND</a></li>

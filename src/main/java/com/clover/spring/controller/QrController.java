@@ -10,6 +10,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,7 +28,7 @@ import com.clover.spring.domain.QrDTO;
 import com.clover.spring.service.QrService;
 
 @Controller
-@RequestMapping("/qr")
+@RequestMapping("clover/member/qr")
 public class QrController {
 	private QrService qrService;
 
@@ -48,7 +50,17 @@ public class QrController {
 //	}
 
 	@GetMapping("/write")
-	public String write(Model model) {
+	public String write(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
+		UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 
+		QrDTO dto = new QrDTO();
+		
+		String userid = userDetails.getUsername();
+		
+		redirectAttributes.addAttribute("userid", userid);
+		
+		dto.setUserid(userid);
+		model.addAttribute("m", dto);
+		
 		return "qr/write";
 	}
 

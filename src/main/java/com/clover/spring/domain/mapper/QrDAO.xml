@@ -25,9 +25,9 @@
 		parameterType="com.clover.spring.domain.QrDTO"
 		keyProperty="uid" useGeneratedKeys="true" keyColumn="qr_uid">	
 		INSERT INTO QR_Table
-			(qr_name, qr_category, qr_age, qr_address, qr_phone, qr_content)
+			(qr_name, qr_category, qr_age, qr_address, qr_phone, qr_content, user_uid)
 		VALUES
-			(#{name}, #{category}, #{age}, #{address}, #{phone}, #{content})
+			(#{name}, #{category}, #{age}, #{address}, #{phone}, #{content}, (SELECT user_uid FROM user_table WHERE user_id = #{userid}))
 	</insert>
 	
 	<!-- view -->

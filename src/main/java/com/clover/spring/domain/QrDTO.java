@@ -8,6 +8,7 @@ public class QrDTO {
 	private String address;
 	private String phone;
 	private String content;  
+	private String userid;
 	
 
 	// 웹개발시...
@@ -20,7 +21,7 @@ public class QrDTO {
 	}
 
 
-	public QrDTO(int uid, String name, String category, int age, String address, String phone, String content) {
+	public QrDTO(int uid, String name, String category, int age, String address, String phone, String content, String userid) {
 		super();
 		this.uid = uid;
 		this.name = name;
@@ -29,8 +30,20 @@ public class QrDTO {
 		this.address = address; 
 		this.phone = phone;
 		this.content = content;
-		
+		this.userid = userid;
 
+	}
+	
+	
+
+
+	public String getUserid() {
+		return userid;
+	}
+
+
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
 
 

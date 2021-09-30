@@ -43,7 +43,6 @@ CREATE TABLE QR_Table
 (
 	qr_uid int NOT NULL AUTO_INCREMENT,
 	qr_category varchar(10) NOT NULL,
-	qr_subject varchar(20) NOT NULL,
 	qr_name varchar(10) NOT NULL,
 	qr_age int NOT NULL,
 	qr_address varchar(30) NOT NULL,
@@ -166,6 +165,7 @@ ALTER TABLE rep_write_table
 
 DESC write_table;
 SELECT * FROM user_table;
+SELECT * FROM qr_table;
 SHOW tables;
 SELECT * FROM information_schema.table_constraints;
 SELECT * FROM write_table ORDER BY wr_uid desc;
@@ -201,19 +201,26 @@ FROM write_table wt, rep_write_table rwt WHERE wt.wr_uid = rwt.wr_uid  AND rwt.w
 
 INSERT INTO rep_write_table (wr_longitude, wr_latitude, wr_subject, wr_uid, user_uid) 
 VALUES (127.123124, 37.123125, '여기서 찾았어요', 42, (SELECT user_uid FROM user_table WHERE user_id = 'katie'));
-SELECT user_uid FROM user_table WHERE user_id = 'katie';
+
 
 DELETE FROM
 			rep_write_table
 		WHERE
 			wr_rep_uid = 5;
-=======
+		
 INSERT INTO rep_write_table (wr_longitude, wr_latitude, wr_content, wr_uid) 
 VALUES (127.123124, 37.123125, '여기서 찾았어요', 40);
 
 ALTER TABLE qr_table DROP COLUMN qr_subject;
 ALTER TABLE qr_table DROP COLUMN qr_url;
 
-
-
->>>>>>> branch 'master' of https://github.com/EKYoonD/CloverProject.git
+SELECT * FROM qr_table;
+INSERT INTO QR_Table
+			(qr_name, qr_category, qr_age, qr_address, qr_phone, qr_content, user_uid)
+		VALUES
+			('신현담', '부모님', 30, '서울', '01062423233', '찾아주세요',  (SELECT user_uid FROM user_table WHERE user_id = 'katie'));
+SELECT user_uid FROM user_table WHERE user_id = 'katie';
+INSERT INTO QR_Table
+			(qr_name, qr_category, qr_age, qr_address, qr_phone, qr_content, user_uid)
+		VALUES
+			('신현담', '부모님', 30, '서울', '01062423233', '찾아주세요',  (SELECT user_uid FROM user_table WHERE user_id = 'katie'));
