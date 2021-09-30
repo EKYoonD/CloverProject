@@ -191,11 +191,18 @@ SELECT * FROM rep_write_table;
 INSERT INTO rep_write_table (wr_longitude, wr_latitude, wr_content, wr_uid, user_uid) 
 VALUES (127.123124, 37.123125, '여기서 찾았어요', 40, 1);
 
+SELECT wr_rep_uid rep_uid, wr_latitude latitude, wr_longitude longitude, wr_subject subject, wr_content content, wr_regdate regdate, wr_uid uid
+FROM rep_write_table WHERE wr_rep_uid = 5;
+
 SELECT rwt.wr_rep_uid rep_uid, rwt.wr_content content, wt.wr_uid uid,  
 			rwt.wr_regdate regDate , rwt.wr_longitude longitude, rwt.wr_latitude latitude, rwt.wr_img_path imgPath 
 FROM write_table wt, rep_write_table rwt WHERE wt.wr_uid = rwt.wr_uid  AND rwt.wr_uid = 40 AND rwt.user_uid = 1;
 
 INSERT INTO rep_write_table (wr_longitude, wr_latitude, wr_subject, wr_uid, user_uid) 
-VALUES (127.123124, 37.123125, '여기서 찾았어요', 2, (SELECT user_uid FROM user_table WHERE user_id = 'katie'));
+VALUES (127.123124, 37.123125, '여기서 찾았어요', 42, (SELECT user_uid FROM user_table WHERE user_id = 'katie'));
 SELECT user_uid FROM user_table WHERE user_id = 'katie';
 
+DELETE FROM
+			rep_write_table
+		WHERE
+			wr_rep_uid = 5;

@@ -94,9 +94,16 @@ public class BoardService {
 		return dao.deleteByUid(uid);
 	}
 	
+	public int deleteByRepUid(int uid) {
+		return redao.deleteByRepUid(uid);
+	}
+	
 	public String findNameByUserId(String userid) {
 		return userdao.findNameByUserId(userid);
 	}
-	
-	
+
+	public List<WriteReDTO> viewReByRepUid(int rep_uid) {
+		return redao.selectReByUid(rep_uid);
+	}
+
 }

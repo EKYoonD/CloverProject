@@ -20,6 +20,11 @@ public class WriteReDAOImpl implements WriteReDAO {
 	public List<WriteReDTO> selectRe(int uid) {
 		return mapper.selectRe(uid);
 	}
+	
+	@Override
+	public List<WriteReDTO> selectReByUid(int rep_uid) {
+		return mapper.selectReByUid(rep_uid);
+	}
 
 	@Override
 	public int insertRe(WriteReDTO dto) {
@@ -33,10 +38,8 @@ public class WriteReDAOImpl implements WriteReDAO {
 	}
 
 	@Override
-	public int deleteReByUid(int uid) {
-		return mapper.deleteReByUid(uid);
-	}
-
-	
+	public int deleteByRepUid(int uid) {
+		return mapper.deleteByRepUid(uid);
+	}	
 
 }

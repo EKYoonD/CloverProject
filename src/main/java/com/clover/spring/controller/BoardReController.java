@@ -63,6 +63,7 @@ public class BoardReController {
 	@PostMapping("/writeReOk") // 대소문자 신경써..ㅠㅠ
 	public String writeReOk(@ModelAttribute("w") @Valid WriteReDTO redto,
 			BindingResult result, 
+			RedirectAttributes redirectAttributes,
 			Model model) {		// 핸들러 매개변수 작성시 Model은 BindingResult 뒤에 두어야 함
 		// write 거치고 나면 담겨있게 됨
 		// auto-generated key값도 받아와야 해 (auto-increment) -> dto로 담겨 있음
@@ -76,15 +77,25 @@ public class BoardReController {
 		
 		if(result.hasErrors()) {
 			// 에러 기능 관련해 추가적인 model attribute 지정 가능
-			// WriteValidator에서 validation에 rejetValue에 값을 담았었음 -> 그걸 가지고
+			// WriteValidator에서 validation에 rejetValue에 값을 담았었음 -> 그걸 가지고			
+			if(result.getFieldError("subject") != null) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("SUBJECT", "제목입력은 필수입니다");
+				redirectAttributes.addFlashAttribute("ERROR", map);
+				
+				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
+				return "redirect:/clover/member/board/writeRe?uid=" + redto.getUid();
+			}
 			
-			if(result.getFieldError("subject") != null)
-				model.addAttribute("ERROR", result.getFieldError("subject").getCode());
-			else if(result.getFieldError("latitude") != null)
-				model.addAttribute("ERROR", result.getFieldError("latitude").getCode());
+			if(result.getFieldError("latitude") != null) {
+				Map<String, Object> map = new HashMap<>();
+				map.put("POINT", "좌표를 다시 찍어주세요");
+				redirectAttributes.addFlashAttribute("ERROR", map);
+				
+				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
+				return "redirect:/clover/member/board/writeRe?uid=" + redto.getUid();
+			}
 			
-			
-			return "board/writeRe";
 		}
 		
 		// 앞에게 안되면 뒤에서 addAttribute가 추가되면 안됨
@@ -95,7 +106,6 @@ public class BoardReController {
 		
 		return "board/writeReOk";
 	}
-	
 	
 
 	@InitBinder

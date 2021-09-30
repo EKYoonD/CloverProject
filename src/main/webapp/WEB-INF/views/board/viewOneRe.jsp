@@ -28,23 +28,10 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<title>읽기</title>
-		<style>
-			table {width: 100%;}
-			table, th, td {
-				border: 1px solid black;
-				border-collapse: collapse;
-				background-color: whitesmoke;
-			}
-			
-			th, td {
-				margin: 30px;
-				padding: 10px;
-			}
-		</style>
 		</head>
 		<script>
 		
-		function chkDelete(uid){
+		function chkDelete(uid, rep_uid){
 			// 삭제 여부, 다시 확인 하고 진행하기
 			var r = confirm("삭제하시겠습니까?");
 			
@@ -114,37 +101,12 @@
 				// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 				// marker.setMap(null);    
 				</script>
-				<br><br>
-				<table>
-				
-						<tr>
-							<th>uid</th>
-							<th>제목</th>
-							<th>내용</th>
-							<th>rep_uid</th>
-							<th>등록일</th>
-						</tr>
-						
-						<c:choose>
-						<c:when test="${empty list || fn:length(list)==0 }">
-						</c:when>
-						<c:otherwise>
-							<c:forEach var="dto" items="${list }">
-								<tr>
-									<td>${dto.uid }</td>
-									<td><a href="viewOneRe?rep_uid=${dto.rep_uid }">${dto.subject }</a></td>
-									<td>${dto.content }</td>
-									<td>${dto.rep_uid } </td>
-									<td>${dto.regDateTime }</td>
-								</tr>
-							</c:forEach>
-						</c:otherwise>
-					</c:choose>
-				
-				</table>
 				
 				
 				<br><br>
+				<button onclick="location.href='update?uid=${list[0].uid }'">수정하기</button>
+				<button onclick="location.href='list'">목록보기</button>
+				<button onclick="chkDelete(${list[0].rep_uid })">삭제하기</button>
 				<button onclick="location.href='list'">목록보기</button>
 				<button onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
 		</div>

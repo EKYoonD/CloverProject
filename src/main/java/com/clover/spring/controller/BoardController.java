@@ -104,11 +104,7 @@ public class BoardController {
 		model.addAttribute("dto", dto);
 		return "board/writeOk";
 	}
-	
 
-	
-	
-	
 	@GetMapping("/view")
 	public String view(int uid, Model model) {
 		model.addAttribute("list", boardService.viewByUid(uid));
@@ -119,6 +115,12 @@ public class BoardController {
 	public String viewRe(int uid, Model model) {
 		model.addAttribute("list", boardService.viewReByUid(uid));
 		return "board/viewRe";
+	}
+	
+	@GetMapping("/viewOneRe")
+	public String viewOneRe(int rep_uid, Model model) {
+		model.addAttribute("list", boardService.viewReByRepUid(rep_uid));
+		return "board/viewOneRe";
 	}
 	
 	@GetMapping("/update")
@@ -167,6 +169,11 @@ public class BoardController {
 		return "board/deleteOk";
 	}
 	
+	@GetMapping("/deleteReOk")
+	public String deleteReOk(int rep_uid, Model model) {
+		model.addAttribute("result", boardService.deleteByRepUid(rep_uid));
+		return "board/deleteReOk";
+	}
 	
 	
 	@InitBinder

@@ -3,9 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 
 <%-- validation 실패시 --%>
-<c:if test="${not empty ERR }">
+<c:if test="${not empty ERROR }">
 	<script>
-		alert("등록 실패 " + "${ERR}");
+		alert("등록 실패");
 	</script>	
 </c:if>
 
@@ -75,7 +75,7 @@ function chkSubmit(){
 <form name="frm" action="writeReOk" method="post" onsubmit="return chkSubmit()">
 uid : <input type="text" name="uid" value="${w.uid }"/><br><br>
 제목:
-<input type="text" name="subject" value="${w.subject }"/><br><br>
+<input type="text" name="subject" value="${w.subject }"/><span style="color:red">${ERROR.SUBJECT }</span><br><br>
 내용:<br>
 <textarea name="content" id='content'>${w.content }</textarea>
 <script type="text/javascript">
@@ -91,7 +91,8 @@ uid : <input type="text" name="uid" value="${w.uid }"/><br><br>
 <br><br>
 마지막으로 본 장소 : 
 <h5> 지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
-<!-- TODO -->
+<span style="color:red">${ERROR.POINT }</span>
+
 <div id="map" style="width:500px;height:350px;"></div>
 <div id="clickLatlng"></div>
 

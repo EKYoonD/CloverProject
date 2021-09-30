@@ -27,4 +27,6 @@ public interface WriteDAO {
 
 	public abstract int selectUidByUid(int uid);
 
+	
+
 }

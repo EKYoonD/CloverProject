@@ -17,7 +17,7 @@
 		keyProperty="rep_uid" useGeneratedKeys="true" keyColumn="rep_uid">		
 		INSERT INTO 
 			rep_write_table (wr_latitude, wr_longitude, wr_subject, wr_uid, user_uid) 
-		VALUES ( #{latitude}, #{longitude}, #{subject}', #{uid, jdbcType=NUMERIC}, (SELECT user_uid FROM user_table WHERE user_id = #{userid}));
+		VALUES ( #{latitude}, #{longitude}, #{subject}, #{uid}, (SELECT user_uid FROM user_table WHERE user_id = #{userid}));
 	</insert>
 	
 	<!-- view.do -->
@@ -27,6 +27,12 @@
 			rwt.wr_regdate regDate , rwt.wr_longitude longitude, rwt.wr_latitude latitude, rwt.wr_img_path imgPath 
 		FROM write_table wt, rep_write_table rwt 
 		WHERE wt.wr_uid = rwt.wr_uid  AND rwt.wr_uid = #{uid};
+	</select>
+	
+	<!-- viewOne -->
+	<select id = "selectReByUid" resultType="com.clover.spring.domain.WriteReDTO">
+		SELECT wr_rep_uid rep_uid, wr_latitude latitude, wr_longitude longitude, wr_subject subject, wr_content content, wr_regdate regdate, wr_uid uid
+		FROM rep_write_table WHERE wr_rep_uid = #{rep_uid};
 	</select>
 
 	<!-- update -->
@@ -39,8 +45,8 @@
 			wr_rep_uid = #{rep_uid}
 	</update>
 	
-	<!-- deleteByUid -->
-	<delete id="deleteReByUid" flushCache="true">
+	<!-- deleteByRepUid -->
+	<delete id="deleteByRepUid" flushCache="true">
 		DELETE FROM
 			rep_write_table
 		WHERE
