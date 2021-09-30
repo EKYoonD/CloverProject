@@ -24,25 +24,25 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>main</title>
 		
-		<link href="/CSS/styleView.css" rel="stylesheet">
+		<link href="/CSS/styleViewRe.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<title>읽기</title>
 		</head>
 		<script>
 		
-		function chkDelete(uid){
+		function chkDelete(uid, rep_uid){
 			// 삭제 여부, 다시 확인 하고 진행하기
 			var r = confirm("삭제하시겠습니까?");
 			
 			if(r){
-				location.href = 'deleteOk?uid=' + uid;
+				location.href = 'deleteReOk?rep_uid=' + rep_uid;
 			}
 		} // chkDelete
 		
 		</script>
-		<body>	
-		<!--header-->
+		<body>
+			<!--header-->
     			<header>
 			        <div class="container">
 			            <div class="head1">
@@ -60,27 +60,23 @@
 			            </nav>
 			        </div>
 			    </header>
-			<section class="container1">
-        	<div href class="container">
-			<h2>[${list[0].subject }] 항목 보기</h2>
-				<br>
-				uid : ${list[0].uid }<br>
-				카테고리 : ${list[0].category }<br>
-				작성자 : ${list[0].name }<br>
-				제목: ${list[0].subject }<br>
-				등록일: ${list[0].regDateTime }<br> <%-- getRegDateTime() 사용 --%>
-				조회수: ${list[0].viewCnt }<br>
+		
+				<section class="container1">
+        		<div href class="container">
+				uid : ${list[0].rep_uid }<br>
+				제목 : ${list[0].subject }<br>
 				내용: <br>
 				<hr>
 				<div>
 				${list[0].content }
 				</div>
+				등록일: ${list[0].regDateTime }<br> <%-- getRegDateTime() 사용 --%>
+				<hr>
+				<br>
+				본 장소: <br><br>
 				
-				<hr><br>
-				마지막으로 잃어버린 장소: <br>
-				<br>
 				<div id="map" style="width:500px;height:350px;"></div>
-				<br>
+
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2389d39ea90c7f8eac5210a7bd81bee9"></script>
 				<script>
 				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -106,14 +102,14 @@
 				// marker.setMap(null);    
 				</script>
 				
+				
 				<br><br>
 				<button onclick="location.href='update?uid=${list[0].uid }'">수정하기</button>
 				<button onclick="location.href='list'">목록보기</button>
-				<button onclick="chkDelete(${list[0].uid })">삭제하기</button>
-				<button onclick="location.href='write'">신규등록</button>
-				<button onclick="location.href='viewRe?uid=${list[0].uid }'">댓글보기</button>
-				<button onclick="location.href='writeRe?uid=${list[0].uid }'">댓글달기</button>
-			</div>
+				<button onclick="chkDelete(${list[0].rep_uid })">삭제하기</button>
+				<button onclick="location.href='list'">목록보기</button>
+				<button onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
+		</div>
 	    </section>
 		<!--footer-->
 		    <footer>
@@ -142,6 +138,8 @@
 		    </footer>
 		
 		</body>
+		
+		
 		</html>
 				
 	</c:otherwise>

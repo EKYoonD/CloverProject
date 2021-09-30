@@ -60,6 +60,15 @@
 			ut.user_uid = wt.user_uid AND wt.wr_uid = #{uid};
 	</select>
 	
+	<select id = "selectUidByUid" resultType="com.clover.spring.domain.WriteDTO">
+		SELECT 
+			wr_uid uid, 
+		FROM 
+			write_table 
+		WHERE 
+			wr_uid = #{uid};
+	</select>
+	
 	<!-- 조회수 증가(viewCnt) -->
 	<update id="incViewCnt" flushCache="true">
 		UPDATE

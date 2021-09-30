@@ -30,6 +30,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.clover.spring.WriteReValidator;
 import com.clover.spring.WriteValidator;
 import com.clover.spring.domain.WriteDTO;
 import com.clover.spring.domain.WriteReDTO;
@@ -103,41 +104,7 @@ public class BoardController {
 		model.addAttribute("dto", dto);
 		return "board/writeOk";
 	}
-	
 
-	@GetMapping("/writeRe")
-	public String writeRe(Model model) {
-		return "board/writeRe";
-	}
-	
-//	@PostMapping("/writReOk") // 대소문자 신경써..ㅠㅠ
-//	public String writeReOk(@ModelAttribute("w") @Valid WriteReDTO dto,
-//			BindingResult result, 
-//			Model model) {		// 핸들러 매개변수 작성시 Model은 BindingResult 뒤에 두어야 함
-//		// write 거치고 나면 담겨있게 됨
-//		// auto-generated key값도 받아와야 해 (auto-increment) -> dto로 담겨 있음
-//		
-//		if(result.hasErrors()) {
-//			// 에러 기능 관련해 추가적인 model attribute 지정 가능
-//			// WriteValidator에서 validation에 rejetValue에 값을 담았었음 -> 그걸 가지고
-//			if(result.getFieldError("name") != null)
-//				model.addAttribute("ERR", result.getFieldError("name").getCode());
-//			else if(result.getFieldError("subject") != null)
-//				model.addAttribute("ERR", result.getFieldError("subject").getCode());
-//			
-//			return "board/write";
-//		}
-//		
-//		// 앞에게 안되면 뒤에서 addAttribute가 추가되면 안됨
-//		// 그래서 page = 넣는거 하지 말고 그냥 바로 return "board/write"
-//		
-//		model.addAttribute("result", boardService.writeRe(dto));
-//		model.addAttribute("dto", dto);   // auto-generated key 받아와
-//		
-//		return "board/writeReOk";
-//	}
-	
-	
 	@GetMapping("/view")
 	public String view(int uid, Model model) {
 		model.addAttribute("list", boardService.viewByUid(uid));
@@ -148,6 +115,12 @@ public class BoardController {
 	public String viewRe(int uid, Model model) {
 		model.addAttribute("list", boardService.viewReByUid(uid));
 		return "board/viewRe";
+	}
+	
+	@GetMapping("/viewOneRe")
+	public String viewOneRe(int rep_uid, Model model) {
+		model.addAttribute("list", boardService.viewReByRepUid(rep_uid));
+		return "board/viewOneRe";
 	}
 	
 	@GetMapping("/update")
@@ -196,14 +169,16 @@ public class BoardController {
 		return "board/deleteOk";
 	}
 	
+	@GetMapping("/deleteReOk")
+	public String deleteReOk(int rep_uid, Model model) {
+		model.addAttribute("result", boardService.deleteByRepUid(rep_uid));
+		return "board/deleteReOk";
+	}
 	
 	
-	
-	
-	// handler 등록 (controller에서)
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		binder.setValidator(new WriteValidator());
 	}
-	
+
 }

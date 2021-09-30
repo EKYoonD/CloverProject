@@ -80,6 +80,11 @@ public class BoardService {
 	public List<WriteDTO> selectByUid(int uid) {
 		return dao.selectByUid(uid);
 	}
+	
+	public int selectUidByUid(int uid) {
+		return dao.selectUidByUid(uid);
+	}
+	
 
 	public int update(WriteDTO dto) {
 		return dao.update(dto);
@@ -89,9 +94,16 @@ public class BoardService {
 		return dao.deleteByUid(uid);
 	}
 	
+	public int deleteByRepUid(int uid) {
+		return redao.deleteByRepUid(uid);
+	}
+	
 	public String findNameByUserId(String userid) {
 		return userdao.findNameByUserId(userid);
 	}
-	
-	
+
+	public List<WriteReDTO> viewReByRepUid(int rep_uid) {
+		return redao.selectReByUid(rep_uid);
+	}
+
 }
