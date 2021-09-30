@@ -64,11 +64,7 @@ public class IndexController {
 		return "redirect:/login";
 	}
 	
-	@GetMapping("/clover/member")
-	public String test() {
-		return "user/test";
-	}
-	
+
 }
 
 
