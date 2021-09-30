@@ -51,12 +51,11 @@ public class BoardController {
 		System.out.println("BoardController() 생성");
 	}
 	
-	@RequestMapping("/list")
-	public String list(Model model) {
-		
-		model.addAttribute("list", boardService.list());
-		return "board/list";
-	}
+	// REST 게시판 (list)
+		@RequestMapping("/list")
+		public String rest() {
+			return "board/list";
+		}
 	
 	@GetMapping("/write")
 	public String write(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {

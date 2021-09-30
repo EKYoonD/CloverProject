@@ -105,7 +105,6 @@
 				
 				<br><br>
 				<button onclick="location.href='updateRe?rep_uid=${list[0].rep_uid }'">수정하기</button>
-				<button onclick="location.href='list'">목록보기</button>
 				<button onclick="chkDelete(${list[0].rep_uid })">삭제하기</button>
 				<button onclick="location.href='list'">목록보기</button>
 				<button onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>

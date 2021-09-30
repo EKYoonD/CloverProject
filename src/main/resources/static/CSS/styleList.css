@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 body {
     background-color: #333;
     margin: 0;
@@ -107,6 +108,93 @@ header {
     }
 }
 
+/* 기본버튼 */
+.btn {
+	border: none;
+	color: white;
+	padding: 14px 28px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.success {background-color: black;} /* Black */
+.success:hover {background-color: black;}
+
+.info {background-color: #2196F3;} /* Blue */
+.info:hover {background: #0b7dda;}
+
+.warning {background-color: #ff9800;} /* Orange */
+.warning:hover {background: #e68a00;}
+
+.danger {background-color: black;} /* Red */ 
+.danger:hover {background: black;}
+
+.default {background-color: #e7e7e7; color: black;} /* Gray */ 
+.default:hover {background: #ddd;}
+
+/* 글 목록 */
+#list table {width: 100%;}
+#list table, #list th, #list td {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+#list td, #list th {
+	padding: 10px;
+}
+
+.clear {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+#list .subject:hover { /* 글 제목 위에 커서 올라간 경우 */
+	text-decoration: underline;
+	color: orange;
+	cursor: pointer;
+}
+
+/* [페이징] */
+.center {
+	text-align: center;
+}
+
+ul.pagination{
+	list-style-type: none;
+}
+
+ul.pagination li{
+	display: inline-block;
+}
+
+ul.pagination a {
+	color: black;
+	float: left;
+	padding: 4px 8px;
+	text-decoration: none;
+	transition: background-color .3s;
+	margin: 0px;
+}
+
+ul.pagination a.active {
+	background-color: black;
+	color: white;
+	border: 1px solid black;
+}
+
+ul.pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+table{
+	background-color: white;
+}
 
 .container1 {
     margin-top: 70px;
@@ -236,3 +324,30 @@ footer.container {
         flex: 0 0 30%;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
