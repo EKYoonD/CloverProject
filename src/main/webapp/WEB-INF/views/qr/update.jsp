@@ -57,7 +57,8 @@ function chkSubmit(){
 보호자 전화번호:
 <input type="text" name="phone" value ="${m.phone}"/><br>
 특이사항:
-<textarea name="content">${m.content }</textarea>
+<textarea name="content">${m.content }</textarea><br>
+<input type="hidden" name="userid" id="userid" value="${m.userid }"/>
 <br><br>
 <input type="submit" value="qr수정"/>
 </form>

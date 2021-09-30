@@ -116,8 +116,8 @@ public class QrDTO {
 	
 	@Override
 	public String toString() {
-		return String.format("QrDTO] %d : %s : %s : %d : %s : %s : %s ", 
-				uid, name, category, age, address, phone, content);
+		return String.format("QrDTO] %d : %s : %s : %d : %s : %s : %s : %s  ", 
+				uid, name, category, age, address, phone, content, userid);
 	}
 	
 

@@ -50,10 +50,10 @@ public class QrDAOImpl implements QrDAO {
 		return mapper.update(dto);
 	}
 
-	@Override
-	public int deleteByUid(int uid) {
-		return mapper.deleteByUid(uid);
-	}
+//	@Override
+//	public int deleteByUid(int uid) {
+//		return mapper.deleteByUid(uid);
+//	}
 
 	
 
