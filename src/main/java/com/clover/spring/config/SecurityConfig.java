@@ -31,10 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			
 			// ↓ /sample/user/** 주소로 들어오는 요청은 인증이 필요.
 			.antMatchers("/clover/user/**").authenticated()
-		
-			// ↓ /sample/user/** 주소로 들어오는 요청은 인증이 필요.
-			.antMatchers("/clover/user/**").authenticated()
-		
+
 			// ↓ /sample/member/** 주소로 들어오는 요청은 '인증' 뿐 아니라 ROLE_MEMBER 나 ROLE_ADMIN 권한을 갖고 있어야 한다 ('인가')
 			.antMatchers("/clover/member/**").access("hasRole('ROLE_MEMBER') or hasRole('ROLE_ADMIN')")
 			
@@ -56,6 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.defaultSuccessUrl("/main")   // 직접 /login → /loginOk 에서 성공하면 "/main" 로 이동시키기
 				// 만약 다른 특정페이지에 진입하려다 로그인 하여 성공하면 해당 페이지로 이동 (너무 편리!)
 			;
+			
 	}
 }
 
