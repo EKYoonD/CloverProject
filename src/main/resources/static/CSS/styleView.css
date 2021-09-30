@@ -15,6 +15,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index : 6;
 }
 .head1 {
     display:inline-block;
@@ -105,8 +106,8 @@ header {
     .head2{
         display:none;
     }
-<<<<<<< HEAD
 }
+
 
 
 .container1 {
@@ -133,6 +134,11 @@ header {
     letter-spacing: 0.05em;
 }
 
+#map {
+	position: relative;
+	z-index: 2;
+}
+
 /* .container1 a {
     text-decoration: none;
     font-size: 20px;
@@ -157,6 +163,7 @@ header {
         font-size: 65px;
     }
 }
+
 
 footer {
 
@@ -236,6 +243,4 @@ footer.container {
     .foot3 {
         flex: 0 0 30%;
     }
-=======
->>>>>>> branch 'master' of https://github.com/EKYoonD/CloverProject.git
 }

@@ -55,16 +55,19 @@ CREATE TABLE QR_Table
 	PRIMARY KEY (qr_uid)
 );
 
+DROP TABLE rep_write_table;
 
 CREATE TABLE Rep_Write_Table
 (
 	wr_rep_uid int NOT NULL AUTO_INCREMENT,
 	wr_longitude float,
 	wr_latitude float,
-	wr_content text NOT NULL,
+	wr_subject varchar(100) NOT NULL,
+	wr_content text,
 	wr_regdate datetime DEFAULT now(),
 	wr_img_path varchar(100),
 	wr_uid int NOT NULL,
+	user_uid int NOT NULL,
 	PRIMARY KEY (wr_rep_uid)
 );
 
@@ -150,6 +153,13 @@ ALTER TABLE Write_Table
 ALTER TABLE Rep_Write_Table
 	ADD FOREIGN KEY (wr_uid)
 	REFERENCES Write_Table (wr_uid)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
+;
+
+ALTER TABLE rep_write_table
+	ADD FOREIGN KEY (user_uid)
+	REFERENCES user_table(user_uid)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
@@ -160,10 +170,12 @@ SHOW tables;
 SELECT * FROM information_schema.table_constraints;
 SELECT * FROM write_table ORDER BY wr_uid desc;
 DELETE FROM write_table WHERE wr_uid = 10;
+DELETE FROM rep_write_table;
 
+DELETE FROM write_table WHERE wr_uid = 40 CASCADE ; 
 
 INSERT INTO write_table(wr_category, wr_subject, wr_content, wr_longitude, wr_latitude, user_uid) 
-values('부모님','제목없음', '내용없음', 127.123124, 37.123125, 1);
+values('부모님','찾아주세요', '내용없음', 127.123124, 37.123125, 1);
 
 SELECT wt.wr_uid uid, ut.user_name name, wt.wr_category, wt.wr_subject, wt.wr_content, wt.wr_longitude, wt.wr_latitude 
 FROM user_table ut, write_table wt WHERE ut.user_uid = wt.user_uid AND wt.wr_uid = 15;
@@ -176,5 +188,14 @@ INSERT INTO write_table(wr_category, wr_subject, wr_content, wr_latitude, wr_lon
 SELECT user_uid FROM user_table WHERE user_id='katie'
 
 SELECT * FROM rep_write_table;
-INSERT INTO rep_write_table (wr_longitude, wr_latitude, wr_content, wr_uid) 
-VALUES (127.123124, 37.123125, '여기서 찾았어요', 40);
+INSERT INTO rep_write_table (wr_longitude, wr_latitude, wr_content, wr_uid, user_uid) 
+VALUES (127.123124, 37.123125, '여기서 찾았어요', 40, 1);
+
+SELECT rwt.wr_rep_uid rep_uid, rwt.wr_content content, wt.wr_uid uid,  
+			rwt.wr_regdate regDate , rwt.wr_longitude longitude, rwt.wr_latitude latitude, rwt.wr_img_path imgPath 
+FROM write_table wt, rep_write_table rwt WHERE wt.wr_uid = rwt.wr_uid  AND rwt.wr_uid = 40 AND rwt.user_uid = 1;
+
+INSERT INTO rep_write_table (wr_longitude, wr_latitude, wr_subject, wr_uid, user_uid) 
+VALUES (127.123124, 37.123125, '여기서 찾았어요', 2, (SELECT user_uid FROM user_table WHERE user_id = 'katie'));
+SELECT user_uid FROM user_table WHERE user_id = 'katie';
+

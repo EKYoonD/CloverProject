@@ -25,6 +25,16 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>main</title>
+
+<link href="/CSS/styleBoardEdit.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>수정-${list[0].subject }</title>
 <script src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
 </head>
@@ -46,6 +56,26 @@ function chkSubmit(){
 </script>
 
 <body>
+<!--header-->
+ 			<header>
+        <div class="container">
+            <div class="head1">
+                <a  onclick="location.href='../../../../main'"><i class="fas fa-home"></i></a>
+                <span class="head3"><i class="far fa-caret-square-down"></i></span>
+            </div>
+            <nav class="head2">
+                <ul>
+                    <li><a onclick="location.href='../../../../about'">CLVOER</a></li>
+                    <li><a onclick="location.href='../qr'">MY QR</a></li>
+                    <li><a onclick="location.href='../order'">ORDER</a></li>
+                    <li><a onclick="location.href='../board/list'">FIND & FOUND</a></li>
+                    <li><a onclick="location.href='login'">JOIN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+<section class="container1">
+<div href class="container">
 <h2>수정</h2>
 <form name="frm" action="updateOk" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="uid" value="${list[0].uid }"/>
@@ -124,7 +154,34 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 </form>
 <button onclick="history.back();">이전으로</button>
 <button onclick="location.href='list'">목록보기</button>
-<br>
+<br><br><br>
+</div>
+</section>
+<!--footer-->
+   <footer>
+       <div class="container">
+           <div class="foot1">
+               <h2>CLVOER</h2>
+               <p>
+                   Web Address : <a href="https://katieyoon-the-developer.tistory.com/">https://katieyoon-the-developer.tistory.com/</a>
+               </p>
+           </div>
+           <div class="foot2">
+
+           </div>
+           <nav class="foot3">
+               <div>
+                   <h3>HELP</h3>
+                   <ul>
+                       <li><a href="#">Administrator</a></li>
+                       <li><a href="#">Frequently Asked Question(s)</a></li>
+                       <li><a href="#">Direct Calls</a></li>
+                   </ul>
+               </div>
+
+           </nav>
+       </div>
+   </footer>
 </body>
 </html>
 

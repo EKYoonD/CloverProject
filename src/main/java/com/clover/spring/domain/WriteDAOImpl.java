@@ -39,6 +39,11 @@ public class WriteDAOImpl implements WriteDAO {
 		
 		return mapper.selectByUid(uid);
 	}
+	
+	@Override
+	public int selectUidByUid(int uid) {
+		return mapper.selectUidByUid(uid);
+	}
 
 	@Override
 	public int update(WriteDTO dto) {

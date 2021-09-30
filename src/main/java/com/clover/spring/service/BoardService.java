@@ -80,6 +80,11 @@ public class BoardService {
 	public List<WriteDTO> selectByUid(int uid) {
 		return dao.selectByUid(uid);
 	}
+	
+	public int selectUidByUid(int uid) {
+		return dao.selectUidByUid(uid);
+	}
+	
 
 	public int update(WriteDTO dto) {
 		return dao.update(dto);

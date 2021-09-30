@@ -20,14 +20,16 @@ public class WriteReDTO {
 	
 	private int rep_uid;
 	private String content;
+	private String subject;
 	private LocalDateTime regDate;  // wr_regdate
 	private float longitude;
 	private float latitude;
 	private String imagePath;
 	private int uid;
+	private String userid;
 	
-	public WriteReDTO(int rep_uid, String content, LocalDateTime regDate, float longitude, float latitude,
-			String imagePath, int uid) {
+	public WriteReDTO(int rep_uid, String content, String subject, LocalDateTime regDate, float longitude, float latitude,
+			String imagePath, int uid, String userid) {
 		super();
 		this.rep_uid = rep_uid;
 		this.content = content;
@@ -36,10 +38,31 @@ public class WriteReDTO {
 		this.latitude = latitude;
 		this.imagePath = imagePath;
 		this.uid = uid;
+		this.userid = userid;
+		this.subject = subject;
 	}
+	
 	public WriteReDTO() {
 		super();
 	}
+	
+	
+	public String getSubject() {
+		return subject;
+	}
+
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+
+	public String getUserid() {
+		return userid;
+	}
+
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
+
 	public int getRep_uid() {
 		return rep_uid;
 	}

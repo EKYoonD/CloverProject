@@ -25,4 +25,6 @@ public interface WriteDAO {
 	// 특정 uid 글 조회수 증가
 	public abstract int incViewCnt(int uid);
 
+	public abstract int selectUidByUid(int uid);
+
 }
