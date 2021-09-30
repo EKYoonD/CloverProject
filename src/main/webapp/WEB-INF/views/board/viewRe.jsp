@@ -120,7 +120,6 @@
 						<tr>
 							<th>uid</th>
 							<th>제목</th>
-							<th>내용</th>
 							<th>rep_uid</th>
 							<th>등록일</th>
 						</tr>
@@ -133,7 +132,6 @@
 								<tr>
 									<td>${dto.uid }</td>
 									<td><a href="viewOneRe?rep_uid=${dto.rep_uid }">${dto.subject }</a></td>
-									<td>${dto.content }</td>
 									<td>${dto.rep_uid } </td>
 									<td>${dto.regDateTime }</td>
 								</tr>

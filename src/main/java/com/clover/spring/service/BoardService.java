@@ -2,6 +2,8 @@ package com.clover.spring.service;
 
 import java.util.*;
 
+import javax.validation.Valid;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -104,6 +106,10 @@ public class BoardService {
 
 	public List<WriteReDTO> viewReByRepUid(int rep_uid) {
 		return redao.selectReByUid(rep_uid);
+	}
+
+	public int updateRe(WriteReDTO redto) {
+		return redao.updateRe(redto);
 	}
 
 }

@@ -77,9 +77,9 @@ function chkSubmit(){
 <section class="container1">
 <div href class="container">
 <h2>수정</h2>
-<form name="frm" action="updateOk" method="post" onsubmit="return chkSubmit()">
+<form name="frm" action="updateReOk" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="uid" value="${list[0].uid }"/>
-작성자: ${list[0].name }<br> <%-- 작성자 이름은 변경 불가 --%>
+<input type="hidden" name="rep_uid" value="${list[0].rep_uid }"/>
 제목:
 <input type="text" name="subject" value="${list[0].subject }"/><span style="color:red">${ERROR.SUBJECT }</span><br>
 내용:<br>
