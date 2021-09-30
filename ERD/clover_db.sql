@@ -218,9 +218,9 @@ SELECT * FROM qr_table;
 INSERT INTO QR_Table
 			(qr_name, qr_category, qr_age, qr_address, qr_phone, qr_content, user_uid)
 		VALUES
-			('신현담', '부모님', 30, '서울', '01062423233', '찾아주세요',  (SELECT user_uid FROM user_table WHERE user_id = 'katie'));
-SELECT user_uid FROM user_table WHERE user_id = 'katie';
+			('신현담', '부모님', 30, '서울', '01062423233', '찾아주세요',  (SELECT user_uid FROM user_table WHERE user_id = 'shdking'));
+SELECT user_uid FROM user_table WHERE user_id = 'shdking';
 INSERT INTO QR_Table
 			(qr_name, qr_category, qr_age, qr_address, qr_phone, qr_content, user_uid)
 		VALUES
-			('신현담', '부모님', 30, '서울', '01062423233', '찾아주세요',  (SELECT user_uid FROM user_table WHERE user_id = 'katie'));
+			('신현담', '부모님', 30, '서울', '01062423233', '찾아주세요',  (SELECT user_uid FROM user_table WHERE user_id = 'shdking'));

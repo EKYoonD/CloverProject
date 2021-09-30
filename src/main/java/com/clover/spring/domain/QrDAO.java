@@ -19,8 +19,8 @@ public interface QrDAO {
 		// 특정 uid 글 수정 ( 제목, 내용 )
 		public abstract int update(QrDTO dto);
 		
-		// 특정 uid 글 삭제하기
-		public abstract int deleteByUid(int uid);
+//		// 특정 uid 글 삭제하기
+//		public abstract int deleteByUid(int uid);
 		
 		
 	}

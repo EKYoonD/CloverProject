@@ -118,7 +118,7 @@ public class QrController {
 				Map<String, Object> map = new HashMap<>();
 				map.put("age", "나이입력");
 				redirectAttributes.addFlashAttribute("ERROR", map);
-				return "redirect:/qr/update.mn?uid=" + dto.getUid();
+				return "redirect:/qr/update?uid=" + dto.getUid();
 			}
 		}
 
