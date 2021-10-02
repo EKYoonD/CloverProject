@@ -16,6 +16,7 @@ import lombok.extern.java.Log;
 
 @Log
 @Controller
+@RequestMapping("clover/member")
 public class kakaopayController {
     
     @Setter(onMethod_ = @Autowired)

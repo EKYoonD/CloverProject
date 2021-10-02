@@ -42,31 +42,22 @@
 			<nav class="head2">
 				<ul>
 					<li><a onclick="location.href='about'">CLVOER</a></li>
-					<li><a onclick="location.href='clover/member/qr/write'">MY QR</a></li>
-					<li><a onclick="location.href='order'">ORDER</a></li>
+					<li><a onclick="location.href='clover/member/qr/write'">MY
+							QR</a></li>
+					<li><a onclick="location.href='clover/member/order'">ORDER</a></li>
 					<li><a onclick="location.href='clover/member/board/list'">FIND
 							& FOUND</a></li>
 					<sec:authorize access="isAnonymous()">
-						
-							<a href="<c:url value="/login" />" id="loginOut">LOGIN</a>
-						
+
+						<a href="<c:url value="/login" />" id="loginOut">LOGIN</a>
+
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
-						
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
-						
+
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+
 					</sec:authorize>
 				</ul>
-
-
-
-				<!--  	<sec:authorize access="isAuthenticated()">
-		<form:form action="${pageContext.request.contextPath }/logout" method="POST">
-			<input type = "submit" id="logOut" value="로그아웃" />
-		</form:form>
-	</sec:authorize>
--->
-
 
 			</nav>
 		</div>
