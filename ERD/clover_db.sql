@@ -224,3 +224,20 @@ INSERT INTO QR_Table
 			(qr_name, qr_category, qr_age, qr_address, qr_phone, qr_content, user_uid)
 		VALUES
 			('신현담', '부모님', 30, '서울', '01062423233', '찾아주세요',  (SELECT user_uid FROM user_table WHERE user_id = 'shdking'));
+			
+CREATE table 
+(
+	wr_uid int NOT NULL AUTO_INCREMENT,
+	wr_category varchar(15) NOT NULL,
+	wr_content text,
+	wr_viewcnt int DEFAULT 0,
+	wr_subject varchar(20) NOT NULL,
+	wr_regdate datetime DEFAULT now(),
+	wr_longitude float,
+	wr_latitude float,
+	user_uid int NOT NULL,
+	PRIMARY KEY (wr_uid)
+);
+		
+		
+		

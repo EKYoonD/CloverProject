@@ -1,0 +1,245 @@
+@charset "UTF-8";
+
+body {
+    background-color: rgb(253, 251, 236);
+    margin: 0;
+    font-family: 
+        '맑은 고딕';
+     text-align: center;
+	 
+}
+
+table {
+    margin:auto; 
+    color: #555555;
+}
+
+table, td, th {
+    height: 50px;
+    border: 40px  ;
+}
+
+input {
+	width: 300px;
+	height: 25px;
+    border-radius: 4px;
+}
+h1{
+	color: white;
+}
+header {
+    overflow: hidden;
+    background-color: rgb(46, 53, 49);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+button {
+  margin: 0;
+  padding: 0.5rem 1rem;
+
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+
+  display: inline-block;
+  width: 130px;
+
+  border: none;
+  border-radius: 4px;
+  
+  cursor: pointer;
+
+  transition: 0.5s;
+  background-color: #008CBA;
+  color: white;
+}
+
+button:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+@media (min-width : 768px){ /* 768px보다 큰화면일때*/
+    header .container {
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right:auto;
+    }
+
+    .head2 ul{  /* 이것 때문에 엄청 헤맸다.. */
+        display:flex;
+    }
+
+    .head3{
+        display:none;
+    }
+
+    .head2{
+        display:block !important; /*매우 중요*/
+    }
+}
+
+@media (max-width : 767px){ /* 768px보다 작은화면일때*/
+    header .head1{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+    }
+
+    .head3{
+        margin-right: 10px;
+        padding:0;
+        border:none;
+        outline:none;
+        background:none;
+        font-size:28px;
+        cursor:pointer;
+    }
+
+    .head3:hover {
+        opacity:0.5
+    }
+    
+    .head2{
+        display:none;
+    }
+}
+
+.container1 {
+    margin-top: 70px;
+    text-align: center;
+    background-color: rgb(245, 223, 102);
+    background-image: linear-gradient(rgba(243, 235, 235, 0.05), rgba(0, 0, 0, 0.05)), url(../img/family3.png);
+    background-position: center;
+    background-size: cover;
+    height: 120vh;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+
+}
+
+.container1 h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 8vw;
+    text-shadow: 3vw;
+    font-family: 'Gugi', cursive;
+    letter-spacing: 0.05em;
+}
+
+.container1 a {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: 'Gugi', cursive;
+    color: rgb(202, 212, 216);
+    background-color:  rgb(46, 53, 49);
+    padding: 10px 30px;
+    border: solid 4px rgba(152, 153, 153, 0.747);
+    border-radius: 7px;
+    margin-top: 30px;
+    display: inline-block;
+}
+
+.container1 a:hover {
+    background-image: linear-gradient(rgba(22, 22, 22, 0.2),
+            rgba(22, 22, 22, 0.2));
+}
+
+@media (min-width: 768px) { /* 화면폭 768 이상이면 */
+
+    .container1 h1 {
+        font-size: 65px;
+    }
+}
+
+
+footer {
+
+    background-color: rgb(46, 53, 49);
+    color: whitesmoke;
+}
+
+footer.container {
+    padding: 40px 20px;
+}
+
+.foot1 h2 {
+    font-family: 'Gugi', cursive;
+    letter-spacing: 0.1em;
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+.foot1 p {
+    font-size: 16px;
+    font-family: 'Gugi', cursive;
+    text-decoration: none;
+    color: whitesmoke;
+    margin-left: 30px;
+}
+
+.foot1 a {
+    font-size: 16px;
+    font-family: 'Gugi', cursive;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.foot3 div {
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.foot3 h3 {
+    font-size: 20px;
+    font-family: 'Gugi', cursive;
+}
+
+.foot3 ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.foot3 a {
+    font-family: 'Gugi', cursive;
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (min-width: 768px) {
+
+    footer .container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        max-width: var(--large-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .foot1 {
+        flex: 0 0 50%;
+    }
+
+    .foot2 {
+        flex: 0 0 20%
+    }
+
+    .foot3 {
+        flex: 0 0 30%;
+    }
+}

@@ -1,0 +1,396 @@
+@charset "UTF-8";
+
+body {
+    background-color: #333;
+    margin: 0;
+    font-family: 'Gugi', cursive,
+        '맑은 고딕',
+        'Apple SD Gothic Neo',
+        sans-serif;
+}
+
+header {
+    overflow: hidden;
+    background-color: rgb(46, 53, 49);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.head1 {
+    display:inline-block;
+    line-height:70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color:whitesmoke;
+    font-family: 'Gugi', cursive;
+    font-size: 28px;
+    text-decoration: none;
+}
+
+.head2 ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+}
+
+.head2 li{
+    list-style: none;
+}
+
+.head2 a{
+    font-size: 21px;
+    display:block;
+    padding:30px;
+    color:whitesmoke;
+    text-decoration: none;
+}
+
+.head1 a{
+    color:whitesmoke;
+}
+
+.head1 a:hover{
+    color:rgb(172, 172, 172);
+}
+
+.head2 a:hover{
+    background-color: rgba(0,0,0,1);
+}
+
+@media (min-width : 768px){ /* 768px보다 큰화면일때*/
+    header .container {
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right:auto;
+    }
+
+    .head2 ul{  /* 이것 때문에 엄청 헤맸다.. */
+        display:flex;
+    }
+
+    .head3{
+        display:none;
+    }
+
+    .head2{
+        display:block !important; /*매우 중요*/
+    }
+}
+
+@media (max-width : 767px){ /* 768px보다 작은화면일때*/
+    header .head1{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+    }
+
+    .head3{
+        margin-right: 10px;
+        padding:0;
+        border:none;
+        outline:none;
+        background:none;
+        font-size:28px;
+        cursor:pointer;
+    }
+
+    .head3:hover {
+        opacity:0.5
+    }
+    
+    .head2{
+        display:none;
+    }
+}
+/* 콘텐츠A: 히어로 이미지 */
+
+
+.conA {
+    text-align: center;
+    background-color: rgb(247, 229, 127);
+    background-image: url(../img/family3.png); /* 배경이미지, 반투명 검정*/
+    background-position: center;  /* 중심점 */ 
+    background-size: cover;  /* 이미지 전체가 너비 전체에 보여짐 */
+    height: 150vh;  /* vh: 화면의 높이 = 100vh로 처리하는 단위 */
+    min-height: 450px;  /* 450보다 작아지지 않게 설정 */
+    display: flex;
+    align-items: center;  /* 세로 중앙 배치 */
+    justify-content: center;  /* content 중앙 배치 */
+    color: #fff;  /* CSS 변수 지원 안하는 브라우저용 */
+    color: var(--text-bright-color);   /* 변수에 설정한 색 */
+}
+
+.conA h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 15vw; /* 모바일 화면 320px 에서 1vw 는 3.2픽셀, 15vw = 48px  */
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.2em;  /* em : 폰트크기 = 1em 기준의 단위 */
+    margin-left: 0.2em;
+}
+
+.conA p{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+
+.conA img {
+    background-color: rgb(247, 229, 127);
+    width: 20%; 
+}
+
+.conA a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    color: var(--text-bright-color);
+    background-color: #BF6A7A;
+    background-color: var(--accent-color);
+    padding: 10px 30px;
+    border : solid 3px currentColor;  /* currentColor : 글자와 같은 색상 */
+    border-radius: 6px; 
+    margin-top: 20px; /* 처음에는 적용이 안되는 듯 하다 */
+    display: inline-block; /* inline 이면 margin 적용 안된다, 따라서 inline-block 적용 */
+}
+
+.conA a:hover	{  /* 커서 올라가면 조금 밝게 보이기 */
+	background-image: linear-gradient(
+		rgba(255,255,255,0.2),
+		rgba(255,255,255,0.2)
+	);
+}
+
+@media (min-width: 768px){ /* 화면폭 768 이상이면 */
+    .conA h1 {
+        font-size: 115px;
+    }
+    .conA p {
+        font-size: 24px;
+    }
+}
+
+/* 콘텐츠 B : 개요 (아이콘 + 텍스트 */
+.conB .container {
+    background-color: rgb(247, 229, 127);
+	padding-top: 80px;
+	padding-bottom: 20px;
+}
+
+.conB .text {
+    text-align: center;
+    padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 60px;
+}
+
+.conB h2 {
+	margin-top: 0;
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+
+.conB p {
+	margin-top: 0;
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 1.8;  /* 줄높이 : font-size 의 1.8배 */
+	opacity: 0.8;
+}
+
+.conB a {
+	text-decoration: none;
+	color: #5D9AB2;
+	color: var(--main-color);
+}
+
+.conB a:hover	{
+	text-decoration: underline;
+}
+
+.conB .icon	{
+    font-size: 40px;
+    width: 2em;    /* 폭 글꼴 크기의 2배 */
+    line-height: 2em; /* 높이, 글꼴 크기의 2배 */
+
+    color: #fff;
+	color: var(--icon-color);
+	background-color: #ddd;
+	background-color: var(--icon-bk-color);
+
+    border-radius: 50%;  /* 둥글게 만들기 */
+    text-align: center;
+
+    display: inline-block;  /* 아래 margin 적용을 위해 */
+	margin-bottom: 20px;
+}
+
+@media (min-width: 768px) { /* 768 이상 (pc) */
+    /* flexible box 기능으로 가로 정렬 */
+	.conB .container { /* 그래서, 부모를 flex 로 설정 */
+        display: flex;
+        max-width: 1000px;  /* 최대 폭 지정 */
+		max-width: var(--large-width);
+	  	margin-left: auto;
+		margin-right: auto;
+	}
+	.conB .text	{
+		flex: 1;  /* 1 : 1 : 1 비율 설정*/
+	}
+}
+
+/* 콘텐츠C: 개요(이미지 + 텍스트) */
+.conC {
+	background-color: rgb(247, 229, 127);
+	color: #333;
+}
+
+.conC .text {
+	padding: 20px; /* 글자주변 여백 */
+}
+
+.conC h2 {
+	margin-top: 0;
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+
+.conC p {
+	margin-top: 0;
+	margin-bottom: 20px;
+	font-size: 14px;
+	line-height: 1.8;
+	opacity: 0.8;
+}
+
+.conC a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    color: var(--text-bright-color);
+    background-color: #BF6A7A;
+    background-color: var(--accent-color);
+    padding: 10px 30px;
+    border : solid 3px currentColor;  /* currentColor : 글자와 같은 색상 */
+    border-radius: 6px; 
+    margin-top: 20px;
+    display: inline-block; /* inline 이면 margin 적용 안된다, 따라서 inline-block 적용 */
+}
+
+.conC a:hover	{  /* 커서 올라가면 조금 밝게 보이기 */
+	background-image: linear-gradient(
+		rgba(255,255,255,0.2),
+		rgba(255,255,255,0.2)
+	);
+}
+
+.conC .photo {
+	min-height: 200px;  /* 아무것도 없는 div 이기에 보이게 하려면 min-height 지정 */
+	background-image: url(img/note.jpg);
+	background-position: center;
+	background-size: cover;
+}
+
+@media (min-width: 768px) {
+    /* flexible box 기능으로 가로 정렬 */
+	.conC .container { /* 그래서, 부모를 flex 로 설정 */
+        display: flex;
+        /* 컨텐츠 B 와 너비 맞추기 */
+        max-width: 1000px;
+		max-width: var(--large-width);
+		margin-left: auto;
+		margin-right: auto;
+    }
+    /* 이미지 와 글자 3 : 2 비율 */
+    .conC .photo {
+		flex: 3;
+	}
+	.conC .text {
+        flex: 2;
+        padding: 50px; /* 글자주변 여백 */
+	}
+}
+
+footer {
+
+    background-color: rgb(46, 53, 49);
+    color: whitesmoke;
+}
+
+footer.container {
+    padding: 40px 20px;
+}
+
+.foot1 h2 {
+    font-family: 'Gugi', cursive;
+    letter-spacing: 0.1em;
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+.foot1 p {
+    font-size: 16px;
+    font-family: 'Gugi', cursive;
+    text-decoration: none;
+    color: whitesmoke;
+    margin-left: 30px;
+}
+
+.foot1 a {
+    font-size: 16px;
+    font-family: 'Gugi', cursive;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.foot3 div {
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.foot3 h3 {
+    font-size: 20px;
+    font-family: 'Gugi', cursive;
+}
+
+.foot3 ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.foot3 a {
+    font-family: 'Gugi', cursive;
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (min-width: 768px) {
+
+    footer .container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        max-width: var(--large-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .foot1 {
+        flex: 0 0 50%;
+    }
+
+    .foot2 {
+        flex: 0 0 20%
+    }
+
+    .foot3 {
+        flex: 0 0 30%;
+    }
+}

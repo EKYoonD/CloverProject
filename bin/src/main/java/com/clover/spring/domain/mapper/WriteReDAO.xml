@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.clover.spring.domain.WriteReDAO">
+
+  	<!-- WriteDAO에 있던 메소드명과 정확히 일치해야함 -->
+  	<!-- <select></select>는 쿼리문의 종류(SELECT, DML), id는 메소드명 -->
+  	<!-- 매소드 하나당 쿼리 하나 -->
+	
+  	
+  	<!-- writeOk.do -->
+  	<!-- 동일한 메소드 여러개 override 안됨 -->
+  	<insert id="insertRe" flushCache="true"
+		parameterType="com.clover.spring.domain.WriteReDTO"
+		keyProperty="rep_uid" useGeneratedKeys="true" keyColumn="rep_uid">		
+		INSERT INTO 
+			rep_write_table (wr_latitude, wr_longitude, wr_content, wr_subject, wr_uid, user_uid) 
+		VALUES ( #{latitude}, #{longitude}, #{content}, #{subject}, #{uid}, (SELECT user_uid FROM user_table WHERE user_id = #{userid}));
+	</insert>
+	
+	<!-- view.do -->
+	<!-- id는 메소드명, 매개변수는 #으로 받아올 수 있었음 -->
+	<select id = "selectRe" resultType="com.clover.spring.domain.WriteReDTO">
+		SELECT rwt.wr_rep_uid rep_uid, rwt.wr_subject subject, wt.wr_uid uid,  
+			rwt.wr_regdate regDate , rwt.wr_longitude longitude, rwt.wr_latitude latitude, rwt.wr_img_path imgPath 
+		FROM write_table wt, rep_write_table rwt 
+		WHERE wt.wr_uid = rwt.wr_uid  AND rwt.wr_uid = #{uid};
+	</select>
+	
+	<!-- viewOne -->
+	<select id = "selectReByUid" resultType="com.clover.spring.domain.WriteReDTO">
+		SELECT wr_rep_uid rep_uid, wr_latitude latitude, wr_longitude longitude, wr_subject subject, wr_content content, wr_regdate regdate, wr_uid uid
+		FROM rep_write_table WHERE wr_rep_uid = #{rep_uid};
+	</select>
+
+	<!-- update -->
+	<update id="updateRe" flushCache="true" parameterType="com.clover.spring.domain.WriteReDTO">
+		UPDATE
+			rep_write_table
+		SET
+			wr_subject = #{subject}, wr_content = #{content}, wr_latitude=#{latitude}, wr_longitude=#{longitude}
+		WHERE 
+			wr_rep_uid = #{rep_uid}
+	</update>
+	
+	<!-- deleteByRepUid -->
+	<delete id="deleteByRepUid" flushCache="true">
+		DELETE FROM
+			rep_write_table
+		WHERE
+			wr_rep_uid = #{rep_uid}
+	</delete>
+	
+  </mapper>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
