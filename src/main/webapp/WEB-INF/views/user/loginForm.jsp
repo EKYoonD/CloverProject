@@ -69,6 +69,8 @@
 	</li>
 </ul>
 
+<a href="/oauth2/authorization/kakao">카카오 아이디로 로그인</a>
+
 <script>
 function loginChk() {
     var form = document.frm;

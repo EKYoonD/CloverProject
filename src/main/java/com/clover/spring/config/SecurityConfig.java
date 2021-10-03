@@ -1,11 +1,15 @@
 package com.clover.spring.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
+import org.springframework.security.oauth2.client.userinfo.OAuth2UserService;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 
 // 스프링 시큐리티 설정
 
@@ -22,6 +26,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		return new BCryptPasswordEncoder();
 	}
 	
+	@Autowired
+	private OAuth2UserService<OAuth2UserRequest, OAuth2User> customOAuth2UserService;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -52,7 +58,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 									// 이와 같이 하면 Controller 에서 /longinOk 를 만들지 않아도 된다!
 			.defaultSuccessUrl("/main")   // 직접 /login → /loginOk 에서 성공하면 "/main" 로 이동시키기
 				// 만약 다른 특정페이지에 진입하려다 로그인 하여 성공하면 해당 페이지로 이동 (너무 편리!)
-			;
+			 .and()
+             .oauth2Login()
+             .defaultSuccessUrl("/main")
+             .userInfoEndpoint()
+             .userService(customOAuth2UserService);
 			
 	}
 }

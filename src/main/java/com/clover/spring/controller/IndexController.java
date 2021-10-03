@@ -46,7 +46,7 @@ public class IndexController {
 		return "user/joinForm";
 	}
 	
-	@PostMapping("/oauth_kakao")
+	@GetMapping("/oauth_kakao")
 	public String kakaologinOk() {
 		return "redirect:/main";
 	}
