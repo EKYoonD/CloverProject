@@ -64,12 +64,10 @@ public class BoardController {
 		
 		WriteDTO dto = new WriteDTO();
 		
-//		String name = this.findNameByUserId(userDetails.getUsername());
 		String userid = userDetails.getUsername();
 		redirectAttributes.addAttribute("userid", userid);
 		
 		dto.setUserid(userid);
-//		dto.setName(name);
 		model.addAttribute("w", dto);   // auto-generated key 받아와
 		
 		return "board/write";

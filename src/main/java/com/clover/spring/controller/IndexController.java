@@ -66,19 +66,3 @@ public class IndexController {
 	
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

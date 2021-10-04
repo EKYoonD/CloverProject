@@ -107,6 +107,9 @@ CREATE TABLE Write_Table
 
 SHOW tables;
 
+ALTER TABLE write_table ADD wr_img_path varchar(200);
+SELECT * FROM rep_write_table wt;
+
 /* Create Foreign Keys */
 
 ALTER TABLE Payment_Table

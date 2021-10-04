@@ -69,7 +69,7 @@
 		allowedContent: true,  // HTML 태그 자동삭제 방지설정
 		width: '640px',
 		height: '200px',
-		filebrowserUploadUrl: '${pageContext.request.contextPath}/ckUpload'
+		filebrowserUploadUrl: '${pageContext.request.contextPath}/upload/image'
 	});
 </script>
 
