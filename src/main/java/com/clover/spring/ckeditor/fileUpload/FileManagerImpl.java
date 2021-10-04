@@ -38,11 +38,6 @@ public class FileManagerImpl implements FileManager {
             e.printStackTrace();
         }
         
-        System.out.println("storageRoot = " + storageRoot);
-        System.out.println("path = " + path);
-        System.out.println("fileName = " + fileName);
-        System.out.println("file = " + file);
-        
         return path;
 	}
 

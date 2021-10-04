@@ -1,16 +1,7 @@
 package com.clover.spring.controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,15 +16,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.clover.spring.WriteReValidator;
 import com.clover.spring.WriteValidator;
 import com.clover.spring.domain.WriteDTO;
-import com.clover.spring.domain.WriteReDTO;
 import com.clover.spring.service.BoardService;
 
 @Controller
@@ -64,10 +50,12 @@ public class BoardController {
 		
 		WriteDTO dto = new WriteDTO();
 		
+//		String name = this.findNameByUserId(userDetails.getUsername());
 		String userid = userDetails.getUsername();
 		redirectAttributes.addAttribute("userid", userid);
 		
 		dto.setUserid(userid);
+//		dto.setName(name);
 		model.addAttribute("w", dto);   // auto-generated key 받아와
 		
 		return "board/write";
