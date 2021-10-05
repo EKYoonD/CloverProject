@@ -15,12 +15,6 @@ import com.clover.spring.domain.WriteDTO;
 import com.clover.spring.domain.WriteReDAO;
 import com.clover.spring.domain.WriteReDTO;
 
-//Service 단.
-//JSP MVC model2 의 Command 역할 비슷
-//    Controller -> Commmand -> DAO
-//- Transaction 담당
-//Spring
-//@Controller -> @Service -> DAO -> JdbcTemplate
 
 @Service
 public class BoardService {

@@ -1,0 +1,31 @@
+package com.clover.spring.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.clover.spring.domain.QrDAO;
+import com.clover.spring.domain.UserDAO;
+import com.clover.spring.domain.WriteDAO;
+import com.clover.spring.domain.WriteReDAO;
+
+@Service
+public class AdminService {
+	
+	@Autowired
+	UserDAO udao;
+	@Autowired
+	WriteDAO wrdao;
+	@Autowired
+	WriteReDAO wrredao;
+	@Autowired
+	QrDAO qrdao;
+	
+
+	public AdminService() {
+		System.out.println("AdminService() 생성");
+	}
+	
+	// TODO
+	
+
+}

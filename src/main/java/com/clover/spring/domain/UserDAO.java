@@ -27,6 +27,8 @@ public interface UserDAO {
 	// 특정 id (username) 의 권한(들) 뽑기
 	List<String> selectAuthoritiesById(String id);
 	
+	List<UserDTO> selectByUid(int uid);
+	
 } // end DAO
 
 
