@@ -52,6 +52,12 @@ public class UserDAOImpl implements UserDAO {
 		return mapper.selectAuthoritiesById(id);
 	}
 
+	@Override
+	public List<UserDTO> selectByUid(int uid) {
+		return mapper.selectByUid(uid);
+	}
+
+
 	
 
 }
