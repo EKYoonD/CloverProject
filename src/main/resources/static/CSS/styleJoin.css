@@ -1,39 +1,46 @@
 @charset "UTF-8";
 
 body {
-    background-color: rgb(253, 251, 236);
+    background-image:url(https://www.teahub.io/photos/full/0-3357_3840x2160-silver-blur-background-wallpaper-wallpaper-high-resolution.jpg);
     margin: 0;
     font-family: 
         '맑은 고딕';
      text-align: center;
-	 
+}
+
+#joindiv{
+position: absolute;
+  left: 50%;
+  height:500px;
+  width:80%;
+  transform: translateX(-50%);
+  
 }
 
 table {
     margin:auto; 
-    color: #555555;
+   	color: #2F4F4F;
+    width:80%;
+    font-size: 20px
 }
 
 table, td, th {
-    height: 50px;
-    border: 40px  ;
+    height: 70px;
 }
 
 input {
-	width: 300px;
+	width: 90%;
 	height: 25px;
     border-radius: 4px;
 }
 h1{
-	color: white;
+	color: black;
 }
 header {
-    overflow: hidden;
-    background-color: rgb(46, 53, 49);
-    position: fixed;
-    top: 0;
-    width: 100%;
+	display: flex;
+	justify-content: center;
 }
+
 
 button {
   margin: 0;
@@ -46,7 +53,7 @@ button {
   text-decoration: none;
 
   display: inline-block;
-  width: 130px;
+  width: 67%;
 
   border: none;
   border-radius: 4px;
@@ -163,83 +170,3 @@ button:hover {
     }
 }
 
-
-footer {
-
-    background-color: rgb(46, 53, 49);
-    color: whitesmoke;
-}
-
-footer.container {
-    padding: 40px 20px;
-}
-
-.foot1 h2 {
-    font-family: 'Gugi', cursive;
-    letter-spacing: 0.1em;
-    font-size: 25px;
-    margin-bottom: 10px;
-    margin-left: 30px;
-}
-
-.foot1 p {
-    font-size: 16px;
-    font-family: 'Gugi', cursive;
-    text-decoration: none;
-    color: whitesmoke;
-    margin-left: 30px;
-}
-
-.foot1 a {
-    font-size: 16px;
-    font-family: 'Gugi', cursive;
-    text-decoration: none;
-    color: whitesmoke;
-}
-
-.foot3 div {
-    margin-left: 30px;
-    margin-top: 20px;
-    margin-bottom: 30px;
-}
-
-.foot3 h3 {
-    font-size: 20px;
-    font-family: 'Gugi', cursive;
-}
-
-.foot3 ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.foot3 a {
-    font-family: 'Gugi', cursive;
-    text-decoration: none;
-    color: inherit;
-}
-
-@media (min-width: 768px) {
-
-    footer .container {
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 1000px;
-        max-width: var(--large-width);
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .foot1 {
-        flex: 0 0 50%;
-    }
-
-    .foot2 {
-        flex: 0 0 20%
-    }
-
-    .foot3 {
-        flex: 0 0 30%;
-    }
-}

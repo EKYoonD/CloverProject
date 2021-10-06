@@ -31,6 +31,7 @@
 
 </head>
 
+
 <body>
 	<!--header-->
 	<header>
@@ -49,7 +50,7 @@
 							& FOUND</a></li>
 					<sec:authorize access="isAnonymous()">
 
-						<a href="<c:url value="/login" />" id="loginOut">LOGIN</a>
+						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
 
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">

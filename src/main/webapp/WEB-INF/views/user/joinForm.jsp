@@ -91,66 +91,63 @@
 </script>
 </head>
 <body>
-	<!--header-->
-	<header>
-		<h1>회원가입</h1>
-	</header>
-	<hr>
-	<br><br><br><br><br><br>
-	<form name="frm" action="/joinOk" method="POST" onsubmit="return checks()">
-		<table>
-			<tr>
-				<td>아이디</td>
-				<td><input type="text" name="id" id="id" placeHolder="4~12자의 영문 대소문자와 숫자로만 입력해주세요" /><br></td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td><input type="password" name="pw" id="pw" placeHolder="특수문자 / 문자 / 숫자 포함 형태의 8~15자리" /><br></td>
-			</tr>
-			<tr>
-				<td>이름</td>
-				<td><input type="text" name="name" id="name" placeHolder="이름을 입력헤주세요" /><br></td>
-			</tr>
-			<tr>
-				<td>주소</td>
-				<td><input type="text" name="address" id="address" placeHolder="주소를 입력해주세요" /></td>
-			</tr>
-			<tr>
-				<td>이메일</td>
-				<td><input type="text" name="email" id="email" placeHolder="이메일을 입력해주세요" /></td>
-			</tr>
-			<tr>
-				<td>휴대폰번호</td>
-				<td><input type="text" name="phone" id="phone" placeHolder="'-'를 제외하고 입력해주세요" maxlength="11" /></td>
-			</tr>
-		</table>
-		<br>
-		<br>
-			<button type="submit" value="회원가입">회원가입</button>
-	</form>
 	<br>
-	<br><br><br><br>
-<!--footer-->
-<footer>
-	<div class="container">
-		<div class="foot1">
-			<h2>CLVOER</h2>
-			<p>
-				Web Address : <a href="https://katieyoon-the-developer.tistory.com/">https://katieyoon-the-developer.tistory.com/</a>
-			</p>
-		</div>
-		<div class="foot2"></div>
-		<nav class="foot3">
-			<div>
-				<h3>HELP</h3>
-				<ul>
-					<li><a href="#">Administrator</a></li>
-					<li><a href="#">Frequently Asked Question(s)</a></li>
-					<li><a href="#">Direct Calls</a></li>
-				</ul>
-			</div>
-		</nav>
+	<br>
+	<br>
+	<br>
+	<br>
+	<!--header-->
+	<div id="joindiv">
+		<header>
+			<h1>회원가입</h1>
+		</header>
+		<br> <br>
+		<form name="frm" action="/joinOk" method="POST"
+			onsubmit="return checks()">
+			<table>
+				<tr>
+					<td>아이디</td>
+					<td><input type="text" name="id" id="id"
+						placeHolder="4~12자의 영문 대소문자와 숫자로만 입력해주세요" /><br></td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="pw" id="pw"
+						placeHolder="특수문자 / 문자 / 숫자 포함 형태의 8~15자리" /><br></td>
+				</tr>
+				<tr>
+					<td>이름</td>
+					<td><input type="text" name="name" id="name"
+						placeHolder="이름을 입력헤주세요" /><br></td>
+				</tr>
+				<tr>
+					<td>주소</td>
+					<td><input type="text" name="address" id="address"
+						placeHolder="주소를 입력해주세요" /></td>
+				</tr>
+				<tr>
+					<td>이메일</td>
+					<td><input type="text" name="email" id="email"
+						placeHolder="이메일을 입력해주세요" /></td>
+				</tr>
+				<tr>
+					<td>휴대폰번호</td>
+					<td><input type="text" name="phone" id="phone"
+						placeHolder="'-'를 제외하고 입력해주세요" maxlength="11" /></td>
+				</tr>
+			</table>
+			<br> 
+			<br>
+			<br>
+			<br>
+			<button type="submit" value="회원가입">회원가입</button>
+		</form>
 	</div>
-</footer>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+
 </body>
 </html>

@@ -34,10 +34,8 @@ public class IndexController {
 	// Spring Security(이하 '시큐리티') 가 적용되면
 	// /login 등의 url 로의 request 를  시큐리티가 모두 낚아 챕니다.
 	// 나중에 SecurityConfig 가 설정되면 낚아 채지 않게 된다.
-	@GetMapping("/login")
-	//@ResponseBody
+	@GetMapping("/login2")
 	public String login() {
-		
 		return "user/loginForm";
 	}
 	
@@ -46,10 +44,7 @@ public class IndexController {
 		return "user/joinForm";
 	}
 	
-	@GetMapping("/oauth_kakao")
-	public String kakaologinOk() {
-		return "redirect:/main";
-	}
+	
 	
 	@PostMapping("/joinOk")
 	public String joinOk(UserDTO user) {
@@ -59,9 +54,10 @@ public class IndexController {
 		String encPassword = passwordEncoder.encode(rawPassword);
 		user.setPw(encPassword);
 		
-		int cnt = userService.addMember(user);
+		int cnt = userService.addUser(user);
 		
-		return "redirect:/login";
+		
+		return "redirect:login2";
 	}
 	
 

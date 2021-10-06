@@ -23,11 +23,6 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public int addAuth(String id, String auth) {
-		return mapper.addAuth(id, auth);
-	}
-
-	@Override
 	public int deleteUser(UserDTO user) {
 		return mapper.deleteUser(user);
 	}
