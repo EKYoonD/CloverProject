@@ -40,15 +40,13 @@ public class PrincipalDetails implements UserDetails{
 		this.user = user;
 	}
 	
-	
-	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		System.out.println("getAuthorities() 호출");
 		
 		Collection<GrantedAuthority> collect = new ArrayList<>();
 		
-		List<String> list = userService.selectAuthoritiesById(user.getId());
+		List<String> list = userService.selectAuthoritiesById(user.getEmail());
 		
 		for(String auth : list) {
 			collect.add(new GrantedAuthority() {
@@ -68,15 +66,20 @@ public class PrincipalDetails implements UserDetails{
 		return user.getPw();
 	}
 
-	@Override
-	public String getUsername() {
-		return user.getId();
-	}
-
 	// 계정이 만료된건 아닌지?
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;
+	}
+	
+	@Override
+	public String getUsername() {
+		return user.getName();
+	}
+
+	// 로그인 API와 같은 형식으로 email 값 가져오기
+	public String getAttributes() {
+		return "email=" + user.getEmail() + ",";
 	}
 
 	// 계정이 잠긴건 아닌지?
@@ -101,13 +104,4 @@ public class PrincipalDetails implements UserDetails{
 	}
 
 }
-
-
-
-
-
-
-
-
-
 

@@ -7,9 +7,6 @@ public interface UserDAO {
 	// 사용자 추가
 	int addUser(UserDTO user);
 	
-	// 사용자 권한 추가
-	int addAuth(String id, String auth);
-	
 	// 사용자 삭제
 	int deleteUser(UserDTO user);
 	

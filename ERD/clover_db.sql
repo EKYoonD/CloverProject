@@ -7,8 +7,8 @@ DROP TABLE IF EXISTS Order_Table;
 DROP TABLE IF EXISTS QR_Table;
 DROP TABLE IF EXISTS Rep_Write_Table;
 DROP TABLE IF EXISTS Write_Table;
-DROP TABLE IF EXISTS User_Table;
-DROP TABLE IF EXISTS User_Authority;
+DROP TABLE IF EXISTS userdto;
+drop table if exists user_table;
 
 SHOW tables;
 
@@ -71,24 +71,22 @@ CREATE TABLE Rep_Write_Table
 );
 
 
-CREATE TABLE User_Table
+CREATE TABLE userdto 
 (
 	user_uid int NOT NULL AUTO_INCREMENT,
-	user_id varchar(20) NOT NULL,
-	user_pw varchar(256) NOT NULL,
+	user_id varchar(20) ,
+	user_pw varchar(256) ,
 	user_name varchar(10) NOT NULL,
-	user_address varchar(320) NOT NULL,
+	user_address varchar(320) ,
 	user_email varchar(80) NOT NULL,
-	user_phone varchar(12) NOT NULL,
+	user_phone varchar(12),
+	user_picture varchar(100),
+	user_role varchar(50),
 	PRIMARY KEY (user_uid),
 	UNIQUE (user_id)
 );
 
-CREATE table User_Authority (
-	user_id varchar(50) REFERENCES test_member(user_id),
-	user_auth varchar(50) NOT NULL,        -- 시큐리티의 authority
-	PRIMARY KEY (user_id, user_auth)
-)
+select * from userdto;
 
 
 CREATE TABLE Write_Table
@@ -130,7 +128,7 @@ ALTER TABLE Order_Table
 
 ALTER TABLE Order_Table
 	ADD FOREIGN KEY (user_uid)
-	REFERENCES User_Table (user_uid)
+	REFERENCES userdto (user_uid)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
@@ -138,7 +136,7 @@ ALTER TABLE Order_Table
 
 ALTER TABLE QR_Table
 	ADD FOREIGN KEY (user_uid)
-	REFERENCES User_Table (user_uid)
+	REFERENCES userdto (user_uid)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
@@ -146,7 +144,7 @@ ALTER TABLE QR_Table
 
 ALTER TABLE Write_Table
 	ADD FOREIGN KEY (user_uid)
-	REFERENCES User_Table (user_uid)
+	REFERENCES userdto (user_uid)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
@@ -161,13 +159,13 @@ ALTER TABLE Rep_Write_Table
 
 ALTER TABLE rep_write_table
 	ADD FOREIGN KEY (user_uid)
-	REFERENCES user_table(user_uid)
+	REFERENCES userdto(user_uid)
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
 
 DESC write_table;
-SELECT * FROM user_table;
+SELECT * FROM userdto;
 SELECT * FROM qr_table;
 SHOW tables;
 SELECT * FROM information_schema.table_constraints;
@@ -181,14 +179,14 @@ INSERT INTO write_table(wr_category, wr_subject, wr_content, wr_longitude, wr_la
 values('부모님','찾아주세요', '내용없음', 127.123124, 37.123125, 1);
 
 SELECT wt.wr_uid uid, ut.user_name name, wt.wr_category, wt.wr_subject, wt.wr_content, wt.wr_longitude, wt.wr_latitude 
-FROM user_table ut, write_table wt WHERE ut.user_uid = wt.user_uid AND wt.wr_uid = 15;
+FROM userdto ut, write_table wt WHERE ut.user_uid = wt.user_uid AND wt.wr_uid = 15;
 
 SELECT wt.wr_uid, ut.user_name, wt.wr_category, wt.wr_subject, wt.wr_content, wt.wr_longitude, wt.wr_latitude 
-FROM user_table ut, write_table wt WHERE wt.user_uid = ut.user_uid ORDER BY wr_uid desc;
+FROM userdto ut, write_table wt WHERE wt.user_uid = ut.user_uid ORDER BY wr_uid desc;
 
 INSERT INTO write_table(wr_category, wr_subject, wr_content, wr_latitude, wr_longitude, user_uid) 
-		VALUES('부모님', '찾아주세요', '네',  37.123125, 127.123124, (SELECT user_uid FROM user_table WHERE user_id='katie'));
-SELECT user_uid FROM user_table WHERE user_id='katie'
+		VALUES('부모님', '찾아주세요', '네',  37.123125, 127.123124, (SELECT user_uid FROM userdto WHERE user_id='katie'));
+SELECT user_uid FROM userdto WHERE user_id='katie'
 
 SELECT * FROM rep_write_table;
 <<<<<<< HEAD
@@ -203,7 +201,7 @@ SELECT rwt.wr_rep_uid rep_uid, rwt.wr_content content, wt.wr_uid uid,
 FROM write_table wt, rep_write_table rwt WHERE wt.wr_uid = rwt.wr_uid  AND rwt.wr_uid = 40 AND rwt.user_uid = 1;
 
 INSERT INTO rep_write_table (wr_longitude, wr_latitude, wr_subject, wr_uid, user_uid) 
-VALUES (127.123124, 37.123125, '여기서 찾았어요', 42, (SELECT user_uid FROM user_table WHERE user_id = 'katie'));
+VALUES (127.123124, 37.123125, '여기서 찾았어요', 42, (SELECT user_uid FROM userdto WHERE user_id = 'katie'));
 
 
 DELETE FROM
@@ -221,11 +219,12 @@ SELECT * FROM qr_table;
 INSERT INTO QR_Table
 			(qr_name, qr_category, qr_age, qr_address, qr_phone, qr_content, user_uid)
 		VALUES
-			('신현담', '부모님', 30, '서울', '01062423233', '찾아주세요',  (SELECT user_uid FROM user_table WHERE user_id = 'shdking'));
-SELECT user_uid FROM user_table WHERE user_id = 'shdking';
+			('신현담', '부모님', 30, '서울', '01062423233', '찾아주세요',  (SELECT user_uid FROM userdto WHERE user_id = 'shdking'));
+SELECT user_uid FROM userdto WHERE user_id = 'shdking';
 INSERT INTO QR_Table
 			(qr_name, qr_category, qr_age, qr_address, qr_phone, qr_content, user_uid)
 		VALUES
+<<<<<<< HEAD
 			('신현담', '부모님', 30, '서울', '01062423233', '찾아주세요',  (SELECT user_uid FROM user_table WHERE user_id = 'shdking'));
 			
 CREATE table 
@@ -253,3 +252,7 @@ SELECT
 		FROM User_Table
 		ORDER BY user_uid DESC;
 		
+=======
+			('신현담', '부모님', 30, '서울', '01062423233', '찾아주세요',  (SELECT user_uid FROM userdto WHERE user_id = 'shdking'));
+			
+>>>>>>> branch 'master' of https://github.com/EKYoonD/CloverProject.git

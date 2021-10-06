@@ -1,90 +1,57 @@
 package com.clover.spring.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class UserDTO {
-	private int uid; 
-	private String id; 
-	private String pw;
-	private String name; 
-	private String address; 
-	private String email; 
-	private String phone;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="user_uid")
+	private int uid;
+	@Column(name="user_id")
+	private String id; // user_id
+	@Column(name="user_pw")
+	private String pw; // user_pw
+	@Column(name="user_name")
+	private String name; // user_name
+	@Column(name="user_phone")
+	private String phone; // user_phone
+	@Column(name="user_email")
+	private String email; // user_email
+	@Column(name="user_address")
+	private String address; // user_addr
+	@Column(name="user_picture")
+	private String picture; // user_picture
+	@Column(name="user_role")
+	private String role = "ROLE_USER";
 	
-	public UserDTO() {
-		super();
-	}
-
-	public UserDTO(int uid, String id, String pw, String name, String address, String email, String phone) {
-		super();
-		this.uid = uid;
-		this.id = id;
-		this.pw = pw;
+	public UserDTO(String name, String email, String picture, String phone) {
 		this.name = name;
-		this.address = address;
 		this.email = email;
+		this.picture = picture;		
 		this.phone = phone;
 	}
 
-	public int getUid() {
-		return uid;
-	}
-
-	public void setUid(int uid) {
-		this.uid = uid;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getPw() {
-		return pw;
-	}
-
-	public void setPw(String pw) {
-		this.pw = pw;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
+	public UserDTO update(String name, String picture, String phone) {
 		this.name = name;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
+		this.picture = picture;
 		this.phone = phone;
+		return this;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "UserDTO [uid=" + uid + ", id=" + id + ", pw=" + pw + ", name=" + name + ", address=" + address
-				+ ", email=" + email + ", phone=" + phone + "]";
+		return String.format("%s %s", email, pw);
 	}
-	
-
 }

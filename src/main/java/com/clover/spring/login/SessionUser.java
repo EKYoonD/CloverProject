@@ -1,8 +1,8 @@
-package com.clover.spring.kakao;
+package com.clover.spring.login;
 
 import java.io.Serializable;
 
-import com.clover.spring.kakao.User;
+import com.clover.spring.domain.UserDTO;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +15,7 @@ public class SessionUser implements Serializable {
 	private String email;
 	private String picture;
 	
-	public SessionUser(User user) {
+	public SessionUser(UserDTO user) {
 		this.name = user.getName();
 		this.email = user.getEmail();
 		this.picture = user.getPicture();

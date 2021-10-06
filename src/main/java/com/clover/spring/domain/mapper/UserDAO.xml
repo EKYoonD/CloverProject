@@ -3,29 +3,15 @@
 <mapper namespace="com.clover.spring.domain.UserDAO">
 
 	<insert id="addUser" parameterType="com.clover.spring.domain.UserDTO">
-		INSERT INTO User_Table(user_id, user_pw, user_name, user_address, user_email, user_phone)
-		VALUES(#{id}, #{pw}, #{name}, #{address}, #{email}, #{phone})
+		INSERT INTO userdto(user_id, user_pw, user_name, user_address, user_email, user_phone, user_role)
+		VALUES(#{id}, #{pw}, #{name}, #{address}, #{email}, #{phone}, "ROLE_USER")
 	</insert>
-	
-	<insert id="addAuth">
-		INSERT INTO User_Authority
-		VALUES(#{param1}, #{param2})
-	</insert>
+
 
 	<delete id="deleteUser" parameterType="com.clover.spring.domain.UserDTO">
-		DELETE FROM User_Table
+		DELETE FROM userdto
 		WHERE user_id = #{id}
 	</delete>	
-	
-	<delete id="deleteAuth">
-		DELETE FROM User_Authority
-		WHERE user_id = #{param1} AND user_auth = #{param2}
-	</delete>
-
-	<delete id="deleteAuths">
-		DELETE FROM User_Authority
-		WHERE user_id = #{param1}
-	</delete>
 
 	<select id="findById" resultType="com.clover.spring.domain.UserDTO">
 		SELECT
@@ -36,7 +22,7 @@
 			user_address address, 
 			user_email email, 
 			user_phone phone
-		FROM User_Table
+		FROM userdto
 		WHERE user_id = #{id}	
 	</select>
 	
@@ -69,14 +55,14 @@
 	<select id="findNameByUserId" resultType="String">
 		SELECT
 			user_name name
-		FROM User_Table
+		FROM userdto
 		WHERE user_id = #{id}	
 	</select>
 
 	<select id="selectAuthoritiesById" resultType="String">
-		SELECT user_auth
-		FROM User_Authority
-		WHERE user_id = #{id}
+		SELECT user_role
+		FROM userdto
+		WHERE user_email = #{email}
 	</select>
 
 </mapper>

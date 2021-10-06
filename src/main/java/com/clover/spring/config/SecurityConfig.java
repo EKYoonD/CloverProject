@@ -39,20 +39,25 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 			.antMatchers("/clover/user/**").authenticated()
 
 			// ↓ /sample/member/** 주소로 들어오는 요청은 '인증' 뿐 아니라 ROLE_MEMBER 나 ROLE_ADMIN 권한을 갖고 있어야 한다 ('인가')
-			.antMatchers("/clover/member/**").access("hasRole('ROLE_MEMBER') or hasRole('ROLE_ADMIN')")
+			.antMatchers("/clover/member/**").access("hasRole('ROLE_MEMBER') or hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')")
 			
 			// ↓ /sample/admin/**  주소로 들어오는 요청은 '인증' 뿐 아니라 ROLE_ADMIN 권한을 갖고 있어야 한다 ('인가')
 			.antMatchers("/clover/admin/**").access("hasRole('ROLE_ADMIN')")
 			
 			// ↓ 그 밖의 다른 요청은 모두 permit!
 			.anyRequest().permitAll()
-		
+			
+			.and()
+			.logout()
+			.clearAuthentication(true)
+			.invalidateHttpSession(true)
+			.deleteCookies("JSESSIONID")
+			.logoutSuccessUrl("/main")
 			// 접근오류(권한오류) 발생시 /login 으로 이동시키기 
 			.and()
-			.formLogin()
-			.loginPage("/login")
-		
 			// 로그인 처리
+			.formLogin()
+			.loginPage("/loginForm")
 			.usernameParameter("userid")   // 만약 로그인 username 이 name="username" 이 아닌경우
 			.loginProcessingUrl("/loginOk")  // "/loginOk" url 로 request 가 들어오면 시큐리티가 낚아채서 처리, 대신 로그인을 진행해준다.
 									// 이와 같이 하면 Controller 에서 /longinOk 를 만들지 않아도 된다!

@@ -1,5 +1,7 @@
 package com.clover.spring.config;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -7,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.clover.spring.domain.UserDTO;
+import com.clover.spring.login.SessionUser;
 import com.clover.spring.service.UserService;
 
 //UserDetailsService
@@ -16,7 +19,8 @@ import com.clover.spring.service.UserService;
 //loadUserByUsername() 가 실행된다.
 @Service
 public class PrincipalDetailsService implements UserDetailsService{
-
+	@Autowired
+	private HttpSession httpSession;
 	@Autowired
 	private UserService userService;
 	
@@ -25,13 +29,14 @@ public class PrincipalDetailsService implements UserDetailsService{
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		System.out.println("loadUserByUsername(" + username + ")");
+		
 		UserDTO user = userService.findById(username);
 		
 		// 해당 id 의 user 가 있다면
 		if(user != null) {
 			PrincipalDetails userDetails = new PrincipalDetails(user);
 			userDetails.setUserService(userService);
-			System.out.println("aaa");
+			httpSession.setAttribute("user", new SessionUser(user));
 			return userDetails;
 		}
 		
@@ -41,14 +46,3 @@ public class PrincipalDetailsService implements UserDetailsService{
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
