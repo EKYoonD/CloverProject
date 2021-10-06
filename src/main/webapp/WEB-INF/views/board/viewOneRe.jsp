@@ -62,8 +62,7 @@
 			    </header>
 		
 				<section class="container1">
-        		<div href class="container">
-				uid : ${list[0].rep_uid }<br>
+        		<div href class="container"> 
 				제목 : ${list[0].subject }<br>
 				내용: <br>
 				<hr>

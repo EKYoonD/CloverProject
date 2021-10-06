@@ -11,12 +11,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<title>FIND & FOUND</title>
+
+<title>ADMIN USERS</title>
+
 <!-- 스타일, js 라이브러리 -->
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath }/CSS/styleList.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
-<script src="${pageContext.request.contextPath }/JS/board.js"></script>
+<script src="${pageContext.request.contextPath }/JS/userboard.js"></script>
 </head>
 <body>
 <!--header-->
@@ -39,7 +41,7 @@
 </header>
 <section class="container1">
 <div href class="container">
-<h2>FIND & FOUND</h2>
+<h2>ADMIN USERS</h2>
 <%-- 글 목록 --%>
 <div id="list">
 	<%-- header 헤더 --%>
@@ -54,10 +56,13 @@
 		<table>
 			<thead>
 				<th>#</th>
-				<th>uid</th>
-				<th>제목</th>
-				<th>조회수</th>
-				<th>작성일</th>
+				<th>user_uid</th>
+				<th>아이디</th>
+				<th>패스워드</th>
+				<th>이름</th>
+				<th>주소</th>
+				<th>이메일</th>
+				<th>핸드폰 번호</th>
 			</thead>
 			<tbody>
 			</tbody>
@@ -68,7 +73,7 @@
 	<%-- bottom 버튼 --%>
 	<div class="d01">
 		<div class="left">
-			<button type="button" id="btnDel" class="btn danger">글삭제</button>
+			<button type="button" id="btnDel" class="btn danger">유저삭제</button>
 		</div>
 		<div class="right">
 			<button id="btnWrite" class="btn success" onclick="location.href = 'write'">신규등록</button>

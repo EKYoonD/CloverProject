@@ -12,9 +12,9 @@ public interface AjaxDAO {
 	// from : 몇번째 row 부터 
 	// pageRows : 몇개의 데이터
 	public List<WriteDTO> selectFromRow(
-			@Param("from") int from, 
-			@Param("pageRows") int pageRows 
-			);
+		@Param("from") int from, 
+		@Param("pageRows") int pageRows 
+	);
 	
 	// 전체 글의 개수
 	public int countAll();

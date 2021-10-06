@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.clover.spring.service.AdminService;
 
 @Controller
-@RequestMapping("ad")
+@RequestMapping("/admin")
 public class AdminController {
 //	1. adminQR
 //	2. adminUser
 //	3. adminBoard
 //	4. adminOrder
 	
-	@Autowired
 	private AdminService adminService;
 
-	public void setBoardService(AdminService adminService) {
+	@Autowired
+	public void setAdminService(AdminService adminService) {
 		this.adminService = adminService;
 	}
 	
@@ -25,13 +25,13 @@ public class AdminController {
 		System.out.println("AdminController() 생성");
 	}
 	
-	@RequestMapping("/qrlist")
-	public String qrlist() {
-		return "admin/qrlist";
-	}
-	
 	@RequestMapping("/userlist")
 	public String userlist() {
+		return "admin/userlist";
+	}
+	
+	@RequestMapping("/qrlist")
+	public String qrlist() {
 		return "admin/qrlist";
 	}
 	
@@ -44,5 +44,4 @@ public class AdminController {
 	public String orderlist() {
 		return "admin/orderlist";
 	}
-
 }

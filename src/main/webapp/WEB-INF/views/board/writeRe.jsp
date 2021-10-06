@@ -73,7 +73,7 @@ function chkSubmit(){
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <h2>댓글작성</h2>
 <form name="frm" action="writeReOk" method="post" onsubmit="return chkSubmit()">
-uid : <input type="text" name="uid" value="${w.uid }"/><br><br>
+uid : <input type="hidden" name="uid" value="${w.uid }"/><br><br>
 제목:
 <input type="text" name="subject" value="${w.subject }"/><span style="color:red">${ERROR.SUBJECT }</span><br><br>
 내용:<br>
@@ -83,8 +83,7 @@ uid : <input type="text" name="uid" value="${w.uid }"/><br><br>
 		allowedContent: true,  // HTML 태그 자동삭제 방지설정
 		width: '640px',
 		height: '200px',
-		filebrowserUploadUrl: '${pageContext.request.contextPath}/imageUpload'
-		
+		filebrowserUploadUrl: '${pageContext.request.contextPath}/upload/image'
 	});
 </script>
 

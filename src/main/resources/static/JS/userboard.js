@@ -58,11 +58,12 @@ function updateList(jsonObj){
 			result += "<tr>\n";
 		
 			result += "<td><input type='checkbox' name='uid' value='" + items[i].uid + "'></td>\n";
-			result += "<td>" + items[i].uid + "</td>\n";
-			result += "<td><a href='/clover/member/board/view?uid=" + items[i].uid  + "'>" + items[i].subject + "</a></td>\n";
-			result += "<td><span data-viewcnt='" + items[i].uid + "'>" + items[i].viewcnt + "</span></td>\n";
-			result += "<td>" + items[i].regdate + "</td>\n";
-
+			result += "<td>" + items[i].id + "</td>\n";
+			result += "<td>" + items[i].pw + "</td>\n";
+			result += "<td>" + items[i].name + "</td>\n";
+			result += "<td>" + items[i].address + "</td>\n";
+			result += "<td>" + items[i].email + "</td>\n";
+			result += "<td>" + items[i].phone + "</td>\n";
 			result += "</tr>\n";
 		}
 		$("#list tbody").html(result);  // 업데이트

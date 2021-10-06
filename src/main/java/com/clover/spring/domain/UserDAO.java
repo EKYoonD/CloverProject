@@ -28,6 +28,8 @@ public interface UserDAO {
 	List<String> selectAuthoritiesById(String id);
 	
 	List<UserDTO> selectByUid(int uid);
+
+	public abstract List<UserDTO> selectAll();
 	
 } // end DAO
 
