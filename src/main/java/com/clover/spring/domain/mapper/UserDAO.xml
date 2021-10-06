@@ -35,7 +35,7 @@
 			user_address address, 
 			user_email email, 
 			user_phone phone
-		FROM User_Table
+		FROM Userdto
 		WHERE user_uid = #{uid}	
 	</select>
 	
@@ -48,7 +48,7 @@
 			user_address address, 
 			user_email email, 
 			user_phone phone
-		FROM User_Table
+		FROM Userdto
 		ORDER BY user_uid DESC;
 	</select>
 	

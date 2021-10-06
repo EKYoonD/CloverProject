@@ -27,7 +27,7 @@
 		INSERT INTO QR_Table
 			(qr_name, qr_category, qr_age, qr_address, qr_phone, qr_content, user_uid)
 		VALUES
-			(#{name}, #{category}, #{age}, #{address}, #{phone}, #{content}, (SELECT user_uid FROM user_table WHERE user_id = #{userid}))
+			(#{name}, #{category}, #{age}, #{address}, #{phone}, #{content}, (SELECT user_uid FROM userdto WHERE user_id = #{userid}))
 	</insert>
 	
 	<!-- view -->
