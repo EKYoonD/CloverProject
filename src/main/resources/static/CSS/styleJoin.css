@@ -1,13 +1,18 @@
 @charset "UTF-8";
 
 body {
-    background-image:url(https://www.teahub.io/photos/full/0-3357_3840x2160-silver-blur-background-wallpaper-wallpaper-high-resolution.jpg);
-    margin: 0;
-    font-family: 
-        '맑은 고딕';
+    background-color:  rgb(247, 229, 127);
+   font-family: 'Gugi', cursive,
+        '맑은 고딕',
+        'Apple SD Gothic Neo',
+        sans-serif;
      text-align: center;
 }
 
+h1 {
+	font-size: 60pt;
+	color: rgb(46, 53, 49);
+}
 #joindiv{
 position: absolute;
   left: 50%;
@@ -18,23 +23,26 @@ position: absolute;
 }
 
 table {
-    margin:auto; 
    	color: #2F4F4F;
-    width:80%;
-    font-size: 20px
+    width:90%;
+    font-size: 20pt;
+    text-align: center;
 }
 
 table, td, th {
-    height: 70px;
+    height: 80px;
 }
 
 input {
 	width: 90%;
-	height: 25px;
+	height: 40px;
     border-radius: 4px;
+    text-align: center;
+    font-size: 20pt;
 }
+
 h1{
-	color: black;
+	color: rgb(46, 53, 49);
 }
 header {
 	display: flex;
@@ -46,8 +54,7 @@ button {
   margin: 0;
   padding: 0.5rem 1rem;
 
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 1rem;
+  font-size: 3rem;
   font-weight: 400;
   text-align: center;
   text-decoration: none;
