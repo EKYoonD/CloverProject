@@ -46,7 +46,7 @@ public class PrincipalDetails implements UserDetails{
 		
 		Collection<GrantedAuthority> collect = new ArrayList<>();
 		
-		List<String> list = userService.selectAuthoritiesById(user.getEmail());
+		List<String> list = userService.selectAuthoritiesById(user.getId());
 		
 		for(String auth : list) {
 			collect.add(new GrantedAuthority() {
@@ -73,13 +73,8 @@ public class PrincipalDetails implements UserDetails{
 	}
 	
 	@Override
-	public String getUserId() {
-		return user.getId();
-	}
-	
-	@Override
 	public String getUsername() {
-		return user.getName();
+		return user.getId();
 	}
 
 	// 로그인 API와 같은 형식으로 email 값 가져오기

@@ -74,6 +74,10 @@ public class BoardController {
 		// write 거치고 나면 담겨있게 됨
 		// auto-generated key값도 받아와야 해 (auto-increment) -> dto로 담겨 있음
 
+		System.out.println(dto.getUserid());
+		System.out.println(dto.getCategory());
+		System.out.println(dto.getUid());
+		
 		if(result.hasErrors()) {
 			// 에러가능 추가적인 model attribute 지정 가능
 			

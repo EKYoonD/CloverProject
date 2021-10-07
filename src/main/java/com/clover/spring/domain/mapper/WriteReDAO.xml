@@ -17,7 +17,7 @@
 		keyProperty="rep_uid" useGeneratedKeys="true" keyColumn="rep_uid">		
 		INSERT INTO 
 			rep_write_table (wr_latitude, wr_longitude, wr_content, wr_subject, wr_uid, user_uid) 
-		VALUES ( #{latitude}, #{longitude}, #{content}, #{subject}, #{uid}, (SELECT user_uid FROM user_table WHERE user_id = #{userid}));
+		VALUES ( #{latitude}, #{longitude}, #{content}, #{subject}, #{uid}, (SELECT user_uid FROM userdto WHERE user_id = #{userid}));
 	</insert>
 	
 	<!-- view.do -->
