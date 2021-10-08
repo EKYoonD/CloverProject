@@ -58,27 +58,45 @@
             <!-- 개요 (이이콘 + 텍스트) -->
             <div class="text">
                 <h2>부모님 찾기 QR</h2>
+<<<<<<< HEAD
                 <img style="width: 100%; height: auto; border-radius: 30px;" src="/img/family_mom2.jpg">
                 <br><br><p>사랑하는 부모님 QR 만들기</p>
                 <a href="#"> GO
+=======
+                <img style="width: 100%; height: auto;" src="/img/family_mom2.jpg">
+                <p>일상의 이런저런 것들을 기록하다 보면 보이지 않던 소중한 것들이 보입니다.</p>
+                <a onclick="location.href='clover/member/qr/write'">MORE...
+>>>>>>> branch 'master' of https://github.com/EKYoonD/CloverProject.git
                     <span class="fa fa-chevron-right"></span>
                 </a>
             </div>
 
             <div class="text">
                 <h2>내 아이 찾기 QR</h2>
+<<<<<<< HEAD
                 <img style="width: 100%; height: auto; border-radius: 30px;" src="/img/family_child2.jpg">
                 <br><br><p>귀여운 우리집 꼬맹이 QR 만들기</p>
                 <a href="#">GO
+=======
+                <img style="width: 100%; height: auto;" src="/img/family_child2.jpg">
+                <p>일상의 이런저런 것들을 기록하다 보면 보이지 않던 소중한 것들이 보입니다.</p>
+                <a onclick="location.href='clover/member/qr/write2'">MORE...
+>>>>>>> branch 'master' of https://github.com/EKYoonD/CloverProject.git
                     <span class="fa fa-chevron-right"></span>
                 </a>
             </div>
 
             <div class="text">
                 <h2>반려동물 찾기 QR</h2>
+<<<<<<< HEAD
                 <img style="width: 100%; height: auto; border-radius: 30px;" src="/img/family_dog2.jpg">
                 <br><br><p>우리 집 막내 QR 만들기</p>
                 <a href="#">GO
+=======
+                <img style="width: 100%; height: auto;" src="/img/family_dog2.jpg">
+                <p>일상의 이런저런 것들을 기록하다 보면 보이지 않던 소중한 것들이 보입니다.</p>
+                <a onclick="location.href='clover/member/qr/write3'">MORE...
+>>>>>>> branch 'master' of https://github.com/EKYoonD/CloverProject.git
                     <span class="fa fa-chevron-right"></span>
                 </a>
             </div>

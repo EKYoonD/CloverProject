@@ -45,9 +45,7 @@ public class QrService {
 		return dao.update(dto);
 	}
 
-//	public int deleteByUid(int uid) {
-//		return dao.deleteByUid(uid);
-//	}
+
 
 	
 }

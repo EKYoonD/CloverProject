@@ -23,7 +23,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>main</title>
 		
-		<link href="/CSS/styleQr.css" rel="stylesheet">
+		<link href="/CSS/styleView.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<title>읽기</title>
@@ -60,40 +60,32 @@
 			        </div>
 			    </header>
 			<section class="container1">
-			<div  class="container4"  >
-		
+			<div href class="container">
 <h2>입력</h2>
 <form name="frm" action="writeOk" method="post" onsubmit="return chkSubmit()">
-<<<<<<< HEAD
-이름:                           
-<input type="text" name="name" value ="${m.name}" }/><br>
-종류:
-<input type="text" name="category" value ="${m.category}" }/><br>
-=======
 이름:
-<input type="text" name="name" value ="${m.name}"/><br><br>
+<input type="text" name="name" value ="${m.name}" }/><br>
 카테고리:
-<select class="select" id="category" name="category" style="width: 100px;">
-    <option value="부모님" selected>부모님</option>
+<select class="select" id="category" name="category" style="width: 170px;">
+    <option value="부모님">부모님</option>
     <option value="아이">아이</option>
-    <option value="반려동물">반려동물</option>
-</select><br><br>
->>>>>>> branch 'master' of https://github.com/EKYoonD/CloverProject.git
+    <option value="반려동물" selected>반려동물</option>
+</select><br>
 나이:
-<input type="text" name="age" value ="${m.age}"/><br><br>
+<input type="text" name="age" value ="${m.age}"/><br>
 주소:
-<input type="text" name="address" value ="${m.address}"/><br><br>
+<input type="text" name="address" value ="${m.address}"/><br>
 보호자 전화번호:
-<input type="text" name="phone" value ="${m.phone}"/><br><br>
+<input type="text" name="phone" value ="${m.phone}"/><br>
 특이사항:<br>
-<textarea name="content">${m.content }</textarea><br><br>
+<textarea name="content">${m.content }</textarea><br>
 
 <input type="hidden" name="userid" id="userid" value="${m.userid }"/>
 <br><br>
-<input type="submit" class="blue_button" value="QR만들기"/>
+<input type="submit" value="qr생성"/>
 </form>
 <br>
-  </div>
+
     </section>
 		<!--footer-->
 		    <footer>
