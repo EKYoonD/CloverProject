@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clover.spring.domain.KakaoDAO">
+
+
+	<insert id="insert" flushCache="true"
+	parameterType="com.clover.spring.domain.KakaoPayDTO"
+		keyProperty="partner_order_id" useGeneratedKeys="true" keyColumn="partner_order_id">
+		<![CDATA[
+		INSERT INTO addOrder(	
+			partner_user_id,
+			order_Rec,
+			quantity,
+			total_amount,
+			address,
+			cid,
+			approval_url,
+			cancel_url,
+			fail_url,
+			item_name,
+			tax_free_amount)
+		VALUES(
+			#{partner_user_id},
+			#{order_Rec},
+			#{quantity},
+			#{total_amount},
+			#{address},
+			"TC0ONETIME",
+			"http://localhost:8092/kakaoPaySuccess",
+			"http://localhost:8092/kakaoPayCancel",
+			"http://localhost:8092/kakaoPaySuccessFail",
+			"QR뱃지",
+			0)
+	]]>
+	</insert>
+	
+	<select id="selectByUid" resultType="com.clover.spring.domain.KakaoPayDTO">
+		SELECT
+			partner_order_id orderid,
+			order_Rec,
+			quantity,
+			total_amount,
+			address,
+			cid,
+			approval_url,
+			cancel_url,
+			fail_url,
+			item_name,
+			tax_free_amount
+		FROM
+			addOrder
+		WHERE
+			partner_order_id = #{orderid};
+	</select>
+	
+	<select id = "selectUidByUid" resultType="com.clover.spring.domain.KakaoPayDTO">
+		SELECT 
+			partner_order_id orderid, 
+		FROM 
+			addOrder 
+		WHERE 
+			partner_order_id = #{orderid};
+	</select>
+	
+</mapper>

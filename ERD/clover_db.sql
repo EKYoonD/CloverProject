@@ -4,6 +4,7 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE IF EXISTS Payment_Table;
 DROP TABLE IF EXISTS Order_Table;
+DROP TABLE IF EXISTS addorder;
 DROP TABLE IF EXISTS QR_Table;
 DROP TABLE IF EXISTS Rep_Write_Table;
 DROP TABLE IF EXISTS Write_Table;
@@ -14,7 +15,7 @@ DROP TABLE IF EXISTS user_authority;
 SHOW tables;
 
 /* Create Tables */
-
+/*
 CREATE TABLE Order_Table
 (
 	order_uid int NOT NULL AUTO_INCREMENT,
@@ -38,6 +39,26 @@ CREATE TABLE Payment_Table
 	order_uid int NOT NULL,
 	PRIMARY KEY (payment_uid)
 );
+*/
+ create table addOrder(
+      partner_order_id int not null auto_increment,
+      partner_user_id varchar(30) not null,
+      order_Rec varchar(30) not null,
+      quantity int not null,
+      total_amount int not null,
+      address varchar(30) not null,
+      cid varchar(20) not null,
+      approval_url varchar(50) not null,
+      cancel_url varchar(50) not null,
+      fail_url varchar(50) not null,
+      item_name varchar(10) not null,
+      tax_free_amount int not null,
+      primary key (partner_order_id)
+      
+);
+
+
+select * from addorder;
 
 
 CREATE TABLE QR_Table

@@ -9,7 +9,12 @@
 }
 
 body {
-  background-color: rgb(253, 251, 236);
+    background-color: #FFFFFF;
+    margin: 0;
+    font-family: 'Gugi', cursive,
+        '맑은 고딕',
+        'Apple SD Gothic Neo',
+        sans-serif;
 }
 
 
@@ -20,6 +25,7 @@ header {
     top: 0;
     width: 100%;
 }
+
 .head1 {
     display:inline-block;
     line-height:70px;
@@ -111,21 +117,9 @@ header {
     }
 }
 
-order_div {
-  position:absolute;
-  width:400px;
-  height:400px;
-  padding: 30px, 20px;
-  background-color:rgb(253, 251, 236);
-  text-align:center;
-  top:40%;
-  left:50%;
-  transform: translate(-50%,-50%);
-  border-radius: 15px;
-}
 
 .order_div {
-  position:absolute;
+  position:relative;
   width:400px;
   height:400px;
   padding: 30px, 20px;
@@ -135,6 +129,7 @@ order_div {
   left:50%;
   transform: translate(-50%,-50%);
   border-radius: 15px;
+  z-index:3;
 }
 
 .textForm {
@@ -143,6 +138,11 @@ order_div {
   padding: 10px 10px;
 }
 
+.textForm1 {
+  border-bottom: 2px solid #adadad;
+  margin: 10px;
+  padding: 1px 1px;
+}
 
 .partner_order_id {
   width: 100%;
@@ -164,7 +164,7 @@ order_div {
   background: none;
 }
 
-.orderRec {
+.order_Rec {
   width: 100%;
   border:none;
   outline:none;
@@ -174,24 +174,28 @@ order_div {
   background: none;
 }
 
-.orderPhone {
-  width: 100%;
+
+.quantity {
   border:none;
   outline:none;
   color: #636e72;
   font-size:16px;
   height:25px;
   background: none;
+  width: 50%;
+  float: left;
+
 }
 
-.userAddr1 {
-  width: 100%;
+.total_amount {
   border:none;
   outline:none;
   color: #636e72;
   font-size:16px;
   height:25px;
   background: none;
+  width: 50%;
+  float: right;
 }
 
 .address {
@@ -204,8 +208,8 @@ order_div {
   background: none;
 }
 
-order_btn, cancle_btn {
-  margin: 0;
+.button {
+ margin: 0;
   padding: 0.5rem 1rem;
 
   font-family: "Noto Sans KR", sans-serif;
@@ -227,10 +231,24 @@ order_btn, cancle_btn {
   color: white;
 }
 
-order_btn:hover, cancle_btn:hover {
+.button:hover {
   background-color: #4CAF50;
   color: white;
 }
+
+@media (min-width : 768px){ /* 768px보다 큰화면일때*/
+    .order_div {
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+
+        max-width: 1000px;
+
+    }
+
+
+}
+
 
 
 
@@ -312,13 +330,3 @@ footer.container {
         flex: 0 0 30%;
     }
 }
-
-
-
-
-
-
-
-
-
-
