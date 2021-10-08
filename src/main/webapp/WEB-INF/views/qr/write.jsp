@@ -27,7 +27,7 @@ function chkSubmit(){
 <body>
 <h2>입력</h2>
 <form name="frm" action="writeOk" method="post" onsubmit="return chkSubmit()">
-이름:
+이름:                           
 <input type="text" name="name" value ="${m.name}" }/><br>
 종류:
 <input type="text" name="category" value ="${m.category}" }/><br>

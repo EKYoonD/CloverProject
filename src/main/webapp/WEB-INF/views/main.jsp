@@ -67,9 +67,9 @@
 	<!--contents-->
 	<!--content1-->
 	<section class="container1">
-		<div href class="container">
-			<h1>CLOVER</h1>
-			<h2>WITH MY FAMILY</h2>
+		<div class="container">
+			<h1 onclick="location.href='about'" style="font-size: 12vw; text-shadow: #333">CLOVER</h1>
+			<h2  style="font-size: 4vw; text-shadow: #333">WITH MY FAMILY</h2>
 
 		</div>
 	</section>

@@ -120,6 +120,7 @@ header {
 
 
 .container1 {
+	margin-top:500px;
     text-align: center;
     background-color: rgb(247, 229, 127);
     background-position: center;
@@ -130,6 +131,7 @@ header {
     align-items: center;
     justify-content: center;
     color: #333;
+    margin-bottom:400px;
 
 }
 
@@ -145,7 +147,7 @@ header {
 
 @media ( max-width : 767px) { /* 768px보다 작은화면일때*/
 	.contentscon {
-		max-width: 700px;
+		max-width: 1000px;
 	}
 }
 
@@ -157,11 +159,12 @@ header {
 	background-color: lightgrey;
 }
 
+
 #map {
 	position: relative;
+	z-index: 8;
 	left:50%;
 	transform:translate(-50%);
-	z-index: 8;
 }
 
 /* .container1 a {

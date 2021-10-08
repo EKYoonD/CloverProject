@@ -24,7 +24,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>main</title>
 		
-		<link href="/CSS/styleViewRe.css" rel="stylesheet">
+		<link href="/CSS/styleViewOneRe.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<title>읽기</title>
@@ -42,6 +42,9 @@
 		
 		</script>
 		<body>
+		
+		<div id="body-wrapper" style="min-height:100%; padding-bottom: 100px;">
+		
 			<!--header-->
     			<header>
 			        <div class="container">
@@ -62,19 +65,22 @@
 			    </header>
 		
 				<section class="container1">
-        		<div href class="container"> 
-				제목 : ${list[0].subject }<br>
-				내용: <br>
-				<hr>
-				<div>
+        		<div class="container contents" style="width:1000px"> 
+        		<h2>${list[0].uid }번 글에 대한 댓글입니다</h2>
+				제목 : ${list[0].subject }<br><br>
+				
+				내용: <br><br>
+				<div style="background-color: lightgrey; padding: 10px; border-radius: 10px;">
 				${list[0].content }
 				</div>
+				<br><br>
 				등록일: ${list[0].regDateTime }<br> <%-- getRegDateTime() 사용 --%>
-				<hr>
+
 				<br>
 				본 장소: <br><br>
 				
-				<div id="map" style="width:500px;height:350px;"></div>
+				<div class="container contents"  style="background-color: grey">
+				<div id="map" style="width:500px;height:350px; background-color: grey" class="map contents">
 
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2389d39ea90c7f8eac5210a7bd81bee9"></script>
 				<script>
@@ -100,7 +106,8 @@
 				// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 				// marker.setMap(null);    
 				</script>
-				
+				</div>
+				</div>
 				
 				<br><br>
 				<button onclick="location.href='updateRe?rep_uid=${list[0].rep_uid }'">수정하기</button>
@@ -109,6 +116,9 @@
 				<button onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
 		</div>
 	    </section>
+		
+		</div>
+		
 		<!--footer-->
 		    <footer>
 		        <div class="container">

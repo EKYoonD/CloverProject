@@ -30,22 +30,16 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 	rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+	$(function() {
+		$('.head3').click(function() {
+			$('.head2').slideToggle();
+		})
+	})
+</script>
 <title>읽기</title>
 <style>
-table {
-	width: 100%;
-}
-
-table, th, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-	background-color: whitesmoke;
-}
-
-th, td {
-	margin: 30px;
-	padding: 10px;
-}
 </style>
 </head>
 <script>
@@ -83,15 +77,12 @@ th, td {
 	</header>
 
 	<section class="container1">
-		<div href class="container">
-			<br>가장 최근에 본 장소<br>
-			<br>
-
-			<div id="map" style="width: 500px; height: 350px;"></div>
-
-			<script type="text/javascript"
-				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2389d39ea90c7f8eac5210a7bd81bee9"></script>
-			<script>
+		<div class="container contents">
+			<br>가장 최근에 본 장소<br> <br>
+			<div id="map" style="width: 500px; height: 350px; background-color: grey" class="map contents">
+				<script type="text/javascript"
+					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2389d39ea90c7f8eac5210a7bd81bee9"></script>
+				<script>
 				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 				    mapOption = { 
 					 	center: new kakao.maps.LatLng(${list[0].latitude }, ${list[0].longitude }), // 지도의 중심좌표
@@ -113,10 +104,10 @@ th, td {
 				
 				// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 				// marker.setMap(null);    
-				</script>
-			<br>
-			<br>
-			<table>
+			</script>
+			</div>
+			<br> <br>
+			<table style="">
 
 				<tr>
 					<th>uid</th>
@@ -143,8 +134,7 @@ th, td {
 			</table>
 
 
-			<br>
-			<br>
+			<br> <br>
 			<button onclick="location.href='list'">목록보기</button>
 			<button onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
 		</div>

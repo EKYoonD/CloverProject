@@ -27,6 +27,13 @@
 		<link href="/CSS/styleView.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script>
+	$(function() {
+		$('.head3').click(function() {
+			$('.head2').slideToggle();
+		})
+	})
+</script>
 		<title>읽기</title>
 		</head>
 		<script>
@@ -41,7 +48,11 @@
 		} // chkDelete
 		
 		</script>
+		
 		<body>	
+		
+		<div id="body-wrapper" style="min-height:100%; padding-bottom: 500px; padding-top: 300px">
+		
 		<!--header-->
     			<header>
 			        <div class="container">
@@ -60,9 +71,11 @@
 			            </nav>
 			        </div>
 			    </header>
+			    
+			    
 			<section class="container1">
-        	<div href class="container">
-			<h2>[${list[0].subject }] 항목 보기</h2>
+        	<div href class="container contents" >
+			<h2 style="font-size: 25px">${list[0].subject }</h2>
 				<br>
 				uid : ${list[0].uid }<br>
 				카테고리 : ${list[0].category }<br>
@@ -70,16 +83,18 @@
 				제목: ${list[0].subject }<br>
 				등록일: ${list[0].regDateTime }<br> <%-- getRegDateTime() 사용 --%>
 				조회수: ${list[0].viewCnt }<br>
-				내용: <br>
-				<hr>
-				<div>
+				<br><br>
+				<div class="contentscon">
 				${list[0].content }
 				</div>
+				<br><br>
 				
-				<hr><br>
-				마지막으로 잃어버린 장소: <br>
+				
+				마지막으로 잃어버린 장소: <br><br>
+				<div class="container contents"  style="background-color: grey">
+				<div id="map" style="width:500px;height:350px; background-color: grey" class="map contents">
+				
 				<br>
-				<div id="map" style="width:500px;height:350px;"></div>
 				<br>
 				<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2389d39ea90c7f8eac5210a7bd81bee9"></script>
 				<script>
@@ -105,6 +120,8 @@
 				// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 				// marker.setMap(null);    
 				</script>
+				</div>
+				</div>
 				
 				<br><br>
 				<button onclick="location.href='update?uid=${list[0].uid }'">수정하기</button>
@@ -115,6 +132,7 @@
 				<button onclick="location.href='writeRe?uid=${list[0].uid }'">댓글달기</button>
 			</div>
 	    </section>
+	    </div>
 		<!--footer-->
 		    <footer>
 		        <div class="container">

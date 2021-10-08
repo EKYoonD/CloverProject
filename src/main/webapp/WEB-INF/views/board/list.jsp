@@ -22,6 +22,13 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 <script src="${pageContext.request.contextPath }/JS/board.js"></script>
+<script>
+	$(function() {
+		$('.head3').click(function() {
+			$('.head2').slideToggle();
+		})
+	})
+</script>
 </head>
 <body>
 	<!--header-->
@@ -48,7 +55,7 @@
 		<div href class="container">
 			<h2>FIND & FOUND</h2>
 			<%-- 글 목록 --%>
-			<div id="list">
+			<div id="list" style="width:1000px">
 				<%-- header 헤더 --%>
 				<div class="d01">
 					<div class="left" id="pageinfo"></div>
@@ -56,30 +63,31 @@
 				</div>
 				<div class="clear"></div>
 
+				<br>
 				<%-- 목록 --%>
 				<form id="frmList" name="frmList">
-					<table>
-						<thead>
-							<th>#</th>
-							<th>uid</th>
-							<th>제목</th>
-							<th>조회수</th>
-							<th>작성일</th>
-						</thead>
-						<tbody>
-						</tbody>
-
-					</table>
+					<div id="container1_table">
+						<table>
+							<thead>
+								<th></th>
+								<th>uid</th>
+								<th>제목</th>
+								<th>조회수</th>
+								<th>작성일</th>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
 				</form>
-				<br>
-				<br>
+				<br> <br>
 				<%-- bottom 버튼 --%>
 				<div class="d01">
 					<div class="left">
-						<button type="button" id="btnDel" class="btn danger">글삭제</button>
+						<button type="button" id="btnDel" class="btn danger" style="border-radius: 10px;">글삭제</button>
 					</div>
 					<div class="right">
-						<button id="btnWrite" class="btn success"
+						<button id="btnWrite" class="btn success" style="border-radius: 10px;"
 							onclick="location.href = 'write'">신규등록</button>
 					</div>
 				</div>

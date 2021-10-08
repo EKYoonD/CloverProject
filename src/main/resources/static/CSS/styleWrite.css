@@ -1,12 +1,14 @@
 @charset "UTF-8";
 
 body {
-    background-color: #333;
+    background-color: rgb(247, 229, 127);
     margin: 0;
     font-family: 'Gugi', cursive,
         '맑은 고딕',
         'Apple SD Gothic Neo',
         sans-serif;
+   	margin-top: 200px;
+	margin-bottom:-50px;
 }
 
 header {
@@ -15,7 +17,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index : 6;
+    z-index : 10;
 }
 .head1 {
     display:inline-block;
@@ -109,9 +111,16 @@ header {
 }
 
 
+.contents {
+	background-color: whitesmoke;
+	padding:30px;
+	border-radius: 30px;
+}
+
+
 
 .container1 {
-    margin-top: 70px;
+	margin-top: 500px;
     text-align: center;
     background-color: rgb(247, 229, 127);
     background-position: center;
@@ -122,7 +131,6 @@ header {
     align-items: center;
     justify-content: center;
     color: #333;
-    overflow: auto;
 
 }
 
@@ -135,9 +143,37 @@ header {
     letter-spacing: 0.05em;
 }
 
+
+@media ( max-width : 767px) { /* 768px보다 작은화면일때*/
+	.contentscon {
+		max-width: 700px;
+	}
+}
+
+
+
+.contentscon {
+	width:1000px;
+	padding:30px;
+	border-radius : 30px;
+	background-color: lightgrey;
+	left:50%;
+	transform:translate(-50%);
+	position: relative;
+}
+
+.context {
+	border-radius:20px;
+	position: relative;
+	z-index: 8;
+	transform:translate(-50%);
+}
+
 #map {
 	position: relative;
-	z-index: 2;
+	z-index: 8;
+	left:50%;
+	transform:translate(-50%);
 }
 
 /* .container1 a {
@@ -161,14 +197,19 @@ header {
 @media (min-width: 768px) { /* 화면폭 768 이상이면 */
 
     .container1 h1 {
-        font-size: 65px;
+        font-size: 30px;
     }
 }
 
 
 footer {
-	position : relative;
-	z-index:6;
+ position: absolute;
+
+    left: 0;
+
+    width: 100%;
+	z-index:10;
+	padding: 15px 0;
     background-color: rgb(46, 53, 49);
     color: whitesmoke;
 }
@@ -181,7 +222,6 @@ footer.container {
     font-family: 'Gugi', cursive;
     letter-spacing: 0.1em;
     font-size: 25px;
-    margin-bottom: 10px;
     margin-left: 30px;
 }
 
@@ -197,7 +237,7 @@ footer.container {
     font-size: 16px;
     font-family: 'Gugi', cursive;
     text-decoration: none;
-    color: whitesmoke;
+    color: whitesmoke; 
 }
 
 .foot3 div {

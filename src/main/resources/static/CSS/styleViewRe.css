@@ -1,21 +1,23 @@
 @charset "UTF-8";
 
 body {
-    background-color: #333;
+    background-color: rgb(247, 229, 127);
     margin: 0;
     font-family: 'Gugi', cursive,
         '맑은 고딕',
         'Apple SD Gothic Neo',
         sans-serif;
+   	margin-top: 100px;
+	margin-bottom:-50px;
 }
 
 header {
     overflow: hidden;
     background-color: rgb(46, 53, 49);
     position: fixed;
-    z-index : 6;
     top: 0;
     width: 100%;
+    z-index : 10;
 }
 .head1 {
     display:inline-block;
@@ -108,8 +110,17 @@ header {
     }
 }
 
+
+.contents {
+	background-color: whitesmoke;
+	padding:30px;
+	border-radius: 30px;
+	width:1000px;
+}
+
+
+
 .container1 {
-    margin-top: 70px;
     text-align: center;
     background-color: rgb(247, 229, 127);
     background-position: center;
@@ -120,9 +131,7 @@ header {
     align-items: center;
     justify-content: center;
     color: #333;
-    position: relative;
-    z-index : 1;
-	
+
 }
 
 .container1 h1 {
@@ -132,6 +141,28 @@ header {
     text-shadow: 3vw;
     font-family: 'Gugi', cursive;
     letter-spacing: 0.05em;
+}
+
+
+@media ( max-width : 767px) { /* 768px보다 작은화면일때*/
+	.contentscon {
+		max-width: 700px;
+	}
+}
+
+
+.contentscon {
+	width:1000px;
+	padding:30px;
+	border-radius : 30px;
+	background-color: lightgrey;
+}
+
+#map {
+	position: relative;
+	left:50%;
+	transform:translate(-50%);
+	z-index: 8;
 }
 
 /* .container1 a {
@@ -153,9 +184,40 @@ header {
 }
 
 
-#map {
-	position: relative;
-	z-index: 2;
+
+table {
+	width: 100%;
+	border-bottom:hidden;
+}
+
+table, th,  td {
+	border-collapse: collapse;
+}
+
+.container1 a {
+	text-decoration: none;
+	font-size: 20px;
+	font-family: 'Gugi', cursive;
+	color: #333;
+}
+
+.container1 a:hover {
+	background-image: linear-gradient(rgba(22, 22, 22, 0.2),
+		rgba(22, 22, 22, 0.2));
+}
+
+table {
+	border-radius: 16px;
+	background-color: lightgrey;
+}
+
+td, th {
+	padding: 30px;
+	border-bottom: 2px solid #333;
+}
+
+th {
+	font-size: 20px;
 }
 
 
@@ -167,9 +229,14 @@ header {
 }
 
 
-
 footer {
+ position: absolute;
 
+    left: 0;
+
+    width: 100%;
+	z-index:10;
+	padding: 15px 0;
     background-color: rgb(46, 53, 49);
     color: whitesmoke;
 }
@@ -182,7 +249,6 @@ footer.container {
     font-family: 'Gugi', cursive;
     letter-spacing: 0.1em;
     font-size: 25px;
-    margin-bottom: 10px;
     margin-left: 30px;
 }
 

@@ -33,7 +33,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>main</title>
 
-<link href="/CSS/styleBoardEdit.css" rel="stylesheet">
+<link href="/CSS/styleUpdate.css" rel="stylesheet">
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 	rel="stylesheet">
@@ -59,6 +59,8 @@ function chkSubmit(){
 </script>
 
 <body>
+
+<div id="body-wrapper" style="min-height:100%; padding-bottom: 300px;">
 	<!--header-->
 	<header>
 		<div class="container">
@@ -80,7 +82,7 @@ function chkSubmit(){
 		</div>
 	</header>
 	<section class="container1">
-		<div href class="container">
+		<div href class="container contents">
 			<h2>수정</h2>
 			<form name="frm" action="updateOk" method="post"
 				onsubmit="return chkSubmit()">
@@ -89,8 +91,9 @@ function chkSubmit(){
 				<%-- 작성자 이름은 변경 불가 --%>
 				제목: <input type="text" name="subject" value="${list[0].subject }" /><span
 					style="color: red">${ERROR.SUBJECT }</span><br> 내용:<br>
-				<textarea name="content" id='content'>${list[0].content }</textarea>
-				<script type="text/javascript">
+				<div class="contentscon">
+					<textarea name="content" id='content'>${list[0].content }</textarea>
+					<script type="text/javascript">
 	CKEDITOR.replace('content', {
 		allowedContent: true,  // HTML 태그 자동삭제 방지설정
 		width: '640px',
@@ -98,12 +101,14 @@ function chkSubmit(){
 		filebrowserUploadUrl: '${pageContext.request.contextPath}/upload/image'
 		
 	});
+	
 </script>
+				</div>
 				<br> 마지막으로 잃어버린 장소: <br>
 				<h5>지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
 				<span style="color: red">${ERROR.POINT }</span>
-
-				<div id="map" style="width: 500px; height: 350px;"></div>
+				<div class="container contents"  style="background-color: grey">	
+				<div id="map" style="width:500px;height:350px;" class="map contents">
 				<div id="clickLatlng"></div>
 
 				<input type="hidden" name="latitude" id="latitude" value="" /> <input
@@ -153,18 +158,19 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     
 });
 </script>
+</div>
+</div>
 
 
-				<br>
-				<br> <input type="submit" value="수정" />
+			<br> <br> <input type="submit" value="수정" />
 			</form>
+			<br>
 			<button onclick="history.back();">이전으로</button>
 			<button onclick="location.href='list'">목록보기</button>
-			<br>
-			<br>
-			<br>
+			<br> <br> <br>
 		</div>
 	</section>
+	</div>
 	<!--footer-->
 	<footer>
 		<div class="container">

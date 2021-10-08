@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 body {
-    background-color: #333;
+    background-color: rgb(33, 107, 65);
     margin: 0;
     font-family: 'Gugi', cursive,
         '맑은 고딕',
@@ -11,7 +11,7 @@ body {
 
 header {
     overflow: hidden;
-    background-color: rgb(46, 53, 49);
+    background-color:rgb(33, 107, 65);
     position: fixed;
     top: 0;
     width: 100%;
@@ -110,7 +110,7 @@ header {
 .container1 {
     margin-top: 70px;
     text-align: center;
-    background-color: rgb(245, 223, 102);
+    background-color: rgb(253, 226, 75);
     background-image: linear-gradient(rgba(243, 235, 235, 0.05), rgba(0, 0, 0, 0.05)), url(../img/family_face.jpg);
     background-position: center;
     background-size: cover;
@@ -126,8 +126,10 @@ header {
 .container1 h1 {
     margin-top: 0;
     margin-bottom: 10px;
-    font-size: 8vw;
+    font-size: 15vw;
     text-shadow: 3vw;
+    color: seagreen;
+    text-shadow: -1px 0 rgb(140, 140, 146), 0 1px rgb(140, 140, 146), 1px 0 rgb(140, 140, 146), 0 -1px rgb(140, 140, 146);
     font-family: 'Gugi', cursive;
     letter-spacing: 0.05em;
 }
@@ -160,7 +162,7 @@ header {
 
 footer {
 
-    background-color: rgb(46, 53, 49);
+    background-color: rgb(33, 107, 65);
     color: whitesmoke;
 }
 
