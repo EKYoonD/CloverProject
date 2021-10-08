@@ -14,6 +14,8 @@ DROP TABLE IF EXISTS user_authority;
 
 SHOW tables;
 
+SELECT * FROM addorder ;
+
 /* Create Tables */
 /*
 CREATE TABLE Order_Table

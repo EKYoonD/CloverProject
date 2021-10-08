@@ -36,7 +36,8 @@
 	
 	<select id="selectByUid" resultType="com.clover.spring.domain.KakaoPayDTO">
 		SELECT
-			partner_order_id orderid,
+			partner_order_id,
+			partner_user_id,
 			order_Rec,
 			quantity,
 			total_amount,

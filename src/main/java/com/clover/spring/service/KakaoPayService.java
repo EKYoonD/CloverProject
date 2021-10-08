@@ -56,13 +56,15 @@ public class KakaoPayService {
         // 서버로 요청할 Body
         MultiValueMap<String, Object> params = new LinkedMultiValueMap<String, Object>();
        
-        
+         
         KakaoPayDTO dto = dao.selectByUid(partner_order_id).get(0);
+  
         params.add("partner_order_id", dto.getPartner_order_id());
         params.add("partner_order_id",dto.getPartner_order_id());
         params.add("partner_user_id", dto.getPartner_user_id());
         params.add("quantity", dto.getQuantity());
         params.add("total_amount", dto.getTotal_amount());
+        
         
 //        // 필수로 들어가는 내용
         params.add("cid", "TC0ONETIME");

@@ -47,7 +47,7 @@
 
 
 
-<form method="post" action="/kakaoPay">
+<form method="post" action="../../clover/member/kakaoPay">
 	<button class="button">결제하기</button>
 </form>
 <input type="button" class="button" value="취소"/>

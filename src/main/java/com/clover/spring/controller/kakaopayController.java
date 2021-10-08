@@ -50,10 +50,9 @@ public class kakaopayController {
     
     @PostMapping("/orderOk")
     public String orderOk(@ModelAttribute("k") KakaoPayDTO dto, BindingResult result, Model model) {
-    	System.out.println(dto.getPartner_order_id());
     	model.addAttribute("result", kakaoPayService.insert(dto));
     	model.addAttribute("dto", dto);
-    	return "orderOk";
+    	return "order/orderOk";
         
     }
     
@@ -61,16 +60,16 @@ public class kakaopayController {
     @GetMapping("/kakaoPay")
     public String kakaoPayGet(@RequestParam("partner_order_id") int partner_order_id, Model model) {
         model.addAttribute("partner_order_id", partner_order_id);
-        return "/kakaoPay";
+        return "order/kakaoPay";
     }
     
+    
     @PostMapping("/kakaoPay")
-    public String kakaoPay(int partner_order_id) {
-        log.info("kakaoPay post............................................");
-        
+    public String kakaoPay(int partner_order_id) {  	
         return "redirect:" + kakaopay.kakaoPayReady(partner_order_id);
  
     }
+    
     
     @GetMapping("/kakaoPaySuccess")
     public void kakaoPaySuccess(@RequestParam("pg_token" ) String pg_token, Model model) {
