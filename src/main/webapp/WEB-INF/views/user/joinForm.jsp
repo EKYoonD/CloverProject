@@ -118,7 +118,7 @@
 				<tr>
 					<td>이름</td>
 					<td><input type="text" name="name" id="name"
-						placeHolder="이름을 입력헤주세요" /><br></td>
+						placeHolder="이름을 입력해주세요" /><br></td>
 				</tr>
 				<tr>
 					<td>주소</td>
@@ -140,7 +140,7 @@
 			<br>
 			<br>
 			<br>
-			<button type="submit" value="회원가입">회원가입</button>
+			<button type="submit" value="회원가입">제출</button>
 		</form>
 	</div>
 	<br>

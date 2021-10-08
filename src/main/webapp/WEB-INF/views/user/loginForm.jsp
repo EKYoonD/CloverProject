@@ -25,45 +25,41 @@
 	<br>
 	<br>
 	<br>
+	<br>
+	<br>
 	<div id="logindiv">
-	<header>
-		<h1>로그인</h1>
-	</header>
-	<br>
-	<br>
-	<br>
-	<div class="overlay">
-	<form name='frm' action="/loginOk" method="POST"  onsubmit="return loginChk();">
-		<div class="input-box">
-			<input type="text" name="userid" placeholder="아이디" >
-			<label for="userid">아이디</label>
+		<header>
+			<h1>로그인</h1>
+		</header>
+		<br> <br> <br> <br> <br>
+		<br> <br> 
+		<div class="overlay">
+			<form name='frm' action="/loginOk" method="POST"
+				onsubmit="return loginChk();">
+				<div class="input-box">
+					<input type="text" name="userid" placeholder="아이디"> <label
+						for="userid">아이디</label>
+				</div>
+				<div class="input-box">
+					<input type="password" name="password" placeholder="비밀번호">
+					<label for="password">비밀번호</label>
+				</div>
+				<input type="submit" value="로그인">
+			</form>
+			<form name='frm2' action="/join" method="get">
+				<input type="submit" value="회원가입">
+			</form>
+			<div id="kakao">
+				<a href="/oauth2/authorization/kakao"><img
+					src="img/kakao_login_large_wide.png"></a> <br> <br>
+				<br> <br>
+			</div>
 		</div>
-		<div class="input-box">
-			<input type="password" name="password" placeholder="비밀번호"> 
-				<label for="password">비밀번호</label>
-		</div>
-		<input type="submit" value="로그인">
-	</form>
-	<form name='frm2' action="/join" method="get">
-			<input type="submit" value="회원가입">
-		</form>
-		<div id="kakao">
-		<a href="/oauth2/authorization/kakao"><img src="img/kakao_login_medium_narrow.png"></a>
-		</div>
-		</div>
-		</div>
+		<br> <br> <br> <br>
+	</div>
+
 </body>
-<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br><br>
-	<br>
-	<br>
+
 
 <script>
 	function loginChk() {
@@ -79,7 +75,7 @@
 			form.password.focus();
 			return false;
 		}
-		
+
 	}
 </script>
 
