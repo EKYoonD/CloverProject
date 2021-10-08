@@ -64,21 +64,14 @@
 		
 <h2>입력</h2>
 <form name="frm" action="writeOk" method="post" onsubmit="return chkSubmit()">
-<<<<<<< HEAD
 이름:                           
 <input type="text" name="name" value ="${m.name}" }/><br>
-종류:
-<input type="text" name="category" value ="${m.category}" }/><br>
-=======
-이름:
-<input type="text" name="name" value ="${m.name}"/><br><br>
 카테고리:
 <select class="select" id="category" name="category" style="width: 100px;">
     <option value="부모님" selected>부모님</option>
     <option value="아이">아이</option>
     <option value="반려동물">반려동물</option>
 </select><br><br>
->>>>>>> branch 'master' of https://github.com/EKYoonD/CloverProject.git
 나이:
 <input type="text" name="age" value ="${m.age}"/><br><br>
 주소:
