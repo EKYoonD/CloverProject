@@ -62,7 +62,7 @@
                 <h2>부모님 찾기 QR</h2>
                 <img style="width: 100%; height: auto;" src="/img/family_mom2.jpg">
                 <p>일상의 이런저런 것들을 기록하다 보면 보이지 않던 소중한 것들이 보입니다.</p>
-                <a href="#">MORE...
+                <a onclick="location.href='clover/member/qr/write'">MORE...
                     <span class="fa fa-chevron-right"></span>
                 </a>
             </div>
@@ -71,7 +71,7 @@
                 <h2>내 아이 찾기 QR</h2>
                 <img style="width: 100%; height: auto;" src="/img/family_child2.jpg">
                 <p>일상의 이런저런 것들을 기록하다 보면 보이지 않던 소중한 것들이 보입니다.</p>
-                <a href="#">MORE...
+                <a onclick="location.href='clover/member/qr/write2'">MORE...
                     <span class="fa fa-chevron-right"></span>
                 </a>
             </div>
@@ -80,7 +80,7 @@
                 <h2>반려동물 찾기 QR</h2>
                 <img style="width: 100%; height: auto;" src="/img/family_dog2.jpg">
                 <p>일상의 이런저런 것들을 기록하다 보면 보이지 않던 소중한 것들이 보입니다.</p>
-                <a href="#">MORE...
+                <a onclick="location.href='clover/member/qr/write3'">MORE...
                     <span class="fa fa-chevron-right"></span>
                 </a>
             </div>
