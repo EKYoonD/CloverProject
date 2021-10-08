@@ -56,17 +56,17 @@ public class KakaoPayService {
         // 서버로 요청할 Body
         MultiValueMap<String, Object> params = new LinkedMultiValueMap<String, Object>();
        
-         
+        
         KakaoPayDTO dto = dao.selectByUid(partner_order_id).get(0);
-  
         params.add("partner_order_id", dto.getPartner_order_id());
-        params.add("partner_order_id",dto.getPartner_order_id());
-        params.add("partner_user_id", dto.getPartner_user_id());
+        params.add("user_id",dto.getUser_id());
+        params.add("qr_option", dto.getQr_option());
         params.add("quantity", dto.getQuantity());
         params.add("total_amount", dto.getTotal_amount());
         
-        
 //        // 필수로 들어가는 내용
+        
+        
         params.add("cid", "TC0ONETIME");
         params.add("approval_url", "http://localhost:8092/kakaoPaySuccess");
         params.add("cancel_url", "http://localhost:8092/kakaoPayCancel");
@@ -76,7 +76,7 @@ public class KakaoPayService {
         
 ////        // 변동 가능한 내용
 //        params.add("partner_order_id", "1001");
-//        params.add("partner_user_id", "최민석");
+        params.add("partner_user_id", "Clover");
 //        params.add("quantity", "1");
 //        params.add("total_amount", "2100");
         
@@ -123,7 +123,7 @@ public class KakaoPayService {
         params.add("cid", "TC0ONETIME");
         params.add("tid", kakaoPayReadyVO.getTid());
         params.add("partner_order_id",dto.getPartner_order_id());
-        params.add("partner_user_id", dto.getPartner_user_id());
+        params.add("user_id", dto.getUser_id());
         params.add("pg_token", pg_token);
         params.add("total_amount", dto.getTotal_amount());
         

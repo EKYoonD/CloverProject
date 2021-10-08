@@ -8,46 +8,36 @@
 		keyProperty="partner_order_id" useGeneratedKeys="true" keyColumn="partner_order_id">
 		<![CDATA[
 		INSERT INTO addOrder(	
-			partner_user_id,
+			user_id,
+			qr_uid,
 			order_Rec,
+			order_Phone,
+			qr_option,
 			quantity,
 			total_amount,
-			address,
-			cid,
-			approval_url,
-			cancel_url,
-			fail_url,
-			item_name,
-			tax_free_amount)
+			address
+			)
 		VALUES(
-			#{partner_user_id},
+			(SELECT user_id FROM userdto WHERE user_id=#{user_id}),
+			(SELECT qr_uid FROM QR_Table WHERE qr_uid=#{qr_uid}),
 			#{order_Rec},
+			#{order_Phone},
+			#{qr_option},
 			#{quantity},
 			#{total_amount},
-			#{address},
-			"TC0ONETIME",
-			"http://localhost:8092/kakaoPaySuccess",
-			"http://localhost:8092/kakaoPayCancel",
-			"http://localhost:8092/kakaoPaySuccessFail",
-			"QR뱃지",
-			0)
+			#{address}
+			)
 	]]>
 	</insert>
 	
 	<select id="selectByUid" resultType="com.clover.spring.domain.KakaoPayDTO">
 		SELECT
 			partner_order_id,
-			partner_user_id,
 			order_Rec,
 			quantity,
 			total_amount,
-			address,
-			cid,
-			approval_url,
-			cancel_url,
-			fail_url,
-			item_name,
-			tax_free_amount
+			address
+
 		FROM
 			addOrder
 		WHERE
@@ -56,7 +46,7 @@
 	
 	<select id = "selectUidByUid" resultType="com.clover.spring.domain.KakaoPayDTO">
 		SELECT 
-			partner_order_id orderid, 
+			partner_order_id, 
 		FROM 
 			addOrder 
 		WHERE 

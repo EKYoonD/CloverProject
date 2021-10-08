@@ -84,20 +84,32 @@
 
 <h2>QR뱃지 주문</h2>  
         <input type="hidden" name="partner_order_id" id="partner_order_id" type="text" class="partner_order_id" value="${k.partner_order_id}" placeholder="주문번호"/>
-       <div class="textForm">
-        <input name="partner_user_id" id="partner_user_id" type="text" class="partner_user_id" value ="${k.partner_user_id}" placeholder="유저 ID"/>
-      </div>
+        <input type="hidden" name="user_id" id="user_id" type="text" class="user_id" value ="${k.user_id}"/>
+        <input type="hidden" name="qr_uid" id="qr_uid" type="text" class="qr_uid" value ="${k.qr_uid}"/>
       <div class="textForm">
         <input name="order_Rec" id="order_Rec" type="text" class="order_Rec" value ="${k.order_Rec}" placeholder="수령인"/>
+      </div>
+      <div class="textForm">
+        <input name="order_Phone" id="order_Phone" type="text" class="order_Phone" value ="${k.order_Phone}" placeholder="수령인 연락처"/>
       </div>
       <div class="textForm">
         <input name="address" id="address" type="text" class="address" placeholder="주소" value ="${k.address}"/>
       </div>
       <div class="textForm">
-      	<div>
+      	<select name="qr_option" id="qr_option" class="qr_option">
+      		<option value="1">1</option>
+      		<option value="2">2</option>
+      		<option value="3">3</option>
+      	
+      	</select>
+      </div>
+      <div class="textForm">
+      	<span>
       	<input name="quantity" id="quantity" type="text" id="quantity"class="quantity" placeholder="수량" value ="${k.quantity }"/>
+		</span>
+		<span>
 		<input name="total_amount" id="total_amount" type="text" id="total_amount" class="total_amount" placeholder="금액" onkeyup=cal()/>      
-      	</div>
+      	</span>
       </div>
       	<div>
      <input type="submit" class="button" value="주문"/>

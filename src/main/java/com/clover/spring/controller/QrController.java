@@ -180,8 +180,8 @@ public class QrController {
 		
 	private static final String QR_CODE_IMAGE_PATH = "C:\\qr\\QRCode.png";	
 				
-	@RequestMapping(value = "qrcode/{uid}", method = RequestMethod.GET)
-	public void qrcode(@PathVariable("uid") String uid, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "qrcode/{qr_uid}", method = RequestMethod.GET)
+	public void qrcode(@PathVariable("qr_uid") String uid, HttpServletResponse response) throws Exception {
 		response.setContentType("image/png");
 		  uid = new String(uid.getBytes("UTF-8") , "ISO-8859-1");
 		OutputStream outputStream = response.getOutputStream();

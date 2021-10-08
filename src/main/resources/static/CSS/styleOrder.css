@@ -4,19 +4,20 @@
   margin: 0px;
   padding: 0px;
   text-decoration: none;
-  font-family:sans-serif;
+  font-family: 'Gugi', cursive,
+        '맑은 고딕',
+        'Apple SD Gothic Neo',
+        sans-serif;
 
 }
-
 body {
-    background-color: #FFFFFF;
+    background-color: rgb(247, 229, 127);
     margin: 0;
     font-family: 'Gugi', cursive,
         '맑은 고딕',
         'Apple SD Gothic Neo',
         sans-serif;
 }
-
 
 header {
     overflow: hidden;
@@ -25,7 +26,6 @@ header {
     top: 0;
     width: 100%;
 }
-
 .head1 {
     display:inline-block;
     line-height:70px;
@@ -174,6 +174,17 @@ header {
   background: none;
 }
 
+.order_Phone {
+  width: 100%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+	
+}
+
 
 .quantity {
   border:none;
@@ -252,7 +263,9 @@ header {
 
 
 
+
 footer {
+
     background-color: rgb(46, 53, 49);
     color: whitesmoke;
 }

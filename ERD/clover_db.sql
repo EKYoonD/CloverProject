@@ -14,8 +14,6 @@ DROP TABLE IF EXISTS user_authority;
 
 SHOW tables;
 
-SELECT * FROM addorder ;
-
 /* Create Tables */
 /*
 CREATE TABLE Order_Table
@@ -44,24 +42,66 @@ CREATE TABLE Payment_Table
 */
  create table addOrder(
       partner_order_id int not null auto_increment,
-      partner_user_id varchar(30) not null,
       order_Rec varchar(30) not null,
+      order_Phone varchar(30) not null,
       quantity int not null,
       total_amount int not null,
       address varchar(30) not null,
-      cid varchar(20) not null,
-      approval_url varchar(50) not null,
-      cancel_url varchar(50) not null,
-      fail_url varchar(50) not null,
-      item_name varchar(10) not null,
-      tax_free_amount int not null,
+      qr_option varchar(10),
+      qr_uid int not null,
+      user_id varchar(30) not null,
       primary key (partner_order_id)
       
 );
 
+select * from qr_table qt ;
+select * from userdto u ;
+desc addorder ;
+
 
 select * from addorder;
-
+INSERT INTO addOrder(	
+			user_id,
+			qr_uid,
+			order_Rec,
+			order_Phone,
+			qr_option,
+			quantity,
+			total_amount,
+			address
+			)
+		VALUES(
+			"alstjrdl97",
+			1,
+			"1",
+			"1",
+			"1",
+			1,
+			1,
+			"1"
+			);
+			
+			
+			INSERT INTO addOrder(	
+			user_id,
+			qr_uid,
+			order_Rec,
+			order_Phone,
+			qr_option,
+			quantity,
+			total_amount,
+			address
+			)
+		VALUES(
+			(SELECT user_id FROM userdto WHERE user_id="alstjrdl97"),
+			(SELECT qr_uid FROM QR_Table WHERE qr_uid=9),
+			"1",
+			"1",
+			"1",
+			1,
+			1,
+			"1"
+			);
 
 CREATE TABLE QR_Table
 (
@@ -134,6 +174,20 @@ SELECT * FROM rep_write_table wt;
 
 /* Create Foreign Keys */
 
+ALTER TABLE addOrder
+	ADD FOREIGN KEY (qr_uid)
+	REFERENCES QR_Table (qr_uid)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+
+ALTER TABLE addOrder
+	ADD FOREIGN KEY (user_id)
+	REFERENCES userdto (user_id)
+	ON UPDATE RESTRICT
+	ON DELETE RESTRICT
+;
+/*
 ALTER TABLE Payment_Table
 	ADD FOREIGN KEY (order_uid)
 	REFERENCES Order_Table (order_uid)
@@ -148,7 +202,7 @@ ALTER TABLE Order_Table
 	ON UPDATE RESTRICT
 	ON DELETE RESTRICT
 ;
-
+*/
 
 ALTER TABLE Order_Table
 	ADD FOREIGN KEY (user_uid)

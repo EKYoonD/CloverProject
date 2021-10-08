@@ -4,7 +4,8 @@ package com.clover.spring.controller;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties.Authentication;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +21,7 @@ import com.clover.spring.service.KakaoPayService;
 
 import lombok.Setter;
 import lombok.extern.java.Log;
+
 
 @Log
 @Controller
@@ -42,14 +44,24 @@ public class kakaopayController {
     private KakaoPayService kakaopay;
     
     @GetMapping("/order")
-    public String order(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
+    public String order(Model model, Authentication authentication, RedirectAttributes redirectAttributes, int uid) {
+    	UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 
     	KakaoPayDTO dto = new KakaoPayDTO();
+    	String user_id = userDetails.getUsername();
+    	redirectAttributes.addAttribute("user_id", user_id);
+    	redirectAttributes.addAttribute("qr_uid", uid);
+    	dto.setUser_id(user_id);
+    	dto.setQr_uid(uid);
     	model.addAttribute("k", dto);
+    	
     	return "/order/order";
     }
     
+    
+    
     @PostMapping("/orderOk")
     public String orderOk(@ModelAttribute("k") KakaoPayDTO dto, BindingResult result, Model model) {
+    	System.out.println(dto.getUser_id());
     	model.addAttribute("result", kakaoPayService.insert(dto));
     	model.addAttribute("dto", dto);
     	return "order/orderOk";

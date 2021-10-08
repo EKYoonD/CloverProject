@@ -62,7 +62,7 @@
 		<br><br><br><br><br><br><br><br>
 		<button onclick="location.href='update?uid=${list[0].uid }'">수정하기</button>
 		<button onclick="location.href='download'">다운로드</button>
-		<button onclick="location.href='../order'">주문하기</button>
+		<button onclick="location.href='../order?uid=${param.uid}'">주문하기</button>
 		<button onclick="location.href='write'">신규등록</button>
 		<button onclick="location.href='qrlist'">목록</button>
  </section>
