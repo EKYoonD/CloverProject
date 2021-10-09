@@ -23,7 +23,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>main</title>
 
-<link href="/CSS/styleWrite.css" rel="stylesheet">
+<link href="/CSS/styleQr.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>글작성</title>
@@ -42,7 +42,7 @@
                 <ul>
                     <li><a onclick="location.href='../../../../about'">CLVOER</a></li>
                     <li><a onclick="location.href='../qr'">MY QR</a></li>
-                    <li><a onclick="location.href='../order'">ORDER</a></li>
+                    <li><a onclick="location.href='../qr/qrlist'">ORDER</a></li>
                     <li><a onclick="location.href='../board/list'">FIND & FOUND</a></li>
                     <li><a onclick="location.href='login'">JOIN</a></li>
                 </ul>
@@ -50,21 +50,29 @@
         </div>
     </header>
 <section class="container1">
-<div href class="container">
-	<h2>qr</h2>
+<div class="container4">
+	<h2>QR</h2>
 		<br>
 		
-<img src="qrcode/이름: ${list[0].name }, 	종류 :${list[0].category},  나이:${list[0].age }, 주소: ${list[0].address }, 보호자 연락처: ${list[0].phone },  내용:${list[0].content },  "/>
+<img src="qrcode/이름: ${list[0].name }%0A	
+				종류 :${list[0].category}%0A
+				나이:${list[0].age }%0A
+				주소: ${list[0].address }%0A
+				보호자 연락처: ${list[0].phone }%0A
+				내용:${list[0].content }  "/>
+
 
 		
 	
 	
 		<br><br><br><br><br><br><br><br>
-		<button onclick="location.href='update?uid=${list[0].uid }'">수정하기</button>
-		<button onclick="location.href='download'">다운로드</button>
-		<button onclick="location.href='../order?uid=${param.uid}'">주문하기</button>
-		<button onclick="location.href='write'">신규등록</button>
-		<button onclick="location.href='qrlist'">목록</button>
+		<button onclick="location.href='update?uid=${list[0].uid }'" class="blue_button1">수정하기</button>
+		<button onclick="location.href='download'"  class="blue_button1">다운로드</button>
+		<button onclick="location.href='../order?uid=${param.uid}'"  class="blue_button1">주문하기</button>
+		<button onclick="location.href='/main'"  class="blue_button1">메인</button>
+		<!-- <button onclick="location.href='write'">신규등록</button>-->
+		<!--  <button onclick="location.href='qrlist'">목록</button>-->
+		</div>
  </section>
 		<!--footer-->
 		    <footer>

@@ -45,7 +45,7 @@
 					<li><a onclick="location.href='about'">CLVOER</a></li>
 					<li><a onclick="location.href='clover/member/qr/write'">MY
 							QR</a></li>
-					<li><a onclick="location.href='clover/member/order'">ORDER</a></li>
+					<li><a onclick="location.href='clover/member/qr/qrlist'">ORDER</a></li>
 					<li><a onclick="location.href='clover/member/board/list'">FIND
 							& FOUND</a></li>
 					<sec:authorize access="isAnonymous()">

@@ -23,7 +23,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>main</title>
 
-<link href="/CSS/styleWrite.css" rel="stylesheet">
+<link href="/CSS/styleQr.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>글작성</title>
@@ -49,36 +49,37 @@
             </nav>
         </div>
     </header>
-<section class="container1">
-<div href class="container">
-<h2>정보수정</h2>
+		<section class="container1">
+		<div class="container4">
+<h2>QR수정</h2>
 <form name="frm" action="updateOk" method="post" onsubmit="return chkSubmit()">
 <input type="hidden" name="uid" value="${list[0].uid }"/>
 이름:
-<input type="text" name="name" value ="${list[0].name }" /><br>
+<input type="text" name="name" value ="${list[0].name }" /><br><br>
 카테고리:
 <select class="select" id="category" name="category" value ="${list[0].category}" style="width: 80px;">
     <option value="부모님" selected>부모님</option>
     <option value="아이">아이</option>
     <option value="반려동물">반려동물</option>
-</select><br>
-<!-- <input type="text" name="category" value ="${list[0].category}" /><br>-->
-보호자 나이:
-<input type="text" name="age" value ="${list[0].age}"/><br>
+</select><br><br>
+
+나이:
+<input type="text" name="age" value ="${list[0].age}"/><br><br>
 주소:
-<input type="text" name="address" value ="${list[0].address}"/><br>
+<input type="text" name="address" value ="${list[0].address}"/><br><br>
 보호자 전화번호:
-<input type="text" name="phone" value ="${list[0].phone}"/><br>
+<input type="text" name="phone" value ="${list[0].phone}"/><br><br>
 특이사항:
-<textarea name="content">${list[0].content }</textarea><br>
+<textarea name="content">${list[0].content }</textarea><br><br>
 <input type="hidden" name="userid" id="userid" value="${list[0].userid }"/>
 <br><br>
-<input type="submit" value="qr수정"/>
+<input type="submit" class="blue_button"  value="qr수정"/>
 </form>
 <br>
-<button onclick="history.back();">이전으로</button>
+<button onclick="history.back();" class="blue_button">이전으로</button>
 
 <br>
+ </div>
   </section>
 		<!--footer-->
 		    <footer>
