@@ -8,14 +8,17 @@
 		resultType="com.clover.spring.domain.UserDTO">
 		<![CDATA[    
 		SELECT
-			user_id userid, 
-			wr_subject subject, 
-			wr_viewcnt viewcnt, 
-			wr_regdate regDate 
+			user_uid uid, 
+			user_id id,
+			user_pw pw,
+			user_name name,
+			user_address address,
+			user_email email,
+			user_phone phone
 		FROM 
-			write_table
+			userdto
 		ORDER BY 
-			wr_uid DESC
+			user_uid DESC
 		LIMIT #{from}, #{pageRows}
 		]]>
 	</select>
@@ -24,13 +27,13 @@
  	resultType="java.lang.Integer" 혹은 resultType="int" 
 	-->
 	<select id="countAll" resultType="int">
-		SELECT count(*) FROM write_table
+		SELECT count(*) FROM userdto
 	</select>
 	
  	 
  	 <delete id="deleteByUid" flushCache="true"
  	 	parameterType="java.util.ArrayList">
- 	 	DELETE FROM write_table
+ 	 	DELETE FROM userdto
  	 	WHERE wr_uid in (
  	 		<foreach collection="array" item="item" index="index" separator=",">
  	 			${item}

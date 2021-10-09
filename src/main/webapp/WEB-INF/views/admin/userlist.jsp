@@ -55,7 +55,7 @@
 	<form id="frmList" name="frmList">
 		<table>
 			<thead>
-				<th>#</th>
+				<th></th>
 				<th>user_uid</th>
 				<th>아이디</th>
 				<th>패스워드</th>

@@ -109,6 +109,20 @@ CREATE TABLE userdto
 	UNIQUE (user_id)
 );
 
+SELECT
+			user_uid uid, 
+			user_id id,
+			user_pw pw,
+			user_name name,
+			user_address address,
+			user_email email,
+			user_phone phone
+		FROM 
+			userdto
+		ORDER BY 
+			user_uid DESC
+		LIMIT 1, 5;
+
 select * from userdto;
 
 
