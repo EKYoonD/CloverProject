@@ -32,12 +32,13 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 		OAuth2User oAuth2User = oAuth2UserService.loadUser(userRequest);
 
 		// 현재 진행 중인 서비스를 구분
-		// oAuth2UserRequest.getClientRegistration().getRegistrationId() <- {registrationId='naver'}
+		// oAuth2UserRequest.getClientRegistration().getRegistrationId() <-
+		// {registrationId='naver'}
 		String registrationId = userRequest.getClientRegistration().getRegistrationId();
-		
+
 		// OAuth2 로그인 시 키 값. 구글="sub", 네이버="response", 카카오="id"
-		String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails()
-				.getUserInfoEndpoint().getUserNameAttributeName();
+		String userNameAttributeName = userRequest.getClientRegistration().getProviderDetails().getUserInfoEndpoint()
+				.getUserNameAttributeName();
 
 		// OAuth2 로그인을 통해 가져온 OAuth2User의 attribute를 담아주는 of 메소드.
 		OAuthAttributes attributes = OAuthAttributes.of(registrationId, userNameAttributeName,
@@ -45,17 +46,16 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
 		UserDTO user = saveOrUpdate(attributes);
 		httpSession.setAttribute("user", new SessionUser(user));
-		
+
 		return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority("ROLE_USER")),
 				attributes.getAttributes(), attributes.getNameAttributeKey());
 	}
 
 	// 이미 저장된 정보라면, update 처리
 	private UserDTO saveOrUpdate(OAuthAttributes attributes) {
-		UserDTO user = userRepository.findByEmail(attributes.getName())
-				.map(entity -> entity.update(attributes.getName(),attributes.getName(), attributes.getPicture(), attributes.getPhone()))
-				.orElse(attributes.toEntity());
-		
+		UserDTO user = userRepository.findById(attributes.getId()).map(entity -> entity.update(attributes.getId(),
+				attributes.getName(), attributes.getPicture(), attributes.getPhone())).orElse(attributes.toEntity());
+
 		return userRepository.save(user);
 	}
 

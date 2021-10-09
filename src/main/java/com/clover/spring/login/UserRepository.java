@@ -10,4 +10,5 @@ import com.clover.spring.domain.UserDTO;
 @Repository
 public interface UserRepository extends JpaRepository<UserDTO, Long> {
 	Optional<UserDTO> findByEmail(String email);
+	Optional<UserDTO> findById(String id);
 }
