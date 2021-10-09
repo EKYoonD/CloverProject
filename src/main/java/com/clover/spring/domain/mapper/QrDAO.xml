@@ -20,6 +20,21 @@
 			qr_uid DESC		
 	</select>
 	
+	
+	<select id="listByUserid" resultType="com.clover.spring.domain.QrDTO">
+		SELECT 
+			qr_uid "uid", 
+			qr_name name, 
+			qr_category category,
+			qr_age age, 
+			qr_address address,
+			qr_phone phone,
+			qr_content content 
+		FROM 
+			QR_Table
+		WHERE user_uid = (SELECT user_uid FROM userdto WHERE user_id=#{userid});	
+	</select>
+	
 	<!-- writeOk -->
 	<insert id="insert" flushCache="true"
 		parameterType="com.clover.spring.domain.QrDTO"
@@ -29,6 +44,7 @@
 		VALUES
 			(#{name}, #{category}, #{age}, #{address}, #{phone}, #{content}, (SELECT user_uid FROM userdto WHERE user_id = #{userid}))
 	</insert>
+	
 	
 	<!-- view -->
 	<select id="selectByUid" resultType="com.clover.spring.domain.QrDTO">

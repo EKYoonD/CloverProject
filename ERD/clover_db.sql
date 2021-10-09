@@ -60,48 +60,7 @@ desc addorder ;
 
 
 select * from addorder;
-INSERT INTO addOrder(	
-			user_id,
-			qr_uid,
-			order_Rec,
-			order_Phone,
-			qr_option,
-			quantity,
-			total_amount,
-			address
-			)
-		VALUES(
-			"alstjrdl97",
-			1,
-			"1",
-			"1",
-			"1",
-			1,
-			1,
-			"1"
-			);
-			
-			
-			INSERT INTO addOrder(	
-			user_id,
-			qr_uid,
-			order_Rec,
-			order_Phone,
-			qr_option,
-			quantity,
-			total_amount,
-			address
-			)
-		VALUES(
-			(SELECT user_id FROM userdto WHERE user_id="alstjrdl97"),
-			(SELECT qr_uid FROM QR_Table WHERE qr_uid=9),
-			"1",
-			"1",
-			"1",
-			1,
-			1,
-			"1"
-			);
+
 
 CREATE TABLE QR_Table
 (
@@ -245,3 +204,16 @@ ALTER TABLE rep_write_table
 SELECT * FROM userdto;
 SELECT user_uid FROM userdto WHERE user_id='dbswlckd1';
 
+SELECT * FROM qr_table;
+
+SELECT 
+			qr_uid "uid", 
+			qr_name name, 
+			qr_category category,
+			qr_age age, 
+			qr_address address,
+			qr_phone phone,
+			qr_content content 
+		FROM 
+			QR_Table
+		WHERE user_uid = (SELECT user_uid FROM userdto WHERE user_id="1939890767");

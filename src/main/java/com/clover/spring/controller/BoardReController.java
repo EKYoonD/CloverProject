@@ -65,13 +65,6 @@ public class BoardReController {
 		// write 거치고 나면 담겨있게 됨
 		// auto-generated key값도 받아와야 해 (auto-increment) -> dto로 담겨 있음
 		
-		System.out.println("1 + " + redto.getSubject());
-		System.out.println("2 + " + redto.getContent());
-		System.out.println("3 + " + redto.getLatitude());
-		System.out.println("4 + " + redto.getRegDate());
-		System.out.println("6 + " + redto.getUid());
-		System.out.println("7 + " + redto.getUserid());
-		
 		if(result.hasErrors()) {
 			// 에러 기능 관련해 추가적인 model attribute 지정 가능
 			// WriteValidator에서 validation에 rejetValue에 값을 담았었음 -> 그걸 가지고			

@@ -45,8 +45,9 @@ public class QrService {
 		return dao.update(dto);
 	}
 
-
-
+	public List<QrDTO> listByUserid(String userid) {
+		return dao.listByUserid(userid);
+	}
 	
 }
 	

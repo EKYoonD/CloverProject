@@ -69,7 +69,7 @@
 				<div id="container1_table">
 					<table>
 						<thead>
-							<th>uid</th>
+							<th>QR 일련번호</th>
 							<th>보호자이름</th>
 							<th>주문</th>
 						</thead>

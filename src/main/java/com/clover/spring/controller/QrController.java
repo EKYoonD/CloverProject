@@ -51,13 +51,6 @@ public class QrController {
 		System.out.println("QrController() 생성");
 	}
 
-	@RequestMapping("/qrlist")
-	public String list(Model model) {
-
-		model.addAttribute("list", qrService.list());
-
-		return "qr/qrlist";
-	}
 
 	@GetMapping("/write")
 	public String write(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
@@ -100,6 +93,20 @@ public class QrController {
 
 		return "qr/write3";
 	}
+	
+	@GetMapping("/writeOrder")
+	public String writeOrder(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
+		QrDTO dto = new QrDTO();
+
+		String userid = LoginUtils.getUserId(authentication.getPrincipal());
+
+		redirectAttributes.addAttribute("userid", userid);
+
+		dto.setUserid(userid);
+		model.addAttribute("m", dto);
+
+		return "qr/writeOrder";
+	}
 
 	@PostMapping("/writeOk")
 	public String writeOk(@ModelAttribute("m") @Valid QrDTO dto, BindingResult result, Model model) {
@@ -126,6 +133,15 @@ public class QrController {
 		model.addAttribute("list", qrService.viewByUid(uid));
 
 		return "qr/view";
+	}
+	
+	@RequestMapping("/qrlist")
+	public String list( Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
+
+		String userid = LoginUtils.getUserId(authentication.getPrincipal());
+		model.addAttribute("list", qrService.listByUserid(userid));
+
+		return "qr/qrlist";
 	}
 
 	@RequestMapping("/update")

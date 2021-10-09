@@ -70,8 +70,10 @@
 		<div class="container">
 			<h1 onclick="location.href='about'" style="font-size: 12vw; text-shadow: #333">CLOVER</h1>
 			<h2  style="font-size: 4vw; text-shadow: #333">WITH MY FAMILY</h2>
-
 		</div>
+		
+		<input type="hidden" name="userid" id="userid" value="${w.userid }" /> 
+		
 	</section>
 
 	<!--footer-->
