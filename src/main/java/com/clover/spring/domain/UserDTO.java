@@ -36,14 +36,16 @@ public class UserDTO {
 	@Column(name="user_role")
 	private String role = "ROLE_USER";
 	
-	public UserDTO(String name, String email, String picture, String phone) {
+	public UserDTO(String id, String name, String email, String picture, String phone) {
+		this.id= id;
 		this.name = name;
 		this.email = email;
 		this.picture = picture;		
 		this.phone = phone;
 	}
 
-	public UserDTO update(String name, String picture, String phone) {
+	public UserDTO update(String id,String name, String picture, String phone) {
+		this.id= id;
 		this.name = name;
 		this.picture = picture;
 		this.phone = phone;

@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.oauth2.core.user.DefaultOAuth2User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -45,13 +46,18 @@ public class BoardController {
 	
 	@GetMapping("/write")
 	public String write(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
-
-		UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 
+		
+		DefaultOAuth2User userDetails = (DefaultOAuth2User) authentication.getPrincipal(); 	//카카오로그인
+		
+//		UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 				//일반로그인
 		
 		WriteDTO dto = new WriteDTO();
 		
-//		String name = this.findNameByUserId(userDetails.getUsername());
-		String userid = userDetails.getUsername();
+		String userid = userDetails.getName();			//카카오로그인
+		
+//		String userid = userDetails.getUsername();		//일반로그인
+
+		
 		redirectAttributes.addAttribute("userid", userid);
 		
 		

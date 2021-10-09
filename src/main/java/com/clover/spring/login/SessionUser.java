@@ -10,12 +10,14 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SessionUser implements Serializable {
-
+	
+	private String id;
 	private String name;
 	private String email;
 	private String picture;
 	
 	public SessionUser(UserDTO user) {
+		this.id = user.getId();
 		this.name = user.getName();
 		this.email = user.getEmail();
 		this.picture = user.getPicture();
