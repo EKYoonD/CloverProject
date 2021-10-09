@@ -20,10 +20,12 @@
             })
         })
         
-        function cal() {
-        	var quantity = document.getElementById("quantity").value;
+        function call() {
+        	if(document.getElementById("quantity").value && document.getElementById("multi")){
+        		document.getElementById('total_amount').value = parseInt(document.getElement('quantity').value) * parseInt(document.getElement('multi').value);
+        	}
         	
-        	document.getElementById("total_amount").innerHTML = parseInt(quantity)*2200;
+        
         }
         
          function checkForm(){
@@ -105,15 +107,16 @@
       </div>
       <div class="textForm">
       	<span>
-      	<input name="quantity" id="quantity" type="text" id="quantity"class="quantity" placeholder="수량" value ="${k.quantity }"/>
+      	<input name="quantity" id="quantity" type="text" id="quantity"class="quantity" placeholder="수량" value ="${k.quantity }" onkeyup='call()'/>
 		</span>
+		<input type="hidden" name="multi" id="multi" type="text" value ="1500" onkeyup='call()'/>
 		<span>
-		<input name="total_amount" id="total_amount" type="text" id="total_amount" class="total_amount" placeholder="금액" onkeyup=cal()/>      
+		<input name="total_amount" id="total_amount" type="text" id="total_amount" class="total_amount" placeholder="금액" value="${k.total_amount }"/>      
       	</span>
       </div>
       	<div>
      <input type="submit" class="button" value="주문"/>
-      <input type="button" class="button" value="취소"/>
+      <a  onclick="location.href='main'"><input type="button" class="button" value="취소"/ ></a>
       </div>
       
       
