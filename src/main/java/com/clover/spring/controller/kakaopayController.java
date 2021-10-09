@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.clover.spring.domain.KakaoPayDTO;
 import com.clover.spring.service.KakaoPayService;
+import com.clover.spring.util.LoginUtils;
 
 import lombok.Setter;
 import lombok.extern.java.Log;
@@ -45,9 +46,8 @@ public class kakaopayController {
     
     @GetMapping("/order")
     public String order(Model model, Authentication authentication, RedirectAttributes redirectAttributes, int uid) {
-    	UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 
     	KakaoPayDTO dto = new KakaoPayDTO();
-    	String user_id = userDetails.getUsername();
+    	String user_id = LoginUtils.getUserId(authentication.getPrincipal());
     	redirectAttributes.addAttribute("user_id", user_id);
     	redirectAttributes.addAttribute("qr_uid", uid);
     	dto.setUser_id(user_id);

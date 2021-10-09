@@ -22,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.clover.spring.WriteValidator;
 import com.clover.spring.domain.WriteDTO;
 import com.clover.spring.service.BoardService;
+import com.clover.spring.util.LoginUtils;
 
 @Controller
 @RequestMapping("clover/member/board")
@@ -47,16 +48,9 @@ public class BoardController {
 	@GetMapping("/write")
 	public String write(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
 		
-		DefaultOAuth2User userDetails = (DefaultOAuth2User) authentication.getPrincipal(); 	//카카오로그인
-		
-//		UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 				//일반로그인
-		
 		WriteDTO dto = new WriteDTO();
 		
-		String userid = userDetails.getName();			//카카오로그인
-		
-//		String userid = userDetails.getUsername();		//일반로그인
-
+		String userid = LoginUtils.getUserId(authentication.getPrincipal());
 		
 		redirectAttributes.addAttribute("userid", userid);
 		

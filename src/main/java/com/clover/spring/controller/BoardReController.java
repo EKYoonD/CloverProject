@@ -24,6 +24,7 @@ import com.clover.spring.WriteValidator;
 import com.clover.spring.domain.WriteDTO;
 import com.clover.spring.domain.WriteReDTO;
 import com.clover.spring.service.BoardService;
+import com.clover.spring.util.LoginUtils;
 
 @Controller
 @RequestMapping("clover/member/board")
@@ -43,13 +44,9 @@ public class BoardReController {
 	
 	@GetMapping("/writeRe")
 	public String writeRe(int uid, Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
-		
-		UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 
-		
 		WriteReDTO redto = new WriteReDTO();
 		
-//		String name = this.findNameByUserId(userDetails.getUsername());
-		String userid = userDetails.getUsername();
+		String userid = LoginUtils.getUserId(authentication.getPrincipal());
 		redirectAttributes.addAttribute("userid", userid);
 		
 		redto.setUid(uid);

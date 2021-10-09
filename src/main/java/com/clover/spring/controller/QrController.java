@@ -61,7 +61,6 @@ public class QrController {
 
 	@GetMapping("/write")
 	public String write(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
-//		UserDetails userDetails = (UserDetails) authentication.getPrincipal(); 
 		QrDTO dto = new QrDTO();
 
 		String userid = LoginUtils.getUserId(authentication.getPrincipal());
@@ -76,10 +75,9 @@ public class QrController {
 
 	@GetMapping("/write2")
 	public String write2(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
-		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 		QrDTO dto = new QrDTO();
 
-		String userid = userDetails.getUsername();
+		String userid = LoginUtils.getUserId(authentication.getPrincipal());
 
 		redirectAttributes.addAttribute("userid", userid);
 
@@ -91,10 +89,9 @@ public class QrController {
 
 	@GetMapping("/write3")
 	public String write3(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
-		UserDetails userDetails = (UserDetails) authentication.getPrincipal();
 		QrDTO dto = new QrDTO();
 
-		String userid = userDetails.getUsername();
+		String userid = LoginUtils.getUserId(authentication.getPrincipal());
 
 		redirectAttributes.addAttribute("userid", userid);
 
