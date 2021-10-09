@@ -138,7 +138,7 @@ CREATE TABLE Rep_Write_Table
 CREATE TABLE userdto 
 (
 	user_uid int NOT NULL AUTO_INCREMENT,
-	user_id varchar(20) ,
+	user_id varchar(80) not null,
 	user_pw varchar(256) ,
 	user_name varchar(10) NOT NULL,
 	user_address varchar(320) ,
