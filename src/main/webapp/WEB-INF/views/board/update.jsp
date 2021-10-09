@@ -60,63 +60,67 @@ function chkSubmit(){
 
 <body>
 
-<div id="body-wrapper" style="min-height:100%; padding-bottom: 300px;">
-	<!--header-->
-	<header>
-		<div class="container">
-			<div class="head1">
-				<a onclick="location.href='../../../../main'"><i
-					class="fas fa-home"></i></a> <span class="head3"><i
-					class="far fa-caret-square-down"></i></span>
-			</div>
-			<nav class="head2">
-				<ul>
-					<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
-					<li><a onclick="location.href='../qr'">MY QR</a></li>
-					<li><a onclick="location.href='../order'">ORDER</a></li>
-					<li><a onclick="location.href='../board/list'">FIND &
-							FOUND</a></li>
-					<li><a onclick="location.href='login'">JOIN</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<section class="container1">
-		<div href class="container contents">
-			<h2>수정</h2>
-			<form name="frm" action="updateOk" method="post"
-				onsubmit="return chkSubmit()">
-				<input type="hidden" name="uid" value="${list[0].uid }" /> 작성자:
-				${list[0].name }<br>
-				<%-- 작성자 이름은 변경 불가 --%>
-				제목: <input type="text" name="subject" value="${list[0].subject }" /><span
-					style="color: red">${ERROR.SUBJECT }</span><br> 내용:<br>
-				<div class="contentscon">
-					<textarea name="content" id='content'>${list[0].content }</textarea>
-					<script type="text/javascript">
-	CKEDITOR.replace('content', {
-		allowedContent: true,  // HTML 태그 자동삭제 방지설정
-		width: '640px',
-		height: '200px',
-		filebrowserUploadUrl: '${pageContext.request.contextPath}/upload/image'
-		
-	});
-	
-</script>
+	<div id="body-wrapper" style="min-height: 100%; padding-bottom: 300px;">
+		<!--header-->
+		<header>
+			<div class="container">
+				<div class="head1">
+					<a onclick="location.href='../../../../main'"><i
+						class="fas fa-home"></i></a> <span class="head3"><i
+						class="far fa-caret-square-down"></i></span>
 				</div>
-				<br> 마지막으로 잃어버린 장소: <br>
-				<h5>지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
-				<span style="color: red">${ERROR.POINT }</span>
-				<div class="container contents"  style="background-color: grey">	
-				<div id="map" style="width:500px;height:350px;" class="map contents">
-				<div id="clickLatlng"></div>
+				<nav class="head2">
+					<ul>
+						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
+						<li><a onclick="location.href='../qr'">MY QR</a></li>
+						<li><a onclick="location.href='../order'">ORDER</a></li>
+						<li><a onclick="location.href='../board/list'">FIND &
+								FOUND</a></li>
+						<li><a onclick="location.href='login'">JOIN</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<section class="container1">
+			<div class="container contents">
+				<h2>수정</h2>
+				<form name="frm" action="updateOk" method="post"
+					onsubmit="return chkSubmit()">
+					<input type="hidden" name="uid" value="${list[0].uid }" /> 작성자:
+					${list[0].name }<br>
+					<%-- 작성자 이름은 변경 불가 --%>
+					제목: <input type="text" name="subject" value="${list[0].subject }" /><span
+						style="color: red">${ERROR.SUBJECT }</span><br> 내용:<br>
+					<div class="contentscon">
+						<div class="context" style="width:320px; margin: auto">
+							<textarea name="content" id='content'>${w.content }</textarea>
+							<script type="text/javascript">
+								CKEDITOR
+										.replace(
+												'content',
+												{
+													allowedContent : true, // HTML 태그 자동삭제 방지설정
+													width : '640px',
+													height : '200px',
+													filebrowserUploadUrl : '${pageContext.request.contextPath}/upload/image'
+												});
+							</script>
+						</div>
+					</div>
+					<br> 마지막으로 잃어버린 장소: <br>
+					<h5>지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
+					<span style="color: red">${ERROR.POINT }</span>
+					<div class="container contents" style="background-color: grey">
+						<div id="map" style="width: 500px; height: 350px;"
+							class="map contents">
+							<div id="clickLatlng"></div>
 
-				<input type="hidden" name="latitude" id="latitude" value="" /> <input
-					type="hidden" name="longitude" id="longitude" value="" />
+							<input type="hidden" name="latitude" id="latitude" value="" /> <input
+								type="hidden" name="longitude" id="longitude" value="" />
 
-				<script type="text/javascript"
-					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2389d39ea90c7f8eac5210a7bd81bee9"></script>
-				<script>
+							<script type="text/javascript"
+								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2389d39ea90c7f8eac5210a7bd81bee9"></script>
+							<script>
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = { 
@@ -158,18 +162,18 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     
 });
 </script>
-</div>
-</div>
+						</div>
+					</div>
 
 
-			<br> <br> <input type="submit" value="수정" />
-			</form>
-			<br>
-			<button onclick="history.back();">이전으로</button>
-			<button onclick="location.href='list'">목록보기</button>
-			<br> <br> <br>
-		</div>
-	</section>
+					<br> <br> <input type="submit" value="수정" />
+				</form>
+				<br>
+				<button onclick="history.back();">이전으로</button>
+				<button onclick="location.href='list'">목록보기</button>
+				<br> <br> <br>
+			</div>
+		</section>
 	</div>
 	<!--footer-->
 	<footer>

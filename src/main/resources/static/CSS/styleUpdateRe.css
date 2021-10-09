@@ -7,7 +7,7 @@ body {
         '맑은 고딕',
         'Apple SD Gothic Neo',
         sans-serif;
-   	margin-top: 150px;
+   	margin-top: 200px;
 	margin-bottom:-50px;
 }
 
@@ -120,6 +120,7 @@ header {
 
 
 .container1 {
+	margin-top: 500px;
     text-align: center;
     background-color: rgb(247, 229, 127);
     background-position: center;
@@ -150,18 +151,29 @@ header {
 }
 
 
+
 .contentscon {
 	width:1000px;
 	padding:30px;
 	border-radius : 30px;
 	background-color: lightgrey;
+	left:50%;
+	transform:translate(-50%);
+	position: relative;
+}
+
+.context {
+	border-radius:20px;
+	position: relative;
+	z-index: 8;
+	transform:translate(-50%);
 }
 
 #map {
 	position: relative;
+	z-index: 8;
 	left:50%;
 	transform:translate(-50%);
-	z-index: 8;
 }
 
 /* .container1 a {
@@ -185,16 +197,14 @@ header {
 @media (min-width: 768px) { /* 화면폭 768 이상이면 */
 
     .container1 h1 {
-        font-size: 65px;
+        font-size: 30px;
     }
 }
 
 
 footer {
  position: absolute;
-
     left: 0;
-
     width: 100%;
 	z-index:10;
 	padding: 15px 0;

@@ -74,8 +74,6 @@
 				${list[0].content }
 				</div>
 				<br><br>
-				등록일: ${list[0].regDateTime }<br> <%-- getRegDateTime() 사용 --%>
-
 				<br>
 				본 장소: <br><br>
 				
@@ -110,6 +108,11 @@
 				</div>
 				
 				<br><br>
+				
+				등록일: ${list[0].regDateTime }<br> <%-- getRegDateTime() 사용 --%>
+				
+				<br><br>
+				
 				<button onclick="location.href='updateRe?rep_uid=${list[0].rep_uid }'">수정하기</button>
 				<button onclick="chkDelete(${list[0].rep_uid })">삭제하기</button>
 				<button onclick="location.href='list'">목록보기</button>

@@ -51,7 +51,7 @@
 		
 		<body>	
 		
-		<div id="body-wrapper" style="min-height:100%; padding-bottom: 500px; padding-top: 300px">
+		<div id="body-wrapper" style="min-height:100%; padding-bottom: 500px; padding-top: 100px">
 		
 		<!--header-->
     			<header>
@@ -74,15 +74,13 @@
 			    
 			    
 			<section class="container1">
-        	<div href class="container contents" >
+        	<div class="container contents" >
 			<h2 style="font-size: 25px">${list[0].subject }</h2>
 				<br>
-				uid : ${list[0].uid }<br>
 				카테고리 : ${list[0].category }<br>
 				작성자 : ${list[0].name }<br>
 				제목: ${list[0].subject }<br>
-				등록일: ${list[0].regDateTime }<br> <%-- getRegDateTime() 사용 --%>
-				조회수: ${list[0].viewCnt }<br>
+				
 				<br><br>
 				<div class="contentscon">
 				${list[0].content }
@@ -120,8 +118,15 @@
 				// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
 				// marker.setMap(null);    
 				</script>
+				
+				조회수: ${list[0].viewCnt }<br>
+				등록일: ${list[0].regDateTime }<br> <%-- getRegDateTime() 사용 --%>
+				
 				</div>
 				</div>
+				<br><br>
+				조회수: ${list[0].viewCnt }<br>
+				등록일: ${list[0].regDateTime }<br> <%-- getRegDateTime() 사용 --%>
 				
 				<br><br>
 				<button onclick="location.href='update?uid=${list[0].uid }'">수정하기</button>
