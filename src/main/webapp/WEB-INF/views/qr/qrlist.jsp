@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -47,7 +49,16 @@
 					<li><a onclick="location.href='../order'">ORDER</a></li>
 					<li><a onclick="location.href='../board/list'">FIND &
 							FOUND</a></li>
-					<li><a onclick="location.href='../../../../login'">JOIN</a></li>
+					<sec:authorize access="isAnonymous()">
+
+						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+						<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+					</sec:authorize>
 				</ul>
 			</nav>
 		</div>
@@ -56,7 +67,7 @@
 		<div href class="container">
 			<h2>QR 목록</h2>
 			<%-- 글 목록 --%>
-			<div id="list" style="width:1000px">
+			<div id="list" style="width: 1000px">
 				<%-- header 헤더 --%>
 				<div class="d01">
 					<div class="left" id="pageinfo"></div>
@@ -83,7 +94,8 @@
 											<td>${dto.uid }</td>
 											<td>${dto.name }</td>
 											<td>
-												<button onclick="location.href='../order?uid=${dto.uid}'"  class="blue_button1">주문하기</button>
+												<button onclick="location.href='../order?uid=${dto.uid}'"
+													class="blue_button1">주문하기</button>
 											</td>
 										</tr>
 									</c:forEach>
@@ -96,11 +108,12 @@
 				<%-- bottom 버튼 --%>
 				<div class="d01">
 					<div class="left">
-						<button type="button" id="btnDel" class="btn danger" style="border-radius: 10px;">글삭제</button>
+						<button type="button" id="btnDel" class="btn danger"
+							style="border-radius: 10px;">글삭제</button>
 					</div>
 					<div class="right">
-						<button id="btnWrite" class="btn success" style="border-radius: 10px;"
-							onclick="location.href = 'write'">신규등록</button>
+						<button id="btnWrite" class="btn success"
+							style="border-radius: 10px;" onclick="location.href = 'write'">신규등록</button>
 					</div>
 				</div>
 

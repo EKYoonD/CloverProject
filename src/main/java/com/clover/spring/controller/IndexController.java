@@ -43,6 +43,16 @@ public class IndexController {
 		return "user/joinForm";
 	}
 	
+	@GetMapping("/mypage")
+	public String mypage() {
+		return "user/userPage";
+	}
+	
+	@GetMapping("/clover/admin/test")
+	public String admintest() {
+		return "user/userPage";
+	}
+	
 	
 	
 	@PostMapping("/joinOk")

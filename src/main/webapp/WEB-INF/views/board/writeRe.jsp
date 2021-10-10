@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <%-- validation 실패시 --%>
 <c:if test="${not empty ERROR }">
 	<script>
@@ -69,7 +70,16 @@
 						<li><a onclick="location.href='../order'">ORDER</a></li>
 						<li><a onclick="location.href='../board/list'">FIND &
 								FOUND</a></li>
-						<li><a onclick="location.href='login'">JOIN</a></li>
+						<sec:authorize access="isAnonymous()">
+
+							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+
+						</sec:authorize>
+						<sec:authorize access="isAuthenticated()">
+
+							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+							<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+						</sec:authorize>
 					</ul>
 				</nav>
 			</div>
@@ -84,20 +94,20 @@
 					제목: <input type="text" name="subject" value="${w.subject }" /><span
 						style="color: red">${ERROR.SUBJECT }</span><br> <br> 내용:<br>
 					<div class="contentscon">
-					<div class="context" style="width:320px; margin: auto">
-					<textarea name="content" id='content'>${w.content }</textarea>
-					<script type="text/javascript">
-						CKEDITOR
-								.replace(
-										'content',
-										{
-											allowedContent : true, // HTML 태그 자동삭제 방지설정
-											width : '640px',
-											height : '200px',
-											filebrowserUploadUrl : '${pageContext.request.contextPath}/upload/image'
-										});
-					</script>
-					</div>
+						<div class="context" style="width: 320px; margin: auto">
+							<textarea name="content" id='content'>${w.content }</textarea>
+							<script type="text/javascript">
+								CKEDITOR
+										.replace(
+												'content',
+												{
+													allowedContent : true, // HTML 태그 자동삭제 방지설정
+													width : '640px',
+													height : '200px',
+													filebrowserUploadUrl : '${pageContext.request.contextPath}/upload/image'
+												});
+							</script>
+						</div>
 					</div>
 					<br> <br> 마지막으로 본 장소 :
 					<h5>지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>    
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%-- validation 실패시 --%>
@@ -18,6 +20,7 @@
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,7 +47,16 @@
                     <li><a onclick="location.href='../qr'">MY QR</a></li>
                     <li><a onclick="location.href='../qr/qrlist'">ORDER</a></li>
                     <li><a onclick="location.href='../board/list'">FIND & FOUND</a></li>
-                    <li><a onclick="location.href='login'">JOIN</a></li>
+                  <sec:authorize access="isAnonymous()">
+
+						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+						<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+					</sec:authorize>
                 </ul>
             </nav>
         </div>
