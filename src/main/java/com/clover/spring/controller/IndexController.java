@@ -1,5 +1,7 @@
 package com.clover.spring.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -9,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.clover.spring.domain.KakaoPayApprovalVO;
 import com.clover.spring.domain.UserDTO;
+import com.clover.spring.service.KakaoPayService;
 import com.clover.spring.service.UserService;
 
 import lombok.extern.java.Log;
@@ -22,7 +26,12 @@ public class IndexController {
 	UserService userService;
 	
 	@Autowired
+	KakaoPayService kakaoPaySerivce; 
+	
+	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
+	
 	
 
 	@RequestMapping("/main")
@@ -75,12 +84,16 @@ public class IndexController {
 	}
 	
 	 @GetMapping("/kakaoPaySuccess")
-	    public void kakaoPaySuccess(@RequestParam("pg_token" ) String pg_token, Model model) {
+	    public void kakaoPaySuccess(@RequestParam("pg_token" ) String pg_token, Model model, HttpSession session) {
 	        log.info("kakaoPaySuccess get............................................");
 	        log.info("kakaoPaySuccess pg_token : " + pg_token);
 	        
+	        int partner_order_id = (int)session.getAttribute("partner_order_id");
+	        
+	        KakaoPayApprovalVO kakaoPayInfo = kakaoPaySerivce.kakaoPayInfo(pg_token, partner_order_id);
+			model.addAttribute("info", kakaoPayInfo);
 	    }
-
+	
 	
 
 }
