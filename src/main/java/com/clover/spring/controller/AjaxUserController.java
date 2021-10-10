@@ -18,7 +18,7 @@ import com.clover.spring.service.AjaxService;
 import com.clover.spring.service.AjaxUserService;
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/clover/admin")
 public class AjaxUserController {
 
 	@Autowired

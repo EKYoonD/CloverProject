@@ -56,7 +56,6 @@ function updateList(jsonObj){
 		var items = jsonObj.data;  // 배열
 		for(var i = 0; i < count; i++){
 			result += "<tr>\n";
-		
 			result += "<td><input type='checkbox' name='uid' value='" + items[i].uid + "'></td>\n";
 			result += "<td>" + items[i].uid + "</td>\n";
 			result += "<td>" + items[i].id + "</td>\n";
