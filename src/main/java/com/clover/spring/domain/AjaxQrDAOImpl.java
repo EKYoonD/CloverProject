@@ -4,7 +4,10 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+
+@Repository
 public class AjaxQrDAOImpl implements AjaxQrDAO {
 	
 	private AjaxQrDAO mapper;
@@ -28,11 +31,6 @@ public class AjaxQrDAOImpl implements AjaxQrDAO {
 	@Override
 	public List<QrDTO> selectByUid(int uid) {
 		return mapper.selectByUid(uid);
-	}
-
-	@Override
-	public int incViewCnt(int uid) {
-		return mapper.incViewCnt(uid);
 	}
 
 	@Override

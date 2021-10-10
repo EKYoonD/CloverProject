@@ -85,14 +85,7 @@
 
 
 
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
+			<br> <br> <br> <br> <br> <br> <br><br>
 			<button onclick="location.href='update?uid=${list[0].uid }'"
 				class="blue_button1">수정하기</button>
 			<button onclick="location.href='download'" class="blue_button1">다운로드</button>

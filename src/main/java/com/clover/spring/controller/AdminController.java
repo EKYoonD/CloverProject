@@ -25,22 +25,22 @@ public class AdminController {
 		System.out.println("AdminController() 생성");
 	}
 	
-	@RequestMapping("/userlist")
+	@RequestMapping("/user/userlist")
 	public String userlist() {
 		return "admin/userlist";
 	}
 	
-	@RequestMapping("/qrlist")
+	@RequestMapping("/qr/qrlist")
 	public String qrlist() {
 		return "admin/qrlist";
 	}
 	
-	@RequestMapping("/boardlist")
+	@RequestMapping("board/boardlist")
 	public String boardlist() {
 		return "admin/boardlist";
 	}
 	
-	@RequestMapping("/orderlist")
+	@RequestMapping("order/orderlist")
 	public String orderlist() {
 		return "admin/orderlist";
 	}

@@ -22,8 +22,7 @@
 <!-- 스타일, js 라이브러리 -->
 <link rel="stylesheet" type="text/css"
 	href="${pageContext.request.contextPath }/CSS/styleList.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
 <script>
 	$(function() {

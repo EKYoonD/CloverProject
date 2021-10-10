@@ -10,144 +10,142 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.clover.spring.domain.AjaxQrList;
-import com.clover.spring.domain.AjaxUserList;
 import com.clover.spring.domain.QrDTO;
-import com.clover.spring.domain.UserDTO;
 import com.clover.spring.service.AjaxQrService;
 
 @RestController
-@RequestMapping("/admin/main")
+@RequestMapping("/clover/admin/qr")
 public class AjaxQrConroller {
-	
+
 	@Autowired
 	AjaxQrService ajaxQrService;
-
+	
 	// 글목록 페이징
-		@GetMapping("/{page}/{pageRows}")    // URI : /board/{page}/{pageRows}
-		public AjaxUserList list(
-				@PathVariable int page, 
-				@PathVariable int pageRows) {
+	@GetMapping("/{page}/{pageRows}")    // URI : /board/{page}/{pageRows}
+	public AjaxQrList list(
+			@PathVariable int page, 
+			@PathVariable int pageRows) {
+		
+		List<QrDTO> list = null;
+		
+		// message 
+		StringBuffer message = new StringBuffer();
+		String status = "FAIL";
+		
+		// 페이징 관련 세팅 값들
+		//page : 현재 페이지
+		//pageRows : 한 '페이지'에 몇개의 글을 리스트 할것인가?
+		int writePages = 10;    // 한 [페이징] 에 몇개의 '페이지'를 표현할 것인가?
+		int totalPage = 0; // 총 몇 '페이지' 분량인가? 
+		int totalCnt = 0;  // 글은 총 몇개인가?
+		
+		
+		try {			
+			// 글 전체 개수 구하기
+			totalCnt = ajaxQrService.count();
 			
-			List<QrDTO> list = null;
+			// 총 몇페이지 분량?
+			totalPage = (int)Math.ceil(totalCnt / (double)pageRows);
 			
-			// message 
-			StringBuffer message = new StringBuffer();
-			String status = "FAIL";
+			// from: 몇번째 row 부터?
+			int from = (page - 1) * pageRows;  // MySQL 의 Limit 는 0-base 
 			
-			// 페이징 관련 세팅 값들
-			//page : 현재 페이지
-			//pageRows : 한 '페이지'에 몇개의 글을 리스트 할것인가?
-			int writePages = 10;    // 한 [페이징] 에 몇개의 '페이지'를 표현할 것인가?
-			int totalPage = 0; // 총 몇 '페이지' 분량인가? 
-			int totalCnt = 0;  // 글은 총 몇개인가?
+			list = ajaxQrService.list(from, pageRows);
 			
-			
-			try {			
-				// 글 전체 개수 구하기
-				totalCnt = ajaxQrService.count();
-				
-				// 총 몇페이지 분량?
-				totalPage = (int)Math.ceil(totalCnt / (double)pageRows);
-				
-				// from: 몇번째 row 부터?
-				int from = (page - 1) * pageRows;  // MySQL 의 Limit 는 0-base 
-				
-				list = ajaxQrService.list(from, pageRows);
-				
-				if(list == null) {
-					message.append("[리스트할 데이터가 없습니다]");
-				} else {
-					status = "OK";
-				}
-			} catch(Exception e) {
-				e.printStackTrace();
-				message.append("[트랜잭션 에러: " + e.getMessage() + "]");
+			if(list == null) {
+				message.append("[리스트할 데이터가 없습니다]");
+			} else {
+				status = "OK";
 			}
-			
-			AjaxQrList result = new AjaxQrList();
-			
-			result.setStatus(status);
-			result.setMessage(message.toString());
-			
-			if(list != null) {
-				result.setCount(list.size());
-				result.setList(list);
-			}
-			
-			result.setPage(page);
-			result.setTotalPage(totalPage);
-			result.setWritePages(writePages);
-			result.setPageRows(pageRows);
-			result.setTotalCnt(totalCnt);
-			
-			return result;
+		} catch(Exception e) {
+			e.printStackTrace();
+			message.append("[트랜잭션 에러: " + e.getMessage() + "]");
 		}
 		
-		// 특정 uid 글 읽기
-		@GetMapping("/{uid}")   // URI:  /board/{uid}
-		public AjaxUserList view(@PathVariable int uid) {
-			List<UserDTO> list = null;
-			
-			// message 
-			StringBuffer message = new StringBuffer();
-			String status = "FAIL";
-			
-//			try {			
-//				list = ajaxQrService.viewByUid(uid);  // 조회수 증가 + 읽기
-//				
-//				if(list == null || list.size() == 0) {
-//					message.append("[해당 데이터가 없습니다]");
-//				} else {
-//					status = "OK";
-//				}
-//			} catch(Exception e) {
-//				e.printStackTrace();
-//				message.append("[트랜잭션 에러: " + e.getMessage() + "]");
-//			}
-//			
-			AjaxUserList result = new AjaxUserList();
-			
-			result.setStatus(status);
-			result.setMessage(message.toString());
-//			
-//			if(list != null) {
-//				result.setCount(list.size());
-//				result.setList(list);
-//			}
-//			
-			return result;		
+		AjaxQrList result = new AjaxQrList();
+		
+		result.setStatus(status);
+		result.setMessage(message.toString());
+		
+		if(list != null) {
+			result.setCount(list.size());
+			result.setList(list);
 		}
 		
-		// 글 삭제
-		@DeleteMapping("")  // URI: /board
-		public AjaxUserList deleteOk(int [] uid) {
-			int count = 0;
-			
-			// message 
-			StringBuffer message = new StringBuffer();
-			String status = "FAIL";
-			
-			try {
-				
-				if(uid != null) {
-					count = ajaxQrService.deleteByUid(uid);
-					status = "OK";
-				}
-				
-			} catch(Exception e) {
-				e.printStackTrace();
-				message.append("[트랜잭션 에러: " + e.getMessage() + "]");
-			}
-			
-			AjaxUserList result = new AjaxUserList();
-			result.setStatus(status);
-			result.setMessage(message.toString());
-			result.setCount(count);
-			return result;
-		}
-			
+		result.setPage(page);
+		result.setTotalPage(totalPage);
+		result.setWritePages(writePages);
+		result.setPageRows(pageRows);
+		result.setTotalCnt(totalCnt);
 		
+		return result;
 	}
+	
+	// 특정 uid 글 읽기
+	@GetMapping("/{uid}")   // URI:  /board/{uid}
+	public AjaxQrList view(@PathVariable int uid) {
+		List<QrDTO> list = null;
+		
+		// message 
+		StringBuffer message = new StringBuffer();
+		String status = "FAIL";
+		
+		try {			
+			list = ajaxQrService.viewByUid(uid);  // 조회수 증가 + 읽기
+			
+			if(list == null || list.size() == 0) {
+				message.append("[해당 데이터가 없습니다]");
+			} else {
+				status = "OK";
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			message.append("[트랜잭션 에러: " + e.getMessage() + "]");
+		}
+		
+		AjaxQrList result = new AjaxQrList();
+		
+		result.setStatus(status);
+		result.setMessage(message.toString());
+		
+		if(list != null) {
+			result.setCount(list.size());
+			result.setList(list);
+		}
+		
+		return result;		
+	}
+	
+	// 글 삭제
+	@DeleteMapping("")  // URI: /board
+	public AjaxQrList deleteOk(int [] uid) {
+		int count = 0;
+		
+		// message 
+		StringBuffer message = new StringBuffer();
+		String status = "FAIL";
+		
+		try {
+			
+			if(uid != null) {
+				count = ajaxQrService.deleteByUid(uid);
+				status = "OK";
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+			message.append("[트랜잭션 에러: " + e.getMessage() + "]");
+		}
+		
+		AjaxQrList result = new AjaxQrList();
+		result.setStatus(status);
+		result.setMessage(message.toString());
+		result.setCount(count);
+		return result;
+	}
+		
+	
+}
 
 
 

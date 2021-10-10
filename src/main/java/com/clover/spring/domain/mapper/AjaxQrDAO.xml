@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.clover.spring.domain.AjaxUserDAO">
+<mapper namespace="com.clover.spring.domain.AjaxQrDAO">
 
 <!-- 글 목록 (페이징) -->
 	<select id="selectFromRow"
@@ -26,14 +26,14 @@
  	resultType="java.lang.Integer" 혹은 resultType="int" 
 	-->
 	<select id="countAll" resultType="int">
-		SELECT count(*) FROM write_table
+		SELECT count(*) FROM QR_Table
 	</select>
 	
  	 
  	 <delete id="deleteByUid" flushCache="true"
  	 	parameterType="java.util.ArrayList">
- 	 	DELETE FROM write_table
- 	 	WHERE wr_uid in (
+ 	 	DELETE FROM QR_Table
+ 	 	WHERE qr_uid in (
  	 		<foreach collection="array" item="item" index="index" separator=",">
  	 			${item}
  	 		</foreach>

@@ -21,9 +21,7 @@ public interface AjaxQrDAO {
 		
 		// 특정 uid 의 글 읽어오기
 		public List<QrDTO> selectByUid(int uid);
-		
-		// 특정 uid 의 글 조회수 증가
-		public int incViewCnt(int uid);
+
 		
 		// 글작성
 		public int insert(QrDTO dto);

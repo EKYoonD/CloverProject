@@ -56,13 +56,14 @@ function updateList(jsonObj){
 		var items = jsonObj.data;  // 배열
 		for(var i = 0; i < count; i++){
 			result += "<tr>\n";
-		
 			result += "<td><input type='checkbox' name='uid' value='" + items[i].uid + "'></td>\n";
 			result += "<td>" + items[i].uid + "</td>\n";
-			result += "<td><a href='/clover/member/board/view?uid=" + items[i].uid  + "'>" + items[i].subject + "</a></td>\n";
-			result += "<td><span data-viewcnt='" + items[i].uid + "'>" + items[i].viewcnt + "</span></td>\n";
-			result += "<td>" + items[i].regdate + "</td>\n";
-
+			result += "<td>" + items[i].name + "</td>\n";
+			result += "<td>" + items[i].category + "</td>\n";
+			result += "<td>" + items[i].age + "</td>\n";
+			result += "<td>" + items[i].address + "</td>\n";
+			result += "<td>" + items[i].phone + "</td>\n";
+			result += "<td>" + items[i].content + "</td>\n";
 			result += "</tr>\n";
 		}
 		$("#list tbody").html(result);  // 업데이트

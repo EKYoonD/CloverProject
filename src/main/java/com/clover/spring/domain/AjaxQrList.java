@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class AjaxQrList extends AjaxQrResult {
 	@JsonProperty("data")
 	List<QrDTO> list;  // 데이터 목록
@@ -22,8 +27,4 @@ public class AjaxQrList extends AjaxQrResult {
 	@JsonProperty("pagerows")
 	int pageRows; // 한 '페이지'에 몇개의 글을 리스트 할것인가?
 
-	public void setList(List<QrDTO> list2) {
-		// TODO Auto-generated method stub
-		
-	}
 }

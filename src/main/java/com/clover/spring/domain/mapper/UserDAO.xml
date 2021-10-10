@@ -25,6 +25,7 @@
 		FROM userdto
 		WHERE user_id = #{id}	
 	</select>
+
 	
 	<select id="selectByUid" resultType="com.clover.spring.domain.UserDTO">
 		SELECT
