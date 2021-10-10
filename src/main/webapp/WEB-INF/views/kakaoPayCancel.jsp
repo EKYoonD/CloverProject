@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
-<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +12,7 @@
 	rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>QR주문</title>
+<title>QR�ֹ�</title>
 
 <link href="/CSS/styleOrder.css" rel="stylesheet">
 <link
@@ -30,7 +29,7 @@
 
 </head>
 <body>
-	<!--header-->
+
 	<header>
 		<div class="container">
 			<div class="head1">
@@ -62,21 +61,7 @@
 			</nav>
 		</div>
 	</header>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div class="order_div">
-		카카오페이 결제가 정상적으로 완료되었습니다. 결제일시: [[${info.approved_at}]]<br /> 주문번호:
-		[[${info.partner_order_id}]]<br /> 상품명: [[${info.item_name}]]<br />
-		상품수량: [[${info.quantity}]]<br /> 결제금액: [[${info.amount.total}]]<br />
 
-
-
-		<h2>[[${info}]]</h2>
-	</div>
-
-	<!--footer-->
 	<footer>
 		<div class="container">
 			<div class="foot1">

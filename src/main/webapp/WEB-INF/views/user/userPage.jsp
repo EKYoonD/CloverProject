@@ -15,7 +15,7 @@ Gugi&display=swap"
 	rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>main</title>
+<title>mypage</title>
 <script src="${pageContext.request.contextPath }/JS/mypage.js"></script>
 <link href="/CSS/styleMypage.css" rel="stylesheet">
 <link
@@ -29,10 +29,7 @@ Gugi&display=swap"
 		})
 	})
 </script>
-
 </head>
-
-
 <body>
 	<!--header-->
 	<header>
@@ -56,10 +53,13 @@ Gugi&display=swap"
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 
-						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 						<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
-					</sec:authorize>
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
+					</sec:authorize>
 				</ul>
 
 			</nav>
@@ -83,8 +83,8 @@ Gugi&display=swap"
 					<div id="container1_table">
 						<table>
 							<thead>
-								<th>이름</th>
 								<th>아이디</th>
+								<th>이름</th>
 								<th>이메일</th>
 								<th>주소</th>
 								<th>휴대폰번호</th>
@@ -99,11 +99,6 @@ Gugi&display=swap"
 
 			</div>
 			<div class="clear"></div>
-
-			<%-- [페이징] --%>
-			<div class="center">
-				<ul class="pagination" id="pagination"></ul>
-			</div>
 
 		</div>
 	</section>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <%-- validation 실패시 --%>
@@ -49,7 +51,15 @@
 					<li><a onclick="location.href='../order'">ORDER</a></li>
 					<li><a onclick="location.href='../board/list'">FIND &
 							FOUND</a></li>
-					<li><a onclick="location.href='login'">JOIN</a></li>
+					<sec:authorize access="isAuthenticated()">
+
+						<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
+					</sec:authorize>
 				</ul>
 			</nav>
 		</div>
@@ -59,10 +69,16 @@
 			<h2>qr</h2>
 			<br> <img
 				src="qrcode/이름: ${list[0].name }, 	종류 :${list[0].category},  나이:${list[0].age }, 주소: ${list[0].address }, 보호자 연락처: ${list[0].phone },  내용:${list[0].content },  " />
-			
-			<br><br>
-			QR 일련번호 : ${list[0].uid }<br>
-			<br><br><br><br><br><br><br><br>
+
+			<br>
+			<br> QR 일련번호 : ${list[0].uid }<br> <br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
 			<button onclick="location.href='update?uid=${list[0].uid }'">수정하기</button>
 			<button onclick="location.href='download'">다운로드</button>
 			<button onclick="location.href='../order?uid=${param.uid}'">주문하기</button>

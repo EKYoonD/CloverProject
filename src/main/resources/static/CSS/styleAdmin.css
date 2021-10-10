@@ -1,0 +1,173 @@
+body {
+  background-color:  rgb(247, 229, 127);
+   font-family: 'Gugi', cursive,
+        '맑은 고딕',
+        'Apple SD Gothic Neo',
+        sans-serif;
+}
+
+
+header {
+	display: flex;
+	justify-content: center;
+}
+
+h1{
+	text-align: center;
+}
+
+
+form {
+	text-align:center;
+	padding: -10px;
+}
+
+.input-box {
+	position: relative;
+	margin: 10px 0;
+}
+
+.input-box>input {
+	background: transparent;
+	border: none;
+	border-bottom: solid 3px #336633   ;
+	padding: 20px 0px 5px 0px;
+	font-size: 30pt;
+	width: 100%;
+}
+
+input::placeholder {
+	color: transparent;
+}
+
+input:placeholder-shown+label {
+	color: #99CC99    ;
+	font-size: 20pt;
+	top: 15px;
+	
+}
+
+h1{
+	font-size: 60pt;
+	color: rgb(46, 53, 49);
+	
+}
+input:focus+label, label {
+	color: #339933     ;
+	font-size: 20pt;
+	pointer-events: none;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	transition: all 0.2s ease;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	
+}
+
+input:focus, input:not(:placeholder-shown) {
+	border-bottom: solid 4px #336633 ;
+	outline: none;
+}
+
+input[type=submit] {
+	background-color:#7CB342  ;
+	border: none;
+	color: white;
+	border-radius: 5px;
+	width: 60%;
+	height: 90px;
+	font-size: 20pt;
+	margin-top: 34px;
+	opacity: 85%;
+	text-align: center
+}
+
+input[type=submit]:hover {
+	 background-color: #388E3C  ;
+	  color: white;
+	  opacity: 100%;
+	  cursor : pointer;
+}
+
+
+footer {
+
+    background-color: rgb(33, 107, 65);
+    color: whitesmoke;
+}
+
+footer.container {
+    padding: 40px 20px;
+}
+
+.foot1 h2 {
+    font-family: 'Gugi', cursive;
+    letter-spacing: 0.1em;
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+.foot1 p {
+    font-size: 16px;
+    font-family: 'Gugi', cursive;
+    text-decoration: none;
+    color: whitesmoke;
+    margin-left: 30px;
+}
+
+.foot1 a {
+    font-size: 16px;
+    font-family: 'Gugi', cursive;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.foot3 div {
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.foot3 h3 {
+    font-size: 20px;
+    font-family: 'Gugi', cursive;
+}
+
+.foot3 ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.foot3 a {
+    font-family: 'Gugi', cursive;
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (min-width: 768px) {
+
+    footer .container {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        max-width: var(--large-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .foot1 {
+        flex: 0 0 50%;
+    }
+
+    .foot2 {
+        flex: 0 0 20%
+    }
+
+    .foot3 {
+        flex: 0 0 30%;
+    }
+}

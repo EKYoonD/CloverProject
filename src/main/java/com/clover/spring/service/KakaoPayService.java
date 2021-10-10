@@ -39,8 +39,8 @@ public class KakaoPayService {
     	return dao.insert(dto);
     }
     
-    public List<KakaoPayDTO> selectByUid(int uid) {
-        return dao.selectByUid(uid);
+    public List<KakaoPayDTO> selectByUid(int partner_order_id) {
+        return dao.selectByUid(partner_order_id);
      }
      
     
@@ -68,9 +68,9 @@ public class KakaoPayService {
         
         
         params.add("cid", "TC0ONETIME");
-        params.add("approval_url", "http://localhost:8092/kakaoPaySuccess");
-        params.add("cancel_url", "http://localhost:8092/kakaoPayCancel");
-        params.add("fail_url", "http://localhost:8092/kakaoPaySuccessFail");
+        params.add("approval_url", "http://localhost:8090/kakaoPaySuccess"); // 결제 성공
+        params.add("cancel_url", "http://localhost:8090/kakaoPayCancel"); // 결제 실패
+        params.add("fail_url", "http://localhost:8090/kakaoPaySuccessFail"); // 결제 요청이 15분안에 완료안될시
         params.add("item_name", "QR뱃지");
         params.add("tax_free_amount", "0");    
         

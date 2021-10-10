@@ -53,8 +53,12 @@
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 
-						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 						<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
 					</sec:authorize>
 				</ul>
 			</nav>
@@ -76,8 +80,7 @@
 			<div class="text">
 				<h2>부모님 찾기 QR</h2>
 				<img style="width: 100%; height: auto; border-radius: 30px;"
-					src="/img/family_mom2.jpg"> <br>
-				<br>
+					src="/img/family_mom2.jpg"> <br> <br>
 				<p>사랑하는 부모님 QR 만들기</p>
 				<a onclick="location.href='clover/member/qr/write'"> GO <span
 					class="fa fa-chevron-right"></span>
@@ -87,8 +90,7 @@
 			<div class="text">
 				<h2>내 아이 찾기 QR</h2>
 				<img style="width: 100%; height: auto; border-radius: 30px;"
-					src="/img/family_child2.jpg"> <br>
-				<br>
+					src="/img/family_child2.jpg"> <br> <br>
 				<p>귀여운 우리집 꼬맹이 QR 만들기</p>
 				<a onclick="location.href='clover/member/qr/write2'">GO <span
 					class="fa fa-chevron-right"></span>
@@ -98,8 +100,7 @@
 			<div class="text">
 				<h2>반려동물 찾기 QR</h2>
 				<img style="width: 100%; height: auto; border-radius: 30px;"
-					src="/img/family_dog2.jpg"> <br>
-				<br>
+					src="/img/family_dog2.jpg"> <br> <br>
 				<p>우리 집 막내 QR 만들기</p>
 				<a onclick="location.href='clover/member/qr/write3'">GO <span
 					class="fa fa-chevron-right"></span>
