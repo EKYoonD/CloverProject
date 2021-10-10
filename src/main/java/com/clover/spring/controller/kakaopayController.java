@@ -2,6 +2,7 @@ package com.clover.spring.controller;
 
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -60,10 +61,11 @@ public class kakaopayController {
     
     
     @PostMapping("/orderOk")
-    public String orderOk(@ModelAttribute("k") KakaoPayDTO dto, BindingResult result, Model model) {
+    public String orderOk(@ModelAttribute("k") KakaoPayDTO dto, BindingResult result, Model model, HttpSession session) {
     	System.out.println(dto.getUser_id());
     	model.addAttribute("result", kakaoPayService.insert(dto));
     	model.addAttribute("dto", dto);
+    	session.setAttribute("partner_order_id", dto.getPartner_order_id());
     	return "order/orderOk";
         
     }
@@ -78,7 +80,8 @@ public class kakaopayController {
     
     @PostMapping("/kakaoPay")
     public String kakaoPay(int partner_order_id) {  	
-        return "redirect:" + kakaopay.kakaoPayReady(partner_order_id);
+        String kakaoPayReady = kakaopay.kakaoPayReady(partner_order_id);
+		return "redirect:" + kakaoPayReady;
  
     }
     

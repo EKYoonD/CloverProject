@@ -39,8 +39,8 @@ public class KakaoPayService {
     	return dao.insert(dto);
     }
     
-    public List<KakaoPayDTO> selectByUid(int uid) {
-        return dao.selectByUid(uid);
+    public List<KakaoPayDTO> selectByUid(int partner_order_id) {
+        return dao.selectByUid(partner_order_id);
      }
      
     
