@@ -48,9 +48,9 @@ public class IndexController {
 		return "user/userPage";
 	}
 	
-	@GetMapping("/clover/admin/test")
+	@GetMapping("/clover/admin/main")
 	public String admintest() {
-		return "user/userPage";
+		return "admin/adminMain";
 	}
 	
 	
@@ -68,6 +68,8 @@ public class IndexController {
 		
 		return "redirect:login2";
 	}
+	
+	
 	
 
 }

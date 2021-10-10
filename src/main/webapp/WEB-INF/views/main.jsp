@@ -60,7 +60,7 @@
 
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_ADMIN')">
-						<a href="<c:url value="/관리자페이지url" />" id="admin">ADMIN</a>
+						<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
 					</sec:authorize>
 				</ul>
 

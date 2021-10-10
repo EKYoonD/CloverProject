@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.clover.spring.service.AdminService;
 
 @Controller
-@RequestMapping("clover/admin")
+@RequestMapping("/clover/admin")
 public class AdminController {
 //	1. adminQR
 //	2. adminUser
