@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.clover.spring.domain.AjaxUserDAO">
+
+<!-- 글 목록 (페이징) -->
+	<select id="selectFromRow"
+		resultType="com.clover.spring.domain.QrDTO">
+		<![CDATA[    
+		SELECT 
+			qr_uid "uid", 
+			qr_name name, 
+			qr_category category,
+			qr_age age, 
+			qr_address address,
+			qr_phone phone,
+			qr_content content 
+		FROM 
+			QR_Table
+		ORDER BY 
+			qr_uid DESC		
+				]]>
+	</select>
+	
+	<!-- SELECT 쿼리문인데, 단일값 int 값 받고 싶으면 어쩌나?
+ 	resultType="java.lang.Integer" 혹은 resultType="int" 
+	-->
+	<select id="countAll" resultType="int">
+		SELECT count(*) FROM write_table
+	</select>
+	
+ 	 
+ 	 <delete id="deleteByUid" flushCache="true"
+ 	 	parameterType="java.util.ArrayList">
+ 	 	DELETE FROM write_table
+ 	 	WHERE wr_uid in (
+ 	 		<foreach collection="array" item="item" index="index" separator=",">
+ 	 			${item}
+ 	 		</foreach>
+ 	 	) 	 
+ 	 </delete>
+
+</mapper>
