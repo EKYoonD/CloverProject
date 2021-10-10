@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -74,7 +77,20 @@
                     <li><a onclick="location.href='qr'">MY QR</a></li>
                     <li><a onclick="location.href='order'">ORDER</a></li>
                     <li><a onclick="location.href='clover/member/board/list'">FIND & FOUND</a></li>
-                    <li><a onclick="location.href='login'">JOIN</a></li>
+                    <sec:authorize access="isAnonymous()">
+
+						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+
+						<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
+					</sec:authorize>
                 </ul>
             </nav>
         </div>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://www.springframework.org/security/tags"
+	prefix="sec"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <c:choose>
@@ -70,7 +72,20 @@
 					<li><a onclick="location.href='../order'">ORDER</a></li>
 					<li><a onclick="location.href='../board/list'">FIND &
 							FOUND</a></li>
-					<li><a onclick="location.href='login'">JOIN</a></li>
+					<sec:authorize access="isAnonymous()">
+
+						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+
+						<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
+					</sec:authorize>
 				</ul>
 			</nav>
 		</div>
@@ -79,7 +94,9 @@
 	<section class="container1">
 		<div class="container contents">
 			<br>가장 최근에 본 장소<br> <br>
-			<div id="map" style="width: 500px; height: 350px; background-color: grey" class="map contents">
+			<div id="map"
+				style="width: 500px; height: 350px; background-color: grey"
+				class="map contents">
 				<script type="text/javascript"
 					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2389d39ea90c7f8eac5210a7bd81bee9"></script>
 				<script>
