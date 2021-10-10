@@ -34,14 +34,14 @@
 		SELECT
 			partner_order_id,
 			order_Rec,
+			order_Phone
 			quantity,
 			total_amount,
 			address
-
 		FROM
 			addOrder
 		WHERE
-			partner_order_id = #{orderid};
+			partner_order_id = #{partner_order_id};
 	</select>
 	
 	<select id = "selectUidByUid" resultType="com.clover.spring.domain.KakaoPayDTO">

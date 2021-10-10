@@ -69,6 +69,12 @@ public class IndexController {
 		return "redirect:login2";
 	}
 	
+	 @GetMapping("/kakaoPaySuccess")
+	    public void kakaoPaySuccess(@RequestParam("pg_token" ) String pg_token, Model model) {
+	        log.info("kakaoPaySuccess get............................................");
+	        log.info("kakaoPaySuccess pg_token : " + pg_token);
+	        
+	    }
 	
 	
 
