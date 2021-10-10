@@ -57,6 +57,10 @@
 
 						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 						<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="<c:url value="/관리자페이지url" />" id="admin">ADMIN</a>
 					</sec:authorize>
 				</ul>
 
