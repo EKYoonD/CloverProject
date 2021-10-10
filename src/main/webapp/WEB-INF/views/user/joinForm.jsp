@@ -96,6 +96,10 @@
 	<br>
 	<br>
 	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<!--header-->
 	<div id="joindiv">
 		<header>
@@ -136,18 +140,13 @@
 						placeHolder="'-'를 제외하고 입력해주세요" maxlength="11" /></td>
 				</tr>
 			</table>
-			<br> 
-			<br>
-			<br>
-			<br>
+			<br> <br> <br> <br>
+			<div id="join">
 			<button type="submit" value="회원가입">제출</button>
+			</div>
 		</form>
 	</div>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-
 </body>
 </html>

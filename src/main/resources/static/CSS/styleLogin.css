@@ -1,26 +1,27 @@
 body {
-  background-color:  rgb(247, 229, 127);
-   font-family: 'Gugi', cursive,
-        '맑은 고딕',
-        'Apple SD Gothic Neo',
-        sans-serif;
+	background-image: url(../img/cloverpattern.png);
+	background-color: #FBF9E5;
+	background-size: cover;
+	font-family: 'Gugi', cursive, '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
 }
-
 
 header {
 	display: flex;
 	justify-content: center;
 }
 
-#logindiv{
-position: absolute;
-  left: 50%;
-  height:500px;
-  width:70%;
-  transform: translateX(-50%);
-  
+#logindiv {
+	background-color: #FAFAFA; 
+	position : absolute;
+	left: 50%;
+	height: 1100px;
+	width: 50em;
+	transform: translateX(-50%);
+	border: 15px solid #373737;
+	border-radius: 30px;
+	padding: 30px;
+	position: absolute;
 }
-
 
 form {
 	padding: -10px;
@@ -28,36 +29,35 @@ form {
 
 .input-box {
 	position: relative;
-	margin: 10px 0;
 }
 
 .input-box>input {
 	background: transparent;
 	border: none;
-	border-bottom: solid 3px #336633   ;
+	border-bottom: solid 5px #009519;
 	padding: 20px 0px 5px 0px;
-	font-size: 30pt;
+	font-size: 50pt;
 	width: 100%;
 }
 
 input::placeholder {
 	color: transparent;
+	font-size: 30pt;
 }
 
 input:placeholder-shown+label {
-	color: #99CC99    ;
-	font-size: 20pt;
-	top: 15px;
-	
+	color: #99CC99;
+	font-size: 25pt;
+	top: 10px;
 }
 
-h1{
+h1 {
 	font-size: 60pt;
 	color: rgb(46, 53, 49);
-	
 }
+
 input:focus+label, label {
-	color: #339933     ;
+	color: #339933;
 	font-size: 20pt;
 	pointer-events: none;
 	position: absolute;
@@ -67,38 +67,44 @@ input:focus+label, label {
 	-webkit-transition: all 0.2s ease;
 	-moz-transition: all 0.2s ease;
 	-o-transition: all 0.2s ease;
-	
 }
 
 input:focus, input:not(:placeholder-shown) {
-	border-bottom: solid 4px #336633 ;
+	border-bottom: solid 7px #00530E;
 	outline: none;
 }
 
+frm2 {
+	left: 50%;
+}
+
 input[type=submit] {
-	background-color:#7CB342  ;
+	background-color: #7CB342;
 	border: none;
 	color: white;
-	border-radius: 5px;
+	border-radius: 10px;
+	border: 5px solid #016612;
+	text-align:center;
 	width: 100%;
 	height: 90px;
 	font-size: 20pt;
 	margin-top: 34px;
-	opacity: 85%
+	opacity: 85%;
 }
 
 input[type=submit]:hover {
-	 background-color: #388E3C  ;
-	  color: white;
-	  opacity: 100%;
-	  cursor : pointer;
+	background-color: #016612;
+	color: white;
+	opacity: 100%;
+	cursor: pointer;
 }
 
 #kakao {
 	background-color: #fee500;
 	text-align: center;
 	color: white;
-	border-radius: 5px;
+	border-radius: 10px;
+	border: 5px solid #DFCE18;
 	width: 100%;
 	height: 90px;
 	font-size: 14pt;
@@ -109,5 +115,5 @@ input[type=submit]:hover {
 
 #kakao:hover {
 	opacity: 100%
+	
 }
-

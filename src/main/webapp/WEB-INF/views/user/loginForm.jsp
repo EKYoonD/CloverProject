@@ -20,6 +20,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 	rel="stylesheet">
 <body>
+<br>
 	<br>
 	<br>
 	<br>
@@ -27,12 +28,13 @@
 	<br>
 	<br>
 	<br>
-	<div id="logindiv">
+	<br>
+<div id="logindiv">
+	
 		<header>
 			<h1>로그인</h1>
 		</header>
 		<br> <br> <br> <br> <br>
-		<br> <br> 
 		<div class="overlay">
 			<form name='frm' action="/loginOk" method="POST"
 				onsubmit="return loginChk();">
@@ -40,10 +42,12 @@
 					<input type="text" name="userid" placeholder="아이디"> <label
 						for="userid">아이디</label>
 				</div>
+				<br>
 				<div class="input-box">
 					<input type="password" name="password" placeholder="비밀번호">
 					<label for="password">비밀번호</label>
 				</div>
+				<br> <br><br>
 				<input type="submit" value="로그인">
 			</form>
 			<form name='frm2' action="/join" method="get">
