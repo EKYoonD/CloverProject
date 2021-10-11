@@ -26,7 +26,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
-<script src="${pageContext.request.contextPath }/JS/qr.js"></script>
+<script src="${pageContext.request.contextPath }/JS/qrboard.js"></script>
 </head>
 <body>
 	<!--header-->
@@ -62,9 +62,10 @@
 			</nav>
 		</div>
 	</header>
+	<br><br><br><br><br>
 	<section class="container1">
 		<div href class="container">
-			<h2>ADMIN USERS</h2>
+			<h2>ADMINISTER QR INFORMATION</h2>
 			<%-- 글 목록 --%>
 			<div id="list">
 				<%-- header 헤더 --%>
@@ -73,7 +74,7 @@
 					<div class="right" id="pageRows"></div>
 				</div>
 				<div class="clear"></div>
-
+				<br>
 				<%-- 목록 --%>
 				<form id="frmList" name="frmList">
 					<table>
@@ -86,7 +87,7 @@
 							<th>주소</th>
 							<th>보호자 전화번호</th>
 							<th>특이사항</th>
-							</thead>
+						</thead>
 						<tbody>
 						</tbody>
 					</table>

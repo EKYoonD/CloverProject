@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.clover.spring.domain.AjaxUserDAO">
+<mapper namespace="com.clover.spring.domain.AjaxBoardDAO">
 
 	<!-- 글 목록 (페이징) -->
 	<select id="selectFromRow"
-		resultType="com.clover.spring.domain.UserDTO">
+		resultType="com.clover.spring.domain.WriteDTO">
 		<![CDATA[    
 		SELECT
-			user_uid uid, 
-			user_id id,
-			user_pw pw,
-			user_name name,
-			user_address address,
-			user_email email,
-			user_phone phone
+			wr_uid uid, 
+			wr_category category,
+			wr_content content,
+			wr_viewcnt viewcnt,
+			wr_subject subject,
+			wr_regdate regdate,
+			wr_latitude latitude,
+			wr_longitude longitude
 		FROM 
-			userdto
+			write_table
 		ORDER BY 
-			user_uid DESC
+			wr_uid DESC
 		LIMIT #{from}, #{pageRows}
 		]]>
 	</select>
@@ -27,14 +28,14 @@
  	resultType="java.lang.Integer" 혹은 resultType="int" 
 	-->
 	<select id="countAll" resultType="int">
-		SELECT count(*) FROM userdto
+		SELECT count(*) FROM write_table
 	</select>
 	
  	 
  	 <delete id="deleteByUid" flushCache="true"
  	 	parameterType="java.util.ArrayList">
- 	 	DELETE FROM userdto
- 	 	WHERE user_uid in (
+ 	 	DELETE FROM write_table
+ 	 	WHERE wr_uid in (
  	 		<foreach collection="array" item="item" index="index" separator=",">
  	 			${item}
  	 		</foreach>

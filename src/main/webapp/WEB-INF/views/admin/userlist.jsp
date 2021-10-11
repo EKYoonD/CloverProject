@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
 <!DOCTYPE html>
@@ -62,9 +62,10 @@
 			</nav>
 		</div>
 	</header>
+	<br><br><br><br><br>
 	<section class="container1">
 		<div href class="container">
-			<h2>ADMIN USERS</h2>
+			<h2>ADMINISTER USER INFORMATION</h2>
 			<%-- 글 목록 --%>
 			<div id="list">
 				<%-- header 헤더 --%>
@@ -73,7 +74,7 @@
 					<div class="right" id="pageRows"></div>
 				</div>
 				<div class="clear"></div>
-
+				<br>
 				<%-- 목록 --%>
 				<form id="frmList" name="frmList">
 					<table>

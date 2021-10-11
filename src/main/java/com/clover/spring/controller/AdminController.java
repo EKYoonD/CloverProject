@@ -35,12 +35,12 @@ public class AdminController {
 		return "admin/qrlist";
 	}
 	
-	@RequestMapping("board/boardlist")
+	@RequestMapping("/board/boardlist")
 	public String boardlist() {
 		return "admin/boardlist";
 	}
 	
-	@RequestMapping("order/orderlist")
+	@RequestMapping("/order/orderlist")
 	public String orderlist() {
 		return "admin/orderlist";
 	}

@@ -40,6 +40,7 @@ CREATE TABLE Payment_Table
 	PRIMARY KEY (payment_uid)
 );
 */
+
  create table addOrder(
       partner_order_id int not null auto_increment,
       order_Rec varchar(30) not null,
@@ -139,6 +140,7 @@ CREATE TABLE Write_Table
 	user_uid int NOT NULL,
 	PRIMARY KEY (wr_uid)
 );
+
 
 SHOW tables;
 

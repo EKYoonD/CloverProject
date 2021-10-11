@@ -56,12 +56,16 @@ function updateList(jsonObj){
 		var items = jsonObj.data;  // 배열
 		for(var i = 0; i < count; i++){
 			result += "<tr>\n";
-		
-			result += "<td>" + items[i].uid + "</td>\n";
-			result += "<td><a href='/clover/member/board/view?uid=" + items[i].uid  + "'>" + items[i].subject + "</a></td>\n";
-			result += "<td><span data-viewcnt='" + items[i].uid + "'>" + items[i].viewcnt + "</span></td>\n";
-			result += "<td>" + items[i].regdate + "</td>\n";
-
+			result += "<td><input type='checkbox' name='uid' value='" + items[i].uid + "'></td>\n";
+			result += "<td>" + items[i].partner_order_id + "</td>\n";
+			result += "<td>" + items[i].order_Rec + "</td>\n";
+			result += "<td>" + items[i].order_Phone + "</td>\n";
+			result += "<td>" + items[i].quantity + "</td>\n";
+			result += "<td>" + items[i].total_amount + "</td>\n";
+			result += "<td>" + items[i].address + "</td>\n";
+			result += "<td>" + items[i].qr_option + "</td>\n";
+			result += "<td>" + items[i].qr_uid + "</td>\n";
+			result += "<td>" + items[i].user_id + "</td>\n";
 			result += "</tr>\n";
 		}
 		$("#list tbody").html(result);  // 업데이트
@@ -166,7 +170,7 @@ function chkDelete(){
 		
 		// DELETE 방식
 		$.ajax({
-			url: "/clover/member/qr", // URL : /board
+			url: "/clover/member/board", // URL : /board
 			type: "DELETE",
 			data : data,
 			cache : false,

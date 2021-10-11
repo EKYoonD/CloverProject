@@ -56,12 +56,14 @@ function updateList(jsonObj){
 		var items = jsonObj.data;  // 배열
 		for(var i = 0; i < count; i++){
 			result += "<tr>\n";
-		
+			result += "<td><input type='checkbox' name='uid' value='" + items[i].uid + "'></td>\n";
 			result += "<td>" + items[i].uid + "</td>\n";
-			result += "<td><a href='/clover/member/board/view?uid=" + items[i].uid  + "'>" + items[i].subject + "</a></td>\n";
-			result += "<td><span data-viewcnt='" + items[i].uid + "'>" + items[i].viewcnt + "</span></td>\n";
+			result += "<td>" + items[i].category + "</td>\n";
+			result += "<td>" + items[i].viewcnt + "</td>\n";
+			result += "<td>" + items[i].subject + "</td>\n";
 			result += "<td>" + items[i].regdate + "</td>\n";
-
+			result += "<td>" + items[i].latitude + "</td>\n";
+			result += "<td>" + items[i].longitude + "</td>\n";
 			result += "</tr>\n";
 		}
 		$("#list tbody").html(result);  // 업데이트
@@ -166,7 +168,7 @@ function chkDelete(){
 		
 		// DELETE 방식
 		$.ajax({
-			url: "/clover/member/qr", // URL : /board
+			url: "/clover/member/board", // URL : /board
 			type: "DELETE",
 			data : data,
 			cache : false,

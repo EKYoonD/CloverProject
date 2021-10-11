@@ -43,10 +43,10 @@
 	<form name='frm2' action="/clover/admin/qr/qrlist" method="get">
 		<input type="submit" value="QR정보">
 	</form>
-	<form name='frm2' action="/clover/admin/boardlist" method="get">
+	<form name='frm2' action="/clover/admin/board/boardlist" method="get">
 		<input type="submit" value="게시판정보">
 	</form>
-	<form name='frm2' action="/clover/admin/orderlist" method="get">
+	<form name='frm2' action="/clover/admin/order/orderlist" method="get">
 		<input type="submit" value="주문정보">
 	</form>
 </div>
