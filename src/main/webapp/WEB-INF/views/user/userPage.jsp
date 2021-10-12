@@ -44,9 +44,9 @@
 			<nav class="head2">
 				<ul>
 					<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
-					<li><a onclick="location.href='../qr/write'">MY QR</a></li>
-					<li><a onclick="location.href='../order'">ORDER</a></li>
-					<li><a onclick="location.href='../board/list'">FIND &
+					<li><a onclick="location.href='../../../clover/member/qr/write'">MY QR</a></li>
+					<li><a onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
+					<li><a onclick="location.href='../../../clover/member/board/list'">FIND &
 							FOUND</a></li>
 					<sec:authorize access="isAnonymous()">
 
@@ -54,7 +54,7 @@
 
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
-						<a href="<c:url value="clover/member/mypage" />" id="MyPage">MYPAGE</a>
+						<a href="<c:url value="../../../clover/member/mypage" />" id="MyPage">MYPAGE</a>
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_ADMIN')">
 						<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
