@@ -42,33 +42,35 @@
 		<header>
 			<div class="container">
 				<div class="head1">
-					<a onclick="location.href='../../../main'"><i class="fas fa-home"></i></a> <span
-						class="head3"><i class="far fa-caret-square-down"></i></span>
+					<a onclick="location.href='../../../../main'"><i
+						class="fas fa-home"></i></a> <span class="head3"><i
+						class="far fa-caret-square-down"></i></span>
 				</div>
 				<nav class="head2">
 					<ul>
-						<li><a onclick="location.href='../../../about'">CLVOER</a></li>
-						<li><a onclick="location.href='../../../clover/member/qr/write'">MY
+						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
+						<li><a
+							onclick="location.href='../../../clover/member/qr/write'">MY
 								QR</a></li>
-						<li><a onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
-						<li><a onclick="location.href='../../../clover/member/board/list'">FIND
+						<li><a
+							onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
+						<li><a
+							onclick="location.href='../../../clover/member/board/list'">FIND
 								& FOUND</a></li>
 						<sec:authorize access="isAnonymous()">
-
 							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
-
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
-
-							<a href="<c:url value="../../../clover/member/mypage" />" id="MyPage">MYPAGE</a>
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
-
+							<a href="<c:url value="../../../clover/member/mypage" />"
+								id="MyPage">MYPAGE</a>
 						</sec:authorize>
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<a href="<c:url value="../../clover/admin/main" />" id="admin">ADMIN</a>
+							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
+						</sec:authorize>
+						<sec:authorize access="isAuthenticated()">
+							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 						</sec:authorize>
 					</ul>
-
 				</nav>
 			</div>
 		</header>
@@ -81,18 +83,22 @@
 				<br>
 				<div>
 					<form name='frm2' action="/clover/admin/user/userlist" method="get">
-						<input style="font-family: 'Gugi', cursive; font-size: 30px;'" type="submit" value="User Information">
+						<input style="font-family: 'Gugi', cursive; font-size: 30px;'"
+							type="submit" value="User Information">
 					</form>
 					<form name='frm2' action="/clover/admin/qr/qrlist" method="get">
-						<input style="font-family: 'Gugi', cursive; font-size: 30px;'" type="submit" value="QR Information">
+						<input style="font-family: 'Gugi', cursive; font-size: 30px;'"
+							type="submit" value="QR Information">
 					</form>
 					<form name='frm2' action="/clover/admin/board/boardlist"
 						method="get">
-						<input style="font-family: 'Gugi', cursive; font-size: 30px;'" type="submit" value="Board Information">
+						<input style="font-family: 'Gugi', cursive; font-size: 30px;'"
+							type="submit" value="Board Information">
 					</form>
 					<form name='frm2' action="/clover/admin/order/orderlist"
 						method="get">
-						<input style="font-family: 'Gugi', cursive; font-size: 30px;'" type="submit" value="Order Information">
+						<input style="font-family: 'Gugi', cursive; font-size: 30px;'"
+							type="submit" value="Order Information">
 					</form>
 				</div>
 			</div>
