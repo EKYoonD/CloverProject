@@ -54,15 +54,6 @@ public class IndexController {
 		return "user/loginForm";
 	}
 	
-	
-<<<<<<< HEAD
-=======
-	@GetMapping("/mypage")
-	public String mypage() {
-		return "user/userPage";
-	}
->>>>>>> branch 'master' of https://github.com/EKYoonD/CloverProject.git
-	
 	@GetMapping("/clover/admin/main")
 	public String admintest() {
 		return "admin/adminMain";
