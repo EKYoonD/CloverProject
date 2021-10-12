@@ -60,16 +60,6 @@ public class IndexController {
 		return "user/joinForm";
 	}
 	
-	@GetMapping("/mypage")
-	public String mypage(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
-		
-		
-		String userid = LoginUtils.getUserId(authentication.getPrincipal());
-		System.out.println(userid);
-		model.addAttribute("list", userService.findById(userid));
-		
-		return "user/userPage";
-	}
 	
 	@GetMapping("/clover/admin/main")
 	public String admintest() {

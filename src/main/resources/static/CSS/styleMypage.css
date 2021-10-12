@@ -190,26 +190,24 @@ ul.pagination a:hover:not(.active) {
 }
 
 /* 글 목록 */
-#list table {
+table {
+	border-radius: 16px;
+	background-color: whitesmoke;
 	width: 100%;
 	border-bottom:hidden;
 }
 
-#list table, #list th, #list td {
+table, th, td {
 	border-collapse: collapse;
 }
 
-#list table {
-	border-radius: 16px;
-	background-color: whitesmoke;
-}
 
-#list td, #list th {
+td, th {
 	padding: 30px;
 	border-bottom: 2px solid #333;
 }
 
-#list th {
+th {
 	font-size: 20px;
 }
 

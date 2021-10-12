@@ -55,7 +55,7 @@
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 
-						<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+						<a href="<c:url value="clover/member/mypage" />" id="MyPage">MYPAGE</a>
 						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 
 					</sec:authorize>
