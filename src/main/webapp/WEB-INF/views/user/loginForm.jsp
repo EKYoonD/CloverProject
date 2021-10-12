@@ -82,6 +82,19 @@
 
 	}
 </script>
+<script>
+
+function my_check(){
+
+alert("경고메시지");
+
+location.href="/login2"; 
+
+return false;
+
+}
+
+</script>
 
 </body>
 </html>

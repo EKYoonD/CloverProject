@@ -44,6 +44,9 @@ header {
     padding:30px;
     color:whitesmoke;
     text-decoration: none;
+    padding:1.5em;
+    height:30pt;
+    text-align: center;
 }
 
 .head1 a{

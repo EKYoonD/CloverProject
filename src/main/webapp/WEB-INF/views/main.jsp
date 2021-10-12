@@ -49,18 +49,16 @@
 					<li><a onclick="location.href='clover/member/board/list'">FIND
 							& FOUND</a></li>
 					<sec:authorize access="isAnonymous()">
-
 						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
-
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
-
 						<a href="<c:url value="clover/member/mypage" />" id="MyPage">MYPAGE</a>
-						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
-
 					</sec:authorize>
 					<sec:authorize access="hasRole('ROLE_ADMIN')">
 						<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 					</sec:authorize>
 				</ul>
 
