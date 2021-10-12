@@ -88,7 +88,7 @@
 			return false;
 		}
 
-		if ($("#idCheck").attr("value", "N")) {
+		if ($("#idCheck").attr("value") == "N") {
 			alert("아이디 중복확인을 해주세요.");
 			return false;
 		}
@@ -129,8 +129,6 @@
 		}
 
 	}
-
-	
 </script>
 </head>
 <body>
@@ -158,8 +156,8 @@
 						placeHolder="4~12자의 영문 대소문자와 숫자로만 입력해주세요" class="input-box login"
 						style="ime-mode: disable;" /><br></td>
 					<td><input type="hidden" name="idChk" value="N">
-						<button type="button" name="idCheck" onclick="fn_idCheck();"
-							value="N"
+						<button type="button" name="idCheck" id="idCheck"
+							onclick="fn_idCheck();" value="N"
 							style="width: 110px; height: 50px; font-size: 13pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 3px solid black;">중복확인</button></td>
 
 				</tr>
