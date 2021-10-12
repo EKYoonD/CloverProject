@@ -8,7 +8,7 @@
 </head>
 <body>
  
-카카오페이 결제가 정상적으로 완료되었습니다.
+카카오페이 결제가 정상적으로 완료되었습니다.dkodakda
  
 결제일시:     [[${info.approved_at}]]<br/>
 주문번호:    [[${info.partner_order_id}]]<br/>

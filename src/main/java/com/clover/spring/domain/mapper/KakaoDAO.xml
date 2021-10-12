@@ -46,7 +46,12 @@
 	
 	<select id = "selectUidByUid" resultType="com.clover.spring.domain.KakaoPayDTO">
 		SELECT 
-			partner_order_id, 
+			partner_order_id,
+			order_Rec,
+			order_Phone,
+			qr_option,
+			quantity,
+			total_amount
 		FROM 
 			addOrder 
 		WHERE 

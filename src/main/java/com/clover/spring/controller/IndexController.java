@@ -1,5 +1,7 @@
 package com.clover.spring.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.clover.spring.domain.KakaoPayApprovalVO;
+import com.clover.spring.domain.KakaoPayDTO;
 import com.clover.spring.domain.UserDTO;
 import com.clover.spring.service.KakaoPayService;
 import com.clover.spring.service.UserService;
@@ -97,7 +100,9 @@ public class IndexController {
 //	        KakaoPayApprovalVO kakaoPayInfo = kakaoPaySerivce.kakaoPayInfo(pg_token, partner_order_id);
 //			model.addAttribute("info", kakaoPayInfo);        
 	
-//	        model.addAttribute("info", KakaoPayService.selectUidByUid(partner_order_id));
+	        List<KakaoPayDTO> selectUidByUid = kakaoPaySerivce.selectUidByUid(partner_order_id);
+	       
+			model.addAttribute("info", selectUidByUid);
 //	        model.addAttribute("info", KakaoPayService.selectByUid(partner_order_id));
 //	        model.addAttribute("info", KakaoPayService.kakaoPayInfo(pg_token, partner_order_id));
 			

@@ -41,7 +41,7 @@ public class KakaoDAOImpl implements KakaoDAO {
 	}
 
 	@Override
-	public int selectUidByUid(int partner_order_id) {
+	public List<KakaoPayDTO> selectUidByUid(int partner_order_id) {
 		return mapper.selectUidByUid(partner_order_id);
 	}
 

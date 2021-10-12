@@ -11,7 +11,7 @@ public interface KakaoDAO {
 		
 	public abstract List<KakaoPayDTO> selectByUid(int partner_order_id);
 	
-	public abstract int selectUidByUid(int partner_order_id);
+	public abstract List<KakaoPayDTO> selectUidByUid(int partner_order_id);
 	
 	// 특정 uid 글 삭제하기
 	public abstract int deleteByPartner_order_id(int partner_order_id);

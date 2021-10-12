@@ -70,11 +70,11 @@
 		<div class="order_div_success">
 		<br><br><br><br>
 			카카오페이 결제가 정상적으로 완료되었습니다. <br>
-			주문번호:[[${dto.partner_order_id}]]<br>
-			수령인:[[${dto.order_Rec }]]<br>
-			수령인 연락처:[[${dto.order_Phone }]]<br>
-			상품수량: [[${dto.quantity}]]<br>
-			결제금액: [[${dto.total_amount}]]<br>
+			주문번호:${info[0].partner_order_id }<br>
+			수령인:${info[0].order_Rec} <br>
+			수령인 연락처:${info[0].order_Phone}<br>
+			상품수량: ${info[0].quantity}<br>
+			결제금액: ${info[0].total_amount}<br>
 
 
 
