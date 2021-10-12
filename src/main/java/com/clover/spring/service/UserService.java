@@ -43,4 +43,11 @@ public class UserService {
 	public List<String> selectAuthoritiesById(String id) {
 		return dao.selectAuthoritiesById(id);
 	}
+	
+	public int idCheck(String id) {
+		return dao.idCheck(id);
+	}
+
+	
+	
 }

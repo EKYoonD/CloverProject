@@ -117,19 +117,60 @@ header {
     }
 }
 
+.container1 {
+	margin-top:100px;
+	text-align: center;
+	background-color: rgb(247, 229, 127);
+	background-position: center;
+	background-size: cover;
+	height: 120vh;
+	min-height: 800px;
+	align-items: center;
+	justify-content: center;
+	color: #333;
+}
 
-.order_div {
-  position:relative;
+.order_div_fail{
   width:400px;
   height:400px;
   padding: 30px, 20px;
-  background-color:rgb(253, 251, 236);
+  background-color: #ffffff;
   text-align:center;
   top:40%;
-  left:50%;
-  transform: translate(-50%,-50%);
   border-radius: 15px;
-  z-index:3;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.order_div_success {
+	width:400px;
+  height:300px;
+  padding: 30px, 20px;
+  background-color: #ffffff;
+  text-align:center;
+  top:40%;
+  border-radius: 15px;
+    margin-left: auto;
+  margin-right: auto;
+
+}
+
+.order_div_order {
+	width:400px;
+  height:550px;
+  padding: 30px, 20px;
+  background-color: #ffffff;
+  text-align:center;
+  top:40%;
+  border-radius: 15px;
+    margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+.order_div h2 {
+	text-align: center;
 }
 
 .textForm {
@@ -165,7 +206,7 @@ header {
 }
 
 .order_Rec {
-  width: 100%;
+  width: 80%;
   border:none;
   outline:none;
   color: #636e72;
@@ -175,7 +216,7 @@ header {
 }
 
 .order_Phone {
-  width: 100%;
+  width: 80%;
   border:none;
   outline:none;
   color: #636e72;
@@ -193,8 +234,7 @@ header {
   font-size:16px;
   height:25px;
   background: none;
-  width: 50%;
-  float: left;
+  width: 80%;
 
 }
 
@@ -205,12 +245,11 @@ header {
   font-size:16px;
   height:25px;
   background: none;
-  width: 50%;
-  float: right;
+  width: 80%;
 }
 
 .address {
-  width: 100%;
+  width: 80%;
   border:none;
   outline:none;
   color: #636e72;
@@ -218,6 +257,18 @@ header {
   height:25px;
   background: none;
 }
+
+.qr_option {
+  width: 80%;
+  border:none;
+  outline:none;
+  color: #636e72;
+  font-size:16px;
+  height:25px;
+  background: none;
+}
+
+
 
 .button {
  margin: 0;
@@ -238,7 +289,7 @@ header {
   cursor: pointer;
 
   transition: 0.5s;
-  background-color: #008CBA;
+  background-color: black;
   color: white;
 }
 

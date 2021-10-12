@@ -28,6 +28,11 @@ public interface UserDAO {
 
 	public abstract List<UserDTO> selectAll();
 	
+	//아이디 중복확인
+	int idCheck(String id);
+	
+
+	
 } // end DAO
 
 

@@ -13,7 +13,7 @@
 	rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>QR주문</title>
+<title>결제 성공</title>
 
 <link href="/CSS/styleOrder.css" rel="stylesheet">
 <link
@@ -65,17 +65,26 @@
 	<br>
 	<br>
 	<br>
-	<br>
-	<div class="order_div">
-		카카오페이 결제가 정상적으로 완료되었습니다. 결제일시: [[${info.approved_at}]]<br /> 주문번호:
-		[[${info.partner_order_id}]]<br /> 상품명: [[${info.item_name}]]<br />
-		상품수량: [[${info.quantity}]]<br /> 결제금액: [[${info.amount.total}]]<br />
+	<section class="container1">
+		<h2>주문 성공</h2>
+		<div class="order_div_success">
+		<br><br><br><br>
+			카카오페이 결제가 정상적으로 완료되었습니다. <br>
+			주문번호:[[${dto.partner_order_id}]]<br>
+			수령인:[[${dto.order_Rec }]]<br>
+			수령인 연락처:[[${dto.order_Phone }]]<br>
+			상품수량: [[${dto.quantity}]]<br>
+			결제금액: [[${dto.total_amount}]]<br>
 
 
 
-		<h2>[[${info}]]</h2>
-	</div>
+		</div>
+		<div>
+			<a onclick="location.href='main'"><input type="button"
+				class="button" value="홈으로"/ ></a>
+		</div>
 
+	</section>
 	<!--footer-->
 	<footer>
 		<div class="container">
@@ -98,8 +107,7 @@
 				</div>
 			</nav>
 		</div>
-		<br>
-		<br>
+		<br> <br>
 	</footer>
 </body>
 </html>

@@ -87,7 +87,50 @@
 			$("#phone").focus();
 			return false;
 		}
+
+		if ($("#idCheck").attr("value", "N")) {
+			alert("아이디 중복확인을 해주세요.");
+			return false;
+		}
+
 	}
+
+	function fn_idCheck() {
+		var id = $("#id").val();
+		var getCheck = RegExp(/^[a-zA-Z0-9]{4,12}$/);
+
+		if (id.length >= 4) {
+			$.ajax({
+				url : "/idCheck",
+				type : "POST",
+				dataType : "JSON",
+				data : {
+					"id" : $("#id").val()
+				},
+				success : function(data) {
+					if (data == 1) {
+						alert("중복된 닉네임입니다. 다른 아이디를 사용해주세요.");
+						$("#id").val("");
+						$("#id").focus();
+						return false;
+					} else if (data == 0) {
+						$("#idCheck").attr("value", "Y");
+						alert("사용 가능한 닉네임입니다.");
+					}
+				}
+			})
+		} else if (id.length < 4) {
+			alert("4글자 이상 입력해주세요")
+		} else if (!getCheck.test(id)) {
+			alert("아이디를 형식에 맞게 입력해주세요");
+			$(id).val("");
+			$(id).focus();
+			return false;
+		}
+
+	}
+
+	
 </script>
 </head>
 <body>
@@ -112,7 +155,13 @@
 				<tr>
 					<td>아이디</td>
 					<td><input type="text" name="id" id="id"
-						placeHolder="4~12자의 영문 대소문자와 숫자로만 입력해주세요" /><br></td>
+						placeHolder="4~12자의 영문 대소문자와 숫자로만 입력해주세요" class="input-box login"
+						style="ime-mode: disable;" /><br></td>
+					<td><input type="hidden" name="idChk" value="N">
+						<button type="button" name="idCheck" onclick="fn_idCheck();"
+							value="N"
+							style="width: 110px; height: 50px; font-size: 13pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 3px solid black;">중복확인</button></td>
+
 				</tr>
 				<tr>
 					<td>비밀번호</td>
@@ -142,7 +191,7 @@
 			</table>
 			<br> <br> <br> <br>
 			<div id="join">
-			<button type="submit" value="회원가입">제출</button>
+				<button type="submit" value="회원가입">제출</button>
 			</div>
 		</form>
 	</div>
