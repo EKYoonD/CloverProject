@@ -42,6 +42,10 @@ public class KakaoPayService {
     public List<KakaoPayDTO> selectByUid(int partner_order_id) {
         return dao.selectByUid(partner_order_id);
      }
+    
+    public int selectUidByUid(int partner_order_id) {
+    	return dao.selectUidByUid(partner_order_id);
+    }
      
     
     public String kakaoPayReady(int partner_order_id) {

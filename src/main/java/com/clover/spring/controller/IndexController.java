@@ -3,7 +3,6 @@ package com.clover.spring.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,18 +10,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.clover.spring.domain.KakaoPayApprovalVO;
 import com.clover.spring.domain.UserDTO;
 import com.clover.spring.service.KakaoPayService;
 import com.clover.spring.service.UserService;
-import com.clover.spring.util.LoginUtils;
 
 import lombok.extern.java.Log;
 
 @Log
 @Controller
+@SessionAttributes("partner_order_id")
 public class IndexController {
 	
 	@Autowired
@@ -61,13 +60,7 @@ public class IndexController {
 	}
 	
 	@GetMapping("/mypage")
-	public String mypage(Model model, Authentication authentication, RedirectAttributes redirectAttributes) {
-		
-		
-		String userid = LoginUtils.getUserId(authentication.getPrincipal());
-		System.out.println(userid);
-		model.addAttribute("list", userService.findById(userid));
-		
+	public String mypage() {
 		return "user/userPage";
 	}
 	
@@ -92,18 +85,30 @@ public class IndexController {
 		return "redirect:login2";
 	}
 	
-	 @GetMapping("/kakaoPaySuccess")
+	 @GetMapping("/kakaoPaySuccess") // 결제 성공
 	    public void kakaoPaySuccess(@RequestParam("pg_token" ) String pg_token, Model model, HttpSession session) {
-	        log.info("kakaoPaySuccess get............................................");
+		 	int partner_order_id = (int)session.getAttribute("partner_order_id");   
+		 	log.info("kakaoPaySuccess get............................................");
 	        log.info("kakaoPaySuccess pg_token : " + pg_token);
 	        
-	        int partner_order_id = (int)session.getAttribute("partner_order_id");
-	        System.out.println("partner_order_id : "+ partner_order_id);
-	        
-	        KakaoPayApprovalVO kakaoPayInfo = kakaoPaySerivce.kakaoPayInfo(pg_token, partner_order_id);
-			model.addAttribute("info", kakaoPayInfo);
+//	        model.addAttribute("info", KakaoPayService.kakaoPayInfo(pg_token, partner_order_id));
+//	        
+//	        log.info(model);
+//	        KakaoPayApprovalVO kakaoPayInfo = kakaoPaySerivce.kakaoPayInfo(pg_token, partner_order_id);
+//			model.addAttribute("info", kakaoPayInfo);        
+	
+//	        model.addAttribute("info", KakaoPayService.selectUidByUid(partner_order_id));
+//	        model.addAttribute("info", KakaoPayService.selectByUid(partner_order_id));
+//	        model.addAttribute("info", KakaoPayService.kakaoPayInfo(pg_token, partner_order_id));
+			
 			
 	    }
+	 
+	 
+	 @GetMapping("/kakaoPaySuccessFail") //결제실패
+	 public String KakaoPaySuccessFail() {
+		 return "/kakaoPaySuccessFail";
+	 }
 	
 	
 

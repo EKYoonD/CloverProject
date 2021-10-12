@@ -3,6 +3,7 @@ package com.clover.spring.controller;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.clover.spring.domain.KakaoPayDTO;
@@ -28,6 +30,7 @@ import lombok.extern.java.Log;
 @Log
 @Controller
 @RequestMapping("clover/member")
+@SessionAttributes("user_id")
 public class kakaopayController {
     
 	@Resource(name="kakaoPayService")
@@ -61,8 +64,18 @@ public class kakaopayController {
     
     
     @PostMapping("/orderOk")
-    public String orderOk(@ModelAttribute("k") KakaoPayDTO dto, BindingResult result, Model model, HttpSession session) {
+    public String orderOk(@ModelAttribute("k") @Valid KakaoPayDTO dto, BindingResult result, Model model, HttpSession session) {
     	System.out.println(dto.getUser_id());
+    	
+    	if(result.hasErrors()) {
+    		if(result.getFieldError("order_Phone") != null)
+				model.addAttribute("ERROR", result.getFieldError("order_Phone").getCode());
+			else if(result.getFieldError("address") != null)
+				model.addAttribute("ERROR", result.getFieldError("address").getCode());
+			
+			return "/order/order";
+    	}
+    	
     	model.addAttribute("result", kakaoPayService.insert(dto));
     	model.addAttribute("dto", dto);
     	session.setAttribute("partner_order_id", dto.getPartner_order_id());

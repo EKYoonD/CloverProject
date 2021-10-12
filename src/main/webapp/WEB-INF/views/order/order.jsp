@@ -17,41 +17,39 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(function(){
+        
+    $(function(){
             $('.head3').click(function(){
                 $('.head2').slideToggle();
             })
         })
         
-        function call() {
-        	if(document.getElementById("quantity").value && document.getElementById("multi")){
-        		document.getElementById('total_amount').value = parseInt(document.getElement('quantity').value) * parseInt(document.getElement('multi').value);
-        	}
-        	
         
-        }
+        function sale_price(s){ 
+			s.total_amount.value = eval(s.quantity.value) * eval(s.multi.value) ; 
+		} 
         
          function checkForm(){
         	if ($("#partner_user_id").val() == "") {
-    			alert("유저ID를 입력해주세요");
+    			alert("유저ID를 입력해주세요.");
     			$("#partner_user_id").focus();
     			return false;
         	}
         	
         	if ($("#order_Rec").val() == "") {
-    			alert("수령인을 입력해주세요");
+    			alert("수령인을 입력해주세요.");
     			$("#order_Rec").focus();
     			return false;
         	}
         	
         	if ($("#address").val() == "") {
-    			alert("주소를 입력해주세요");
+    			alert("주소를 입력해주세요.");
     			$("#address").focus();
     			return false;
         	}
         	
         	if ($("#quantity").val() == "") {
-    			alert("수량을 입력해주세요");
+    			alert("수량을 입력해주세요.");
     			$("#quantity").focus();
     			return false;
         	}
@@ -65,6 +63,7 @@
 <body>
 
   <!--header-->
+
     <header>
         <div class="container">
             <div class="head1">
@@ -95,52 +94,57 @@
             </nav>
         </div>
     </header>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    
+    <br><br><br><br><br>
 <!-- contents -->
-<div class="order_div">
+
+<section class="container1">
+<div href class="order_div_order">
 <form action="orderOk" method="POST" class="orderForm" onsubmit="return checkForm()">
 
-<h2>QR뱃지 주문</h2>  
-        <input type="hidden" name="partner_order_id" id="partner_order_id" type="text" class="partner_order_id" value="${k.partner_order_id}" placeholder="주문번호"/>
+<h2>QR뱃지 주문</h2>
+  
+        <input type="hidden" name="partner_order_id" id="partner_order_id" type="text" class="partner_order_id" value="${k.partner_order_id}"/>
         <input type="hidden" name="user_id" id="user_id" type="text" class="user_id" value ="${k.user_id}"/>
         <input type="hidden" name="qr_uid" id="qr_uid" type="text" class="qr_uid" value ="${k.qr_uid}"/>
       <div class="textForm">
-        <input name="order_Rec" id="order_Rec" type="text" class="order_Rec" value ="${k.order_Rec}" placeholder="수령인"/>
+      수령인: <input name="order_Rec" id="order_Rec" type="text" class="order_Rec" value ="${k.order_Rec}"/>
       </div>
       <div class="textForm">
-        <input name="order_Phone" id="order_Phone" type="text" class="order_Phone" value ="${k.order_Phone}" placeholder="수령인 연락처"/>
+      연락처: <input name="order_Phone" id="order_Phone" type="text" class="order_Phone" value ="${k.order_Phone}"/>
       </div>
       <div class="textForm">
-        <input name="address" id="address" type="text" class="address" placeholder="주소" value ="${k.address}"/>
+      주  소:<input name="address" id="address" type="text" class="address"value ="${k.address}"/>
       </div>
+     
       <div class="textForm">
-      	<select name="qr_option" id="qr_option" class="qr_option">
+      수  량: <input name="quantity" id="quantity" type="text" id="quantity"class="quantity" value ="${k.quantity }" onkeyup="sale_price(this.form)"/>
+		<input type="hidden" name="multi" id="multi" type="text" value ="1500" onkeyup="sale_price(this.form)"/>
+		</div>
+		<div class="textForm">
+	  금  액: <input name="total_amount" id="total_amount" type="text" id="total_amount" class="total_amount" value="${k.total_amount }"/>      
+      </div>
+       <div class="textForm">
+      타  입: <select name="qr_option" id="qr_option" class="qr_option">
       		<option value="1">1</option>
       		<option value="2">2</option>
       		<option value="3">3</option>
       	
       	</select>
       </div>
-      <div class="textForm">
-      	<span>
-      	<input name="quantity" id="quantity" type="text" id="quantity"class="quantity" placeholder="수량" value ="${k.quantity }" onkeyup='call()'/>
-		</span>
-		<input type="hidden" name="multi" id="multi" type="text" value ="1500" onkeyup='call()'/>
-		<span>
-		<input name="total_amount" id="total_amount" type="text" id="total_amount" class="total_amount" placeholder="금액" value="${k.total_amount }"/>      
-      	</span>
-      </div>
+      
+      <br><br>
+      
+      
       	<div>
      <input type="submit" class="button" value="주문"/>
       <a  onclick="location.href='main'"><input type="button" class="button" value="취소"/ ></a>
       </div>
       
-      
-  
 
  </form>
 </div> 
- 
+ </section>
 <!--footer-->
 <footer>
 	<div class="container">

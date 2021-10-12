@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
@@ -12,7 +12,7 @@
 	rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>QR二쇰Ц</title>
+<title>결제 실패</title>
 
 <link href="/CSS/styleOrder.css" rel="stylesheet">
 <link
@@ -60,6 +60,24 @@
 			</nav>
 		</div>
 	</header>
+
+<section class="container1">
+<div>
+<h2>주문 실패</h2>
+</div>
+<div href class="order_div_fail">
+<div>
+<br><br><br><br><br><br><br>
+</div>
+<div class="fail_msg">
+		결제 요청시간이 초과되었습니다.<br>
+
+</div>
+</div>
+<div>
+ <a  onclick="location.href='main'"><input type="button" class="button" value="홈으로"/ ></a>
+</div>
+</section>
 
 	<footer>
 		<div class="container">
