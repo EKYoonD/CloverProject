@@ -3,6 +3,14 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
+
+<%-- validation 실패시 --%>
+<c:if test="${not empty ERROR }">
+	<script>
+		alert("등록 실패 " + "${ERROR}");
+	</script>
+</c:if>	
+	
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
@@ -29,32 +37,7 @@
 			s.total_amount.value = eval(s.quantity.value) * eval(s.multi.value) ; 
 		} 
         
-         function checkForm(){
-        	if ($("#partner_user_id").val() == "") {
-    			alert("유저ID를 입력해주세요.");
-    			$("#partner_user_id").focus();
-    			return false;
-        	}
-        	
-        	if ($("#order_Rec").val() == "") {
-    			alert("수령인을 입력해주세요.");
-    			$("#order_Rec").focus();
-    			return false;
-        	}
-        	
-        	if ($("#address").val() == "") {
-    			alert("주소를 입력해주세요.");
-    			$("#address").focus();
-    			return false;
-        	}
-        	
-        	if ($("#quantity").val() == "") {
-    			alert("수량을 입력해주세요.");
-    			$("#quantity").focus();
-    			return false;
-        	}
-        	
-        }
+ 
         
         
     </script>
