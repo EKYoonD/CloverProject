@@ -71,20 +71,23 @@
 					<ul>
 						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
 						<li><a onclick="location.href='../qr/write'">MY QR</a></li>
-						<li><a onclick="location.href='../order'">ORDER</a></li>
+						<li><a onclick="location.href='../qr/qrlist'">ORDER</a></li>
 						<li><a onclick="location.href='../board/list'">FIND &
 								FOUND</a></li>
 						<sec:authorize access="isAnonymous()">
+
 							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="clover/member/mypage" />" id="MyPage">MYPAGE</a>
+
+							<a href="<c:url value="../../../clover/member/mypage" />"
+								id="MyPage">MYPAGE</a>
+							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+
 						</sec:authorize>
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
 						</sec:authorize>
 					</ul>
 				</nav>
@@ -101,7 +104,7 @@
 				<br> <br> 마지막으로 잃어버린 장소: <br> <br>
 				<div class="container contents" style="background-color: grey">
 					<div id="map"
-						style="width: 500px; height: 350px; background-color: grey"
+						style="width: 950px; height: 350px; background-color: grey"
 						class="map contents">
 
 						<br> <br>

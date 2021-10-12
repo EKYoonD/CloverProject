@@ -62,16 +62,18 @@
 						<li><a onclick="location.href='../board/list'">FIND &
 								FOUND</a></li>
 						<sec:authorize access="isAnonymous()">
+
 							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="clover/member/mypage" />" id="MyPage">MYPAGE</a>
+
+							<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+
 						</sec:authorize>
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
 							<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 						</sec:authorize>
 					</ul>
 				</nav>
@@ -90,7 +92,7 @@
 					</select> <br> 제목: <input type="text" name="subject"
 						value="${w.subject }" /><br> <br> 내용:<br>
 					<div class="contentscon">
-						<div class="context" style="width: 320px; margin: auto">
+						<div class="context" style="width: 500px; margin: auto">
 							<textarea name="content" id='content'>${w.content }</textarea>
 							<script type="text/javascript">
 								CKEDITOR
@@ -98,7 +100,7 @@
 												'content',
 												{
 													allowedContent : true, // HTML 태그 자동삭제 방지설정
-													width : '640px',
+													width : '1000px',
 													height : '200px',
 													filebrowserUploadUrl : '${pageContext.request.contextPath}/upload/image'
 												});
@@ -111,7 +113,7 @@
 					<!-- TODO -->
 					<div class="container contents" style="background-color: grey">
 						<div id="map"
-							style="width: 500px; height: 350px; background-color: grey"
+							style="width: 1000px; height: 350px; background-color: grey"
 							class="map contents">
 							<div id="clickLatlng"></div>
 

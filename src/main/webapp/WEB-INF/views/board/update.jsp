@@ -29,7 +29,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" >
 <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
 	rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,20 +76,22 @@ function chkSubmit(){
 					<ul>
 						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
 						<li><a onclick="location.href='../qr/write'">MY QR</a></li>
-						<li><a onclick="location.href='../order'">ORDER</a></li>
+						<li><a onclick="location.href='../qr/qrlist'">ORDER</a></li>
 						<li><a onclick="location.href='../board/list'">FIND &
 								FOUND</a></li>
 						<sec:authorize access="isAnonymous()">
+
 							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="clover/member/mypage" />" id="MyPage">MYPAGE</a>
+
+							<a href="<c:url value="../../../clover/member/mypage" />" id="MyPage">MYPAGE</a>
+							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+
 						</sec:authorize>
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
 						</sec:authorize>
 					</ul>
 				</nav>
@@ -106,7 +108,7 @@ function chkSubmit(){
 					제목: <input type="text" name="subject" value="${list[0].subject }" /><span
 						style="color: red">${ERROR.SUBJECT }</span><br> 내용:<br>
 					<div class="contentscon">
-						<div class="context" style="width: 320px; margin: auto">
+						<div class="context" style="width: 500px; margin: auto">
 							<textarea name="content" id='content'>${w.content }</textarea>
 							<script type="text/javascript">
 								CKEDITOR
@@ -114,7 +116,7 @@ function chkSubmit(){
 												'content',
 												{
 													allowedContent : true, // HTML 태그 자동삭제 방지설정
-													width : '640px',
+													width : '1000px',
 													height : '200px',
 													filebrowserUploadUrl : '${pageContext.request.contextPath}/upload/image'
 												});
@@ -125,7 +127,7 @@ function chkSubmit(){
 					<h5>지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
 					<span style="color: red">${ERROR.POINT }</span>
 					<div class="container contents" style="background-color: grey">
-						<div id="map" style="width: 500px; height: 350px;"
+						<div id="map" style="width: 950px; height: 350px;"
 							class="map contents">
 							<div id="clickLatlng"></div>
 
