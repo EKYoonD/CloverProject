@@ -41,11 +41,10 @@ header {
 .head2 a {
 	font-size: 21px;
 	display: block;
-	padding: 30px;
 	color: whitesmoke;
 	text-decoration: none;
 	padding: 1.5em;
-	height: 30pt;
+	height: 2pt;
 	text-align: center;
 }
 
@@ -61,12 +60,20 @@ header {
 	background-color: rgba(0, 0, 0, 1);
 }
 
+#loginOut {
+	color: #FFE44C
+}
+
+#logOut {
+	color: #F81140
+}
+
 @media ( min-width : 768px) { /* 768px보다 큰화면일때*/
 	header .container {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		max-width: 1000px;
+		max-width: 1200px;
 		margin-left: auto;
 		margin-right: auto;
 	}

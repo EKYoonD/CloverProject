@@ -38,12 +38,11 @@ header {
 .head2 a {
 	font-size: 21px;
 	display: block;
-	padding: 30px;
 	color: whitesmoke;
 	text-decoration: none;
-	padding:1.5em;
-    height:30pt;
-    text-align: center;
+	padding: 1.5em;
+	height: 30pt;
+	text-align: center;
 }
 
 .head1 a {
@@ -58,12 +57,21 @@ header {
 	background-color: rgba(0, 0, 0, 1);
 }
 
+#loginOut {
+	color: #FFE44C
+}
+
+#logOut {
+	color: #F81140
+}
+
+
 @media ( min-width : 768px) { /* 768px보다 큰화면일때*/
 	header .container {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		max-width: 1000px;
+		max-width: 1200px;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -112,7 +120,7 @@ header {
 
 .success {
 	background-color: #333;
-	border:15px;
+	border: 15px;
 	font-family: 'Gugi', cursive;
 }
 
@@ -197,13 +205,12 @@ table {
 	border-radius: 16px;
 	background-color: whitesmoke;
 	width: 100%;
-	border-bottom:hidden;
+	border-bottom: hidden;
 }
 
 table, th, td {
 	border-collapse: collapse;
 }
-
 
 td, th {
 	padding: 30px;
@@ -213,7 +220,6 @@ td, th {
 th {
 	font-size: 20px;
 }
-
 
 .clear {
 	clear: both;
@@ -247,7 +253,7 @@ th {
 }
 
 .container1 h1 {
-	margin-top: 0;
+	margin-top: -20px;
 	margin-bottom: 10px;
 	font-size: 8vw;
 	text-shadow: 3vw;
@@ -267,96 +273,87 @@ th {
 		rgba(22, 22, 22, 0.2));
 }
 
-
 @media ( min-width : 768px) { /* 화면폭 768 이상이면 */
 	.container1 h1 {
 		font-size: 65px;
 	}
 }
 
-
 footer {
-
-    background-color: rgb(46, 53, 49);
-    color: whitesmoke;
+	background-color: rgb(46, 53, 49);
+	color: whitesmoke;
 }
 
 footer.container {
-    padding: 40px 20px;
+	padding: 40px 20px;
 }
 
 .foot1 h2 {
-    font-family: 'Gugi', cursive;
-    letter-spacing: 0.1em;
-    font-size: 25px;
-    margin-bottom: 10px;
-    margin-left: 30px;
+	font-family: 'Gugi', cursive;
+	letter-spacing: 0.1em;
+	font-size: 25px;
+	margin-bottom: 10px;
+	margin-left: 30px;
 }
 
 .foot1 p {
-    font-size: 16px;
-    font-family: 'Gugi', cursive;
-    text-decoration: none;
-    color: whitesmoke;
-    margin-left: 30px;
+	font-size: 16px;
+	font-family: 'Gugi', cursive;
+	text-decoration: none;
+	color: whitesmoke;
+	margin-left: 30px;
 }
 
 .foot1 a {
-    font-size: 16px;
-    font-family: 'Gugi', cursive;
-    text-decoration: none;
-    color: whitesmoke; 
+	font-size: 16px;
+	font-family: 'Gugi', cursive;
+	text-decoration: none;
+	color: whitesmoke;
 }
 
 .foot3 div {
-    margin-left: 30px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+	margin-left: 30px;
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 .foot3 h3 {
-    font-size: 20px;
-    font-family: 'Gugi', cursive;
+	font-size: 20px;
+	font-family: 'Gugi', cursive;
 }
 
 .foot3 ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
 .foot3 a {
-    font-family: 'Gugi', cursive;
-    text-decoration: none;
-    color: inherit;
+	font-family: 'Gugi', cursive;
+	text-decoration: none;
+	color: inherit;
 }
 
-@media (min-width: 768px) {
-
-    footer .container {
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 1000px;
-        max-width: var(--large-width);
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    footer {
-
-    background-color: rgb(46, 53, 49);
-    color: whitesmoke;
-}
-
-    .foot1 {
-        flex: 0 0 50%;
-    }
-
-    .foot2 {
-        flex: 0 0 20%
-    }
-
-    .foot3 {
-        flex: 0 0 30%;
-    }
+@media ( min-width : 768px) {
+	footer .container {
+		display: flex;
+		flex-wrap: wrap;
+		max-width: 1000px;
+		max-width: var(- -large-width);
+		margin-left: auto;
+		margin-right: auto;
+	}
+	footer {
+		background-color: rgb(46, 53, 49);
+		color: whitesmoke;
+	}
+	.foot1 {
+		flex: 0 0 50%;
+	}
+	.foot2 {
+		flex: 0 0 20%
+	}
+	.foot3 {
+		flex: 0 0 30%;
+	}
 }

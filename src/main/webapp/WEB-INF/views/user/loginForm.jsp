@@ -21,20 +21,10 @@
 	rel="stylesheet">
 <body>
 <br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 <div id="logindiv">
-	
 		<header>
 			<h1>로그인</h1>
 		</header>
-		<br> <br> <br> <br> <br>
 		<div class="overlay">
 			<form name='frm' action="/loginOk" method="POST"
 				onsubmit="return loginChk();">
@@ -47,7 +37,6 @@
 					<input type="password" name="password" placeholder="비밀번호">
 					<label for="password">비밀번호</label>
 				</div>
-				<br> <br><br>
 				<input type="submit" value="로그인">
 			</form>
 			<form name='frm2' action="/join" method="get">
@@ -56,10 +45,8 @@
 			<div id="kakao">
 				<a href="/oauth2/authorization/kakao"><img
 					src="img/kakao_login_large_wide.png"></a> <br> <br>
-				<br> <br>
 			</div>
 		</div>
-		<br> <br> <br> <br>
 	</div>
 
 </body>
