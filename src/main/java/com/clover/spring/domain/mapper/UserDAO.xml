@@ -25,8 +25,13 @@
 		FROM userdto
 		WHERE user_id = #{id}	
 	</select>
-
 	
+	<select id="idCheck" parameterType="com.clover.spring.domain.UserDTO" resultType="int">
+    SELECT COUNT(*)
+    FROM userdto
+    WHERE user_id = #{id}
+	</select>
+
 	<select id="selectByUid" resultType="com.clover.spring.domain.UserDTO">
 		SELECT
 			user_uid uid,

@@ -56,7 +56,6 @@ function updateList(jsonObj){
 		var items = jsonObj.data;  // 배열
 		for(var i = 0; i < count; i++){
 			result += "<tr>\n";
-		
 			result += "<td>" + items[i].uid + "</td>\n";
 			result += "<td><a href='/clover/member/board/view?uid=" + items[i].uid  + "'>" + items[i].subject + "</a></td>\n";
 			result += "<td><span data-viewcnt='" + items[i].uid + "'>" + items[i].viewcnt + "</span></td>\n";

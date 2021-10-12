@@ -15,6 +15,7 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index:1;
 }
 .head1 {
     display:inline-block;
@@ -122,6 +123,16 @@ header {
     justify-content: center;  /* content 중앙 배치 */
     color: #fff;  /* CSS 변수 지원 안하는 브라우저용 */
     color: var(--text-bright-color);   /* 변수에 설정한 색 */
+}
+
+.explanation {
+	background-color: whitesmoke;
+	opacity:0.7;
+	width:800px;
+	height:auto;
+	padding: 60px;
+	border-radius: 60px;
+	
 }
 
 .conA h1 {

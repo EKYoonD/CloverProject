@@ -81,13 +81,13 @@
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
 
-						<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
-						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+							<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 
-					</sec:authorize>
-					<sec:authorize access="hasRole('ROLE_ADMIN')">
-						<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
-					</sec:authorize>
+						</sec:authorize>
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
+						</sec:authorize>
 					</ul>
 				</nav>
 			</div>

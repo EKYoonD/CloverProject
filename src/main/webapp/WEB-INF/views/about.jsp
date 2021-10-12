@@ -67,9 +67,12 @@
 
 	<!-- 컨텐츠A -->
 	<section class="conA">
-		<div class="container">
+		<div class="container explanation">
 			<!-- 히어로 이미지 -->
-
+			<h2 style="font-size: 40px">CLOVER는 여러분의 가족이 최우선입니다</h2>
+			<p>CLOVER는 우리가족찾기 QR 서비스를 통해 여러분들이 소중한 가족을 잃었을 때, 가족을 최대한 빠른 시간에
+				찾을 수 있도록 최고의 서비스를 제공합니다. 가족을 잃어버렸을 때의 막막함, CLOVER에서
+				해결해드리겠습니다.</p>
 		</div>
 	</section>
 

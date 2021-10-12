@@ -62,6 +62,10 @@ public class UserDAOImpl implements UserDAO {
 		return mapper.selectAll();
 	}
 
+	@Override
+	public int idCheck(String id) {
+		return mapper.idCheck(id);
+	}
 
 	
 
