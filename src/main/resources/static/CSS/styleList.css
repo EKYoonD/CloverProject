@@ -360,3 +360,26 @@ footer.container {
 		flex: 0 0 30%;
 	}
 }
+
+.button {
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-family: 'Gugi', cursive, '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	width: 130px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: 0.5s;
+	background-color: black;
+	color: white;
+}
+
+.button:hover {
+	background-color: #4CAF50;
+	color: white;
+}

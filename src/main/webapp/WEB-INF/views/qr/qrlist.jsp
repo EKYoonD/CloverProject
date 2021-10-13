@@ -102,7 +102,7 @@
 											<td>${dto.name }</td>
 											<td>
 												<button onclick="location.href='../order?uid=${dto.uid}'"
-													class="blue_button1">주문하기</button>
+													class="button">주문하기</button>
 											</td>
 										</tr>
 									</c:forEach>

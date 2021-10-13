@@ -39,7 +39,7 @@
 <body>
 	<!--header-->
 	<header>
-			<div class="container">
+			<div class="container11">
 				<div class="head1">
 					<a onclick="location.href='../../../../main'"><i
 						class="fas fa-home"></i></a> <span class="head3"><i
@@ -90,11 +90,11 @@
 
 			<br> <br> <br> <br> <br> <br> <br><br>
 			<button onclick="location.href='update?uid=${list[0].uid }'"
-				class="blue_button1">수정하기</button>
-			<button onclick="location.href='download'" class="blue_button1">다운로드</button>
+				class="button">수정하기</button>
+			<button onclick="location.href='download'" class="button">다운로드</button>
 			<button onclick="location.href='../order?uid=${param.uid}'"
-				class="blue_button1">주문하기</button>
-			<button onclick="location.href='/main'" class="blue_button1">메인</button>
+				class="button">주문하기</button>
+			<button onclick="location.href='/main'" class="button">메인</button>
 			<!-- <button onclick="location.href='write'">신규등록</button>-->
 			<!--  <button onclick="location.href='qrlist'">목록</button>-->
 		</div>

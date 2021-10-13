@@ -45,11 +45,9 @@ header {
 .head2 a {
 	font-size: 21px;
 	display: block;
+	padding: 30px;
 	color: whitesmoke;
 	text-decoration: none;
-	padding: 1.5em;
-	height: 30pt;
-	text-align: center;
 }
 
 .head1 a {
@@ -69,7 +67,7 @@ header {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		max-width: 1200px;
+		max-width: 1000px;
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -83,15 +81,6 @@ header {
 		display: block !important; /*매우 중요*/
 	}
 }
-
-#loginOut {
-	color: #FFE44C
-}
-
-#logOut {
-	color: #F81140
-}
-
 
 @media ( max-width : 767px) { /* 768px보다 작은화면일때*/
 	header .head1 {
@@ -117,16 +106,51 @@ header {
 }
 
 .container1 {
-	margin-top: 100px;
+	margin-top: 200px;
 	text-align: center;
 	background-color: rgb(247, 229, 127);
 	background-position: center;
 	background-size: cover;
-	height: 120vh;
 	min-height: 800px;
 	align-items: center;
 	justify-content: center;
 	color: #333;
+}
+
+.container11 {
+	padding-top: 100px;
+	text-align: center;
+	background-color: rgb(247, 229, 127);
+	background-position: center;
+	background-size: cover;
+	min-height: 800px;
+	align-items: center;
+	justify-content: center;
+	color: #333;
+	display: flex;
+}
+
+.change_img {
+	padding: 50px, 50px, 50px, 50px;
+	background-color: #ffffff;
+	border-radius: 15px;
+}
+
+.order_div_order {
+	padding-top: 100px;
+	width: 1500px;
+	height: 900px;
+	background-color: #ffffff;
+	text-align: center;
+	top: 40%;
+	border-radius: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+}
+
+.aaa {
+	flex: 0 0 49%;
 }
 
 .order_div_fail {
@@ -142,8 +166,9 @@ header {
 }
 
 .order_div_success {
-	width: 400px;
-	height: 300px;
+	font-size: 20px;
+	width: 40%;
+	height: 400px;
 	padding: 30px, 20px;
 	background-color: #ffffff;
 	text-align: center;
@@ -153,19 +178,17 @@ header {
 	margin-right: auto;
 }
 
-.order_div_order {
-	width: 400px;
-	height: 550px;
-	padding: 30px, 20px;
-	background-color: #ffffff;
+
+.success {
 	text-align: center;
-	top: 40%;
-	border-radius: 15px;
-	margin-left: auto;
+	align-items: center;
+	width: 550px;
+  	padding: 5px;
+  	margin-left: auto;
 	margin-right: auto;
 }
 
-.order_div h2 {
+.container11 h2 {
 	text-align: center;
 }
 
@@ -177,12 +200,20 @@ header {
 
 .textForm1 {
 	border-bottom: 2px solid #adadad;
-	margin: 10px;
-	padding: 1px 1px;
+	margin: 25px;
+	padding: 10px 10px;
+	float: left;
+}
+
+.textForm2 {
+	width: 100px;
+	margin: 30px;
+	padding: 20px 20px;
+	float: right;
 }
 
 .partner_order_id {
-	width: 100%;
+	width: 500px;
 	border: none;
 	outline: none;
 	color: #636e72;
@@ -192,7 +223,7 @@ header {
 }
 
 .partner_user_id {
-	width: 100%;
+	width: 500px;
 	border: none;
 	outline: none;
 	color: #636e72;
@@ -202,33 +233,36 @@ header {
 }
 
 .order_Rec {
-	width: 80%;
+	width: 500px;
 	border: none;
 	outline: none;
 	color: #636e72;
 	font-size: 16px;
 	height: 25px;
 	background: none;
+	margin-left: 100px;
 }
 
 .order_Phone {
-	width: 80%;
+	width: 500px;
 	border: none;
 	outline: none;
 	color: #636e72;
 	font-size: 16px;
 	height: 25px;
 	background: none;
+	margin-left: 100px;
 }
 
 .quantity {
+	width: 500px;
 	border: none;
 	outline: none;
 	color: #636e72;
 	font-size: 16px;
 	height: 25px;
 	background: none;
-	width: 80%;
+	margin-left: 100px;
 }
 
 .total_amount {
@@ -238,33 +272,84 @@ header {
 	font-size: 16px;
 	height: 25px;
 	background: none;
-	width: 80%;
-}
-
-.address {
-	width: 80%;
-	border: none;
-	outline: none;
-	color: #636e72;
-	font-size: 16px;
-	height: 25px;
-	background: none;
+	width: 500px;
+	margin-left: 100px;
 }
 
 .qr_option {
-	width: 80%;
+	width: 500px;
 	border: none;
 	outline: none;
 	color: #636e72;
 	font-size: 16px;
 	height: 25px;
 	background: none;
+	margin-left: 100px;
+}
+
+.postcode {
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+	width: 350px;
+	margin-left: 100px;
+}
+
+.roadAddress {
+	width: 500px;
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+	margin-left: 100px;
+}
+
+.jibunAddress {
+	width: 500px;
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+	margin-left: 100px;
+}
+
+.detailAddress {
+	width: 500px;
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+	margin-left: 100px;
+}
+
+.extraAddress {
+	width: 500px;
+	border: none;
+	outline: none;
+	color: #636e72;
+	font-size: 16px;
+	height: 25px;
+	background: none;
+	margin-left: 100px;
+}
+
+.chanege_img {
+	text-align: center;
 }
 
 .button {
 	margin: 0;
 	padding: 0.5rem 1rem;
-	font-family: "Noto Sans KR", sans-serif;
+	font-family: 'Gugi', cursive, '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
 	font-size: 1rem;
 	font-weight: 400;
 	text-align: center;
@@ -284,14 +369,8 @@ header {
 	color: white;
 }
 
-@media ( min-width : 768px) { /* 768px보다 큰화면일때*/
-	.order_div {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		max-width: 1000px;
-	}
-}
+
+
 
 footer {
 	background-color: rgb(46, 53, 49);

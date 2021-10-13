@@ -81,7 +81,7 @@
 			</div>
 		</header>
 	<section class="container1">
-		<div class="container4">
+		<div class="container11">
 
 			<h2>입력</h2>
 			<form name="frm" action="writeOk" method="post"
@@ -102,7 +102,7 @@
 				<br>
 				<br> <input type="hidden" name="userid" id="userid"
 					value="${m.userid }" /> <br>
-				<br> <input type="submit" class="blue_button" value="QR만들기" />
+				<br> <input type="submit" class="button" value="QR만들기" />
 			</form>
 			<br>
 		</div>

@@ -185,10 +185,10 @@
 					</div>
 
 					<br> <br> <input type="hidden" name="userid" id="userid"
-						value="${w.userid }" /> <input type="submit" value="등록" />
+						value="${w.userid }" /> <input type="submit" class="button" value="등록" />
 				</form>
 				<br>
-				<button type="button" onclick="location.href = 'list'">목록으로</button>
+				<button type="button" class="button" onclick="location.href = 'list'">목록으로</button>
 				<br> <br>
 			</div>
 		</section>

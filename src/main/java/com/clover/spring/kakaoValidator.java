@@ -30,6 +30,7 @@ public class kakaoValidator implements Validator {
 			errors.rejectValue("order_Phone", ": 전화번호 입력은 필수입니다.");
 		}
 		
+		
 		int quantity = dto.getQuantity();
 		if(quantity == 0 ) {
 			errors.rejectValue("quantity", ": 수량 입력은 필수입니다.");

@@ -245,6 +245,6 @@ SELECT * FROM userdto;
 		FROM userdto
 		WHERE user_id = "katie0323";
 	
-
+insert into userdto values(100,'admin','$2a$12$ngzHgtGjfBxnAMbOdO8Mbukx.wicNK/17mVs8sZCreL9tStkWD8k.','관리자',null,'admin@adamin.com',null,null,'ROLE_ADMIN' )
 
 insert into userdto values(100,'admin','$2a$12$ngzHgtGjfBxnAMbOdO8Mbukx.wicNK/17mVs8sZCreL9tStkWD8k.','관리자',null,'admin@adamin.com',null,null,'ROLE_ADMIN' )

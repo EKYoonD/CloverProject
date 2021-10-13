@@ -146,12 +146,12 @@
 				<%-- getRegDateTime() 사용 --%>
 
 				<br> <br>
-				<button onclick="location.href='update?uid=${list[0].uid }'">수정하기</button>
-				<button onclick="location.href='list'">목록보기</button>
-				<button onclick="chkDelete(${list[0].uid })">삭제하기</button>
-				<button onclick="location.href='write'">신규등록</button>
-				<button onclick="location.href='viewRe?uid=${list[0].uid }'">댓글보기</button>
-				<button onclick="location.href='writeRe?uid=${list[0].uid }'">댓글달기</button>
+				<button class="button" onclick="location.href='update?uid=${list[0].uid }'">수정하기</button>
+				<button class="button" onclick="location.href='list'">목록보기</button>
+				<button class="button" onclick="chkDelete(${list[0].uid })">삭제하기</button>
+				<button class="button" onclick="location.href='write'">신규등록</button>
+				<button class="button" onclick="location.href='viewRe?uid=${list[0].uid }'">댓글보기</button>
+				<button class="button" onclick="location.href='writeRe?uid=${list[0].uid }'">댓글달기</button>
 			</div>
 		</section>
 	</div>

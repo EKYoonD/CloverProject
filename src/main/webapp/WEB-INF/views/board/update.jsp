@@ -185,11 +185,11 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 					</div>
 
 
-					<br> <br> <input type="submit" value="수정" />
+					<br> <br> <input type="submit" class="button" value="수정" />
 				</form>
 				<br>
-				<button onclick="history.back();">이전으로</button>
-				<button onclick="location.href='list'">목록보기</button>
+				<button class="button" onclick="history.back();">이전으로</button>
+				<button class="button" onclick="location.href='list'">목록보기</button>
 				<br> <br> <br>
 			</div>
 		</section>

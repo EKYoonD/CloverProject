@@ -32,57 +32,81 @@
 <body>
 	<!--header-->
 	<header>
-			<div class="container">
-				<div class="head1">
-					<a onclick="location.href='../../../../main'"><i
-						class="fas fa-home"></i></a> <span class="head3"><i
-						class="far fa-caret-square-down"></i></span>
-				</div>
-				<nav class="head2">
-					<ul>
-						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/write'">MY
-								QR</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/board/list'">FIND
-								& FOUND</a></li>
-						<sec:authorize access="isAnonymous()">
-							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="../../../clover/member/mypage" />"
-								id="MyPage">MYPAGE</a>
-						</sec:authorize>
-						<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
-						</sec:authorize>
-					</ul>
-				</nav>
+		<div class="container">
+			<div class="head1">
+				<a onclick="location.href='main'"><i class="fas fa-home"></i></a> <span
+					class="head3"><i class="far fa-caret-square-down"></i></span>
 			</div>
-		</header>
-	<br>
-	<br>
-	<br>
-	<section class="container1">
-		<h2>주문 성공</h2>
-		<div class="order_div_success">
-		<br><br><br><br>
-			카카오페이 결제가 정상적으로 완료되었습니다. <br>
-			주문번호:${info[0].partner_order_id }<br>
-			수령인:${info[0].order_Rec} <br>
-			수령인 연락처:${info[0].order_Phone}<br>
-			상품수량: ${info[0].quantity}<br>
-			결제금액: ${info[0].total_amount}<br>
+			<nav class="head2">
+				<ul>
+					<li><a onclick="location.href='about'">CLVOER</a></li>
+					<li><a onclick="location.href='qr'">MY QR</a></li>
+					<li><a onclick="location.href='order'">ORDER</a></li>
+					<li><a onclick="location.href='clover/member/board/list'">FIND
+							& FOUND</a></li>
+					<sec:authorize access="isAnonymous()">
 
+						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+
+						<a href="<c:url value="/mypage" />" id="MyPage">MYPAGE</a>
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="<c:url value="clover/admin/main" />" id="admin">ADMIN</a>
+					</sec:authorize>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<section class="container13">
+		
+		<div class="order_div_success">
+		<h2>주문 성공</h2>
+		
+		<br><br>
+			카카오페이 결제가 정상적으로 완료되었습니다. <br>
+			<br><br>
+			
+			<table class="success">
+			<tr>
+				<th>주문번호</th>
+				<th>:</th>
+				<th>${info[0].partner_order_id }</th>
+			</tr>
+			<tr>
+				<th>수령인</th>
+				<th>:</th>
+				<th>${info[0].order_Rec}</th>
+			</tr>
+			<tr>
+				<th>연락처</th>
+				<th>:</th>
+				<th>${info[0].order_Phone}</th>
+			</tr>
+			<tr>	
+				<th>상품수량</th>
+				<th>:</th>
+				<th>${info[0].quantity}</th>
+			</tr>
+			<tr>
+				<th>결제금액</th>
+				<th>:</th>
+				<th>${info[0].total_amount}</th>
+			</tr>
+			<tr>
+				<th>주소</th> 
+				<th>:</th>
+				<th>${info[0].address}</th>
+			</tr>
+			</table>
 
 
 		</div>
+		<br>
 		<div>
 			<a onclick="location.href='main'"><input type="button"
 				class="button" value="홈으로"/ ></a>
