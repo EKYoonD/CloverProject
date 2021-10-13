@@ -57,7 +57,7 @@
 <body>
 
 	<div id="body-wrapper"
-		style="min-height: 100%; padding-bottom: 500px; padding-top: 100px">
+		style="min-height: 100%; padding-bottom: 500px; padding-top:10px">
 
 		<!--header-->
 		<header>
@@ -98,12 +98,27 @@
 
 
 		<section class="container1">
+
 			<div class="container contents">
-				<h2 style="font-size: 25px">${list[0].subject }</h2>
-				<br> 카테고리 : ${list[0].category }<br> 작성자 : ${list[0].name }<br>
-				제목: ${list[0].subject }<br> <br> <br>
-				<div class="contentscon">${list[0].content }</div>
-				<br> <br> 마지막으로 잃어버린 장소: <br> <br>
+				<br>
+				<h2 style="font-size: 35px">${list[0].subject }</h2>
+				<br>
+				<br>
+				<table>
+					<th>&nbsp &nbsp 작성자 &nbsp
+					<td>${list[0].name }</td>
+					</th>
+					<th>&nbsp &nbsp 카테고리 &nbsp
+					<td>${list[0].category }</td>
+					</th>
+				</table>
+				<br>
+				<div style="height: auto" class="contentscon">${list[0].content }</div>
+				
+				<br><br><br>
+				<table>
+					<th>&nbsp &nbsp 마지막으로 잃어버린 장소 &nbsp</th>
+				</table><br>
 				<div class="container contents" style="background-color: grey">
 					<div id="map"
 						style="width: 950px; height: 350px; background-color: grey"
@@ -146,12 +161,15 @@
 				<%-- getRegDateTime() 사용 --%>
 
 				<br> <br>
-				<button class="button" onclick="location.href='update?uid=${list[0].uid }'">수정하기</button>
+				<button class="button"
+					onclick="location.href='update?uid=${list[0].uid }'">수정하기</button>
 				<button class="button" onclick="location.href='list'">목록보기</button>
 				<button class="button" onclick="chkDelete(${list[0].uid })">삭제하기</button>
 				<button class="button" onclick="location.href='write'">신규등록</button>
-				<button class="button" onclick="location.href='viewRe?uid=${list[0].uid }'">댓글보기</button>
-				<button class="button" onclick="location.href='writeRe?uid=${list[0].uid }'">댓글달기</button>
+				<button class="button"
+					onclick="location.href='viewRe?uid=${list[0].uid }'">댓글보기</button>
+				<button class="button"
+					onclick="location.href='writeRe?uid=${list[0].uid }'">댓글달기</button>
 			</div>
 		</section>
 	</div>

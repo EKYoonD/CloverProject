@@ -96,7 +96,7 @@
 
 	<section class="container1">
 		<div class="container contents">
-			<br>가장 최근에 본 장소<br> <br>
+			<br><h2 style="font-size: 35px">가장 최근에 본 장소</h2><br> <br>
 			<div id="map"
 				style="width: 940px; height: 350px; background-color: grey"
 				class="map contents">
@@ -155,8 +155,8 @@
 
 
 			<br> <br>
-			<button onclick="location.href='list'">목록보기</button>
-			<button onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
+			<button class="button" onclick="location.href='list'">목록보기</button>
+			<button class="button" onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
 		</div>
 	</section>
 	<!--footer-->

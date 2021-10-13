@@ -29,7 +29,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" >
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
 	rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -102,14 +102,17 @@ function chkSubmit(){
 		</header>
 		<section class="container1">
 			<div class="container contents">
-				<h2>수정</h2>
+				<h2  style="font-size: 35px">수정</h2>
 				<form name="frm" action="updateOk" method="post"
 					onsubmit="return chkSubmit()">
-					<input type="hidden" name="uid" value="${list[0].uid }" /> 작성자:
-					${list[0].name }<br>
+
+					<input type="hidden" name="uid" value="${list[0].uid }" />
+					<h3>
+						제목 : <input type="text" name="subject" value="${list[0].subject }" /><span
+							style="color: red">${ERROR.SUBJECT }</span>
+					</h3>
 					<%-- 작성자 이름은 변경 불가 --%>
-					제목: <input type="text" name="subject" value="${list[0].subject }" /><span
-						style="color: red">${ERROR.SUBJECT }</span><br> 내용:<br>
+					<br> <br>
 					<div class="contentscon">
 						<div class="context" style="width: 500px; margin: auto">
 							<textarea name="content" id='content'>${w.content }</textarea>
@@ -126,9 +129,11 @@ function chkSubmit(){
 							</script>
 						</div>
 					</div>
-					<br> 마지막으로 잃어버린 장소: <br>
-					<h5>지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
-					<span style="color: red">${ERROR.POINT }</span>
+					<br> <br> <br> <br>
+					<h3>마지막으로 잃어버린 장소</h3>
+					<h5 style="font-size: 18px; color: #333;">[지도를 움직이면서 잃어버린 위치를
+						정확하게 표시해주세요]</h5>
+					<span style="color: red">${ERROR.POINT }</span><br> <br>
 					<div class="container contents" style="background-color: grey">
 						<div id="map" style="width: 950px; height: 350px;"
 							class="map contents">
@@ -185,11 +190,17 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 					</div>
 
 
-					<br> <br> <input type="submit" class="button" value="수정" />
+					<br> <br> <input
+						style='float: right; margin-right: 20px;' type="submit"
+						class="button" value="수정완료" /> <br> <br>
+
 				</form>
+				<br>
+				<br>
 				<br>
 				<button class="button" onclick="history.back();">이전으로</button>
 				<button class="button" onclick="location.href='list'">목록보기</button>
+
 				<br> <br> <br>
 			</div>
 		</section>

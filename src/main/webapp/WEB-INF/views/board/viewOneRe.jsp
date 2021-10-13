@@ -61,26 +61,23 @@
 				<nav class="head2">
 					<ul>
 						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/write'">MY
-								QR</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/board/list'">FIND
-								& FOUND</a></li>
+						<li><a onclick="location.href='../qr/write'">MY QR</a></li>
+						<li><a onclick="location.href='../qr/qrlist'">ORDER</a></li>
+						<li><a onclick="location.href='../board/list'">FIND &
+								FOUND</a></li>
 						<sec:authorize access="isAnonymous()">
+
 							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="../../../clover/member/mypage" />"
-								id="MyPage">MYPAGE</a>
+
+							<a href="<c:url value="../../../clover/member/mypage" />" id="MyPage">MYPAGE</a>
+							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+
 						</sec:authorize>
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
 							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 						</sec:authorize>
 					</ul>
 				</nav>
@@ -89,9 +86,14 @@
 
 		<section class="container1">
 			<div class="container contents" style="width: 1000px">
-				<h2>${list[0].uid }번글에 대한 댓글입니다</h2>
-				제목 : ${list[0].subject }<br>
-				<br> 내용: <br>
+				<h2 style="font-size: 35px">${list[0].uid }번글에 대한 댓글입니다</h2>
+				<br><br>
+				<table>
+					<th>&nbsp &nbsp 제목 &nbsp
+					<td>${list[0].subject }</td>
+					</th>
+				</table>
+				
 				<br>
 				<div
 					style="background-color: lightgrey; padding: 10px; border-radius: 30px;">
@@ -140,11 +142,11 @@
 				<br>
 				<br>
 
-				<button
+				<button class="button"
 					onclick="location.href='updateRe?rep_uid=${list[0].rep_uid }'">수정하기</button>
-				<button onclick="chkDelete(${list[0].rep_uid })">삭제하기</button>
-				<button onclick="location.href='list'">목록보기</button>
-				<button onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
+				<button class="button" onclick="chkDelete(${list[0].rep_uid })">삭제하기</button>
+				<button class="button" onclick="location.href='list'">목록보기</button>
+				<button class="button" onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
 			</div>
 		</section>
 

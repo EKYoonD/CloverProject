@@ -84,16 +84,25 @@
 		</header>
 		<section class="container1">
 			<div class="container contents">
-				<h2>글작성</h2>
+				<h2 h2 style="font-size: 35px">글작성</h2>
 				<form name="frm" action="writeOk" method="post"
 					onsubmit="return chkSubmit()">
-					카테고리: <select class="select" id="category" name="category"
-						style="width: 170px;">
-						<option value="부모님" selected>부모님</option>
-						<option value="아이">아이</option>
-						<option value="반려동물">반려동물</option>
-					</select> <br> 제목: <input type="text" name="subject"
-						value="${w.subject }" /><br> <br> 내용:<br>
+
+					<table>
+						<tr><th>&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp  카테고리 &nbsp</th>
+						<td><select class="select" id="category" name="category"
+							style="width: 170px;">
+								<option value="부모님" selected>부모님</option>
+								<option value="아이">아이</option>
+								<option value="반려동물">반려동물</option>
+						</select></td>
+						</tr>
+						<tr><th>&nbsp &nbsp 제목 &nbsp</th>
+						<td><input type="text" name="subject"
+						value="${w.subject }" /></td>
+						</tr>
+					</table><br><br>
+
 					<div class="contentscon">
 						<div class="context" style="width: 500px; margin: auto">
 							<textarea name="content" id='content'>${w.content }</textarea>
@@ -111,8 +120,9 @@
 						</div>
 					</div>
 
-					<br> <br> 마지막으로 본 장소 :
-					<h5>지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
+					<br> <br><br> <br> <h3>마지막으로 잃어버린 장소</h3>
+					<h5 style="font-size: 18px; color: #333;">[지도를 움직이면서 잃어버린 위치를
+						정확하게 표시해주세요]</h5>
 					<!-- TODO -->
 					<div class="container contents" style="background-color: grey">
 						<div id="map"
@@ -185,10 +195,13 @@
 					</div>
 
 					<br> <br> <input type="hidden" name="userid" id="userid"
-						value="${w.userid }" /> <input type="submit" class="button" value="등록" />
+						value="${w.userid }" /> <input type="submit" class="button"
+						value="등록" />
+
 				</form>
 				<br>
-				<button type="button" class="button" onclick="location.href = 'list'">목록으로</button>
+				<button type="button" class="button"
+					onclick="location.href = 'list'">목록으로</button>
 				<br> <br>
 			</div>
 		</section>

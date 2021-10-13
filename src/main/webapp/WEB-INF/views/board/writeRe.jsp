@@ -54,7 +54,7 @@
 </script>
 <body>
 
-	<div id="body-wrapper" style="min-height: 100%; padding-bottom: 300px;">
+	<div id="body-wrapper" style="min-height: 100%; padding-bottom: 300px; padding-top:50px">
 		<!--header-->
 		<header>
 			<div class="container">
@@ -94,12 +94,12 @@
 
 		<section class="container1">
 			<div class="container contents">
-				<h2>댓글작성</h2>
+				<h2 style="font-size: 35px">댓글작성</h2>
 				<form name="frm" action="writeReOk" method="post"
 					onsubmit="return chkSubmit()">
 					<input type="hidden" name="uid" value="${w.uid }" /><br> <br>
-					제목: <input type="text" name="subject" value="${w.subject }" /><span
-						style="color: red">${ERROR.SUBJECT }</span><br> <br> 내용:<br>
+					제목 : <input type="text" name="subject" value="${w.subject }" /><span
+						style="color: red">  &nbsp &nbsp  ${ERROR.SUBJECT }</span><br> <br>
 					<div class="contentscon">
 						<div class="context" style="width: 500px; margin: auto">
 							<textarea name="content" id='content'>${w.content }</textarea>
@@ -115,11 +115,12 @@
 												});
 							</script>
 						</div>
-					</div>
-					<br> <br> 마지막으로 본 장소 :
-					<h5>지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
+					</div><br><br><br>
+					<h3>마지막으로 잃어버린 장소</h3>
+					<h5 style="font-size: 18px; color: #333;">[지도를 움직이면서 잃어버린 위치를
+						정확하게 표시해주세요]</h5>
 					<span style="color: red">${ERROR.POINT }</span>
-
+					<br><br><br>
 					<div class="container contents" style="background-color: grey">
 						<div id="map"
 							style="width: 950px; height: 350px; background-color: grey"
@@ -190,7 +191,7 @@
 						</div>
 					</div>
 					<br> <br> <input type="hidden" name="userid" id="userid"
-						value="${w.userid }" /> <input type="submit" class="button" value="등록" /><br>
+						value="${w.userid }" /> <input type="submit" class="button" value="등록하기" /><br>
 					<br>
 				</form>
 				<button type="button" class="button" onclick="location.href = 'list'">목록으로</button>
