@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
    rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,46 +73,49 @@
       <div class="container4">
          <!--header-->
          <div id="memberupdatediv">
-
-            <h2>회원정보수정</h2>
-
+			<br><br><br>
+            <h2 style="font-size: 35px;">PERSONAL INFORMATION UPDATE</h2>
+			<br><br><br><br>
             <br> <br>
             <form name="frm" action="/clover/member/userupdateok" method="POST"
                onsubmit="return checks()">
                <table>
                   <tr>
-                     <td>아이디</td>
+                     <th>아이디</th>
 					<td>${list.id }<input type="hidden"  name="id" id="id"
 						value = ${list.id } class="input-box login"
 						style="ime-mode: disable;" /><br></td>
-					<td><input type="hidden" name="idChk" value="N"></td>
-				
                   </tr>
                   <tr>
-                     <td>이름</td>
+                     <th>이름</th>
                      <td><input type="text" name="name" id="name"
                         value=${list.name } /><br></td>
                   </tr>
                   <tr>
-                     <td>주소</td>
+                     <th>주소</th>
                      <td><input type="text" name="address" id="address"
                         value=${list.address } /><br></td>
                   </tr>
                   <tr>
-                     <td>이메일</td>
+                     <th>이메일</th>
                      <td><input type="text" name="email" id="email"
                         value=${list.email } /></td>
                   </tr>
                   <tr>
-                     <td>휴대폰번호</td>
+                     <th>휴대폰번호</th>
                      <td><input type="text" name="phone" id="phone"
                         value=${list.phone } /></td>
                   </tr>
+                  <tr>
+                     <th>수정여부</th>
+                     <td>
+                     <div id="memberpdate">
+                  	<button class="button" type="submit" value="수정">수정완료</button>
+               		</div>
+                     </td>
+                  </tr>
                </table>
-               <br> <br> <br> <br>
-               <div id="memberpdate">
-                  <button type="submit" value="수정">수정</button>
-               </div>
+               <td><input type="hidden" name="idChk" value="N"></td>
             </form>
             <br>
          </div>

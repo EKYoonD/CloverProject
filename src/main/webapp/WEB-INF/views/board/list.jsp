@@ -90,7 +90,7 @@
 					<div id="container1_table">
 						<table>
 							<thead>
-								<th>uid</th>
+								<th>글 번호</th>
 								<th>제목</th>
 								<th>조회수</th>
 								<th>작성일</th>

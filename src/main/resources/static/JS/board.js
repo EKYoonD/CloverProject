@@ -60,7 +60,6 @@ function updateList(jsonObj){
 			result += "<td><a href='/clover/member/board/view?uid=" + items[i].uid  + "'>" + items[i].subject + "</a></td>\n";
 			result += "<td><span data-viewcnt='" + items[i].uid + "'>" + items[i].viewcnt + "</span></td>\n";
 			result += "<td>" + items[i].regdate + "</td>\n";
-
 			result += "</tr>\n";
 		}
 		$("#list tbody").html(result);  // 업데이트

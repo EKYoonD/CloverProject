@@ -75,7 +75,12 @@
 			<h2 style="font-size: 40px; color:#333">CLOVER는 여러분의 가족이 최우선입니다</h2>
 			<p style="color: #333">CLOVER는 우리가족찾기 QR 서비스를 통해 여러분들이 소중한 가족을 잃었을 때, 가족을 최대한 빠른 시간에
 				찾을 수 있도록 최고의 서비스를 제공합니다. <br> 가족을 잃어버렸을 때의 막막함, CLOVER에서
-				해결해드리겠습니다.</p>
+				해결해드리겠습니다.</p><br>
+			<div class="methodexp">
+				<p>
+				아래 '가족 찾기 QR'를 통해서나, 상단메뉴의 'MyQR'에서 찾을 가족의 신원정보를 직접등록하시면 QR을 생성 하실 수 있습니다 
+				</p>
+			</div>
 		</div>
 	</section>
 
@@ -103,7 +108,7 @@
 				</a>
 			</div>
 
-			<div class="text">
+			<div class="text" >
 				<h2>반려동물 찾기 QR</h2>
 				<img style="width: 100%; height: auto; border-radius: 30px;"
 					src="/img/family_dog2.jpg"> <br> <br>

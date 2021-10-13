@@ -134,6 +134,22 @@ header {
 	border-radius: 60px;
 }
 
+.text a {
+	color:black;
+	font-size:25px;
+}
+
+
+.methodexp{
+	color:black;
+	background-color: grey;
+	opacity: 0.9;
+	width: 675px;
+	height: auto;
+	padding: 60px;
+	border-radius: 60px;
+}
+
 .conA h1 {
 	margin-top: 0;
 	margin-bottom: 10px;
@@ -161,7 +177,7 @@ header {
 	color: var(- -text-bright-color);
 	background-color: #BF6A7A;
 	background-color: var(- -accent-color);
-	padding: 10px 30px;
+	padding: 10px 10px;
 	border: solid 3px currentColor; /* currentColor : 글자와 같은 색상 */
 	border-radius: 6px;
 	margin-top: 20px; /* 처음에는 적용이 안되는 듯 하다 */
@@ -169,10 +185,6 @@ header {
 	/* inline 이면 margin 적용 안된다, 따라서 inline-block 적용 */
 }
 
-.conA a:hover { /* 커서 올라가면 조금 밝게 보이기 */
-	background-image: linear-gradient(rgba(255, 255, 255, 0.2),
-		rgba(255, 255, 255, 0.2));
-}
 
 @media ( min-width : 768px) { /* 화면폭 768 이상이면 */
 	.conA h1 {
@@ -206,19 +218,19 @@ header {
 .conB p {
 	margin-top: 0;
 	margin-bottom: 20px;
-	font-size: 14px;
+	font-size: 18px;
 	line-height: 1.8; /* 줄높이 : font-size 의 1.8배 */
 	opacity: 0.8;
 }
 
 .conB a {
 	text-decoration: none;
-	color: #5D9AB2;
-	color: var(- -main-color);
+	color: black;
 }
 
 .conB a:hover {
-	text-decoration: underline;
+	text-decoration: none;
+	color:red;
 }
 
 .conB .icon {
@@ -319,6 +331,8 @@ header {
 		padding: 50px; /* 글자주변 여백 */
 	}
 }
+
+
 
 footer {
 	background-color: rgb(46, 53, 49);
