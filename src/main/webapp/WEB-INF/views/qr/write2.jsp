@@ -45,67 +45,71 @@
 <body>
 	<!--header-->
 	<header>
-			<div class="container">
-				<div class="head1">
-					<a onclick="location.href='../../../../main'"><i
-						class="fas fa-home"></i></a> <span class="head3"><i
-						class="far fa-caret-square-down"></i></span>
-				</div>
-				<nav class="head2">
-					<ul>
-						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/write'">MY
-								QR</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/board/list'">FIND
-								& FOUND</a></li>
-						<sec:authorize access="isAnonymous()">
-							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="../../../clover/member/mypage" />"
-								id="MyPage">MYPAGE</a>
-						</sec:authorize>
-						<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
-						</sec:authorize>
-					</ul>
-				</nav>
-			</div>
-		</header>
-	<section class="container1">
+<section class="container1">
 		<div class="container4">
+
 			<h2>입력</h2>
 			<form name="frm" action="writeOk" method="post"
 				onsubmit="return chkSubmit()">
-				이름: <input type="text" name="name" value="${m.name}" /><br>
-				<br> 카테고리: <select class="select" id="category" name="category"
-					style="width: 100px;">
-					<option value="부모님">부모님</option>
-					<option value="아이" selected>아이</option>
-					<option value="반려동물">반려동물</option>
-				</select><br>
-				<br> 나이: <input type="text" name="age" value="${m.age}" /><br>
-				<br> 주소: <input type="text" name="address" value="${m.address}" /><br>
-				<br> 보호자 전화번호: <input type="text" name="phone"
-					value="${m.phone}" /><br>
-				<br> 특이사항:<br>
-				<textarea name="content">${m.content }</textarea>
-				<br>
-				<br> <input type="hidden" name="userid" id="userid"
-					value="${m.userid }" /> <br>
-				<br> <input type="submit" class="blue_button" value="qr생성" />
-			</form>
-			<br>
+				<table>
+					<tr>
+						<th>이름</th>
+						<td><input type="text" name="name" value="${m.name}" }/></td>
+					</tr>
+					<tr>
+						<th>카테고리</th>
+						<td><select class="select" id="category" name="category"
+							style="width: 83%; height: 38px; border-radius: 10px; border: 3px solid #154360; text-align: center">
+								<option value="부모님" selected>부모님</option>
+								<option value="아이">아이</option>
+								<option value="반려동물">반려동물</option>
+						</select></td>
+					</tr>
+					<tr>
+						<th>나이</th>
+						<td><input type="text" name="age" value="${m.age}" /></td>
+
+					</tr>
+					<tr>
+						<th>우편번호</th>
+						<td><input type="text" class="postcode" id="sample4_postcode" ></td>
+
+						<td><input type="button" class="button"
+							onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="width: 130px; height: 40px; text-align:center;  font-size: 9pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 2px solid black;"></td>
+					</tr>
+					<tr>
+						<th>도로명주소</th>
+						<td><input type="text" class="roadAddress"
+							id="sample4_roadAddress" style="font-size:10pt;"></td>
+					</tr>
+			
+					<tr>
+						<th>상세주소</th>
+						<td><input type="text" name="Address" class="detailAddress"
+							id="sample4_detailAddress" style="font-size:10pt;">
+							<input type="hidden" name="Address" class="jibunAddress"
+							id="sample4_jibunAddress"> <span id="guide"
+							style="color: #999; display: none"></span></td>
+					</tr>
+
+					<input type="hidden" class="extraAddress" id="sample4_extraAddress" >
+
+					<tr>
+						<input type="hidden" name="address" id="address" class="address"
+							value="${m.address}" onkeyup='call()' />
+						<th>보호자 전화번호</th>
+						<td><input type="text" name="phone" value="${m.phone}" /></td>
+					</tr>
+					<tr>
+					<th>특이사항</th>
+					<td><textarea name="content">${m.content }</textarea></td>
+					<input type="hidden" name="userid" id="userid" value="${m.userid }" style="width:400px" />
+					</tr>
+					</form>
+				</table>
+					<button type="submit" class="blue_button" value="QR만들기" />QR 만들기
 		</div>
-	</section>
-	<!--footer-->
+	</section>	<!--footer-->
 	<footer>
 		<div class="container">
 			<div class="foot1">

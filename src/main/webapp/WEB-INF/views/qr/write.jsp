@@ -178,7 +178,7 @@
 					</tr>
 					<tr>
 						<th>우편번호</th>
-						<td><input type="text" class="postcode" id="sample4_postcode"></td>
+						<td><input type="text" class="postcode" id="sample4_postcode" ></td>
 
 						<td><input type="button" class="button"
 							onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="width: 130px; height: 40px; text-align:center;  font-size: 9pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 2px solid black;"></td>
