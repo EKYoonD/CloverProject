@@ -3,7 +3,7 @@
 body {
 	background-image: url(../img/cloverpattern.png);
 	background-size: cover;
-	background-color: #FBF9E5;
+	background-color: rgb(247, 229, 127);
 	font-family: 'Gugi', cursive, '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
 }
 
