@@ -76,7 +76,7 @@ public class kakaopayController {
     	if(result.hasErrors()) {
     		if(result.getFieldError("order_Phone") != null)
 				model.addAttribute("ERROR", result.getFieldError("order_Phone").getCode());
-			else if(result.getFieldError("address") != null)
+			if(result.getFieldError("address") != null)
 				model.addAttribute("ERROR", result.getFieldError("address").getCode());
 			return "/order/order";
     	}

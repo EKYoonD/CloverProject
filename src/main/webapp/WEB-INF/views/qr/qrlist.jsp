@@ -34,8 +34,10 @@
 </script>
 </head>
 <body>
-	<!--header-->
-	<header>
+	<div id="body-wrapper"
+		style="min-height: 100%; padding-bottom: 200px; padding-top: 100px">
+		<!--header-->
+		<header>
 			<div class="container">
 				<div class="head1">
 					<a onclick="location.href='../../../../main'"><i
@@ -70,70 +72,71 @@
 				</nav>
 			</div>
 		</header>
-	<section class="container1">
-		<div href class="container">
-			<h2>QR 목록</h2>
-			<%-- 글 목록 --%>
-			<div id="list" style="width: 1000px">
-				<%-- header 헤더 --%>
-				<div class="d01">
-					<div class="left" id="pageinfo"></div>
-					<div class="right" id="pageRows"></div>
+		<section class="container1">
+			<div href class="container">
+				<h2>QR 목록</h2>
+				<%-- 글 목록 --%>
+				<div id="list" style="width: 1000px">
+					<%-- header 헤더 --%>
+					<div class="d01">
+						<div class="left" id="pageinfo"></div>
+						<div class="right" id="pageRows"></div>
+					</div>
+					<div class="clear"></div>
+
+					<br>
+					<%-- 목록 --%>
+					<div id="container1_table">
+						<table>
+							<thead>
+								<th>QR 일련번호</th>
+								<th>보호자이름</th>
+								<th>주문</th>
+							</thead>
+							<tbody>
+								<c:choose>
+									<c:when test="${empty list || fn:length(list) == 0 }">
+									</c:when>
+									<c:otherwise>
+										<c:forEach var="dto" items="${list }">
+											<tr>
+												<td>${dto.uid }</td>
+												<td>${dto.name }</td>
+												<td>
+													<button onclick="location.href='../order?uid=${dto.uid}'"
+														class="button">주문하기</button>
+												</td>
+											</tr>
+										</c:forEach>
+									</c:otherwise>
+								</c:choose>
+							</tbody>
+						</table>
+					</div>
+					<br> <br>
+					<%-- bottom 버튼 --%>
+					<div class="d01">
+						<div class="left">
+							<button type="button" id="btnDel" class="btn danger"
+								style="border-radius: 10px;">글삭제</button>
+						</div>
+						<div class="right">
+							<button id="btnWrite" class="btn success"
+								style="border-radius: 10px;" onclick="location.href = 'write'">신규등록</button>
+						</div>
+					</div>
+
 				</div>
 				<div class="clear"></div>
 
-				<br>
-				<%-- 목록 --%>
-				<div id="container1_table">
-					<table>
-						<thead>
-							<th>QR 일련번호</th>
-							<th>보호자이름</th>
-							<th>주문</th>
-						</thead>
-						<tbody>
-							<c:choose>
-								<c:when test="${empty list || fn:length(list) == 0 }">
-								</c:when>
-								<c:otherwise>
-									<c:forEach var="dto" items="${list }">
-										<tr>
-											<td>${dto.uid }</td>
-											<td>${dto.name }</td>
-											<td>
-												<button onclick="location.href='../order?uid=${dto.uid}'"
-													class="button">주문하기</button>
-											</td>
-										</tr>
-									</c:forEach>
-								</c:otherwise>
-							</c:choose>
-						</tbody>
-					</table>
-				</div>
-				<br> <br>
-				<%-- bottom 버튼 --%>
-				<div class="d01">
-					<div class="left">
-						<button type="button" id="btnDel" class="btn danger"
-							style="border-radius: 10px;">글삭제</button>
-					</div>
-					<div class="right">
-						<button id="btnWrite" class="btn success"
-							style="border-radius: 10px;" onclick="location.href = 'write'">신규등록</button>
-					</div>
+				<%-- [페이징] --%>
+				<div class="center">
+					<ul class="pagination" id="pagination"></ul>
 				</div>
 
 			</div>
-			<div class="clear"></div>
-
-			<%-- [페이징] --%>
-			<div class="center">
-				<ul class="pagination" id="pagination"></ul>
-			</div>
-
-		</div>
-	</section>
+		</section>
+	</div>
 	<!--footer-->
 	<footer>
 		<div class="container">

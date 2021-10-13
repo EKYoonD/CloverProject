@@ -25,10 +25,10 @@ public class kakaoValidator implements Validator {
 		}
 		
 		
-		String order_Phone = dto.getOrder_Phone();
-		if(order_Phone == null || order_Phone.trim().isEmpty()) {
-			errors.rejectValue("order_Phone", ": 전화번호 입력은 필수입니다.");
-		}
+//		String order_Phone = dto.getOrder_Phone();
+//		if(order_Phone == null || order_Phone.trim().isEmpty()) {
+//			errors.rejectValue("order_Phone", ": 전화번호 입력은 필수입니다.");
+//		}
 		
 		
 		int quantity = dto.getQuantity();
@@ -36,5 +36,7 @@ public class kakaoValidator implements Validator {
 			errors.rejectValue("quantity", ": 수량 입력은 필수입니다.");
 		}
 	}
+
+
 
 }
