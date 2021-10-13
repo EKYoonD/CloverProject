@@ -70,7 +70,13 @@
 		FROM userdto
 		WHERE user_id = #{id}
 	</select>
-
+	
+	<update id="update" flushCache="true"
+		parameterType="com.clover.spring.domain.UserDTO">
+		UPDATE userdto
+		SET user_id = #{id}, user_name = #{name}, user_address = #{address}, user_email = #{email}, user_phone = #{phone}
+		WHERE user_id = #{id}
+		</update>
 </mapper>
 
 <!--

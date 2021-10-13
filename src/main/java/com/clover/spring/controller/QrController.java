@@ -23,7 +23,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.clover.spring.QrValidator;
 import com.clover.spring.QrGenerator.QrCodeGenerator;
 import com.clover.spring.domain.QrDTO;
 import com.clover.spring.service.QrService;
@@ -178,6 +181,11 @@ public class QrController {
 
 		return "qr/updateOk"; // forwarding
 	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		binder.setValidator(new QrValidator());
+	}
 
 //	@GetMapping(value = "/generateQRCode/{width}/{height}/{codeText}")
 //	public ResponseEntity<byte[]> generateQRCode(@PathVariable("codeText") String codeText,
@@ -193,36 +201,33 @@ public class QrController {
 		uid = new String(uid.getBytes("UTF-8"), "ISO-8859-1");
 		OutputStream outputStream = response.getOutputStream();
 		outputStream.write(QrCodeGenerator.getQRCodeImage(uid, 400, 400));
+		
+		// 여기
+		
 		QrCodeGenerator.generateQRCodeImage(uid, 400, 400, QR_CODE_IMAGE_PATH);
 		outputStream.flush();
 		outputStream.close();
 	}
 
+
 	@GetMapping("/download")
 	public ResponseEntity<Object> download() {
 		String path = "C:\\qr\\QRCode.png";
-
+		
 		try {
 			Path filePath = Paths.get(path);
 			Resource resource = new InputStreamResource(Files.newInputStream(filePath)); // 파일 resource 얻기
-
+			
 			File file = new File(path);
-
+			
 			HttpHeaders headers = new HttpHeaders();
-			headers.setContentDisposition(ContentDisposition.builder("attachment").filename(file.getName()).build()); // 다운로드
-																														// 되거나
-																														// 로컬에
-																														// 저장되는
-																														// 용도로
-																														// 쓰이는지를
-																														// 알려주는
-																														// 헤더
-
+			headers.setContentDisposition(ContentDisposition.builder("attachment").filename(file.getName()).build());  // 다운로드 되거나 로컬에 저장되는 용도로 쓰이는지를 알려주는 헤더
+			
 			return new ResponseEntity<Object>(resource, headers, HttpStatus.OK);
-		} catch (Exception e) {
+		} catch(Exception e) {
 			return new ResponseEntity<Object>(null, HttpStatus.CONFLICT);
 		}
-
+	
 //	@RequestMapping(value = "qrcode/{uid}", method = RequestMethod.GET)
 //	public void download(
 //			@PathVariable("uid") String uid,

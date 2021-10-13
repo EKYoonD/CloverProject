@@ -55,10 +55,10 @@ public class QrDAOImpl implements QrDAO {
 		return mapper.listByUserid(userid);
 	}
 
-//	@Override
-//	public int deleteByUid(int uid) {
-//		return mapper.deleteByUid(uid);
-//	}
+	//@Override
+	//public int deleteByUid(int uid) {
+	//	return mapper.deleteByUid(uid);
+	//}
 
 	
 

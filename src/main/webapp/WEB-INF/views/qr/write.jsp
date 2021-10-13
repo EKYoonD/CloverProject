@@ -160,7 +160,7 @@
 				<table>
 					<tr>
 						<th>이름</th>
-						<td><input type="text" name="name" value="${m.name}" }/></td>
+						<td><input type="text" name="name" value="${m.name}" /></td>
 					</tr>
 					<tr>
 						<th>카테고리</th>
@@ -185,7 +185,8 @@
 					</tr>
 					<tr>
 						<th>도로명주소</th>
-						<td><input type="text" class="roadAddress"
+						<td><input type="text" name="Address"class="roadAddress"
+						
 							id="sample4_roadAddress" style="font-size:10pt;"></td>
 					</tr>
 			
@@ -197,23 +198,24 @@
 							id="sample4_jibunAddress"> <span id="guide"
 							style="color: #999; display: none"></span></td>
 					</tr>
-
+<tr><th>
 					<input type="hidden" class="extraAddress" id="sample4_extraAddress" >
 
-					<tr>
+					
 						<input type="hidden" name="address" id="address" class="address"
 							value="${m.address}" onkeyup='call()' />
-						<th>보호자 전화번호</th>
+						보호자 전화번호</th>
 						<td><input type="text" name="phone" value="${m.phone}" /></td>
 					</tr>
 					<tr>
 					<th>특이사항</th>
-					<td><textarea name="content">${m.content }</textarea></td>
-					<input type="hidden" name="userid" id="userid" value="${m.userid }" style="width:400px" />
+					<td><textarea name="content">${m.content }</textarea>
+					<input type="hidden" name="userid" id="userid" value="${m.userid }" style="width:400px" /></td>
 					</tr>
-					</form>
+					
 				</table>
-					<button type="submit" class="blue_button" value="QR만들기" />QR 만들기
+					<button type="submit" class="blue_button" value="QR만들기" >QR 만들기
+					</form>
 		</div>
 	</section>
 	<!--footer-->

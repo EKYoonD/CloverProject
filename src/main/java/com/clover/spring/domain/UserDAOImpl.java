@@ -67,6 +67,9 @@ public class UserDAOImpl implements UserDAO {
 		return mapper.idCheck(id);
 	}
 
-	
+	@Override
+	public int update(UserDTO dto) {
+		return mapper.update(dto);
+	}
 
 }

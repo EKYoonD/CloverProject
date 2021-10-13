@@ -60,8 +60,8 @@
 						<th>카테고리</th>
 						<td><select class="select" id="category" name="category"
 							style="width: 83%; height: 38px; border-radius: 10px; border: 3px solid #154360; text-align: center">
-								<option value="부모님" selected>부모님</option>
-								<option value="아이">아이</option>
+								<option value="부모님">부모님</option>
+								<option value="아이"selected>아이</option>
 								<option value="반려동물">반려동물</option>
 						</select></td>
 					</tr>

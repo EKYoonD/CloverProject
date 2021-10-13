@@ -30,6 +30,8 @@ public interface UserDAO {
 	
 	//아이디 중복확인
 	int idCheck(String id);
+
+	public abstract int update(UserDTO dto);
 	
 
 	

@@ -2,10 +2,13 @@ package com.clover.spring.service;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.clover.spring.domain.QrDTO;
 import com.clover.spring.domain.UserDAO;
 import com.clover.spring.domain.UserDTO;
 
@@ -46,6 +49,12 @@ public class UserService {
 	
 	public int idCheck(String id) {
 		return dao.idCheck(id);
+	}
+
+	
+
+	public int update(UserDTO dto) {
+		return dao.update(dto);
 	}
 
 	

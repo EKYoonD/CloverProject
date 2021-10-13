@@ -33,6 +33,79 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>글작성</title>
 <script src="${pageContext.request.contextPath }/ckeditor/ckeditor.js"></script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+function sample4_execDaumPostcode() {
+	new daum.Postcode(
+			{
+				oncomplete : function(data) {
+					// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+					// 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+					// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+					var roadAddr = data.roadAddress; // 도로명 주소 변수
+					var extraRoadAddr = ''; // 참고 항목 변수
+
+					// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+					// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+					if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+						extraRoadAddr += data.bname;
+					}
+					// 건물명이 있고, 공동주택일 경우 추가한다.
+					if (data.buildingName !== '' && data.apartment === 'Y') {
+						extraRoadAddr += (extraRoadAddr !== '' ? ', '
+								+ data.buildingName : data.buildingName);
+					}
+					// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+					if (extraRoadAddr !== '') {
+						extraRoadAddr = ' (' + extraRoadAddr + ')';
+					}
+
+					// 우편번호와 주소 정보를 해당 필드에 넣는다.
+					document.getElementById('sample4_postcode').value = data.zonecode;
+					document.getElementById("sample4_roadAddress").value = roadAddr;
+					document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+
+					// 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+					if (roadAddr !== '') {
+						document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+					} else {
+						document.getElementById("sample4_extraAddress").value = '';
+					}
+
+					var guideTextBox = document.getElementById("guide");
+					// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+					if (data.autoRoadAddress) {
+						var expRoadAddr = data.autoRoadAddress
+								+ extraRoadAddr;
+						guideTextBox.innerHTML = '(예상 도로명 주소 : '
+								+ expRoadAddr + ')';
+						guideTextBox.style.display = 'block';
+
+					} else if (data.autoJibunAddress) {
+						var expJibunAddr = data.autoJibunAddress;
+						guideTextBox.innerHTML = '(예상 지번 주소 : '
+								+ expJibunAddr + ')';
+						guideTextBox.style.display = 'block';
+					} else {
+						guideTextBox.innerHTML = '';
+						guideTextBox.style.display = 'none';
+					}
+				}
+			}).open();
+}
+
+$(function() {
+	$("input").on("keyup", function() {
+		var str = $("input[name^='Address']:visible").map(function() {
+			return $(this).val();
+		}).get().join(" ");
+		$("#address").val(str);
+	});
+});
+
+</script>
 </head>
 
 <body>
@@ -75,31 +148,33 @@
 	<section class="container1">
 		<div class="container4">
 
-			<h2>입력</h2>
-			<form name="frm" action="writeOk" method="post"
+		
+			<h2>QR수정</h2>
+			<form name="frm" action="updateOk" method="post"
 				onsubmit="return chkSubmit()">
 				<table>
 					<tr>
 						<th>이름</th>
-						<td><input type="text" name="name" value="${m.name}" }/></td>
+						<td><input type="text" name="name" value="${list[0].name }"/></td>
 					</tr>
 					<tr>
 						<th>카테고리</th>
-						<td><select class="select" id="category" name="category"
+						<td><select class="select" id="category" name="category" 
 							style="width: 83%; height: 38px; border-radius: 10px; border: 3px solid #154360; text-align: center">
-								<option value="부모님" selected>부모님</option>
+								<option value="${list[0].category}">${list[0].category}</option>
+								<option value="부모님" >부모님</option>
 								<option value="아이">아이</option>
 								<option value="반려동물">반려동물</option>
 						</select></td>
 					</tr>
 					<tr>
 						<th>나이</th>
-						<td><input type="text" name="age" value="${m.age}" /></td>
+						<td><input type="text" name="age" value="${list[0].age}" /></td>
 
 					</tr>
 					<tr>
 						<th>우편번호</th>
-						<td><input type="text" class="postcode" id="sample4_postcode" ></td>
+						<td><input type="text" class="postcode" id="sample4_postcode"  value="${list[0].address}" ></td>
 
 						<td><input type="button" class="button"
 							onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="width: 130px; height: 40px; text-align:center;  font-size: 9pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 2px solid black;"></td>
@@ -107,34 +182,38 @@
 					<tr>
 						<th>도로명주소</th>
 						<td><input type="text" class="roadAddress"
-							id="sample4_roadAddress" style="font-size:10pt;"></td>
+							id="sample4_roadAddress" value="${list[0].address}" style="font-size:10pt;"></td>
 					</tr>
 			
 					<tr>
 						<th>상세주소</th>
-						<td><input type="text" name="Address" class="detailAddress"
+						<td><input type="text"  name="Address" class="detailAddress"
 							id="sample4_detailAddress" style="font-size:10pt;">
 							<input type="hidden" name="Address" class="jibunAddress"
 							id="sample4_jibunAddress"> <span id="guide"
 							style="color: #999; display: none"></span></td>
 					</tr>
+<tr><th>
+					<input type="hidden" class="extraAddress" id="sample4_extraAddress"  >
 
-					<input type="hidden" class="extraAddress" id="sample4_extraAddress" >
-
-					<tr>
+					
 						<input type="hidden" name="address" id="address" class="address"
-							value="${m.address}" onkeyup='call()' />
-						<th>보호자 전화번호</th>
-						<td><input type="text" name="phone" value="${m.phone}" /></td>
+						value="${list[0].address}" onkeyup='call()' />
+						보호자 전화번호</th>
+						<td><input type="text" name="phone" value="${list[0].phone}"/></td>
 					</tr>
 					<tr>
 					<th>특이사항</th>
-					<td><textarea name="content">${m.content }</textarea></td>
+					<td><textarea name="content">${list[0].content }</textarea>
 					<input type="hidden" name="userid" id="userid" value="${m.userid }" style="width:400px" />
+					</td>
 					</tr>
-					</form>
+					
 				</table>
-					<button type="submit" class="blue_button" value="QR만들기" />QR 만들기
+<input type="submit" class="blue_button" value="qr수정" />	
+<button onclick="history.back();" class="blue_button">이전으로</button>		
+					</form>
+
 		</div>
 	</section>
 	<!--footer-->

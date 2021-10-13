@@ -71,6 +71,7 @@
 		</header>
 	<section class="container1">
 		<div class="container">
+			<input type="hidden" name="userid" id="userid" value="${list.id }"/>
 			<h2>내 정보</h2>
 			<table>
 				<tr>
@@ -79,6 +80,7 @@
 					<th>이메일</th>
 					<th>주소</th>
 					<th>휴대폰번호</th>
+					<th>수정</th>
 				</tr>
 				<tr>
 					<td>${list.name }</td>
@@ -86,9 +88,14 @@
 					<td>${list.email }</td>
 					<td>${list.address }</td>
 					<td>${list.phone }</td>
+					<td>
+					<button onclick="location.href='../member/userupdate?id=${list.id}'"
+							class="blue_button1">수정</button>
+					</td>
 				</tr>
 			</table>
 		</div>
+		<!--  -->
 	</section>
 </body>
 </html>
