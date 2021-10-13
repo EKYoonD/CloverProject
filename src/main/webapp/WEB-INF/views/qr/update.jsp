@@ -74,33 +74,67 @@
 		</header>
 	<section class="container1">
 		<div class="container4">
-			<h2>QR수정</h2>
-			<form name="frm" action="updateOk" method="post"
-				onsubmit="return chkSubmit()">
-				<input type="hidden" name="uid" value="${list[0].uid }" /> 이름: <input
-					type="text" name="name" value="${list[0].name }" /><br>
-				<br> 카테고리: <select class="select" id="category" name="category"
-					value="${list[0].category}" style="width: 80px;">
-					<option value="부모님" selected>부모님</option>
-					<option value="아이">아이</option>
-					<option value="반려동물">반려동물</option>
-				</select><br>
-				<br> 나이: <input type="text" name="age" value="${list[0].age}" /><br>
-				<br> 주소: <input type="text" name="address"
-					value="${list[0].address}" /><br>
-				<br> 보호자 전화번호: <input type="text" name="phone"
-					value="${list[0].phone}" /><br>
-				<br> 특이사항:
-				<textarea name="content">${list[0].content }</textarea>
-				<br>
-				<br> <input type="hidden" name="userid" id="userid"
-					value="${list[0].userid }" /> <br>
-				<br> <input type="submit" class="blue_button" value="qr수정" />
-			</form>
-			<br>
-			<button onclick="history.back();" class="blue_button">이전으로</button>
 
-			<br>
+			<h2>입력</h2>
+			<form name="frm" action="writeOk" method="post"
+				onsubmit="return chkSubmit()">
+				<table>
+					<tr>
+						<th>이름</th>
+						<td><input type="text" name="name" value="${m.name}" }/></td>
+					</tr>
+					<tr>
+						<th>카테고리</th>
+						<td><select class="select" id="category" name="category"
+							style="width: 83%; height: 38px; border-radius: 10px; border: 3px solid #154360; text-align: center">
+								<option value="부모님" selected>부모님</option>
+								<option value="아이">아이</option>
+								<option value="반려동물">반려동물</option>
+						</select></td>
+					</tr>
+					<tr>
+						<th>나이</th>
+						<td><input type="text" name="age" value="${m.age}" /></td>
+
+					</tr>
+					<tr>
+						<th>우편번호</th>
+						<td><input type="text" class="postcode" id="sample4_postcode" ></td>
+
+						<td><input type="button" class="button"
+							onclick="sample4_execDaumPostcode()" value="우편번호 찾기" style="width: 130px; height: 40px; text-align:center;  font-size: 9pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 2px solid black;"></td>
+					</tr>
+					<tr>
+						<th>도로명주소</th>
+						<td><input type="text" class="roadAddress"
+							id="sample4_roadAddress" style="font-size:10pt;"></td>
+					</tr>
+			
+					<tr>
+						<th>상세주소</th>
+						<td><input type="text" name="Address" class="detailAddress"
+							id="sample4_detailAddress" style="font-size:10pt;">
+							<input type="hidden" name="Address" class="jibunAddress"
+							id="sample4_jibunAddress"> <span id="guide"
+							style="color: #999; display: none"></span></td>
+					</tr>
+
+					<input type="hidden" class="extraAddress" id="sample4_extraAddress" >
+
+					<tr>
+						<input type="hidden" name="address" id="address" class="address"
+							value="${m.address}" onkeyup='call()' />
+						<th>보호자 전화번호</th>
+						<td><input type="text" name="phone" value="${m.phone}" /></td>
+					</tr>
+					<tr>
+					<th>특이사항</th>
+					<td><textarea name="content">${m.content }</textarea></td>
+					<input type="hidden" name="userid" id="userid" value="${m.userid }" style="width:400px" />
+					</tr>
+					</form>
+				</table>
+					<button type="submit" class="blue_button" value="QR만들기" />QR 만들기
 		</div>
 	</section>
 	<!--footer-->

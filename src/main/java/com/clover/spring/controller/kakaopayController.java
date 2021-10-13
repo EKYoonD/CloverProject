@@ -1,6 +1,8 @@
 package com.clover.spring.controller;
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -79,9 +81,15 @@ public class kakaopayController {
 			return "/order/order";
     	}
     	
+    	
     	model.addAttribute("result", kakaoPayService.insert(dto));
     	model.addAttribute("dto", dto);
     	session.setAttribute("partner_order_id", dto.getPartner_order_id());
+    	
+    	int partner_order_id = (int)session.getAttribute("partner_order_id");  
+    	List<KakaoPayDTO> selectUidByUid = kakaoPayService.selectUidByUid(partner_order_id);
+    	model.addAttribute("info", selectUidByUid);
+    	
     	return "order/orderOk";
         
     }

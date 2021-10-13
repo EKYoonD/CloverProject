@@ -71,10 +71,6 @@ input::placeholder {
 	text-align: center;
 }
 
-input::-form-control2-placeholder{
-	font-size: 10pt;
-}
-
 header {
 	display: flex;
 	justify-content: center;

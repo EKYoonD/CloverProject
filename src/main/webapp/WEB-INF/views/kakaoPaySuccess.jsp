@@ -73,7 +73,7 @@
 		<br><br>
 			카카오페이 결제가 정상적으로 완료되었습니다. <br>
 			<br><br>
-			
+			<div style=" padding: 30px 15px; border-radius: 15px; margin: auto; width:700px; background-color: lightgrey;">
 			<table class="success">
 			<tr>
 				<th>주문번호</th>
@@ -106,7 +106,8 @@
 				<th>${info[0].address}</th>
 			</tr>
 			</table>
-		<br>
+			</div>
+		<br>		<br>		
 		<div>
 			<a onclick="location.href='main'"><input type="button"
 				class="button" value="홈으로"/ ></a>
