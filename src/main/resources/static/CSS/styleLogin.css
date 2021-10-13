@@ -12,6 +12,7 @@ header {
 }
 
 #logindiv {
+	margin-top:100px;
 	background-color: #FAFAFA; 
 	position : absolute;
 	left: 50%;

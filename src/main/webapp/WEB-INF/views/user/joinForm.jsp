@@ -196,7 +196,7 @@
 					<td><input type="hidden" name="idChk" value="N">
 						<button type="button" name="idCheck" id="idCheck"
 							onclick="fn_idCheck();" value="N"
-							style="width: 90px; height: 40px; font-size: 9pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 3px solid black; margin: 0 -20px 0 -30px; padding: 0 0 0 0;">중복확인</button></td>
+							style="width: 90px; height: 40px; font-size: 9pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 2px solid black; margin: 0 -20px 0 -30px; padding: 0 0 0 0;">중복확인</button></td>
 				</tr>
 				<tr>
 					<th>비밀번호</th>
@@ -225,7 +225,7 @@
 								readonly="readonly">
 							<button type="button" class="btn btn-default"
 								onclick="execPostCode();"
-								style="position:fixed;  width: 130px; height: 40px; text-align:center;  font-size: 9pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 3px solid black; 
+								style="position:fixed;  width: 130px; height: 40px; text-align:center;  font-size: 9pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 2px solid black; 
 								margin: 5px 50px 5px 10px;" >
 								<i class="fa fa-search"></i> 우편번호 찾기
 							</button>
