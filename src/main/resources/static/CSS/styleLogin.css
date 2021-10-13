@@ -84,19 +84,19 @@ frm2 {
 	left: 50%;
 }
 
-#logindiv {
-   margin-top:100px;
-   background-color: #FAFAFA; 
-   position : absolute;
-   left: 50%;
-   height: 580px;
-   width: 500px;
-   transform: translateX(-50%);
-   border: 15px solid #373737;
-   border-radius: 30px;
-   padding: 30px;
-   position: absolute;
-   text-align: center;
+input[type=submit] {
+	background-color: #7CB342;
+	border: none;
+	color: white;
+	border-radius: 10px;
+	border: 5px solid #016612;
+	text-align:center;
+	width: 310px;
+	height: 55px;
+	font-size: 12pt;
+	margin-top: 20px;
+	opacity: 85%;
+	font-weight: bold;
 }
 
 input[type=submit]:hover {
