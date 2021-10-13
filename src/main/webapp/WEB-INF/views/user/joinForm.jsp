@@ -60,9 +60,8 @@
 			$("#name").focus();
 			return false;
 		}//주소 공백 확인 
-		if ($("#address").val() == "") {
+		if ($("#addr3").val() == "") {
 			alert("주소를 입력해주세요");
-			$("#address").focus();
 			return false;
 		}//이메일 공백 확인 
 		if ($("#email").val() == "") {
@@ -130,66 +129,132 @@
 
 	}
 </script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script>
+	function execPostCode() {
+		new daum.Postcode({
+			oncomplete : function(data) {
+				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+				// 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+				// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+				var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+				var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+
+				// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+				// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+				if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+					extraRoadAddr += data.bname;
+				}
+				// 건물명이 있고, 공동주택일 경우 추가한다.
+				if (data.buildingName !== '' && data.apartment === 'Y') {
+					extraRoadAddr += (extraRoadAddr !== '' ? ', '
+							+ data.buildingName : data.buildingName);
+				}
+				// 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+				if (extraRoadAddr !== '') {
+					extraRoadAddr = ' (' + extraRoadAddr + ')';
+				}
+				// 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+				if (fullRoadAddr !== '') {
+					fullRoadAddr += extraRoadAddr;
+				}
+
+				// 우편번호와 주소 정보를 해당 필드에 넣는다.
+				console.log(data.zonecode);
+				console.log(fullRoadAddr);
+
+				$("[name=addr1]").val(data.zonecode);
+				$("[name=addr2]").val(fullRoadAddr);
+
+				/* document.getElementById('signUpUserPostNo').value = data.zonecode; //5자리 새우편번호 사용
+				document.getElementById('signUpUserCompanyAddress').value = fullRoadAddr;
+				document.getElementById('signUpUserCompanyAddressDetail').value = data.jibunAddress; */
+				document.getElementById('address').value = fullRoadAddr;
+			}
+		}).open();
+	}
+</script>
+
 </head>
 <body>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
 	<br>
 	<!--header-->
 	<div id="joindiv">
 		<header>
 			<h1>회원가입</h1>
 		</header>
-		<br> <br>
+		<br><br>
 		<form name="frm" action="/joinOk" method="POST"
 			onsubmit="return checks()">
 			<table>
 				<tr>
-					<td>아이디</td>
+					<th>아이디</th>
 					<td><input type="text" name="id" id="id"
 						placeHolder="4~12자의 영문 대소문자와 숫자로만 입력해주세요" class="input-box login"
 						style="ime-mode: disable;" /><br></td>
 					<td><input type="hidden" name="idChk" value="N">
 						<button type="button" name="idCheck" id="idCheck"
 							onclick="fn_idCheck();" value="N"
-							style="width: 110px; height: 50px; font-size: 13pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 3px solid black;">중복확인</button></td>
-
+							style="width: 90px; height: 40px; font-size: 9pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 3px solid black; margin: 0 -20px 0 -30px; padding: 0 0 0 0;">중복확인</button></td>
 				</tr>
 				<tr>
-					<td>비밀번호</td>
+					<th>비밀번호</th>
 					<td><input type="password" name="pw" id="pw"
 						placeHolder="특수문자 / 문자 / 숫자 포함 형태의 8~15자리" /><br></td>
 				</tr>
 				<tr>
-					<td>이름</td>
+					<th>이름</th>
 					<td><input type="text" name="name" id="name"
 						placeHolder="이름을 입력해주세요" /><br></td>
 				</tr>
+				<!--  
 				<tr>
 					<td>주소</td>
 					<td><input type="text" name="address" id="address"
 						placeHolder="주소를 입력해주세요" /></td>
 				</tr>
+				-->
 				<tr>
-					<td>이메일</td>
+					<th>주소</th>
+					<td>
+						<div class="form-group" >
+							<input class="form-control"
+								style=" margin: 5px 0px 5px 0px;"
+								placeholder="우편번호" name="addr1" id="addr1" type="text"
+								readonly="readonly">
+							<button type="button" class="btn btn-default"
+								onclick="execPostCode();"
+								style="position:fixed;  width: 130px; height: 40px; text-align:center;  font-size: 9pt; font-weight: bold; color: #138D75; background-color: #EAECEE; border: 3px solid black; 
+								margin: 5px 50px 5px 10px;" >
+								<i class="fa fa-search"></i> 우편번호 찾기
+							</button>
+						</div>
+						<div class="form-group">
+							<input class="form-control2" placeholder="도로명 주소" name="addr2"
+								id="addr2" type="text" readonly="readonly" style="margin: 7px 0px 12px 0px; "/>
+						</div>
+						<div class="form-group">
+							<input class="form-control2" placeholder="상세주소" name="addr3"
+								id="addr3" type="text" style="margin: 0 0px 5px 0px;"/> <input type="hidden" name="address"
+								id="address" />
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th>이메일</th>
 					<td><input type="text" name="email" id="email"
 						placeHolder="이메일을 입력해주세요" /></td>
 				</tr>
 				<tr>
-					<td>휴대폰번호</td>
+					<th>휴대폰번호</th>
 					<td><input type="text" name="phone" id="phone"
 						placeHolder="'-'를 제외하고 입력해주세요" maxlength="11" /></td>
 				</tr>
 			</table>
-			<br> <br> <br> <br>
+			<br>
 			<div id="join">
-				<button type="submit" value="회원가입">제출</button>
+				<button type="submit" value="회원가입" >제출</button>
 			</div>
 		</form>
 	</div>

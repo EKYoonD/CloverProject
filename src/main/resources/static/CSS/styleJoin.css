@@ -9,7 +9,9 @@ body {
 
 
 h1 {
-	font-size: 60pt;
+	margin-top:-10px;
+	margin-bottom:-10px;
+	font-size: 35pt;
 	color: rgb(46, 53, 49);
 }
 
@@ -18,49 +20,59 @@ frm{
 	text-align: center;
 }
 #joindiv {
-	position: absolute;
+	margin-top:100px;
 	background-color: #FAFAFA; 
+	position : absolute;
 	left: 50%;
-	height: 1100px;
-	width: 50%;
+	height: 620px;
+	width: 700px;
 	transform: translateX(-50%);
 	border: 15px solid #373737;
 	border-radius: 30px;
+	padding: 30px;
+	position: absolute;
+	text-align: center;
 }
 
 #join{
-          text-align: center;
+    text-align: center;
 }
 
 table {
 	color: #2F4F4F;
 	width: 100%;
-	font-size: 20pt;
+	font-size: 15pt;
 	text-align: center;
+	padding: 10px;
 	
 }
 
 table, td, th {
-	height: 80px;
+	height: 50px;
 }
 
 input {
-	width: 100%;
-	height: 40px;
+	width: 80%;
+	height: 30px;
 	border-radius: 10px;
-	border: 7px solid #154360 ;
+	border: 5px solid #154360 ;
 	text-align: center;
 	font-size: 20pt;
 }
 
 input:hover{
 	border-radius: 10px;
-	border: 7px solid black;
+	border: 5px solid black;
 	
 }
 
-h1 {
-	color: rgb(46, 53, 49);
+input::placeholder {
+	font-size: 12.5pt;
+	text-align: center;
+}
+
+input::-form-control2-placeholder{
+	font-size: 10pt;
 }
 
 header {
@@ -69,113 +81,21 @@ header {
 }
 
 button {
-	padding: 0.5rem 1rem;
-	font-size: 3rem;
-	text-align: center;
+	font-size: 25pt;
 	text-decoration: none;
-	width: 60%;
+	width: 40%;
+	height: 60px;
 	border: 5px solid #027179;
 	border-radius: 10px;
 	cursor: pointer;
 	transition: 0.5s;
 	background-color: #008CBA;
 	color: white;
+	text-align: center;
 }
 
 button:hover {
 	background-color: #4CAF50;
 	color: white;
-}
-
-@media ( min-width : 768px) { /* 768px보다 큰화면일때*/
-	header .container {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		max-width: 1000px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.head2 ul { /* 이것 때문에 엄청 헤맸다.. */
-		display: flex;
-	}
-	.head3 {
-		display: none;
-	}
-	.head2 {
-		display: block !important; /*매우 중요*/
-	}
-}
-
-@media ( max-width : 767px) { /* 768px보다 작은화면일때*/
-	header .head1 {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	.head3 {
-		margin-right: 10px;
-		padding: 0;
-		border: none;
-		outline: none;
-		background: none;
-		font-size: 28px;
-		cursor: pointer;
-	}
-	.head3:hover {
-		opacity: 0.5
-	}
-	.head2 {
-		display: none;
-	}
-}
-
-.container1 {
-	margin-top: 70px;
-	text-align: center;
-	background-color: rgb(245, 223, 102);
-	background-image: linear-gradient(rgba(243, 235, 235, 0.05),
-		rgba(0, 0, 0, 0.05)), url(../img/family3.png);
-	background-position: center;
-	background-size: cover;
-	height: 120vh;
-	min-height: 800px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: #333;
-}
-
-.container1 h1 {
-	margin-top: 0;
-	margin-bottom: 10px;
-	font-size: 8vw;
-	text-shadow: 3vw;
-	font-family: 'Gugi', cursive;
-	letter-spacing: 0.05em;
-}
-
-.container1 a {
-	text-decoration: none;
-	font-size: 20px;
-	font-family: 'Gugi', cursive;
-	color: rgb(202, 212, 216);
-	background-color: rgb(46, 53, 49);
-	padding: 10px 30px;
-	border: solid 4px rgba(152, 153, 153, 0.747);
-	border-radius: 7px;
-	margin-top: 30px;
-	display: inline-block;
-}
-
-.container1 a:hover {
-	background-image: linear-gradient(rgba(22, 22, 22, 0.2),
-		rgba(22, 22, 22, 0.2));
-}
-
-@media ( min-width : 768px) { /* 화면폭 768 이상이면 */
-	.container1 h1 {
-		font-size: 65px;
-	}
 }
 
