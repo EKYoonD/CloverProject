@@ -194,12 +194,11 @@
 				</div>
 				<br><br>
 				<div class="textForm">
-					도로명주소 :<input type="text" class="roadAddress"id="sample4_roadAddress">
+					도로명주소 :<input type="text" class="roadAddress" name="Address" id="sample4_roadAddress">
 				</div>
-				<div class="textForm">
-					지번주소 : &nbsp;<input type="text" name="Address" class="jibunAddress" id="sample4_jibunAddress">
+
+					<input type="hidden"  class="jibunAddress" id="sample4_jibunAddress">
 					<span id="guide" style="color:#999;display:none"></span>
-				</div>	
 					<div class="textForm">
 					상세주소 :&nbsp;<input type="text" name="Address" class="detailAddress" id="sample4_detailAddress" >
 				</div>

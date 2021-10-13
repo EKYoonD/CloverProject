@@ -152,7 +152,7 @@ header {
 .order_div_order {
 	padding-top: 100px;
 	width: 1500px;
-	height: 900px;
+	height: 850px;
 	background-color: #ffffff;
 	text-align: center;
 	top: 40%;
@@ -179,10 +179,13 @@ header {
 	font-size:20px;
 }
 
-.order_div_success {
+
+
+.order_div_success{
+	padding-top: 50px;
 	font-size: 20px;
-	width: 40%;
-	height: 400px;
+	width: 1000px;
+	height: 450px;
 	padding: 30px, 20px;
 	background-color: #ffffff;
 	text-align: center;
