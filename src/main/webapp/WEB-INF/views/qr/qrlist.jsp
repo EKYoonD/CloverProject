@@ -74,7 +74,7 @@
 		</header>
 		<section class="container1">
 			<div href class="container">
-				<h2>QR 목록</h2>
+				<h2>QR 목록</h2><br>
 				<%-- 글 목록 --%>
 				<div id="list" style="width: 1000px">
 					<%-- header 헤더 --%>
@@ -114,7 +114,7 @@
 						</table>
 					</div>
 					<br> <br>
-					<%-- bottom 버튼 --%>
+					<!--<%-- bottom 버튼 --%>
 					<div class="d01">
 						<div class="left">
 							<button type="button" id="btnDel" class="btn danger"
@@ -123,7 +123,7 @@
 						<div class="right">
 							<button id="btnWrite" class="btn success"
 								style="border-radius: 10px;" onclick="location.href = 'write'">신규등록</button>
-						</div>
+						</div>-->
 					</div>
 
 				</div>

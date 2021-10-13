@@ -60,14 +60,14 @@ public class MemberController {
 		if (result.hasErrors()) {
 			// 에러 기능 관련해 추가적인 model attribute 지정 가능
 			// WriteValidator에서 validation에 rejetValue에 값을 담았었음 -> 그걸 가지고
-			if (result.getFieldError("id") != null) {
-				Map<String, Object> map = new HashMap<>();
-				map.put("ID", "ID입력은 필수입니다");
-				redirectAttributes.addFlashAttribute("ERROR", map);
-
-				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
-				return "redirect:/clover/member/board/userupdate?id=" + dto.getId();
-			}
+//			if (result.getFieldError("id") != null) {
+//				Map<String, Object> map = new HashMap<>();
+//				map.put("ID", "ID입력은 필수입니다");
+//				redirectAttributes.addFlashAttribute("ERROR", map);
+//
+//				// uid 같이 넘겨줘야 하는 경우에는 redirect 사용
+//				return "redirect:/clover/member/board/userupdate?id=" + dto.getId();
+//			}
 
 			if (result.getFieldError("name") != null) {
 				Map<String, Object> map = new HashMap<>();

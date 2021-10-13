@@ -59,7 +59,7 @@
 					<tr>
 						<th>카테고리</th>
 						<td><select class="select" id="category" name="category"
-							style="width: 83%; height: 38px; border-radius: 10px; border: 3px solid #154360; text-align: center">
+							style="width: 83%; height: 38px; border-radius: 10px; border: 3px solid #154360;font-size:20pt; text-align: center">
 								<option value="부모님">부모님</option>
 								<option value="아이"selected>아이</option>
 								<option value="반려동물">반려동물</option>
@@ -80,13 +80,13 @@
 					<tr>
 						<th>도로명주소</th>
 						<td><input type="text" class="roadAddress"
-							id="sample4_roadAddress" style="font-size:10pt;"></td>
+							id="sample4_roadAddress" style="font-size:20pt;"></td>
 					</tr>
 			
 					<tr>
 						<th>상세주소</th>
 						<td><input type="text" name="Address" class="detailAddress"
-							id="sample4_detailAddress" style="font-size:10pt;">
+							id="sample4_detailAddress" style="font-size:20pt;">
 							<input type="hidden" name="Address" class="jibunAddress"
 							id="sample4_jibunAddress"> <span id="guide"
 							style="color: #999; display: none"></span></td>
@@ -102,7 +102,7 @@
 					</tr>
 					<tr>
 					<th>특이사항</th>
-					<td><textarea name="content">${m.content }</textarea></td>
+					<td><textarea name="content" style= font-size:15pt;>${m.content }</textarea></td>
 					<input type="hidden" name="userid" id="userid" value="${m.userid }" style="width:400px" />
 					</tr>
 					</form>

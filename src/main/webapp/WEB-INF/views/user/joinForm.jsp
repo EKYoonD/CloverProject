@@ -232,11 +232,11 @@
 						</div>
 						<div class="form-group">
 							<input class="form-control2" placeholder="도로명 주소" name="addr2"
-								id="addr2" type="text" readonly="readonly" style="font-size:10pt; margin: 7px 0px 12px 0px; "/>
+								id="addr2" type="text" readonly="readonly" style="font-size:20pt; margin: 7px 0px 12px 0px; "/>
 						</div>
 						<div class="form-group">
 							<input class="form-control2" placeholder="상세주소" name="addr3"
-								id="addr3" type="text" style="font-size:10pt; margin: 0 0px 5px 0px;"/> <input type="hidden" name="address"
+								id="addr3" type="text" style="font-size:20pt; margin: 0 0px 5px 0px;"/> <input type="hidden" name="address"
 								id="address" />
 						</div>
 					</td>

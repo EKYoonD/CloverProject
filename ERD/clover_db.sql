@@ -113,7 +113,7 @@ CREATE TABLE userdto
 );
 
 select * from userdto;
-
+select * from Write_Table;
 
 CREATE TABLE Write_Table
 (

@@ -28,7 +28,7 @@ public class QrCodeGenerator {
 		public static void generateQRCodeImage(String text, int width, int height, String filePath)
 	            throws WriterException, IOException {
 			String path = "C:\\qr\\QRCode.png";
-	       // QRCodeWriter qrCodeWriter = new QRCodeWriter();
+	       // QR생성
 	        BitMatrix bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, width, height);
 	        MatrixToImageConfig imageConfig = new MatrixToImageConfig(MatrixToImageConfig.BLACK, MatrixToImageConfig.WHITE);
 	        BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(bitMatrix, imageConfig);
@@ -42,7 +42,7 @@ public class QrCodeGenerator {
             graphics.drawImage(qrImage, 0, 0, null);
             graphics.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
             graphics.drawImage(logoImage, (int) Math.round(finalImageWidth / 2), (int) Math.round(finalImageHeight / 2), null);
-           // Path path = FileSystems.getDefault().getPath(filePath);
+          
             ImageIO.write(finalImage, "png",  new File(path));
          
 	       
@@ -53,7 +53,7 @@ public class QrCodeGenerator {
 		
 		
 		public static byte[] getQRCodeImage(String text, int width, int height) throws WriterException, IOException {
-		   // QRCodeWriter qrCodeWriter = new QRCodeWriter();
+		   
 		    BitMatrix bitMatrix = new MultiFormatWriter().encode(text, BarcodeFormat.QR_CODE, width, height);
 	        MatrixToImageConfig imageConfig = new MatrixToImageConfig(MatrixToImageConfig.BLACK, MatrixToImageConfig.WHITE);
 	        BufferedImage qrImage = MatrixToImageWriter.toBufferedImage(bitMatrix, imageConfig);

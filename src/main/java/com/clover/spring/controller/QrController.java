@@ -118,8 +118,8 @@ public class QrController {
 
 			if (result.getFieldError("name") != null)
 				model.addAttribute("ERR", result.getFieldError("name").getCode());
-			else if (result.getFieldError("age") != null)
-				model.addAttribute("ERR", result.getFieldError("age").getCode());
+//			else if (result.getFieldError("age") != null)
+//				model.addAttribute("ERR", result.getFieldError("age").getCode());
 
 			return "qr/write";
 		}
