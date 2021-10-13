@@ -38,7 +38,7 @@
 				</div>
 				<nav class="head2">
 					<ul>
-						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
+					<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
 						<li><a
 							onclick="location.href='../../../clover/member/qr/write'">MY
 								QR</a></li>
@@ -67,20 +67,23 @@
 
 <section class="container1">
 <div>
-<h2>주문 실패</h2>
+
 </div>
 <div href class="order_div_fail">
+<h2>주문 실패</h2>
 <div>
-<br><br><br><br><br><br><br>
+<br><br><br><br><br>
 </div>
 <div class="fail_msg">
 		결제 요청시간이 초과되었습니다.<br>
 
 </div>
-</div>
+<br><br><br><br><br><br>
 <div>
  <a  onclick="location.href='main'"><input type="button" class="button" value="홈으로"/ ></a>
 </div>
+</div>
+
 </section>
 
 	<footer>

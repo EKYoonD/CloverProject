@@ -130,6 +130,19 @@ header {
 	display: flex;
 }
 
+.container13 {
+	padding-top: 100px;
+	text-align: center;
+	background-color: rgb(247, 229, 127);
+	background-position: center;
+	background-size: cover;
+	min-height: 800px;
+	align-items: center;
+	justify-content: center;
+	color: #333;
+	display: flex;
+}
+
 .change_img {
 	padding: 50px, 50px, 50px, 50px;
 	background-color: #ffffff;
@@ -163,6 +176,7 @@ header {
 	border-radius: 15px;
 	margin-left: auto;
 	margin-right: auto;
+	font-size:20px;
 }
 
 .order_div_success {
