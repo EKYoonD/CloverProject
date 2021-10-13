@@ -29,6 +29,8 @@
 <script src="${pageContext.request.contextPath }/JS/writeboard.js"></script>
 </head>
 <body>
+<div id="body-wrapper"
+		style="min-height: 100%; padding-bottom: 300px; padding-top:10px">
 	<!--header-->
 	<header>
 			<div class="container">
@@ -123,6 +125,7 @@
 
 		</div>
 	</section>
+	</div>
 	<!--footer-->
 	<footer>
 		<div class="container">

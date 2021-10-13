@@ -248,10 +248,9 @@ ul.pagination a:hover:not(.active) {
 	background-color: rgb(247, 229, 127);
 	background-position: center;
 	background-size: cover;
-	height: 120vh;
+	height: 90vh;
 	min-height: 800px;
 	display: flex;
-	align-items: center;
 	justify-content: center;
 	color: #333;
 }
@@ -270,11 +269,6 @@ ul.pagination a:hover:not(.active) {
 	font-size: 20px;
 	font-family: 'Gugi', cursive;
 	color: #333;
-}
-
-.container1 a:hover {
-	background-image: linear-gradient(rgba(22, 22, 22, 0.2),
-		rgba(22, 22, 22, 0.2));
 }
 
 td a:hover {

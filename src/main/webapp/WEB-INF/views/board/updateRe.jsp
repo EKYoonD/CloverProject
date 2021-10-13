@@ -101,13 +101,13 @@ function chkSubmit(){
 		</header>
 		<section class="container1">
 			<div class="container contents">
-				<h2>댓글 수정</h2>
+				<h2 style="font-size: 35px">댓글 수정</h2>
 				<form name="frm" action="updateReOk" method="post"
 					onsubmit="return chkSubmit()">
 					<input type="hidden" name="uid" value="${list[0].uid }" /> <input
 						type="hidden" name="rep_uid" value="${list[0].rep_uid }" /> 제목: <input
 						type="text" name="subject" value="${list[0].subject }" /><span
-						style="color: red">${ERROR.SUBJECT }</span><br> 내용:<br>
+						style="color: red"> &nbsp &nbsp ${ERROR.SUBJECT }</span><br><br>
 					<div class="contentscon">
 						<div class="context" style="width: 500px; margin: auto">
 							<textarea name="content" id='content'>${w.content }</textarea>
@@ -124,12 +124,13 @@ function chkSubmit(){
 							</script>
 						</div>
 					</div>
-					<br> 마지막으로 잃어버린 장소: <br>
-					<h5>지도를 움직이면서 잃어버린 위치를 정확하게 표시해주세요</h5>
+					<br><br><br><h3>마지막으로 잃어버린 장소</h3>
+					<h5 style="font-size: 18px; color: #333;">[지도를 움직이면서 잃어버린 위치를
+						정확하게 표시해주세요]</h5><span style="color: red">${ERROR.POINT }</span><br><br>
 					<div class="container contents" style="background-color: grey">
 						<div id="map" style="width: 950px; height: 350px;"
 							class="map contents">
-							<span style="color: red">${ERROR.POINT }</span>
+							
 
 							<div id="map" style="width: 950px; height: 350px;"></div>
 							<div id="clickLatlng"></div>
@@ -185,10 +186,13 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 					</div>
 
 
-					<br> <br> <input type="submit" value="수정" />
+					<br> <br> <input style='float: right; margin-right: 20px;' class="button" type="submit" value="수정완료" />
 				</form>
-				<button onclick="history.back();">이전으로</button>
-				<button onclick="location.href='list'">목록보기</button>
+				<br>
+				<br>
+				<br>
+				<button class="button"  onclick="history.back();">이전으로</button>
+				<button class="button"  onclick="location.href='list'">목록보기</button>
 				<br> <br> <br>
 			</div>
 		</section>

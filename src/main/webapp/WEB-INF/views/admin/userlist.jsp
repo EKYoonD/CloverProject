@@ -37,123 +37,121 @@
 <script src="${pageContext.request.contextPath }/JS/userboard.js"></script>
 </head>
 <body>
-	<!--header-->
-	<header>
-		<div class="container">
-			<div class="head1">
-				<a onclick="location.href='../../../../main'"><i
-					class="fas fa-home"></i></a> <span class="head3"><i
-					class="far fa-caret-square-down"></i></span>
+	<div id="body-wrapper"
+		style="min-height: 100%; padding-bottom: 200px; padding-top: 10px">
+		<!--header-->
+		<header>
+			<div class="container">
+				<div class="head1">
+					<a onclick="location.href='../../../../main'"><i
+						class="fas fa-home"></i></a> <span class="head3"><i
+						class="far fa-caret-square-down"></i></span>
+				</div>
+				<nav class="head2">
+					<ul>
+						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
+						<li><a
+							onclick="location.href='../../../clover/member/qr/write'">MY
+								QR</a></li>
+						<li><a
+							onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
+						<li><a
+							onclick="location.href='../../../clover/member/board/list'">FIND
+								& FOUND</a></li>
+						<sec:authorize access="isAnonymous()">
+
+							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+
+						</sec:authorize>
+						<sec:authorize access="isAuthenticated()">
+
+							<a href="<c:url value="/clover/member/mypage" />" id="MyPage">MYPAGE</a>
+							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+
+						</sec:authorize>
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
+						</sec:authorize>
+					</ul>
+				</nav>
 			</div>
-			<nav class="head2">
-				<ul>
-					<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
-					<li><a
-						onclick="location.href='../../../clover/member/qr/write'">MY
-							QR</a></li>
-					<li><a
-						onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
-					<li><a
-						onclick="location.href='../../../clover/member/board/list'">FIND
-							& FOUND</a></li>
-					<sec:authorize access="isAnonymous()">
+		</header>
+		<br> <br> <br> <br> <br>
+		<section class="container1">
+			<div class="container">
+				<h2 style="font-size: 40px;">ADMINISTER USER INFORMATION</h2>
+				<%-- 글 목록 --%>
+				<div id="list">
+					<%-- header 헤더 --%>
+					<div class="d01">
+						<div class="left" id="pageinfo"></div>
+						<div class="right" id="pageRows"></div>
+					</div>
+					<div class="clear"></div>
+					<br>
+					<%-- 목록 --%>
+					<form id="frmList" name="frmList">
+						<table>
+							<thead>
+								<th></th>
+								<th>user_uid</th>
+								<th>아이디</th>
+								<th>패스워드</th>
+								<th>이름</th>
+								<th>주소</th>
+								<th>이메일</th>
+								<th>핸드폰 번호</th>
+							</thead>
+							<tbody>
+							</tbody>
 
-						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+						</table>
+					</form>
+					<br> <br>
+					<%-- bottom 버튼 --%>
+					<div class="d01">
+						<div class="left"></div>
+						<div class="right">
+							<button style="border-radius: 10px" type="button" id="btnDel"
+								class="btn danger">유저삭제</button>
+						</div>
+					</div>
 
-					</sec:authorize>
-					<sec:authorize access="isAuthenticated()">
-
-						<a href="<c:url value="/clover/member/mypage" />" id="MyPage">MYPAGE</a>
-						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
-
-					</sec:authorize>
-					<sec:authorize access="hasRole('ROLE_ADMIN')">
-						<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
-					</sec:authorize>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<section class="container1">
-		<div class="container">
-			<h2 style="font-size: 40px;">ADMINISTER USER INFORMATION</h2>
-			<%-- 글 목록 --%>
-			<div id="list">
-				<%-- header 헤더 --%>
-				<div class="d01">
-					<div class="left" id="pageinfo"></div>
-					<div class="right" id="pageRows"></div>
 				</div>
 				<div class="clear"></div>
-				<br>
-				<%-- 목록 --%>
-				<form id="frmList" name="frmList">
-					<table>
-						<thead>
-							<th></th>
-							<th>user_uid</th>
-							<th>아이디</th>
-							<th>패스워드</th>
-							<th>이름</th>
-							<th>주소</th>
-							<th>이메일</th>
-							<th>핸드폰 번호</th>
-						</thead>
-						<tbody>
-						</tbody>
 
-					</table>
-				</form>
-				<br> <br>
-				<%-- bottom 버튼 --%>
-				<div class="d01">
-					<div class="left"></div>
-					<div class="right">
-						<button style="border-radius: 10px" type="button" id="btnDel"
-							class="btn danger">유저삭제</button>
+				<%-- [페이징] --%>
+				<div class="center">
+					<ul class="pagination" id="pagination"></ul>
+				</div>
+
+			</div>
+		</section>
+		</div>
+		<!--footer-->
+		<footer>
+			<div class="container">
+				<div class="foot1">
+					<h2>CLVOER</h2>
+					<p>
+						Web Address : <a
+							href="https://katieyoon-the-developer.tistory.com/">https://katieyoon-the-developer.tistory.com/</a>
+					</p>
+				</div>
+				<div class="foot2"></div>
+				<nav class="foot3">
+					<div>
+						<h3>HELP</h3>
+						<ul>
+							<li><a href="#">Administrator</a></li>
+							<li><a href="#">Frequently Asked Question(s)</a></li>
+							<li><a href="#">Direct Calls</a></li>
+						</ul>
 					</div>
-				</div>
 
+				</nav>
 			</div>
-			<div class="clear"></div>
-
-			<%-- [페이징] --%>
-			<div class="center">
-				<ul class="pagination" id="pagination"></ul>
-			</div>
-
-		</div>
-	</section>
-	<!--footer-->
-	<footer>
-		<div class="container">
-			<div class="foot1">
-				<h2>CLVOER</h2>
-				<p>
-					Web Address : <a
-						href="https://katieyoon-the-developer.tistory.com/">https://katieyoon-the-developer.tistory.com/</a>
-				</p>
-			</div>
-			<div class="foot2"></div>
-			<nav class="foot3">
-				<div>
-					<h3>HELP</h3>
-					<ul>
-						<li><a href="#">Administrator</a></li>
-						<li><a href="#">Frequently Asked Question(s)</a></li>
-						<li><a href="#">Direct Calls</a></li>
-					</ul>
-				</div>
-
-			</nav>
-		</div>
-	</footer>
-
+		</footer>
 </body>
 </html>
 

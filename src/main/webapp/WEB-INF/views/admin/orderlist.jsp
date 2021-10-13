@@ -29,99 +29,98 @@
 <script src="${pageContext.request.contextPath }/JS/orderboard.js"></script>
 </head>
 <body>
-	<!--header-->
-	<header>
-		<div class="container">
-			<div class="head1">
-				<a onclick="location.href='../../../../main'"><i
-					class="fas fa-home"></i></a> <span class="head3"><i
-					class="far fa-caret-square-down"></i></span>
+	<div id="body-wrapper"
+		style="min-height: 100%; padding-bottom: 300px; padding-top: 10px">
+		<!--header-->
+		<header>
+			<div class="container">
+				<div class="head1">
+					<a onclick="location.href='../../../../main'"><i
+						class="fas fa-home"></i></a> <span class="head3"><i
+						class="far fa-caret-square-down"></i></span>
+				</div>
+				<nav class="head2">
+					<ul>
+						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
+						<li><a
+							onclick="location.href='../../../clover/member/qr/write'">MY
+								QR</a></li>
+						<li><a
+							onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
+						<li><a
+							onclick="location.href='../../../clover/member/board/list'">FIND
+								& FOUND</a></li>
+						<sec:authorize access="isAnonymous()">
+							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+						</sec:authorize>
+						<sec:authorize access="isAuthenticated()">
+							<a href="<c:url value="../../../clover/member/mypage" />"
+								id="MyPage">MYPAGE</a>
+						</sec:authorize>
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
+							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
+						</sec:authorize>
+						<sec:authorize access="isAuthenticated()">
+							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+						</sec:authorize>
+					</ul>
+				</nav>
 			</div>
-			<nav class="head2">
-				<ul>
-					<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
-					<li><a
-						onclick="location.href='../../../clover/member/qr/write'">MY
-							QR</a></li>
-					<li><a
-						onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
-					<li><a
-						onclick="location.href='../../../clover/member/board/list'">FIND
-							& FOUND</a></li>
-					<sec:authorize access="isAnonymous()">
-						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
-					</sec:authorize>
-					<sec:authorize access="isAuthenticated()">
-						<a href="<c:url value="../../../clover/member/mypage" />"
-							id="MyPage">MYPAGE</a>
-					</sec:authorize>
-					<sec:authorize access="hasRole('ROLE_ADMIN')">
-						<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
-					</sec:authorize>
-					<sec:authorize access="isAuthenticated()">
-						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
-					</sec:authorize>
-				</ul>
-			</nav>
-		</div>
-	</header>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<section class="container1">
-		<div class="container">
-			<h2 style="font-size: 40px;">ADMINISTER ORDER INFORMATION</h2>
-			<%-- 글 목록 --%>
-			<div id="list">
-				<%-- header 헤더 --%>
-				<div class="d01">
-					<div class="left" id="pageinfo"></div>
-					<div class="right" id="pageRows"></div>
+		</header>
+		<br> <br> <br> <br> <br>
+		<section class="container1">
+			<div class="container">
+				<h2 style="font-size: 40px;">ADMINISTER ORDER INFORMATION</h2>
+				<%-- 글 목록 --%>
+				<div id="list">
+					<%-- header 헤더 --%>
+					<div class="d01">
+						<div class="left" id="pageinfo"></div>
+						<div class="right" id="pageRows"></div>
+					</div>
+					<div class="clear"></div>
+					<br>
+					<%-- 목록 --%>
+					<form id="frmList" name="frmList">
+						<table>
+							<thead>
+								<th></th>
+								<th>order_uid</th>
+								<th>수령자</th>
+								<th>수령자 핸드폰 번호</th>
+								<th>주문 수량</th>
+								<th>총 금액</th>
+								<th>수령 주소지</th>
+								<th>QR 옵션</th>
+								<th>주문한 QR 일련번호</th>
+								<th>주문한 사람 아이디</th>
+							</thead>
+							<tbody>
+							</tbody>
+
+						</table>
+					</form>
+					<br> <br>
+					<%-- bottom 버튼 --%>
+					<div class="d01">
+						<div class="left"></div>
+						<div class="right">
+							<button style="border-radius: 10px" type="button" id="btnDel"
+								class="btn danger">주문 삭제 (취소)</button>
+						</div>
+					</div>
+
 				</div>
 				<div class="clear"></div>
-				<br>
-				<%-- 목록 --%>
-				<form id="frmList" name="frmList">
-					<table>
-						<thead>
-							<th></th>
-							<th>order_uid</th>
-							<th>수령자</th>
-							<th>수령자 핸드폰 번호</th>
-							<th>주문 수량</th>
-							<th>총 금액</th>
-							<th>수령 주소지</th>
-							<th>QR 옵션</th>
-							<th>주문한 QR 일련번호</th>
-							<th>주문한 사람 아이디</th>
-						</thead>
-						<tbody>
-						</tbody>
 
-					</table>
-				</form>
-				<br> <br>
-				<%-- bottom 버튼 --%>
-				<div class="d01">
-					<div class="left"></div>
-					<div class="right">
-						<button style="border-radius: 10px" type="button" id="btnDel"
-							class="btn danger">주문 삭제 (취소)</button>
-					</div>
+				<%-- [페이징] --%>
+				<div class="center">
+					<ul class="pagination" id="pagination"></ul>
 				</div>
 
 			</div>
-			<div class="clear"></div>
-
-			<%-- [페이징] --%>
-			<div class="center">
-				<ul class="pagination" id="pagination"></ul>
-			</div>
-
-		</div>
-	</section>
+		</section>
+	</div>
 	<!--footer-->
 	<footer>
 		<div class="container">

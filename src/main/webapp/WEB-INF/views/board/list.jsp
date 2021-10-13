@@ -34,6 +34,8 @@
 </script>
 </head>
 <body>
+<div id="body-wrapper"
+		style="min-height: 100%; padding-bottom: 200px; padding-top:10px">
 	<!--header-->
 	<header>
 			<div class="container">
@@ -71,8 +73,8 @@
 			</div>
 		</header>
 	<section class="container1">
-		<div href class="container">
-			<h2>FIND & FOUND</h2>
+		<div  class="container">
+			<h2 style="font-size: 45px">FIND & FOUND</h2>
 			<%-- 글 목록 --%>
 			<div id="list" style="width: 1000px">
 				<%-- header 헤더 --%>
@@ -117,6 +119,7 @@
 
 		</div>
 	</section>
+	</div>
 	<!--footer-->
 	<footer>
 		<div class="container">

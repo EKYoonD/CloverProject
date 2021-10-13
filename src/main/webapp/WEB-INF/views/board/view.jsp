@@ -57,7 +57,7 @@
 <body>
 
 	<div id="body-wrapper"
-		style="min-height: 100%; padding-bottom: 500px; padding-top:10px">
+		style="min-height: 100%; padding-bottom: 200px; padding-top:10px">
 
 		<!--header-->
 		<header>
