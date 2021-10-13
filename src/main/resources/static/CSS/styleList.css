@@ -221,7 +221,7 @@ ul.pagination a:hover:not(.active) {
 }
 
 #list th {
-	font-size: 20px;
+	font-size: 18px;
 }
 
 .clear {
@@ -274,6 +274,15 @@ ul.pagination a:hover:not(.active) {
 .container1 a:hover {
 	background-image: linear-gradient(rgba(22, 22, 22, 0.2),
 		rgba(22, 22, 22, 0.2));
+}
+
+td a:hover {
+	background-color: rgb(248, 222, 71);
+}
+
+
+table a:hover{
+	background-color: rgb(248, 222, 71);
 }
 
 @media ( min-width : 768px) { /* 화면폭 768 이상이면 */

@@ -19,13 +19,11 @@ function loadPage(page){
 	//alert(page + " 페이지 로딩");
 	
 	$.ajax({
-		// url : /board/{page}/{pageRows}
 		url : "./" + page + "/" + pageRows,
 		type : "GET",
 		cache : false,
 		success : function(data, status){
 			if(status == "success"){
-				//alert("목록 가져오기 성공:  뿌~~");
 				
 				// response 가 application/json 이면 이미 parse된 결과가 data 에 담겨 있다.
 				
@@ -56,14 +54,12 @@ function updateList(jsonObj){
 		var items = jsonObj.data;  // 배열
 		for(var i = 0; i < count; i++){
 			result += "<tr>\n";
-			result += "<td><input type='checkbox' name='uid' value='" + items[i].uid + "'></td>\n";
-			result += "<td>" + items[i].uid + "</td>\n";
-			result += "<td>" + items[i].id + "</td>\n";
-			result += "<td>" + items[i].pw + "</td>\n";
-			result += "<td>" + items[i].name + "</td>\n";
-			result += "<td>" + items[i].address + "</td>\n";
-			result += "<td>" + items[i].email + "</td>\n";
-			result += "<td>" + items[i].phone + "</td>\n";
+			result += "<td><input type='checkbox' name='rep_uid' value='" + items[i].rep_uid + "'></td>\n";
+			result += "<td>" + items[i].rep_uid + "</td>\n";
+			result += "<td>" + items[i].subject + "</td>\n";
+			result += "<td>" + items[i].regdate + "</td>\n";
+			result += "<td>" + items[i].latitude + "</td>\n";
+			result += "<td>" + items[i].longitude + "</td>\n";
 			result += "</tr>\n";
 		}
 		$("#list tbody").html(result);  // 업데이트
@@ -151,13 +147,11 @@ function changePageRows(){
 function chkDelete(){
 	
 	var uids = [];  // check 된 uid 들을 담을 배열
-	$("#list tbody input[name=uid]").each(function(){
+	$("#list tbody input[name=rep_uid]").each(function(){
 		if($(this).is(":checked")){   // jQuery 에서 check 여부 확인 함수
 			uids.push(parseInt($(this).val()));  // uids 배열에 check 된 uid 값 추가
 		}
 	});
-	
-	//alert(uids);
 	
 	if(uids.length == 0){
 		alert("삭제할 글을 체크해주세요");
@@ -168,7 +162,7 @@ function chkDelete(){
 		
 		// DELETE 방식
 		$.ajax({
-			url: "/clover/admin/user", // URL : /board
+			url: ".", // URL : /board
 			type: "POST",
 			data : data,
 			cache : false,
@@ -179,12 +173,12 @@ function chkDelete(){
 						loadPage(window.page);   // 현재 페이지 목록 리로딩
 					} else {
 						alert("DELETE 실패 " + data.message);
-						return false;
+						return false;				
 					}
 				}
 			}
 		});
-	}
+	}			
 	
 } // end chkDelete()
 

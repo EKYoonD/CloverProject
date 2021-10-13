@@ -101,10 +101,6 @@
 				<br> <br>
 				<%-- bottom 버튼 --%>
 				<div class="d01">
-					<div class="left">
-						<button type="button" id="btnDel" class="btn danger"
-							style="border-radius: 10px;">글삭제</button>
-					</div>
 					<div class="right">
 						<button id="btnWrite" class="btn success"
 							style="border-radius: 10px;" onclick="location.href = 'write'">신규등록</button>

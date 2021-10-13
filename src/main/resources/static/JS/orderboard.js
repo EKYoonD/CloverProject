@@ -56,7 +56,7 @@ function updateList(jsonObj){
 		var items = jsonObj.data;  // 배열
 		for(var i = 0; i < count; i++){
 			result += "<tr>\n";
-			result += "<td><input type='checkbox' name='uid' value='" + items[i].uid + "'></td>\n";
+			result += "<td><input type='checkbox' name='partner_order_id' value='" + items[i].partner_order_id + "'></td>\n";
 			result += "<td>" + items[i].partner_order_id + "</td>\n";
 			result += "<td>" + items[i].order_Rec + "</td>\n";
 			result += "<td>" + items[i].order_Phone + "</td>\n";
@@ -153,7 +153,7 @@ function changePageRows(){
 function chkDelete(){
 	
 	var uids = [];  // check 된 uid 들을 담을 배열
-	$("#list tbody input[name=uid]").each(function(){
+	$("#list tbody input[name=partner_order_id]").each(function(){
 		if($(this).is(":checked")){   // jQuery 에서 check 여부 확인 함수
 			uids.push(parseInt($(this).val()));  // uids 배열에 check 된 uid 값 추가
 		}
@@ -170,8 +170,8 @@ function chkDelete(){
 		
 		// DELETE 방식
 		$.ajax({
-			url: "/clover/member/board", // URL : /board
-			type: "DELETE",
+			url: "/clover/admin/order", // URL : /order
+			type: "POST",
 			data : data,
 			cache : false,
 			success : function(data, status){

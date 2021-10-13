@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" >
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
 	rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,45 +26,45 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
-<script src="${pageContext.request.contextPath }/JS/writeboard.js"></script>
+<script src="${pageContext.request.contextPath }/JS/writerepboard.js"></script>
 </head>
 <body>
 	<!--header-->
 	<header>
-			<div class="container">
-				<div class="head1">
-					<a onclick="location.href='../../../../main'"><i
-						class="fas fa-home"></i></a> <span class="head3"><i
-						class="far fa-caret-square-down"></i></span>
-				</div>
-				<nav class="head2">
-					<ul>
-						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/write'">MY
-								QR</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/board/list'">FIND
-								& FOUND</a></li>
-						<sec:authorize access="isAnonymous()">
-							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="../../../clover/member/mypage" />"
-								id="MyPage">MYPAGE</a>
-						</sec:authorize>
-						<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
-						</sec:authorize>
-					</ul>
-				</nav>
+		<div class="container">
+			<div class="head1">
+				<a onclick="location.href='../../../../main'"><i
+					class="fas fa-home"></i></a> <span class="head3"><i
+					class="far fa-caret-square-down"></i></span>
 			</div>
-		</header>
+			<nav class="head2">
+				<ul>
+					<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
+					<li><a
+						onclick="location.href='../../../clover/member/qr/write'">MY
+							QR</a></li>
+					<li><a
+						onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
+					<li><a
+						onclick="location.href='../../../clover/member/board/list'">FIND
+							& FOUND</a></li>
+					<sec:authorize access="isAnonymous()">
+						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<a href="<c:url value="../../../clover/member/mypage" />"
+							id="MyPage">MYPAGE</a>
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+					</sec:authorize>
+				</ul>
+			</nav>
+		</div>
+	</header>
 	<br>
 	<br>
 	<br>
@@ -72,7 +72,7 @@
 	<br>
 	<section class="container1">
 		<div class="container">
-			<h2 style="font-size: 40px;">ADMINISTER BOARD INFORMATION</h2>
+			<h2 style="font-size: 40px;">ADMINISTER REP BOARD INFORMATION</h2>
 			<%-- 글 목록 --%>
 			<div id="list">
 				<%-- header 헤더 --%>
@@ -84,17 +84,15 @@
 				<br>
 				<%-- 목록 --%>
 				<form id="frmList" name="frmList">
+
 					<table>
 						<thead>
 							<th></th>
-							<th>wr_uid</th>
-							<th>카테고리</th>
-							<th>조회수</th>
+							<th>wr_rep_uid</th>
 							<th>제목</th>
 							<th>등록날짜정보</th>
 							<th>마지막으로 발견된 위도</th>
 							<th>마지막으로 발견된 경도</th>
-							<th><a href='/clover/admin/repboard/repboardlist'>전체 댓글 관리</a></th>
 						</thead>
 						<tbody>
 						</tbody>
@@ -105,11 +103,11 @@
 				<%-- bottom 버튼 --%>
 				<div class="d01">
 					<div class="left">
-						<button style="border-radius: 10px" type="button" id="btnDel" class="btn danger">글 삭제</button>
+						<button style="border-radius: 10px" type="button" id="btnDel" class="btn danger">댓글삭제</button>
 					</div>
 					<div class="right">
 						<button style="border-radius: 10px" id="btnWrite" class="btn success"
-							onclick="location.href = '../../../clover/member/board/write'">공지사항 등록</button>
+							onclick="location.href = '../../../clover/member/board/list'">신규등록</button>
 					</div>
 				</div>
 

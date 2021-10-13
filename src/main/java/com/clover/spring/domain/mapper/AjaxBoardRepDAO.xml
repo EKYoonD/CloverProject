@@ -1,53 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.clover.spring.domain.AjaxBoardDAO">
+<mapper namespace="com.clover.spring.domain.AjaxBoardRepDAO">
 
 	<!-- 글 목록 (페이징) -->
 	<select id="selectFromRow"
-		resultType="com.clover.spring.domain.WriteDTO">
+		resultType="com.clover.spring.domain.WriteReDTO">
 		<![CDATA[    
 		SELECT
-			wr_uid uid, 
-			wr_category category,
-			wr_content content,
-			wr_viewcnt viewcnt,
+			wr_rep_uid rep_uid, 
 			wr_subject subject,
 			wr_regdate regdate,
 			wr_latitude latitude,
 			wr_longitude longitude
 		FROM 
-			write_table
+			rep_write_table
 		ORDER BY 
-			wr_uid DESC
+			wr_rep_uid DESC
 		LIMIT #{from}, #{pageRows}
 		]]>
 	</select>
-
-	<select id="countByUid"
-		resultType="com.clover.spring.domain.WriteDTO">
+	
+	<select id="selectByUid"
+		resultType="com.clover.spring.domain.WriteReDTO">
 		<![CDATA[    
-		SELECT 
-			count(rwt.wr_rep_uid) repcnt
+		SELECT
+			wr_rep_uid rep_uid, 
+			wr_subject subject,
+			wr_regdate regdate,
+			wr_latitude latitude,
+			wr_longitude longitude
 		FROM 
-			write_table wt, rep_write_table rwt
+			rep_write_table
 		WHERE
-			wt.wr_uid = #{uid};
+			wr_uid = #{uid}
+		ORDER BY 
+			wr_rep_uid DESC
 		]]>
 	</select>
+
 
 	<!-- SELECT 쿼리문인데, 단일값 int 값 받고 싶으면 어쩌나? resultType="java.lang.Integer" 
 		혹은 resultType="int" -->
 	<select id="countAll" resultType="int">
 		SELECT count(*) FROM
-		write_table
+		rep_write_table
 	</select>
 
 
 	<delete id="deleteByUid" flushCache="true"
 		parameterType="java.util.ArrayList">
-		DELETE FROM write_table
-		WHERE wr_uid in (
+		DELETE FROM rep_write_table
+		WHERE wr_rep_uid in (
 		<foreach collection="array" item="item" index="index"
 			separator=",">
 			${item}

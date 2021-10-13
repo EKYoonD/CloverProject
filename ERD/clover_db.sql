@@ -3,7 +3,6 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 /* Drop Tables */
 
 DROP TABLE IF EXISTS Payment_Table;
-DROP TABLE IF EXISTS Order_Table;
 DROP TABLE IF EXISTS addorder;
 DROP TABLE IF EXISTS QR_Table;
 DROP TABLE IF EXISTS Rep_Write_Table;
@@ -40,6 +39,9 @@ CREATE TABLE Payment_Table
 	PRIMARY KEY (payment_uid)
 );
 */
+
+DELETE FROM rep_write_table
+		WHERE wr_rep_uid in (7);
 
  create table addOrder(
       partner_order_id int not null auto_increment,
@@ -110,20 +112,6 @@ CREATE TABLE userdto
 	UNIQUE (user_id)
 );
 
-SELECT
-			user_uid uid, 
-			user_id id,
-			user_pw pw,
-			user_name name,
-			user_address address,
-			user_email email,
-			user_phone phone
-		FROM 
-			userdto
-		ORDER BY 
-			user_uid DESC
-		LIMIT 1, 5;
-
 select * from userdto;
 
 
@@ -152,15 +140,15 @@ SELECT * FROM rep_write_table wt;
 ALTER TABLE addOrder
 	ADD FOREIGN KEY (qr_uid)
 	REFERENCES QR_Table (qr_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 ALTER TABLE addOrder
 	ADD FOREIGN KEY (user_id)
 	REFERENCES userdto (user_id)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 /*
 ALTER TABLE Payment_Table
@@ -179,27 +167,19 @@ ALTER TABLE Order_Table
 ;
 */
 
-ALTER TABLE Order_Table
-	ADD FOREIGN KEY (user_uid)
-	REFERENCES userdto (user_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
-;
-
-
 ALTER TABLE QR_Table
 	ADD FOREIGN KEY (user_uid)
 	REFERENCES userdto (user_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
+	ON UPDATE CASCADE
+	ON DELETE CASCADE 
 ;
 
 
 ALTER TABLE Write_Table
 	ADD FOREIGN KEY (user_uid)
 	REFERENCES userdto (user_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 ;
 
 
@@ -213,38 +193,8 @@ ALTER TABLE Rep_Write_Table
 ALTER TABLE rep_write_table
 	ADD FOREIGN KEY (user_uid)
 	REFERENCES userdto(user_uid)
-	ON UPDATE RESTRICT
-	ON DELETE RESTRICT
+	ON UPDATE CASCADE 
+	ON DELETE CASCADE
 ;
-
-SELECT * FROM userdto;
-SELECT user_uid FROM userdto WHERE user_id='dbswlckd1';
-
-SELECT * FROM qr_table;
-
-SELECT 
-			qr_uid "uid", 
-			qr_name name, 
-			qr_category category,
-			qr_age age, 
-			qr_address address,
-			qr_phone phone,
-			qr_content content 
-		FROM 
-			QR_Table
-		WHERE user_uid = (SELECT user_uid FROM userdto WHERE user_id="1939890767");
-SELECT * FROM userdto;
-	SELECT
-			user_uid uid,
-			user_id id, 
-			user_pw pw,  
-			user_name name, 
-			user_address address, 
-			user_email email, 
-			user_phone phone
-		FROM userdto
-		WHERE user_id = "katie0323";
-	
-insert into userdto values(100,'admin','$2a$12$ngzHgtGjfBxnAMbOdO8Mbukx.wicNK/17mVs8sZCreL9tStkWD8k.','관리자',null,'admin@adamin.com',null,null,'ROLE_ADMIN' )
 
 insert into userdto values(100,'admin','$2a$12$ngzHgtGjfBxnAMbOdO8Mbukx.wicNK/17mVs8sZCreL9tStkWD8k.','관리자',null,'admin@adamin.com',null,null,'ROLE_ADMIN' )

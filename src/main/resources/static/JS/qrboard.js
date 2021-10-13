@@ -168,8 +168,8 @@ function chkDelete(){
 		
 		// DELETE 방식
 		$.ajax({
-			url: "/clover/member/board", // URL : /board
-			type: "DELETE",
+			url: "/clover/admin/qr", // URL : /board
+			type: "POST",
 			data : data,
 			cache : false,
 			success : function(data, status){

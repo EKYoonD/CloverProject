@@ -67,8 +67,8 @@
 		</header>
 	<br><br><br><br><br>
 	<section class="container1">
-		<div href class="container">
-			<h2>ADMINISTER QR INFORMATION</h2>
+		<div class="container">
+			<h2 style="font-size: 40px;">ADMINISTER QR INFORMATION</h2>
 			<%-- 글 목록 --%>
 			<div id="list">
 				<%-- header 헤더 --%>
@@ -98,12 +98,8 @@
 				<br> <br>
 				<%-- bottom 버튼 --%>
 				<div class="d01">
-					<div class="left">
-						<button type="button" id="btnDel" class="btn danger">유저삭제</button>
-					</div>
 					<div class="right">
-						<button id="btnWrite" class="btn success"
-							onclick="location.href = 'write'">신규등록</button>
+							<button style="border-radius: 10px"  type="button" id="btnDel" class="btn danger">QR 삭제</button>
 					</div>
 				</div>
 

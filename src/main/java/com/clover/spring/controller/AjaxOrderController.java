@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -126,8 +127,8 @@ public class AjaxOrderController {
 	}
 	
 	// 글 삭제
-	@DeleteMapping("")  // URI: /board
-	public AjaxOrderList deleteOk(int [] uid) {
+	@PostMapping("")  // URI: /board
+	public AjaxOrderList deleteOk(int [] partner_order_id) {
 		int count = 0;
 		
 		// message 
@@ -136,8 +137,8 @@ public class AjaxOrderController {
 		
 		try {
 			
-			if(uid != null) {
-				count = ajaxOrderService.deleteByUid(uid);
+			if(partner_order_id != null) {
+				count = ajaxOrderService.deleteByUid(partner_order_id);
 				status = "OK";
 			}
 			

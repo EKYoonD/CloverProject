@@ -54,7 +54,7 @@ header {
 }
 
 .head2 a:hover {
-	background-color: #333;
+	background-color: rgb(20, 20, 18);
 }
 
 #loginOut {

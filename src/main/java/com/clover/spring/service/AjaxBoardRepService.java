@@ -6,25 +6,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.clover.spring.domain.AjaxBoardDAO;
+import com.clover.spring.domain.AjaxBoardRepDAO;
 import com.clover.spring.domain.AjaxDAO;
 import com.clover.spring.domain.AjaxUserDAO;
 import com.clover.spring.domain.UserDTO;
 import com.clover.spring.domain.WriteDTO;
+import com.clover.spring.domain.WriteReDTO;
 
 @Service
-public class AjaxBoardService {
+public class AjaxBoardRepService {
 	
-	AjaxBoardDAO dao;
+	AjaxBoardRepDAO dao;
 	
 	@Autowired
-	public void setDao(AjaxBoardDAO dao) {
+	public void setDao(AjaxBoardRepDAO dao) {
 		this.dao = dao;
 	}
 
-	public List<WriteDTO> list(int from, int pageRows) {
+	public List<WriteReDTO> list(int from, int pageRows) {
 		return dao.selectFromRow(from, pageRows);		
 	}
-	
+		
 	public int countByUid(int uid) {
 		return dao.countByUid(uid);
 	}
@@ -33,16 +35,16 @@ public class AjaxBoardService {
 		return dao.countAll();
 	}
 	
-	public List<WriteDTO> viewByUid(int uid) {
+	public List<WriteReDTO> viewByUid(int uid) {
 		// ※ 트랜잭션 처리해야 한다.
 		return dao.selectByUid(uid);
 	}
 	
-	public int write(WriteDTO dto) {
+	public int write(WriteReDTO dto) {
 		return dao.insert(dto); 
 	}
 	
-	public int update(WriteDTO dto) {
+	public int update(WriteReDTO dto) {
 		return dao.update(dto);
 	}
 	
@@ -50,7 +52,7 @@ public class AjaxBoardService {
 		return dao.deleteByUid(uids);
 	}
 	
-	public List<WriteDTO> selectByUid(int uid) {
+	public List<WriteReDTO> selectByUid(int uid) {
 		return dao.selectByUid(uid);  // 1개짜리 글도 List<> 로 리턴
 	}
 	

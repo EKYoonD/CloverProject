@@ -25,7 +25,6 @@ function loadPage(page){
 		cache : false,
 		success : function(data, status){
 			if(status == "success"){
-				//alert("목록 가져오기 성공:  뿌~~");
 				
 				// response 가 application/json 이면 이미 parse된 결과가 data 에 담겨 있다.
 				
@@ -64,6 +63,7 @@ function updateList(jsonObj){
 			result += "<td>" + items[i].regdate + "</td>\n";
 			result += "<td>" + items[i].latitude + "</td>\n";
 			result += "<td>" + items[i].longitude + "</td>\n";
+			result += "<td><a href='/clover/admin/repboard/repboardlist'>댓글보기</a></td>\n";
 			result += "</tr>\n";
 		}
 		$("#list tbody").html(result);  // 업데이트
@@ -168,8 +168,8 @@ function chkDelete(){
 		
 		// DELETE 방식
 		$.ajax({
-			url: "/clover/member/board", // URL : /board
-			type: "DELETE",
+			url: ".", // URL : /board
+			type: "POST",
 			data : data,
 			cache : false,
 			success : function(data, status){

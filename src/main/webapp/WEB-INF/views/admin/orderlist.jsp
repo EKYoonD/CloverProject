@@ -31,48 +31,48 @@
 <body>
 	<!--header-->
 	<header>
-			<div class="container">
-				<div class="head1">
-					<a onclick="location.href='../../../../main'"><i
-						class="fas fa-home"></i></a> <span class="head3"><i
-						class="far fa-caret-square-down"></i></span>
-				</div>
-				<nav class="head2">
-					<ul>
-						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/write'">MY
-								QR</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/board/list'">FIND
-								& FOUND</a></li>
-						<sec:authorize access="isAnonymous()">
-							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="../../../clover/member/mypage" />"
-								id="MyPage">MYPAGE</a>
-						</sec:authorize>
-						<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
-						</sec:authorize>
-					</ul>
-				</nav>
+		<div class="container">
+			<div class="head1">
+				<a onclick="location.href='../../../../main'"><i
+					class="fas fa-home"></i></a> <span class="head3"><i
+					class="far fa-caret-square-down"></i></span>
 			</div>
-		</header>
+			<nav class="head2">
+				<ul>
+					<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
+					<li><a
+						onclick="location.href='../../../clover/member/qr/write'">MY
+							QR</a></li>
+					<li><a
+						onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
+					<li><a
+						onclick="location.href='../../../clover/member/board/list'">FIND
+							& FOUND</a></li>
+					<sec:authorize access="isAnonymous()">
+						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<a href="<c:url value="../../../clover/member/mypage" />"
+							id="MyPage">MYPAGE</a>
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+					</sec:authorize>
+				</ul>
+			</nav>
+		</div>
+	</header>
 	<br>
 	<br>
 	<br>
 	<br>
 	<br>
 	<section class="container1">
-		<div href class="container">
-			<h2>ADMINISTER ORDER INFORMATION</h2>
+		<div class="container">
+			<h2 style="font-size: 40px;">ADMINISTER ORDER INFORMATION</h2>
 			<%-- 글 목록 --%>
 			<div id="list">
 				<%-- header 헤더 --%>
@@ -105,12 +105,10 @@
 				<br> <br>
 				<%-- bottom 버튼 --%>
 				<div class="d01">
-					<div class="left">
-						<button type="button" id="btnDel" class="btn danger">유저삭제</button>
-					</div>
+					<div class="left"></div>
 					<div class="right">
-						<button id="btnWrite" class="btn success"
-							onclick="location.href = 'write'">신규등록</button>
+						<button style="border-radius: 10px" type="button" id="btnDel"
+							class="btn danger">주문 삭제 (취소)</button>
 					</div>
 				</div>
 

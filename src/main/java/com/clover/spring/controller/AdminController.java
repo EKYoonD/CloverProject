@@ -2,9 +2,11 @@ package com.clover.spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.clover.spring.service.AdminService;
+import com.clover.spring.service.AjaxBoardRepService;
 
 @Controller
 @RequestMapping("/clover/admin")
@@ -38,6 +40,11 @@ public class AdminController {
 	@RequestMapping("/board/boardlist")
 	public String boardlist() {
 		return "admin/boardlist";
+	}
+	
+	@RequestMapping("/repboard/repboardlist")
+	public String repboardlist() {
+		return "admin/repboardlist";
 	}
 	
 	@RequestMapping("/order/orderlist")

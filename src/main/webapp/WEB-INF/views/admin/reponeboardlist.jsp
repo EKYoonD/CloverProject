@@ -1,35 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/security/tags"
 	prefix="sec"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" >
 <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
 	rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>main</title>
-
-<link href="/CSS/styleAbout.css" rel="stylesheet" type='text/css'>
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 	rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-	$(function() {
-		$('.head3').click(function() {
-			$('.head2').slideToggle();
-		})
-	})
-</script>
 
+<title>ADMIN USERS</title>
+
+<!-- 스타일, js 라이브러리 -->
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath }/CSS/styleList.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/bb29575d31.js"></script>
+<script src="${pageContext.request.contextPath }/JS/writerepboard.js"></script>
 </head>
-
 <body>
 	<!--header-->
 	<header>
@@ -67,57 +65,62 @@
 				</nav>
 			</div>
 		</header>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<section class="container1">
+		<div class="container">
+			<h2 style="font-size: 40px;">ADMINISTER BOARD INFORMATION</h2>
+			<%-- 글 목록 --%>
+			<div id="list">
+				<%-- header 헤더 --%>
+				<div class="d01">
+					<div class="left" id="pageinfo"></div>
+					<div class="right" id="pageRows"></div>
+				</div>
+				<div class="clear"></div>
+				<br>
+				<%-- 목록 --%>
+				<form id="frmList" name="frmList">
+				
+					<table>
+						<thead>
+							<th></th>
+							<th>wr_rep_uid</th>
+							<th>제목</th>
+							<th>등록날짜정보</th>
+							<th>마지막으로 발견된 위도</th>
+							<th>마지막으로 발견된 경도</th>
+						</thead>
+						<tbody>
+						</tbody>
 
-	<!-- 컨텐츠A -->
-	<section class="conA">
-		<div class="container explanation">
-			<!-- 히어로 이미지 -->
-			<h2 style="font-size: 40px; color:#333">CLOVER는 여러분의 가족이 최우선입니다</h2>
-			<p style="color: #333">CLOVER는 우리가족찾기 QR 서비스를 통해 여러분들이 소중한 가족을 잃었을 때, 가족을 최대한 빠른 시간에
-				찾을 수 있도록 최고의 서비스를 제공합니다. <br> 가족을 잃어버렸을 때의 막막함, CLOVER에서
-				해결해드리겠습니다.</p>
+					</table>
+				</form>
+				<br> <br>
+				<%-- bottom 버튼 --%>
+				<div class="d01">
+					<div class="left">
+						<button type="button" id="btnDel" class="btn danger">댓글삭제</button>
+					</div>
+					<div class="right">
+						<button id="btnWrite" class="btn success"
+							onclick="location.href = 'write'">신규등록</button>
+					</div>
+				</div>
+
+			</div>
+			<div class="clear"></div>
+
+			<%-- [페이징] --%>
+			<div class="center">
+				<ul class="pagination" id="pagination"></ul>
+			</div>
+
 		</div>
 	</section>
-
-	<!-- 컨텐츠B -->
-	<section class="conB">
-		<div style="width: 100%; height: auto;" class="container">
-			<!-- 개요 (이이콘 + 텍스트) -->
-			<div class="text">
-				<h2>부모님 찾기 QR</h2>
-				<img style="width: 100%; height: auto; border-radius: 30px;"
-					src="/img/family_mom2.jpg"> <br> <br>
-				<p>사랑하는 부모님 QR 만들기</p>
-				<a onclick="location.href='clover/member/qr/write'"> GO <span
-					class="fa fa-chevron-right"></span>
-				</a>
-			</div>
-
-			<div class="text">
-				<h2>내 아이 찾기 QR</h2>
-				<img style="width: 100%; height: auto; border-radius: 30px;"
-					src="/img/family_child2.jpg"> <br> <br>
-				<p>귀여운 우리집 꼬맹이 QR 만들기</p>
-				<a onclick="location.href='clover/member/qr/write2'">GO <span
-					class="fa fa-chevron-right"></span>
-				</a>
-			</div>
-
-			<div class="text">
-				<h2>반려동물 찾기 QR</h2>
-				<img style="width: 100%; height: auto; border-radius: 30px;"
-					src="/img/family_dog2.jpg"> <br> <br>
-				<p>우리 집 막내 QR 만들기</p>
-				<a onclick="location.href='clover/member/qr/write3'">GO <span
-					class="fa fa-chevron-right"></span>
-				</a>
-			</div>
-		</div>
-	</section>
-
-
-
-
 	<!--footer-->
 	<footer>
 		<div class="container">
@@ -144,5 +147,22 @@
 	</footer>
 
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

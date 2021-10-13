@@ -10,32 +10,39 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.clover.spring.domain.AjaxBoardList;
+import com.clover.spring.domain.AjaxBoardRepList;
 import com.clover.spring.domain.AjaxUserList;
 import com.clover.spring.domain.AjaxWriteList;
 import com.clover.spring.domain.AjaxWriteResult;
 import com.clover.spring.domain.UserDTO;
 import com.clover.spring.domain.WriteDTO;
+import com.clover.spring.domain.WriteReDTO;
+import com.clover.spring.service.AjaxBoardRepService;
+import com.clover.spring.service.AjaxBoardService;
 import com.clover.spring.service.AjaxService;
 import com.clover.spring.service.AjaxUserService;
 
 @RestController
-@RequestMapping("/clover/admin/user")
-public class AjaxUserController {
+@RequestMapping("/clover/admin/repboard")
+public class AjaxBoardRepController {
 
 	@Autowired
-	AjaxUserService ajaxUserService;
+	AjaxBoardRepService ajaxBoardRepService;
 	
 	// 글목록 페이징
-	@GetMapping("/{page}/{pageRows}")    // URI : /board/{page}/{pageRows}
-	public AjaxUserList list(
+	@GetMapping("/{page}/{pageRows}")    // URI : /repboard/{page}/{pageRows}
+	public AjaxBoardRepList list(
 			@PathVariable int page, 
 			@PathVariable int pageRows) {
 		
-		List<UserDTO> list = null;
+		
+		List<WriteReDTO> list = null;
 		
 		// message 
 		StringBuffer message = new StringBuffer();
 		String status = "FAIL";
+
 		
 		// 페이징 관련 세팅 값들
 		//page : 현재 페이지
@@ -47,7 +54,7 @@ public class AjaxUserController {
 		
 		try {			
 			// 글 전체 개수 구하기
-			totalCnt = ajaxUserService.count();
+			totalCnt = ajaxBoardRepService.count();
 			
 			// 총 몇페이지 분량?
 			totalPage = (int)Math.ceil(totalCnt / (double)pageRows);
@@ -55,7 +62,7 @@ public class AjaxUserController {
 			// from: 몇번째 row 부터?
 			int from = (page - 1) * pageRows;  // MySQL 의 Limit 는 0-base 
 			
-			list = ajaxUserService.list(from, pageRows);
+			list = ajaxBoardRepService.list(from, pageRows);
 			
 			if(list == null) {
 				message.append("[리스트할 데이터가 없습니다]");
@@ -67,7 +74,7 @@ public class AjaxUserController {
 			message.append("[트랜잭션 에러: " + e.getMessage() + "]");
 		}
 		
-		AjaxUserList result = new AjaxUserList();
+		AjaxBoardRepList result = new AjaxBoardRepList();
 		
 		result.setStatus(status);
 		result.setMessage(message.toString());
@@ -88,15 +95,15 @@ public class AjaxUserController {
 	
 	// 특정 uid 글 읽기
 	@GetMapping("/{uid}")   // URI:  /board/{uid}
-	public AjaxUserList view(@PathVariable int uid) {
-		List<UserDTO> list = null;
+	public AjaxBoardRepList view(@PathVariable int uid) {
+		List<WriteReDTO> list = null;
 		
 		// message 
 		StringBuffer message = new StringBuffer();
 		String status = "FAIL";
 		
 		try {			
-			list = ajaxUserService.viewByUid(uid);  // 조회수 증가 + 읽기
+			list = ajaxBoardRepService.viewByUid(uid);  // 조회수 증가 + 읽기
 			
 			if(list == null || list.size() == 0) {
 				message.append("[해당 데이터가 없습니다]");
@@ -108,7 +115,7 @@ public class AjaxUserController {
 			message.append("[트랜잭션 에러: " + e.getMessage() + "]");
 		}
 		
-		AjaxUserList result = new AjaxUserList();
+		AjaxBoardRepList result = new AjaxBoardRepList();
 		
 		result.setStatus(status);
 		result.setMessage(message.toString());
@@ -123,7 +130,7 @@ public class AjaxUserController {
 	
 	// 글 삭제
 	@PostMapping("")  // URI: /board
-	public AjaxUserList deleteOk(int [] uid) {
+	public AjaxBoardRepList deleteOk(int []  rep_uid) {
 		int count = 0;
 		
 		// message 
@@ -132,8 +139,8 @@ public class AjaxUserController {
 		
 		try {
 			
-			if(uid != null) {
-				count = ajaxUserService.deleteByUid(uid);
+			if(rep_uid != null) {
+				count = ajaxBoardRepService.deleteByUid(rep_uid);
 				status = "OK";
 			}
 			
@@ -142,7 +149,7 @@ public class AjaxUserController {
 			message.append("[트랜잭션 에러: " + e.getMessage() + "]");
 		}
 		
-		AjaxUserList result = new AjaxUserList();
+		AjaxBoardRepList result = new AjaxBoardRepList();
 		result.setStatus(status);
 		result.setMessage(message.toString());
 		result.setCount(count);
