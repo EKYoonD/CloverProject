@@ -72,9 +72,6 @@
 	<section class="container1">
 		<div class="container">
 			<input type="hidden" name="userid" id="userid" value="${list.id }" />
-			<br>
-			<br>
-			<br>
 			<h2 style="font-size: 35px;">PERSONAL INFORMATION</h2>
 			<br>
 			<br>
