@@ -160,7 +160,7 @@ $(function() {
                <tr>
                   <th>카테고리</th>
                   <td><select class="select" id="category" name="category" 
-                     style="width: 83%; height: 38px; border-radius: 10px; border: 3px solid #154360; font-size:20pt; text-align: center">
+                     style="width: 300px; height: 38px; border-radius: 10px; border: 3px solid #154360; font-size:20pt; text-align: center">
                         <option value="${list[0].category}">${list[0].category}</option>
                         <option value="부모님" >부모님</option>
                         <option value="아이">아이</option>
@@ -205,7 +205,7 @@ $(function() {
                </tr>
                <tr>
                <th>특이사항</th>
-			   <td><textarea name="content" style= font-size:15pt;>${list[0].content }</textarea>
+			   <td><textarea name="content" style="font-size:15pt;">${list[0].content }</textarea>
                <input type="hidden" name="userid" id="userid" value="${m.userid }" style="width:400px" /></td>
                </tr>
                

@@ -386,7 +386,7 @@ td {
 }
 
 input {
-	width: 80%;
+	width: 290px;
 	height: 30px;
 	border-radius: 10px;
 	border: 3px solid #154360;
@@ -404,10 +404,10 @@ textarea {
 	max-width: 290px;
 	min-width: 290px;
 	min-height: 28px;
-	max-height: 100px; height : 28px;
+	max-height: 100px; 
+	height : 28px;
 	font-size: 12px;
 	letter-spacing: 1px;
 	border-radius: 10px;
 	border: 3px solid #154360;
-	height: 28px;
 }
