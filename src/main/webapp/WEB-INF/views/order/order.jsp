@@ -223,7 +223,7 @@
 					참고항목 :<input type="text" class="extraAddress" id="sample4_extraAddress" >
 				</div>
 				<input type="hidden" name="address" id="address" class="address"
-						value="${k.address}" onkeyup='call()'' />
+						value="${k.address}" onkeyup='call()' />
 				<div class="textForm">
 					타&nbsp;&nbsp;&nbsp;입 :&nbsp;<select name="qr_option" id="qr_option" class="qr_option"
 						onChange="img_change(this);">
