@@ -37,8 +37,9 @@
 </head>
 
 <body>
-	<!--header-->
-	<header>
+	<div id="body-wrapper" style="min-height: 100%; padding-bottom: 100px;">
+		<!--header-->
+		<header>
 			<div class="container">
 				<div class="head1">
 					<a onclick="location.href='../../../../main'"><i
@@ -73,11 +74,11 @@
 				</nav>
 			</div>
 		</header>
-	<section class="container1">
-		<div class="container4">
-			<h2>QR</h2>
-			<br> <img
-				src="qrcode/이름: ${list[0].name }%0A	
+		<section class="container1">
+			<div class="container4">
+				<h2>QR</h2>
+				<br> <img
+					src="qrcode/이름: ${list[0].name }%0A	
 				종류 :${list[0].category}%0A
 				나이:${list[0].age }%0A
 				주소: ${list[0].address }%0A
@@ -88,17 +89,19 @@
 
 
 
-			<br> <br> <br> <br> <br> <br> <br><br>
-			<button onclick="location.href='update?uid=${list[0].uid }'"
-				class="button">수정하기</button>
-			<button onclick="location.href='download'" class="button">다운로드</button>
-			<button onclick="location.href='../order?uid=${param.uid}'"
-				class="button">주문하기</button>
-			<button onclick="location.href='/main'" class="button">메인</button>
-			<!-- <button onclick="location.href='write'">신규등록</button>-->
-			<!--  <button onclick="location.href='qrlist'">목록</button>-->
-		</div>
-	</section>
+				<br> <br> <br> <br> <br> <br> <br>
+				<br>
+				<button onclick="location.href='update?uid=${list[0].uid }'"
+					class="button">수정하기</button>
+				<button onclick="location.href='download'" class="button">다운로드</button>
+				<button onclick="location.href='../order?uid=${param.uid}'"
+					class="button">주문하기</button>
+				<button onclick="location.href='/main'" class="button">메인</button>
+				<!-- <button onclick="location.href='write'">신규등록</button>-->
+				<!--  <button onclick="location.href='qrlist'">목록</button>-->
+			</div>
+		</section>
+	</div>
 	<!--footer-->
 	<footer>
 		<div class="container">

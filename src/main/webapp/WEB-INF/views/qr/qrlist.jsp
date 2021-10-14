@@ -73,8 +73,9 @@
 			</div>
 		</header>
 		<section class="container1">
-			<div href class="container">
-				<h2>QR 목록</h2><br>
+			<div class="container">
+				<h2 style="font-size:35px">QR 목록</h2>
+				<br>
 				<%-- 글 목록 --%>
 				<div id="list" style="width: 1000px">
 					<%-- header 헤더 --%>
@@ -124,19 +125,20 @@
 							<button id="btnWrite" class="btn success"
 								style="border-radius: 10px;" onclick="location.href = 'write'">신규등록</button>
 						</div>-->
-					</div>
-
-				</div>
-				<div class="clear"></div>
-
-				<%-- [페이징] --%>
-				<div class="center">
-					<ul class="pagination" id="pagination"></ul>
 				</div>
 
 			</div>
+			<div class="clear"></div>
+
+			<%-- [페이징] --%>
+			<div class="center">
+				<ul class="pagination" id="pagination"></ul>
+			</div>
 		</section>
 	</div>
+	</div>
+
+
 	<!--footer-->
 	<footer>
 		<div class="container">
