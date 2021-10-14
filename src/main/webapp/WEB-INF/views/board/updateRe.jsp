@@ -124,7 +124,7 @@ function chkSubmit(){
 							</script>
 						</div>
 					</div>
-					<br><br><br><h3>마지막으로 잃어버린 장소</h3>
+					<br><br><br><h3>마지막으로 발견한 장소</h3>
 					<h5 style="font-size: 18px; color: #333;">[지도를 움직이면서 잃어버린 위치를
 						정확하게 표시해주세요]</h5><span style="color: red">${ERROR.POINT }</span><br><br>
 					<div class="container contents" style="background-color: grey">

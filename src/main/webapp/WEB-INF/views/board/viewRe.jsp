@@ -97,7 +97,7 @@
 	<section class="container1">
 		<div class="container contents">
 			<br>
-			<h2 style="font-size: 35px">가장 최근에 본 장소</h2>
+			<h2 style="font-size: 35px">가장 최근에 발견한 장소</h2>
 			<br> <br>
 			<div id="map"
 				style="width: 940px; height: 350px; background-color: grey"

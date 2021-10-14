@@ -104,7 +104,7 @@
 				<br>
 				<br>
 				<table>
-					<th>&nbsp &nbsp 마지막으로 잃어버린 장소 &nbsp</th>
+					<th>&nbsp &nbsp 마지막으로 발견한 장소 &nbsp</th>
 				</table>
 				<br>
 
