@@ -94,9 +94,8 @@
 						<table>
 							<thead>
 								<th></th>
-								<th>user_uid</th>
+								<th>회원 고유번호</th>
 								<th>아이디</th>
-								<th>패스워드</th>
 								<th>이름</th>
 								<th>주소</th>
 								<th>이메일</th>

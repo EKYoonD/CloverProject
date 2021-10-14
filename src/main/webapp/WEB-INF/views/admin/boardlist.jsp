@@ -89,7 +89,7 @@
 					<table>
 						<thead>
 							<th></th>
-							<th>wr_uid</th>
+							<th>글 고유번호</th>
 							<th>카테고리</th>
 							<th>조회수</th>
 							<th>제목</th>

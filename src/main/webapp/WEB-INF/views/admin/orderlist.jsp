@@ -85,7 +85,7 @@
 						<table>
 							<thead>
 								<th></th>
-								<th>order_uid</th>
+								<th>주문 고유번호</th>
 								<th>수령자</th>
 								<th>수령자 핸드폰 번호</th>
 								<th>주문 수량</th>

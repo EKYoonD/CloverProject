@@ -88,7 +88,7 @@
 					<table>
 						<thead>
 							<th></th>
-							<th>wr_rep_uid</th>
+							<th>댓글 고유번호</th>
 							<th>제목</th>
 							<th>등록날짜정보</th>
 							<th>마지막으로 발견된 위도</th>

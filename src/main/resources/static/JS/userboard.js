@@ -59,7 +59,6 @@ function updateList(jsonObj){
 			result += "<td><input type='checkbox' name='uid' value='" + items[i].uid + "'></td>\n";
 			result += "<td>" + items[i].uid + "</td>\n";
 			result += "<td>" + items[i].id + "</td>\n";
-			result += "<td>" + items[i].pw + "</td>\n";
 			result += "<td>" + items[i].name + "</td>\n";
 			result += "<td>" + items[i].address + "</td>\n";
 			result += "<td>" + items[i].email + "</td>\n";

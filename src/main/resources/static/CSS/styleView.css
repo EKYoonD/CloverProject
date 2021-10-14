@@ -4,7 +4,7 @@ body {
 	background-color: rgb(247, 229, 127);
 	margin: 0;
 	font-family: 'Gugi', cursive, '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
-	margin-top: 150px;
+	margin-top: 200px;
 	margin-bottom: -50px;
 }
 
@@ -111,10 +111,6 @@ header {
 	}
 }
 
-span {
-	color: rgb(252, 214, 0);
-}
-
 .contents {
 	background-color: whitesmoke;
 	padding: 30px;
@@ -122,7 +118,7 @@ span {
 }
 
 .container1 {
-	margin-top:400px;
+	margin-top: 200px;
 	text-align: center;
 	background-color: rgb(247, 229, 127);
 	background-position: center;
@@ -133,7 +129,7 @@ span {
 	align-items: center;
 	justify-content: center;
 	color: #333;
-	margin-bottom:300px;
+	margin-bottom: 400px;
 }
 
 .container1 h1 {
@@ -145,18 +141,9 @@ span {
 	letter-spacing: 0.05em;
 }
 
-td a:hover {
-	background-color: lightgrey;
-}
-
-
-table a:hover{
-	background-color:lightgrey;
-}
-
 @media ( max-width : 767px) { /* 768px보다 작은화면일때*/
 	.contentscon {
-		max-width: 700px;
+		max-width: 1000px;
 	}
 }
 
@@ -169,9 +156,9 @@ table a:hover{
 
 #map {
 	position: relative;
+	z-index: 8;
 	left: 50%;
 	transform: translate(-50%);
-	z-index: 8;
 }
 
 /* .container1 a {
@@ -190,6 +177,30 @@ table a:hover{
 	background-image: linear-gradient(rgba(22, 22, 22, 0.2),
 		rgba(22, 22, 22, 0.2));
 }
+
+.button {
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-family: 'Gugi', cursive, '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	width: 130px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: 0.5s;
+	background-color: black;
+	color: white;
+}
+
+.button:hover {
+	background-color: #4CAF50;
+	color: white;
+}
+
 
 @media ( min-width : 768px) { /* 화면폭 768 이상이면 */
 	.container1 h1 {
@@ -274,27 +285,4 @@ footer.container {
 	.foot3 {
 		flex: 0 0 30%;
 	}
-}
-
-.button {
-	margin: 0;
-	padding: 0.5rem 1rem;
-	font-family: 'Gugi', cursive, '맑은 고딕', 'Apple SD Gothic Neo', sans-serif;
-	font-size: 1rem;
-	font-weight: 400;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	width: 130px;
-	border: none;
-	border-radius: 4px;
-	cursor: pointer;
-	transition: 0.5s;
-	background-color: black;
-	color: white;
-}
-
-.button:hover {
-	background-color: #4CAF50;
-	color: white;
 }

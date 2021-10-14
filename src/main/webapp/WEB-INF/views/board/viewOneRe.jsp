@@ -48,7 +48,7 @@
 		</script>
 <body>
 
-	<div id="body-wrapper" style="min-height: 100%; padding-bottom: 100px;">
+	<div id="body-wrapper" style="min-height: 100%; padding-top:150px;padding-bottom: 100px;">
 
 		<!--header-->
 		<header>
