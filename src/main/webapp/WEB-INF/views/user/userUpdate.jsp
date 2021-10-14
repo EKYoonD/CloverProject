@@ -208,7 +208,7 @@
 							<th>수정여부</th>
 							<td>
 								<div id="memberpdate">
-									<button class="button" type="submit" value="수정">수정</button>
+									<button class="button" type="submit" value="수정">수정완료</button>
 								</div>
 							</td>
 							<td></td>
