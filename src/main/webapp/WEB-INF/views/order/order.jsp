@@ -236,7 +236,7 @@
 
 				<div>
 					<input type="submit" class="button" value="주문" /> <a
-						onclick="location.href='main'"><input type="button"
+						onclick="location.href='qr/qrlist'"><input type="button"
 						class="button" value="취소"/ ></a>
 				</div>
 
