@@ -187,6 +187,22 @@ table, th, td {
 	border-collapse: collapse;
 }
 
+td a {
+	padding:10px;
+	border-radius:5px;
+}
+
+th a {
+	padding:10px;
+	border-radius:5px;
+}
+
+
+td a:hover {
+	background-color: whitesmoke;
+}
+
+
 .container1 a {
 	text-decoration: none;
 	font-size: 20px;

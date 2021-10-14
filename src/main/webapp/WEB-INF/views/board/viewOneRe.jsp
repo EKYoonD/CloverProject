@@ -72,7 +72,8 @@
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
 
-							<a href="<c:url value="../../../clover/member/mypage" />" id="MyPage">MYPAGE</a>
+							<a href="<c:url value="../../../clover/member/mypage" />"
+								id="MyPage">MYPAGE</a>
 							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 
 						</sec:authorize>
@@ -86,20 +87,25 @@
 
 		<section class="container1">
 			<div class="container contents" style="width: 1000px">
-				<h2 style="font-size: 35px">${list[0].uid }번글에 대한 댓글입니다</h2>
-				<br><br>
+				<h2 style="font-size: 35px">${list[0].uid }번글에대한 댓글입니다</h2>
+				<br>
+				<br>
 				<table>
 					<th>&nbsp &nbsp 제목 &nbsp
 					<td>${list[0].subject }</td>
 					</th>
 				</table>
-				
+
 				<br>
 				<div
 					style="background-color: lightgrey; padding: 10px; border-radius: 30px;">
 					${list[0].content }</div>
 				<br>
-				<br> <br> 본 장소: <br>
+				<br>
+				<br>
+				<table>
+					<th>&nbsp &nbsp 마지막으로 잃어버린 장소 &nbsp</th>
+				</table>
 				<br>
 
 				<div class="container contents" style="background-color: grey">
@@ -135,18 +141,17 @@
 					</div>
 				</div>
 
-				<br>
-				<br> 등록일: ${list[0].regDateTime }<br>
+				<br> <br> 등록일: ${list[0].regDateTime }<br>
 				<%-- getRegDateTime() 사용 --%>
 
-				<br>
-				<br>
+				<br> <br>
 
 				<button class="button"
 					onclick="location.href='updateRe?rep_uid=${list[0].rep_uid }'">수정하기</button>
 				<button class="button" onclick="chkDelete(${list[0].rep_uid })">삭제하기</button>
 				<button class="button" onclick="location.href='list'">목록보기</button>
-				<button class="button" onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
+				<button class="button"
+					onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
 			</div>
 		</section>
 

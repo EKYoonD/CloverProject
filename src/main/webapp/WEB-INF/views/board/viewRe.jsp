@@ -59,44 +59,46 @@
 <body>
 	<!--header-->
 	<header>
-			<div class="container">
-				<div class="head1">
-					<a onclick="location.href='../../../../main'"><i
-						class="fas fa-home"></i></a> <span class="head3"><i
-						class="far fa-caret-square-down"></i></span>
-				</div>
-				<nav class="head2">
-					<ul>
-						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/write'">MY
-								QR</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
-						<li><a
-							onclick="location.href='../../../clover/member/board/list'">FIND
-								& FOUND</a></li>
-						<sec:authorize access="isAnonymous()">
-							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="../../../clover/member/mypage" />"
-								id="MyPage">MYPAGE</a>
-						</sec:authorize>
-						<sec:authorize access="hasRole('ROLE_ADMIN')">
-							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
-						</sec:authorize>
-						<sec:authorize access="isAuthenticated()">
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
-						</sec:authorize>
-					</ul>
-				</nav>
+		<div class="container">
+			<div class="head1">
+				<a onclick="location.href='../../../../main'"><i
+					class="fas fa-home"></i></a> <span class="head3"><i
+					class="far fa-caret-square-down"></i></span>
 			</div>
-		</header>
+			<nav class="head2">
+				<ul>
+					<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
+					<li><a
+						onclick="location.href='../../../clover/member/qr/write'">MY
+							QR</a></li>
+					<li><a
+						onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
+					<li><a
+						onclick="location.href='../../../clover/member/board/list'">FIND
+							& FOUND</a></li>
+					<sec:authorize access="isAnonymous()">
+						<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<a href="<c:url value="../../../clover/member/mypage" />"
+							id="MyPage">MYPAGE</a>
+					</sec:authorize>
+					<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
+					</sec:authorize>
+					<sec:authorize access="isAuthenticated()">
+						<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
+					</sec:authorize>
+				</ul>
+			</nav>
+		</div>
+	</header>
 
 	<section class="container1">
 		<div class="container contents">
-			<br><h2 style="font-size: 35px">가장 최근에 본 장소</h2><br> <br>
+			<br>
+			<h2 style="font-size: 35px">가장 최근에 본 장소</h2>
+			<br> <br>
 			<div id="map"
 				style="width: 940px; height: 350px; background-color: grey"
 				class="map contents">
@@ -130,10 +132,9 @@
 			<table style="">
 
 				<tr>
-					<th>uid</th>
+					<th>댓글 번호</th>
 					<th>제목</th>
-					<th>rep_uid</th>
-					<th>등록일</th>
+					<th>댓글 등록 일자</th>
 				</tr>
 
 				<c:choose>
@@ -142,9 +143,8 @@
 					<c:otherwise>
 						<c:forEach var="dto" items="${list }">
 							<tr>
-								<td>${dto.uid }</td>
-								<td><a href="viewOneRe?rep_uid=${dto.rep_uid }">${dto.subject }</a></td>
 								<td>${dto.rep_uid }</td>
+								<td><a href="viewOneRe?rep_uid=${dto.rep_uid }">${dto.subject }</a></td>
 								<td>${dto.regDateTime }</td>
 							</tr>
 						</c:forEach>
@@ -156,7 +156,8 @@
 
 			<br> <br>
 			<button class="button" onclick="location.href='list'">목록보기</button>
-			<button class="button" onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
+			<button class="button"
+				onclick="location.href='writeRe?uid=${list[0].uid }'">신규등록</button>
 		</div>
 	</section>
 	<!--footer-->
