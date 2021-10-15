@@ -111,7 +111,7 @@
 					</div>
 					<div class="right">
 						<button style="border-radius: 10px" id="btnWrite" class="btn success"
-							onclick="location.href = '../../../clover/member/board/write'">공지사항 등록</button>
+							onclick="location.href = '../../../clover/member/board/writeNotice'">공지사항 등록</button>
 					</div>
 				</div>
 

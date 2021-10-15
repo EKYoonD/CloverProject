@@ -63,6 +63,7 @@ public class BoardController {
 	}
 	
 	
+	
 	public String findNameByUserId(String userid) {
 		String name = boardService.findNameByUserId(userid);
 		return name;

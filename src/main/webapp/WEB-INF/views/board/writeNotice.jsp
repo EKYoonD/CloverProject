@@ -19,14 +19,14 @@
 <head>
 <meta charset="UTF-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap"
 	rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>main</title>
 
-<link href="/CSS/styleWrite.css" rel="stylesheet">
+<link href="/CSS/styleWriteNotice.css" rel="stylesheet">
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
 	rel="stylesheet">
@@ -84,17 +84,15 @@
 		</header>
 		<section class="container1">
 			<div class="container contents">
-				<h2 h2 style="font-size: 35px">글작성</h2>
-				<form name="frm" action="writeOk" method="post"
+				<h2 h2 style="font-size: 35px">공지사항 작성</h2>
+				<form name="frm" action="writeNoticeOk" method="post"
 					onsubmit="return chkSubmit()">
 
 					<table>
 						<tr><th>&nbsp &nbsp&nbsp &nbsp &nbsp &nbsp  카테고리 &nbsp</th>
 						<td><select class="select" id="category" name="category"
 							style="width: 170px;">
-								<option value="부모님" selected>부모님</option>
-								<option value="아이">아이</option>
-								<option value="공지사항">반려동물</option>
+								<option value="공지사항">공지사항</option>
 						</select></td>
 						</tr>
 						<tr><th>&nbsp &nbsp 제목 &nbsp</th>
@@ -119,81 +117,6 @@
 							</script>
 						</div>
 					</div>
-
-					<br> <br><br> <br> <h3>마지막으로 잃어버린 장소</h3>
-					<h5 style="font-size: 18px; color: #333;">[지도를 움직이면서 잃어버린 위치를
-						정확하게 표시해주세요]</h5>
-					<!-- TODO -->
-					<div class="container contents" style="background-color: grey">
-						<div id="map"
-							style="width: 1000px; height: 350px; background-color: grey"
-							class="map contents">
-							<div id="clickLatlng"></div>
-
-							<input type="hidden" name="latitude" id="latitude" value="" /> <input
-								type="hidden" name="longitude" id="longitude" value="" />
-
-							<script type="text/javascript"
-								src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2389d39ea90c7f8eac5210a7bd81bee9"></script>
-							<script>
-								var mapContainer = document
-										.getElementById('map'), // 지도를 표시할 div 
-								mapOption = {
-									center : new kakao.maps.LatLng(37.123125,
-											127.123124), // 지도의 중심좌표
-									level : 12
-								// 지도의 확대 레벨
-								};
-
-								var map = new kakao.maps.Map(mapContainer,
-										mapOption); // 지도를 생성합니다
-
-								// 지도를 클릭한 위치에 표출할 마커입니다
-								var marker = new kakao.maps.Marker({
-									// 지도 중심좌표에 마커를 생성합니다 
-									position : map.getCenter()
-								});
-								// 지도에 마커를 표시합니다
-								marker.setMap(map);
-
-								// 지도에 클릭 이벤트를 등록합니다
-								// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-								kakao.maps.event
-										.addListener(
-												map,
-												'click',
-												function(mouseEvent) {
-
-													// 클릭한 위도, 경도 정보를 가져옵니다 
-													var latlng = mouseEvent.latLng;
-
-													// 마커 위치를 클릭한 위치로 옮깁니다
-													marker.setPosition(latlng);
-
-													var message = '클릭한 위치의 위도는 '
-															+ latlng.getLat()
-															+ ' 이고, ';
-													message += '경도는 '
-															+ latlng.getLng()
-															+ ' 입니다';
-
-													var resultDiv = document
-															.getElementById('clickLatlng');
-													resultDiv.innerHTML = message;
-
-													latitude = latlng.getLat()
-													longitude = latlng.getLng()
-
-													document
-															.getElementById('latitude').value = latitude
-													document
-															.getElementById('longitude').value = longitude
-
-												});
-							</script>
-						</div>
-					</div>
-
 					<br> <br> <input type="hidden" name="userid" id="userid"
 						value="${w.userid }" /> <input type="submit" class="button"
 						value="등록" />
