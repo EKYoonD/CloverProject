@@ -26,7 +26,9 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/bb29575d31.js"></script>
-<script src="${pageContext.request.contextPath }/JS/orderboard.js"></script>
+<script src="${pageContext.requd2">
+					<ul>
+						<li><a oest.contextPath }/JS/orderboard.js"></script>
 </head>
 <body>
 	<div id="body-wrapper"
@@ -39,9 +41,7 @@
 						class="fas fa-home"></i></a> <span class="head3"><i
 						class="far fa-caret-square-down"></i></span>
 				</div>
-				<nav class="head2">
-					<ul>
-						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
+				<nav class="heanclick="location.href='../../../../about'">CLVOER</a></li>
 						<li><a
 							onclick="location.href='../../../clover/member/qr/write'">MY
 								QR</a></li>

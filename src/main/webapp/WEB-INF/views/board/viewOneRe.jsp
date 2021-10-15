@@ -44,12 +44,10 @@
 				location.href = 'deleteReOk?rep_uid=' + rep_uid;
 			}
 		} // chkDelete
-		
 		</script>
 <body>
-
-	<div id="body-wrapper" style="min-height: 100%; padding-top:150px;padding-bottom: 100px;">
-
+	<div id="body-wrapper"
+		style="min-height: 100%; padding-top: 150px; padding-bottom: 100px;">
 		<!--header-->
 		<header>
 			<div class="container">
@@ -61,24 +59,26 @@
 				<nav class="head2">
 					<ul>
 						<li><a onclick="location.href='../../../../about'">CLVOER</a></li>
-						<li><a onclick="location.href='../qr/write'">MY QR</a></li>
-						<li><a onclick="location.href='../qr/qrlist'">ORDER</a></li>
-						<li><a onclick="location.href='../board/list'">FIND &
-								FOUND</a></li>
+						<li><a
+							onclick="location.href='../../../clover/member/qr/write'">MY
+								QR</a></li>
+						<li><a
+							onclick="location.href='../../../clover/member/qr/qrlist'">ORDER</a></li>
+						<li><a
+							onclick="location.href='../../../clover/member/board/list'">FIND
+								& FOUND</a></li>
 						<sec:authorize access="isAnonymous()">
-
 							<a href="<c:url value="/login2" />" id="loginOut">LOGIN</a>
-
 						</sec:authorize>
 						<sec:authorize access="isAuthenticated()">
-
 							<a href="<c:url value="../../../clover/member/mypage" />"
 								id="MyPage">MYPAGE</a>
-							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
-
 						</sec:authorize>
 						<sec:authorize access="hasRole('ROLE_ADMIN')">
 							<a href="<c:url value="../../../clover/admin/main" />" id="admin">ADMIN</a>
+						</sec:authorize>
+						<sec:authorize access="isAuthenticated()">
+							<a href="<c:url value="/logout" />" id="logOut">LOGGOUT</a>
 						</sec:authorize>
 					</ul>
 				</nav>
@@ -87,9 +87,8 @@
 
 		<section class="container1">
 			<div class="container contents" style="width: 1000px">
-				<h2 style="font-size: 35px">${list[0].uid }번글에대한 댓글입니다</h2>
-				<br>
-				<br>
+				<h2 style="font-size: 35px">${list[0].uid }번글에대한댓글입니다</h2>
+				<br> <br>
 				<table>
 					<th>&nbsp &nbsp 제목 &nbsp
 					<td>${list[0].subject }</td>
@@ -100,9 +99,7 @@
 				<div
 					style="background-color: lightgrey; padding: 10px; border-radius: 30px;">
 					${list[0].content }</div>
-				<br>
-				<br>
-				<br>
+				<br> <br> <br>
 				<table>
 					<th>&nbsp &nbsp 마지막으로 발견한 장소 &nbsp</th>
 				</table>

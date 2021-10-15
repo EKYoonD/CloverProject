@@ -187,16 +187,16 @@
 						<th>도로명주소</th>
 						<td><input type="text" name="Address"class="roadAddress"
 						
-							id="sample4_roadAddress" style="font-size:20pt;"></td>
+							id="sample4_roadAddress" style="font-size:14pt;"></td>
 					</tr>
 			
 					<tr>
 						<th>상세주소</th>
 						<td><input type="text" name="Address" class="detailAddress"
-							id="sample4_detailAddress" style="font-size:20pt;">
+							id="sample4_detailAddress" style="font-size:13pt;">
 							<input type="hidden" name="Address" class="jibunAddress"
 							id="sample4_jibunAddress"> <span id="guide"
-							style="color: #999; display: none"></span></td>
+							style="color: #999; display: none; font-size:13pt;" ></span></td>
 					</tr>
 <tr><th>
 					<input type="hidden" class="extraAddress" id="sample4_extraAddress" >
